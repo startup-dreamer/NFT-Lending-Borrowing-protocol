@@ -14,12 +14,12 @@ async function main() {
   // await Hardhat.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await Hardhat.ethers.getContractFactory("NFTColletral");
-  const greeter = await Greeter.deploy();
+  const NFTCollateral = await Hardhat.ethers.getContractFactory("NFTCollateral");
+  const nftcollateral = await NFTCollateral.deploy();
 
-  await greeter.deployed();
+  await nftcollateral.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("NFTCollateral is deployed to:", nftcollateral.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

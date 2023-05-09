@@ -122,18 +122,19 @@ contract Lending {
     // Get NFT collateral value based on Chainlink price feed
     function getNftCollateralValue(address owner, address tokenContract, uint256 tokenId) public view returns (uint256) {
     uint256 price = getPrice();
-    uint256 decimals = IERC20(tokenContract).decimals();
-
+    if (IERC165(tokenContract).supportsInterface(type(IERC20).interfaceId)) {
+        uint256 decimals = IERC20(tokenContract).decimals();
+        price = price.mul(10**decimals);
+    }
     if (IERC165(tokenContract).supportsInterface(type(IERC721Metadata).interfaceId)) {
-        return price.mul(10**decimals).mul(1).div(1 ether);
+        return price.mul(1).div(1 ether);
     } else if (IERC165(tokenContract).supportsInterface(type(IERC1155MetadataURI).interfaceId)) {
         uint256 supply = IERC1155(tokenContract).balanceOf(owner, tokenId);
-        return price.mul(10**decimals).mul(supply).div(1 ether);
+        return price.mul(supply).div(1 ether);
     } else {
         revert("Unsupported token type");
     }
-    }
-
+}
     // Get ETH/USD price from Chainlink price feed
     function getPrice() public view returns (uint256) {
     (, int256 price, , , ) = priceFeed.latestRoundData();
