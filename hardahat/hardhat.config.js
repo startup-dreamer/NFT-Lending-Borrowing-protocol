@@ -13,7 +13,7 @@ module.exports = {
   networks: {
     goerli: {
       url: `https://purple-smart-moon.ethereum-sepolia.discover.quiknode.pro/557da8fbcf9ffb0a99b8690e6a4b0fc2185e4024/`,
-      accounts: [`695443873d058db7e263d01779d068b2fdb1863556ad7d14c953de97dbe35119`]
+      accounts: [``]
     },
     hardhat: {
       faucet: {
