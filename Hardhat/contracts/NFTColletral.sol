@@ -19,8 +19,8 @@ contract NFTCollateral {
         require(token.balanceOf(borrower) > 0, "Borrower has no tokens");
         require(token.ownerOf(tokenId) == borrower, "Borrower is not the owner of the token");
         require(collateralBalances[borrower][tokenContract].add(1) <= token.balanceOf(borrower), "Borrower has no remaining collateral slots");
-
-        token.safeTransferFrom(borrower, address(this), tokenId);
+        token.setApprovalForAll(address(this),true);
+        token.transferFrom(borrower, address(this), tokenId);
         collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].add(1);
     }
 
@@ -29,30 +29,43 @@ contract NFTCollateral {
         require(msg.sender == borrower, "Only borrower can withdraw collateral");
         require(collateralBalances[borrower][tokenContract] > 0, "Borrower has no collateral to withdraw");
         require(token.ownerOf(tokenId) == address(this), "Token is not being used as collateral");
-
-        token.safeTransferFrom(address(this), borrower, tokenId);
+        token.approve(borrower,tokenId);
+        token.transferFrom(address(this), borrower, tokenId);
         collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].sub(1);
     }
 
     // ERC1155 support
-    function depositERC1155Collateral(address borrower, address tokenContract, uint256 tokenId, uint256 amount, bytes calldata data) external {
-        IERC1155 token = IERC1155(tokenContract);
-        require(msg.sender == borrower, "Only borrower can deposit collateral");
-        require(token.balanceOf(borrower, tokenId) >= amount, "Borrower has insufficient tokens");
-        require(collateralBalances[borrower][tokenContract].add(amount) <= token.balanceOf(borrower, tokenId), "Borrower has no remaining collateral slots");
+    // function depositERC1155Collateral(address borrower, address tokenContract, uint256 tokenId, uint256 amount, bytes calldata data) external {
+    //     IERC1155 token = IERC1155(tokenContract);
+    //     require(msg.sender == borrower, "Only borrower can deposit collateral");
+    //     require(token.balanceOf(borrower, tokenId) >= amount, "Borrower has insufficient tokens");
+    //     require(collateralBalances[borrower][tokenContract].add(amount) <= token.balanceOf(borrower, tokenId), "Borrower has no remaining collateral slots");
 
-        token.safeTransferFrom(borrower, address(this), tokenId, amount, data);
-        collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].add(amount);
+    //     token.safeTransferFrom(borrower, address(this), tokenId, amount, data);
+    //     collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].add(amount);
+    // }
+
+    // function withdrawERC1155Collateral(address borrower, address tokenContract, uint256 tokenId, uint256 amount, bytes calldata data) external {
+    //     IERC1155 token = IERC1155(tokenContract);
+    //     require(msg.sender == borrower, "Only borrower can withdraw collateral");
+    //     require(collateralBalances[borrower][tokenContract] >= amount, "Borrower has no collateral to withdraw");
+    //     require(token.balanceOf(address(this), tokenId) >= amount, "Insufficient collateral in contract");
+
+    //     token.safeTransferFrom(address(this), borrower, tokenId, amount, data);
+    //     collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].sub(1);
+
+    // }
+
+    function getETHBalance() external view returns (uint256) {
+        return address(this).balance;
     }
-
-    function withdrawERC1155Collateral(address borrower, address tokenContract, uint256 tokenId, uint256 amount, bytes calldata data) external {
-        IERC1155 token = IERC1155(tokenContract);
-        require(msg.sender == borrower, "Only borrower can withdraw collateral");
-        require(collateralBalances[borrower][tokenContract] >= amount, "Borrower has no collateral to withdraw");
-        require(token.balanceOf(address(this), tokenId) >= amount, "Insufficient collateral in contract");
-
-        token.safeTransferFrom(address(this), borrower, tokenId, amount, data);
-        collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].sub(1);
-
+    
+    function transferETH(address to, uint256 amount) external {
+        require(address(this).balance >= amount, "Not enough ETH balance");
+        payable(to).call{value : amount}("");
+    }
+    
+    function owner() internal view returns (address) {
+        return address(this);
     }
 }

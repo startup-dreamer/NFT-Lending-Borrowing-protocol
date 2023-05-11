@@ -14,3 +14,4 @@ node scripts/sample-script.js
 npx hardhat help
 ```
 NFTCollateral is deployed to: 0xB49A86114654DA367858BF35348bFf9B50cFad24
+Lending is deployed to: 0x4231abcDEDa30b4dA769D89E837Ff086D8e84b31

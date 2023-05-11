@@ -61,7 +61,7 @@ contract Lending {
         require(amount > 0, "Amount must be greater than 0");
 
         // Calculate borrowing power based on NFT collateral value
-        uint256 collateralValue = getNftCollateralValue(msg.sender, tokenContract, tokenId);
+        uint256 collateralValue = getNftCollateralValue(tokenContract);
         uint256 borrowingPower = collateralValue.mul(maxLtv).div(10000);
 
         require(amount <= borrowingPower, "Amount exceeds borrowing power");
@@ -69,9 +69,11 @@ contract Lending {
         // Transfer NFT collateral to lending contract
         if (IERC165(tokenContract).supportsInterface(type(IERC721).interfaceId)) {
             nftCollateral.depositERC721Collateral(msg.sender, tokenContract, tokenId);
-        } else if (IERC165(tokenContract).supportsInterface(type(IERC1155).interfaceId)) {
-            nftCollateral.depositERC1155Collateral(msg.sender, tokenContract, tokenId, 1, "");
-        } else {
+        } 
+        // else if (IERC165(tokenContract).supportsInterface(type(IERC1155).interfaceId)) {
+        //     nftCollateral.depositERC1155Collateral(msg.sender, tokenContract, tokenId, 1, "");
+        // } 
+        else {
             revert("Unsupported token type");
         }
 
@@ -99,7 +101,7 @@ contract Lending {
 
         require(msg.sender == loan.borrower, "Only borrowercan repay the loan");
         require(loan.active, "Loan is already closed");
-            // Transfer borrowed amount + interest from borrower to contract
+        // Transfer borrowed amount + interest from borrower to contract
         uint256 amountToRepay = loan.amount.add(loan.interest);
         IERC20 token = IERC20(loan.tokenContract);
         require(token.transferFrom(msg.sender, address(this), amountToRepay), "Failed to transfer funds");
@@ -107,9 +109,11 @@ contract Lending {
         // Transfer NFT collateral from contract to borrower
         if (IERC165(loan.tokenContract).supportsInterface(type(IERC721).interfaceId)) {
             nftCollateral.withdrawERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
-        } else if (IERC165(loan.tokenContract).supportsInterface(type(IERC1155).interfaceId)) {
-            nftCollateral.withdrawERC1155Collateral(msg.sender, loan.tokenContract, loan.tokenId, 1, "");
-        } else {
+        } 
+        // else if (IERC165(loan.tokenContract).supportsInterface(type(IERC1155).interfaceId)) {
+        //     nftCollateral.withdrawERC1155Collateral(msg.sender, loan.tokenContract, loan.tokenId, 1, "");
+        // } 
+        else {
             revert("Unsupported token type");
         }
 
@@ -120,18 +124,16 @@ contract Lending {
     }
 
     // Get NFT collateral value based on Chainlink price feed
-    function getNftCollateralValue(address owner, address tokenContract, uint256 tokenId) public view returns (uint256) {
+    function getNftCollateralValue(address tokenContract) public view returns (uint256) {
     uint256 price = getPrice();
-    if (IERC165(tokenContract).supportsInterface(type(IERC20).interfaceId)) {
-        uint256 decimals = IERC20(tokenContract).decimals();
-        price = price.mul(10**decimals);
-    }
     if (IERC165(tokenContract).supportsInterface(type(IERC721Metadata).interfaceId)) {
         return price.mul(1).div(1 ether);
-    } else if (IERC165(tokenContract).supportsInterface(type(IERC1155MetadataURI).interfaceId)) {
-        uint256 supply = IERC1155(tokenContract).balanceOf(owner, tokenId);
-        return price.mul(supply).div(1 ether);
-    } else {
+    } 
+    // else if (IERC165(tokenContract).supportsInterface(type(IERC1155MetadataURI).interfaceId)) {
+    //     uint256 supply = IERC1155(tokenContract).balanceOf(owner, tokenId);
+    //     return price.mul(supply).div(1 ether);
+    // } 
+    else {
         revert("Unsupported token type");
     }
 }
@@ -139,6 +141,18 @@ contract Lending {
     function getPrice() public view returns (uint256) {
     (, int256 price, , , ) = priceFeed.latestRoundData();
     return uint256(price);
+    }
+
+    // Setting inerestrate if needed
+    function setInterestRate(uint256 _interestRate) external {
+        // Changes interest rate in basis points
+        interestRate = _interestRate;
+    }
+
+    // Setting loan to colletral ratio if needed
+    function setLoantoColletral(uint256 _maxLtv) external {
+        // Changes maxLtv rate in basis points
+        maxLtv = _maxLtv;
     }
 }
 
