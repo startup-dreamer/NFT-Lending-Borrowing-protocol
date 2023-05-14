@@ -6,19 +6,13 @@ require("@nomiclabs/hardhat-waffle");
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-const TEST_ACCOUNT_ADDRESS = '0x0123456789012345678901234567890123456789';
 
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    goerli: {
+    sepolia: {
       url: `https://purple-smart-moon.ethereum-sepolia.discover.quiknode.pro/557da8fbcf9ffb0a99b8690e6a4b0fc2185e4024/`,
-      accounts: [``]
+      accounts: [`695443873d058db7e263d01779d068b2fdb1863556ad7d14c953de97dbe35119`]
     },
-    hardhat: {
-      faucet: {
-        [TEST_ACCOUNT_ADDRESS]: "10000000000000000000" // 10 Ether
-      }
-    }
   }
 };

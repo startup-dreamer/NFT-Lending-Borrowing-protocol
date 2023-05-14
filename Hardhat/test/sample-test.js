@@ -1,54 +1,119 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("NFTCollateral", function () {
-  let nftCollateral;
-  let tokenContract;
-  let tokenId;
-  let borrower;
+describe("Borrowing", function () {
+  const COLLATERAL_VALUE = 1000;
+  const INTEREST_RATE = 500;
+  const MAX_LTV = 5000;
+  const AMOUNT = 100;
 
-  // Deploy a new instance of the contract and an ERC721 token before each test
+  const TOKEN_CONTRACT_ERC721 = "0x0000000000000000000000000000000000000001";
+  const TOKEN_ID_ERC721 = 1;
+
+  const PRICE_FEED_ADDRESS = "0x0000000000000000000000000000000000000003";
+
+  let lending;
+  let collateral;
+  let priceFeed;
+
   beforeEach(async function () {
-    const NFTCollateral = await ethers.getContractFactory("NFTCollateral");
-    nftCollateral = await NFTCollateral.deploy();
-    await nftCollateral.deployed();
-
-    // Deploy a new ERC721 token contract
-    const ERC721Token = await ethers.getContractFactory("MyERC721Token");
-    const erc721Token = await ERC721Token.deploy("Token Name", "TOKEN");
-    await erc721Token.deployed();
-
-    // Mint a new token to the borrower for testing purposes
-    const accounts = await ethers.getSigners();
-    borrower = accounts[0].address;
-    tokenId = 1;
-    await erc721Token.mint(borrower, tokenId);
-
-    // Use the address of the deployed ERC721 token contract
-    tokenContract = erc721Token.address;
+    const Collateral = await ethers.getContractFactory("NFTCollateralMock");
+    const collateralMock = await Collateral.deploy();
+    const Lending = await ethers.getContractFactory("Borrowing");
+    lending = await Lending.deploy(collateralMock.address, INTEREST_RATE, MAX_LTV, PRICE_FEED_ADDRESS);
+    collateral = collateralMock;
+    priceFeed = await ethers.getContractAt("AggregatorV3Interface", PRICE_FEED_ADDRESS);
   });
 
-  // ERC721 Tests
-  describe("ERC721", function () {
+  it("should allow borrowing ERC721", async function () {
+    const collateralValue = await getCollateralValue(TOKEN_CONTRACT_ERC721);
+    const borrowingPower = collateralValue * MAX_LTV / 10000;
 
-    it("Should deposit ERC721 collateral", async function () {
-      // Deposit collateral
-      await expect(
-        nftCollateral.depositERC721Collateral(borrower, tokenContract, tokenId)
-      ).to.emit(token, "Transfer");
+    await collateral.setCollateralValue(COLLATERAL_VALUE);
 
-      // Check that the borrower's collateral balance has been updated
-      expect(await nftCollateral.collateralBalances(borrower, tokenContract)).to.equal(1);
-    });
+    await collateral.depositERC721Collateral(await ethers.provider.getSigner(0).getAddress(), TOKEN_CONTRACT_ERC721, TOKEN_ID_ERC721);
 
-    it("Should withdraw ERC721 collateral", async function () {
-      // Withdraw collateral
-      await expect(
-        nftCollateral.withdrawERC721Collateral(borrower, tokenContract, tokenId)
-      ).to.emit(token, "Transfer");
+    const expectedAmount = AMOUNT;
+    const expectedInterest = expectedAmount * INTEREST_RATE / 10000;
 
-      // Check that the borrower's collateral balance has been updated
-      expect(await nftCollateral.collateralBalances(borrower, tokenContract)).to.equal(0);
-    });
+    await lending.borrow(expectedAmount, TOKEN_CONTRACT_ERC721, TOKEN_ID_ERC721, await getCurrentTimestamp());
+
+    const loan = await lending.loans(await ethers.provider.getSigner(0).getAddress(), 0);
+
+    expect(loan.borrower).to.equal(await ethers.provider.getSigner(0).getAddress());
+    expect(loan.tokenContract).to.equal(TOKEN_CONTRACT_ERC721);
+    expect(loan.tokenId).to.equal(TOKEN_ID_ERC721);
+    expect(loan.amount).to.equal(expectedAmount);
+    expect(loan.collateralValue).to.equal(collateralValue);
+    expect(loan.interest).to.equal(expectedInterest);
+    expect(loan.time).to.equal(await getCurrentTimestamp());
+    expect(loan.active).to.equal(true);
+
+    expect(await getBalance()).to.equal(expectedAmount);
   });
+
+  it("should allow borrowing ERC1155", async function () {
+    const collateralValue = await getCollateralValue(TOKEN_CONTRACT_ERC1155);
+    const borrowingPower = collateralValue * MAX_LTV / 10000;
+
+    await collateral.setCollateralValue(COLLATERAL_VALUE);
+
+    const amount = 10;
+    const expectedAmount = amount;
+    const expectedInterest = expectedAmount * INTEREST_RATE / 10000;
+
+    const data = [];
+
+    await collateral.depositERC1155Collateral(await ethers.provider.getSigner(0).getAddress(), TOKEN_CONTRACT_ERC1155, TOKEN_ID_ERC1155, amount, data);
+
+    await lending.borrow(expectedAmount, TOKEN_CONTRACT_ERC1155, TOKEN_ID_ERC1155, await getCurrentTimestamp());
+
+    const loan = await lending.loans(await ethers.provider.getSigner(0).getAddress(), 0);
+
+    expect(loan.borrower).to.equal(await ethers.provider.getSigner(0).getAddress());
+    expect(loan.tokenContract).to.equal(TOKEN_CONTRACT_ERC1155);
+    expect(loan.tokenId).to.equal(TOKEN_ID_ERC1155);
+    expect(loan.amount).to.equal(expectedAmount);
+    expect(loan.collateralValue).to.equal(collateralValue);
+    expect(loan.interest).to.equal(expectedInterest);
+    expect(loan.time).to.equal(await getCurrentTimestamp());
+    expect(loan.active).to.equal(true);
+
+    expect(await getBalance()).to.equal(expectedAmount);
+  });
+
+  it("should allow repayment", async function () {
+    const collateralValue = await getCollateralValue(TOKEN_CONTRACT_ERC721);
+
+    await collateral.setCollateralValue(COLLATERAL_VALUE);
+
+    const expectedAmount = AMOUNT;
+    const expectedInterest = expectedAmount * INTEREST_RATE / 10000;
+
+    await collateral.depositERC721Collateral(await ethers.provider.getSigner(0).getAddress(), TOKEN_CONTRACT_ERC721, TOKEN_ID_ERC721);
+
+    await lending.borrow(expectedAmount, TOKEN_CONTRACT_ERC721, TOKEN_ID_ERC721, await getCurrentTimestamp());
+
+    await lending.repay(0, await getCurrentTimestamp());
+
+    const loan = await lending.loans(await ethers.provider.getSigner(0).getAddress(), 0);
+
+    expect(loan.active).to.equal(false);
+
+    expect(await getBalance()).to.equal(0);
+  });
+
+  async function getBalance() {
+    return await ethers.provider.getBalance(await ethers.provider.getSigner(0).getAddress());
+  }
+
+  async function getCollateralValue(tokenContract) {
+    const latestRoundData = await priceFeed.latestRoundData();
+    return latestRoundData.answer * COLLATERAL_VALUE / 1e18;
+  }
+
+  async function getCurrentTimestamp() {
+    const block = await ethers.provider.getBlock(await ethers.provider.getBlockNumber());
+    return block.timestamp;
+  }
 });

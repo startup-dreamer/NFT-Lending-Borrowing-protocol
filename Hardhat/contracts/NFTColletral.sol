@@ -19,7 +19,6 @@ contract NFTCollateral {
         require(token.balanceOf(borrower) > 0, "Borrower has no tokens");
         require(token.ownerOf(tokenId) == borrower, "Borrower is not the owner of the token");
         require(collateralBalances[borrower][tokenContract].add(1) <= token.balanceOf(borrower), "Borrower has no remaining collateral slots");
-        token.setApprovalForAll(address(this),true);
         token.transferFrom(borrower, address(this), tokenId);
         collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].add(1);
     }
@@ -29,7 +28,6 @@ contract NFTCollateral {
         require(msg.sender == borrower, "Only borrower can withdraw collateral");
         require(collateralBalances[borrower][tokenContract] > 0, "Borrower has no collateral to withdraw");
         require(token.ownerOf(tokenId) == address(this), "Token is not being used as collateral");
-        token.approve(borrower,tokenId);
         token.transferFrom(address(this), borrower, tokenId);
         collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].sub(1);
     }
@@ -58,11 +56,6 @@ contract NFTCollateral {
 
     function getETHBalance() external view returns (uint256) {
         return address(this).balance;
-    }
-    
-    function transferETH(address to, uint256 amount) external {
-        require(address(this).balance >= amount, "Not enough ETH balance");
-        payable(to).call{value : amount}("");
     }
     
     function owner() internal view returns (address) {
