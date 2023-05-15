@@ -113,5 +113,12 @@ contract Borrowing {
         maxLtv = _maxLtv;
     }
     
-    
+    fallback() external payable {
+
+}
+
+    receive() external payable {
+        
+    }
+
 }

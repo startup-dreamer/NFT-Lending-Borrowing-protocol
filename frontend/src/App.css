@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  flex: 1 1 auto;
+}
+@media screen and (min-width: 768px) {  input[type="text"],
+  input[type="number"],
+  button {
+    margin: 0 0.5em;
+  }
+}

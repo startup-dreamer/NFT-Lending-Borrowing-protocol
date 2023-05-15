@@ -1,85 +1,73 @@
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import './App.css';
+import nftAbi from './Nft-erc721-abi.json'
 
 
 function App() {
-  const [nfts, setNfts] = useState([]);
 
-  // Connect to Metamask and request permission to access the user's wallet
+  const [connected, setConnected] = useState(false);
+  const [provider, setProvider] = useState(null); // state variables for provider and contract instance
+  const [contract, setContract] = useState(null);
+
   const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      await window.ethereum.request({ method: 'eth_requestAccounts' });
+    try {
+      if (!window.ethereum){
+        alert("Please install Metamask to use this application.");
+        return;
+      }
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      getNfts(address, provider);
+      await provider.send("eth_requestAccounts", []);
+      await window.ethereum.request({
+        method: "eth_chainId",
+      });
+      // const instance = new ethers.Contract(
+      //   CONTRACT_ADDRESS,
+      //   ItemManagerContract.abi,
+      //   provider.getSigner(),
+      // );
+      setProvider(provider);
+      setConnected(true);
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const getNfts = async () => {
-    // Request permission to access the user's Metamask wallet
-    await window.ethereum.request({ method: 'eth_requestAccounts' });
-  
-    // Get the signer's address and provider object
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const userAddress = await signer.getAddress();
-  
-    // Retrieve all NFT data associated with the user's address
-    const allNfts = [];
-    const logs = await provider.getLogs({
-      fromBlock: 0,
-      toBlock: 'latest',
-      topics: [
-        ethers.utils.id('TransferSingle(address,address,address,uint256,uint256)'),
-        null,
-        ethers.utils.hexZeroPad(userAddress, 32),
-        null,
-        null
-      ]
-    });
-  
-    for (let i = 0; i < logs.length; i++) {
-      const contractAddress = logs[i].address;
-      const tokenId = logs[i].data;
-      allNfts.push({ contractAddress, tokenId });
+  const approveToken = async (sender_address, token_id) => {
+    const contract = new ethers.Contract(
+      "0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA",
+         nftAbi,
+         provider.getSigner(),
+       );
+       setContract(contract);
+    try {
+      const tx = await contract.approve(sender_address, token_id);
+      console.log('Transaction hash:', tx.hash);
+    } catch (error) {
+      console.error('Error:', error);
     }
-  
-    setNfts(allNfts);
   }
-  
+
   useEffect(() => {
-    const getn = async () => {
-    // Check if the user is already connected to Metamask
-    if (typeof window.ethereum !== 'undefined' && window.ethereum.selectedAddress) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      await getNfts();
-    }
-  }
-  getn();
-  }, []);
+    
+    connectWallet();
+  }, [connected]);
 
-  return (
-    <div>
-      {nfts.length > 0 ? (
-        <ul>
-          {nfts.map((nft) => (
-            <li key={nft.tokenId}>
-              <p>Token ID: {nft.tokenId}</p>
-              <p>Token URI: {nft.tokenURI}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No NFTs found</p>
-      )}
+const transferto = async (from,address, id) => {
+  const tx = await contract.transferFrom(from,address, id);
+  console.log('Transaction hash:', tx.hash);
+}
 
-      <button onClick={connectWallet}>Connect to Metamask</button>
-    </div>
+  return (<div>
+     <label>Token address </label>
+     <input type="text" id="identifier" />
+     <label>Token id </label>
+     <input type="number" id="cost" />
+     <button onClick={() => {approveToken(document.getElementById("identifier").value, document.getElementById("cost").value)}}>Approve Token</button>
+     <button onClick={() => {transferto("0x01751bd851599d98ed52CB75AA2682a31D79AaD6",document.getElementById("identifier").value, document.getElementById("cost").value)}}>transfer Token</button>
+  </div>
   );
+
 }
 
 
