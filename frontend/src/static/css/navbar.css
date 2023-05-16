@@ -1,0 +1,59 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 80px;
+    display: flex;
+    column-gap: 30vw;
+    justify-content: center;
+    background-color: black;
+}
+
+/* left nav */
+.left_nav{
+    padding: 10px 0px;
+}
+.left_nav div {
+    /* background-image:linear-gradient(135deg, rgb(68, 255, 35), rgb(51, 23, 234));;
+    background-clip: text;
+    background-size: 100%;
+    -webkit-text-fill-color:transparent; */
+    color: white;
+    font-size: 55px;
+    font-weight: bolder;
+    font-family: monospace;
+    font-style: italic;
+}
+
+/* Right nav */
+.right_nav {
+    padding: 20px 0px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    column-gap: 4vw;
+}
+
+.right_nav button {
+    border: 0;
+    border-radius: 15px;
+    padding: 0px 25px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+}
+
+.right_nav input {
+    border: 0;
+    border-radius: 15px;
+    padding: 0px 40px;
+    font-size: 20px;
+    color: black;
+    background-color:white;
+    cursor: pointer;
+}
+
+.right_nav button:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
