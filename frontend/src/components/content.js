@@ -8,11 +8,11 @@ const Content = () => {
         <div className="content_holder">
             <div className="contn">
                 NFT's <br />
-                Biggest Marketplace
+                Lending Borrowing Platform
                 <div>To explore, purchase and sale</div>
                 <div className="bttn_holder">
-                    <input className='bttn_holder_1' type='button' value={'Explore'} />
-                    <input className='bttn_holder_2' type='button' value={'Connect'} />
+                    <input className='bttn_holder_2' type='button' value={'Lend'} />
+                    <input className='bttn_holder_2' type='button' value={'Borrow'} />
                 </div>
             </div>
             {/* <div className="img_contn">
@@ -21,7 +21,7 @@ const Content = () => {
             {/* List */}
             <div className="card_list">
                 <div className="heading_cards">
-                    Cards List
+                    NFTs Auction
                 </div>
                 <div className="list_holder">
                     <Card/>

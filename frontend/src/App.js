@@ -12,28 +12,6 @@ function App() {
   const [provider, setProvider] = useState(null); // state variables for provider and contract instance
   const [contract, setContract] = useState(null);
 
-  // const connectWallet = async () => {
-  //   try {
-  //     if (!window.ethereum){
-  //       alert("Please install Metamask to use this application.");
-  //       return;
-  //     }
-  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //     await provider.send("eth_requestAccounts", []);
-  //     await window.ethereum.request({
-  //       method: "eth_chainId",
-  //     });
-  //     // const instance = new ethers.Contract(
-  //     //   CONTRACT_ADDRESS,
-  //     //   ItemManagerContract.abi,
-  //     //   provider.getSigner(),
-  //     // );
-  //     setProvider(provider);
-  //     setConnected(true);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   // const approveToken = async (sender_address, token_id) => {
   //   const contract = new ethers.Contract(
@@ -55,14 +33,10 @@ function App() {
   //   connectWallet();
   // }, [connected]);
 
-const transferto = async (from,address, id) => {
-  const tx = await contract.transferFrom(from,address, id);
-  console.log('Transaction hash:', tx.hash);
-}
 
   return (
     <div className='App'>
-      <Navbar/>
+      <Navbar setProvider = {setProvider}/>
       <Content/>
     </div>
   

@@ -1,80 +1,29 @@
-import { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
+const {ethers} = require('ethers');
 
-function App() {
-  const [nfts, setNfts] = useState([]);
+function contract() {
+// Set up an HTTP endpoint provider with your desired network URL
+const provider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID');
 
-  // Connect to Metamask and request permission to access the user's wallet
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      getNfts(address, provider);
-    }
-  };
+// Create a new wallet instance using your private key
+const privateKey = 'YOUR_PRIVATE_KEY_GOES_HERE';
+const wallet = new ethers.Wallet(privateKey, provider);
 
-  const getNfts = async () => {
-    // Request permission to access the user's Metamask wallet
-    await window.ethereum.request({ method: 'eth_requestAccounts' });
-  
-    // Get the signer's address and provider object
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const userAddress = await signer.getAddress();
-  
-    // Retrieve all NFT data associated with the user's address
-    const allNfts = [];
-    const logs = await provider.getLogs({
-      fromBlock: 0,
-      toBlock: 'latest',
-      topics: [
-        ethers.utils.id('TransferSingle(address,address,address,uint256,uint256)'),
-        null,
-        ethers.utils.hexZeroPad(userAddress, 32),
-        null,
-        null
-      ]
-    });
-  
-    for (let i = 0; i < logs.length; i++) {
-      const contractAddress = logs[i].address;
-      const tokenId = logs[i].data;
-      allNfts.push({ contractAddress, tokenId });
-    }
-  
-    setNfts(allNfts);
-  }
-  
-  useEffect(async () => {
-    // Check if the user is already connected to Metamask
-    if (typeof window.ethereum !== 'undefined' && window.ethereum.selectedAddress) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      getNfts(address, provider);
-    }
-  }, []);
+// Get the contract ABI and bytecode, then create a new Contract factory instance
+const contractABI = [...]; // Insert the ABI of your contract
+const contractBytecode = '0x...'; // Insert the bytecode of your contract
+const contractFactory = new ethers.ContractFactory(contractABI, contractBytecode, wallet);
 
-  return (
-    <div>
-      {nfts.length > 0 ? (
-        <ul>
-          {nfts.map((nft) => (
-            <li key={nft.tokenId}>
-              <p>Token ID: {nft.tokenId}</p>
-              <p>Token URI: {nft.tokenURI}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No NFTs found</p>
-      )}
+// Deploy the contract by sending a transaction and mining the contract creation on the network
+const contractInstance = await contractFactory.deploy();
+await contractInstance.deployed();
 
-      <button onClick={connectWallet}>Connect to Metamask</button>
-    </div>
-  );
+// Get an instance of the deployed contract using the contract address and ABI
+const deployedContractAddress = contractInstance.address;
+const deployedContractABI = [...]; // Insert the ABI of the deployed contract
+const deployedContractInstance = new ethers.Contract(deployedContractAddress, deployedContractABI, wallet);
+
+// Interact with the deployed contract using its methods
+const contractValue = await deployedContractInstance.getContractValue();
+console.log(contractValue);
+
 }
-
-export default App;

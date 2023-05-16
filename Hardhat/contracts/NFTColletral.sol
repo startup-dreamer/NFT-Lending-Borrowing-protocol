@@ -55,7 +55,4 @@ contract NFTCollateral {
         return address(this).balance;
     }
     
-    function owner() internal view returns (address) {
-        return address(this);
-    }
 }
