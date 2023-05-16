@@ -6,18 +6,15 @@
     display: flex;
     column-gap: 30vw;
     justify-content: center;
-    background-color: black;
+    background-color: transparent;
 }
 
 /* left nav */
 .left_nav{
     padding: 10px 0px;
 }
-.left_nav div {
-    /* background-image:linear-gradient(135deg, rgb(68, 255, 35), rgb(51, 23, 234));;
-    background-clip: text;
-    background-size: 100%;
-    -webkit-text-fill-color:transparent; */
+.left_nav a {
+    text-decoration: none;
     color: white;
     font-size: 55px;
     font-weight: bolder;
@@ -39,8 +36,11 @@
     border-radius: 15px;
     padding: 0px 25px;
     font-size: 20px;
+    background-color: transparent;
+}
+.right_nav button a{
+    text-decoration: none;
     color: white;
-    background-color: black;
 }
 
 .right_nav input {

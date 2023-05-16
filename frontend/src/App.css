@@ -3,6 +3,12 @@
   padding: 0;
   margin: 0;
   background-color: black;
+  width: 100vw;
+  background-image: url('./static/img/bluecrystal.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  /* background-position: 50%; */
 }
 
 body{

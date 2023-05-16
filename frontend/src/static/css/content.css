@@ -22,8 +22,8 @@
 .contn div{
     margin: 15px 0px;
     font-size: 22px;
-    font-family: sans-serif;
-    color: rgb(154, 154, 154);
+    font-family: monospace;
+    color: rgb(130, 130, 130);
 }
 
 .bttn_holder {
@@ -39,11 +39,6 @@
     padding: 0px 40px;
     font-size: 20px;
     cursor: pointer;
-}
-.bttn_holder_1{
-    border: 0;
-    color: rgb(255, 255, 255);
-    background-image: linear-gradient(170deg, rgb(28, 0, 212), rgb(154, 136, 255));
 }
 .bttn_holder_2{
     background-color: transparent;

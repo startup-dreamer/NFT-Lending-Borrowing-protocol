@@ -3,6 +3,10 @@ import { ethers } from 'ethers';
 import './App.css';
 import Navbar from './components/navbar';
 import Content from './components/content';
+import Lend from './components/Lend';
+import Borrow from './components/Borrow';
+import Portfolio from './components/portfolio';
+import { Route, Router, Routes } from 'react-router-dom';
 // import nftAbi from './Nft-erc721-abi.json'
 
 
@@ -29,27 +33,51 @@ function App() {
   // }
 
   // useEffect(() => {
-    
+
   //   connectWallet();
   // }, [connected]);
 
 
   return (
     <div className='App'>
-      <Navbar setProvider = {setProvider}/>
-      <Content/>
+      <Routes>
+        <Route path='*' element={
+          <>
+            <Navbar setProvider={setProvider} />
+            <Content />
+          </>
+        } />
+        <Route path='/lend' element={
+          <>
+            <Navbar setProvider={setProvider} />
+            <Lend />
+          </>
+        } />
+        <Route path='/borrow' element={
+          <>
+            <Navbar setProvider={setProvider} />
+            <Borrow />
+          </>
+        } />
+        <Route path='/portfolio' element={
+          <>
+            <Navbar setProvider={setProvider} />
+            <Portfolio/>
+          </>
+        } />
+      </Routes>
     </div>
-  
-  
-  
-  // <div>
-  //    <label>Token address </label>
-  //    <input type="text" id="identifier" />
-  //    <label>Token id </label>
-  //    <input type="number" id="cost" />
-  //    <button onClick={() => {approveToken(document.getElementById("identifier").value, document.getElementById("cost").value)}}>Approve Token</button>
-  //    <button onClick={() => {transferto("0x01751bd851599d98ed52CB75AA2682a31D79AaD6",document.getElementById("identifier").value, document.getElementById("cost").value)}}>transfer Token</button>
-  // </div>
+
+
+
+    // <div>
+    //    <label>Token address </label>
+    //    <input type="text" id="identifier" />
+    //    <label>Token id </label>
+    //    <input type="number" id="cost" />
+    //    <button onClick={() => {approveToken(document.getElementById("identifier").value, document.getElementById("cost").value)}}>Approve Token</button>
+    //    <button onClick={() => {transferto("0x01751bd851599d98ed52CB75AA2682a31D79AaD6",document.getElementById("identifier").value, document.getElementById("cost").value)}}>transfer Token</button>
+    // </div>
   );
 
 }
