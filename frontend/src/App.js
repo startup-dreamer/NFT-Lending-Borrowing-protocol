@@ -3,9 +3,9 @@ import { ethers } from 'ethers';
 import './App.css';
 import Navbar from './components/navbar';
 import Content from './components/content';
-import Lend from './components/Lend';
-import Borrow from './components/Borrow';
-import Portfolio from './components/portfolio';
+import Lend from './pages/Lend';
+import Borrow from './pages/Borrow';
+import Portfolio from './pages/portfolio';
 import { Route, Router, Routes } from 'react-router-dom';
 // import nftAbi from './Nft-erc721-abi.json'
 
