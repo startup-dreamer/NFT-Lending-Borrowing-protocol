@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol";
@@ -13,18 +13,18 @@ contract NFTCollateral {
     mapping(address => mapping(address => uint256)) public collateralBalances;
 
     // ERC721 support
-    function depositERC721Collateral(address borrower, address tokenContract, uint256 tokenId) external {
-        IERC721 token = IERC721(tokenContract);
+    function depositERC721Collateral(address borrower, address _tokenContract, uint256 tokenId) external {
+        IERC721Enumerable token = IERC721Enumerable(_tokenContract);
         require(msg.sender == borrower, "Only borrower can deposit collateral");
         require(token.balanceOf(borrower) > 0, "Borrower has no tokens");
         require(token.ownerOf(tokenId) == borrower, "Borrower is not the owner of the token");
-        require(collateralBalances[borrower][tokenContract].add(1) <= token.balanceOf(borrower), "Borrower has no remaining collateral slots");
+        require(collateralBalances[borrower][_tokenContract].add(1) <= token.balanceOf(borrower), "Borrower has no remaining collateral slots");
         token.transferFrom(borrower, address(this), tokenId);
-        collateralBalances[borrower][tokenContract] = collateralBalances[borrower][tokenContract].add(1);
+        collateralBalances[borrower][_tokenContract] = collateralBalances[borrower][_tokenContract].add(1);
     }
 
     function withdrawERC721Collateral(address borrower, address tokenContract, uint256 tokenId) external {
-        IERC721 token = IERC721(tokenContract);
+        IERC721Enumerable token = IERC721Enumerable(tokenContract);
         require(msg.sender == borrower, "Only borrower can withdraw collateral");
         require(collateralBalances[borrower][tokenContract] > 0, "Borrower has no collateral to withdraw");
         require(token.ownerOf(tokenId) == address(this), "Token is not being used as collateral");
@@ -56,3 +56,6 @@ contract NFTCollateral {
     }
     
 }
+
+// NFT Contract 0xfcc0fA66Fb39120f4AB7B745DFe79F73D0cB55B8
+// new one 0x12893d46DF77361C62a7Eb86234448A9C91BAEBb

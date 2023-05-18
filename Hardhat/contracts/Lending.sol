@@ -35,17 +35,17 @@ contract Lending {
 
         deposits[msg.sender].push(dep);
 
-        (bool success, ) = (borrow_pool).call{value : _amount}("");
+        (bool success, ) = (address(this)).call{value : _amount}("");
         require(success, "Internal error funds not transferred");
     }
 
-    function withdraw_from_pool(uint256 _depId) external {
+    function withdraw_from_pool(uint256 _depId, uint256 _time) external {
         deposit storage dep = deposits[msg.sender][_depId];
-        require(block.timestamp >= dep.time, "Deposit not matured yet");
+        require(_time >= dep.time, "Deposit not matured yet");
         require(dep.amount > 0, "Deposit not found or already withdrawn");
 
         uint256 amountToReturn = dep.interest + dep.amount;
-        if (block.timestamp < dep.time) {
+        if (_time < dep.time) {
             amountToReturn = dep.amount;
         }
 
