@@ -12,10 +12,20 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 
 
-contract Borrow {
+contract AurumV1core {
     using SafeMath for uint256;
-    uint256 public interestRate;
+    uint256 public Borrow_interestRate;
     uint256 public maxLtv;
+    uint256 MAX_AMOUNT_LIMIT = 1e16;
+    uint256 public Lending_interestRate;
+    address public owner;
+    
+    struct deposit {
+            uint256 amount;
+            uint256 time;
+            uint256 interest;
+    }
+    mapping(address => deposit[]) public deposits;
 
     struct Loan {
         address borrower;
@@ -31,13 +41,57 @@ contract Borrow {
     mapping(address => mapping(address => uint256)) public collateralBalances;
 
 
-    event Borrow(address indexed borrower, uint256 indexed _loanId, uint256 amount, uint256 interest, uint256 time);
-    event Repay(address indexed borrower, uint256 indexed _loanId, uint256 amount, uint256 interest);
+    event Borrow(address indexed borrower, uint256 indexed _loanId, uint256 indexed amount, uint256 interest, uint256 time);
+    event Repay(address indexed borrower, uint256 indexed _loanId, uint256 indexed amount, uint256 interest);
+    event Withdrawal(uint256 indexed, address indexed , uint256 indexed);
+    event WithdrawalFailed(uint256 indexed, address indexed , uint256 indexed);
 
-    constructor(uint256 _interestRate, uint256 _maxLtv) payable  {
-        interestRate = _interestRate;
+
+    constructor(uint256 _Borrow_interestRate, uint256 _Lending_interestRate, uint256 _maxLtv) payable  {
+        Borrow_interestRate = _Borrow_interestRate;
+        Lending_interestRate = _Lending_interestRate;
         maxLtv = _maxLtv;
+        owner = msg.sender;
     }
+
+    function depositToPool(uint256 _time) external payable {
+        require(msg.value > 0, "Amount must be greater than 0");
+        require(msg.value <= MAX_AMOUNT_LIMIT, "Can't deposit more than 0.01 ETH");
+
+        uint256 interest = msg.value.mul(Lending_interestRate).div(10000);
+
+        deposit memory dep = deposit({
+            amount: msg.value,
+            time: _time,
+            interest: interest
+        });
+
+        deposits[msg.sender].push(dep);
+
+    }
+
+
+    function withdrawToPool(uint256 _depId, uint256 _time) external {
+        deposit storage dep = deposits[msg.sender][_depId];
+        require(dep.amount > 0, "Deposit not found or already withdrawn");
+
+        uint256 amountToReturn = dep.interest + dep.amount;
+        if (_time < dep.time) {
+            amountToReturn = dep.amount;
+        }
+
+        dep.amount = 0;
+
+        (bool success, ) = (msg.sender).call{value : amountToReturn}("");
+        if (success) {
+            emit Withdrawal(_depId, msg.sender, amountToReturn);
+        } else {
+            dep.amount = amountToReturn;
+            emit WithdrawalFailed(_depId, msg.sender, amountToReturn);
+            revert("Internal error: funds not transferred");
+        }
+    }
+   
 
     function depositERC721Collateral(address borrower, address _tokenContract, uint256 tokenId) internal {
         IERC721Enumerable token = IERC721Enumerable(_tokenContract);
@@ -72,7 +126,7 @@ contract Borrow {
         else {
             revert("Unsupported token type");
         }
-        uint256 interest = _amount.mul(interestRate).div(10000);
+        uint256 interest = _amount.mul(Borrow_interestRate).div(10000);
         Loan memory loan = Loan({
             borrower: msg.sender,
             tokenContract: _tokenContract,
@@ -107,11 +161,12 @@ contract Borrow {
         }
         loan.active = false;
 
-        (bool success, ) = (address(this)).call{value : amountToRepay}("");
+        (bool success, ) = (address(this)).call{value: amountToRepay}("");
         require(success, "Internal error funds not transferred");
 
         emit Repay(msg.sender, _loanId, loan.amount, loan.interest);
     }
+
 
     function getNftCollateralValue(address _tokenContract, address _priceFeed) public view returns (uint256) {
         uint256 price = getPrice(_priceFeed);
@@ -129,11 +184,18 @@ contract Borrow {
         return uint256(1000);
     }
 
-    function setInterestRate(uint256 _interestRate) external {
-        interestRate = _interestRate;
+    function set_Borrow_InterestRate(uint256 _Borrow_interestRate) external {
+        require(msg.sender == owner);
+        Borrow_interestRate = _Borrow_interestRate;
+    }
+
+    function set_Lend_InterestRate(uint256 _Lending_interestRate) external {
+        require(msg.sender == owner);
+        Lending_interestRate = _Lending_interestRate;
     }
 
     function setLoanToCollateral(uint256 _maxLtv) external {
+        require(msg.sender == owner);
         maxLtv = _maxLtv;
     }
     
@@ -149,9 +211,3 @@ contract Borrow {
 // msg.sender 0x01751bd851599d98ed52CB75AA2682a31D79AaD6
 
 // NFT Contract 0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA
-
-// Sepoli 0x27DfECc8f706a58ea948020eBF73Bb15D73E0A41
-
-// Goerli 0x9249FFF2035799306B4e2b20d076E09bb3647968
-
-// Goerli Feed Price 0x4DD8244CeA1b04984ad40DD818582B7d0BAcB4a5

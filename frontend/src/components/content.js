@@ -3,7 +3,7 @@ import "../static/css/content.css";
 import im from "../static/img/main-remove.jpg"
 import Card from './card';
 
-const Content = () => {
+const Content = ({Contract}) => {
     return (
         <div className="content_holder">
             <div className="contn">

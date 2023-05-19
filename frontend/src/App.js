@@ -1,41 +1,16 @@
-import { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
-import './App.css';
+import { useState } from 'react';
 import Navbar from './components/navbar';
 import Content from './components/content';
 import Lend from './pages/Lend';
 import Borrow from './pages/Borrow';
 import Portfolio from './pages/portfolio';
-import { Route, Router, Routes } from 'react-router-dom';
-// import nftAbi from './Nft-erc721-abi.json'
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
 
 
 function App() {
-
-  const [connected, setConnected] = useState(false);
-  const [provider, setProvider] = useState(null); // state variables for provider and contract instance
-  const [contract, setContract] = useState(null);
-
-
-  // const approveToken = async (sender_address, token_id) => {
-  //   const contract = new ethers.Contract(
-  //     "0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA",
-  //        nftAbi,
-  //        provider.getSigner(),
-  //      );
-  //      setContract(contract);
-  //   try {
-  //     const tx = await contract.approve(sender_address, token_id);
-  //     console.log('Transaction hash:', tx.hash);
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // }
-
-  // useEffect(() => {
-
-  //   connectWallet();
-  // }, [connected]);
+  const [Provider, setProvider] = useState(null);
+  const [Contract, setContract] = useState(null);
 
 
   return (
@@ -43,26 +18,26 @@ function App() {
       <Routes>
         <Route path='*' element={
           <>
-            <Navbar setProvider={setProvider} />
-            <Content />
+            <Navbar setProvider={setProvider} setContract={setContract} />
+            <Content Contract={Contract}/>
           </>
         } />
         <Route path='/lend' element={
           <>
-            <Navbar setProvider={setProvider} />
-            <Lend />
+            <Navbar setProvider={setProvider} setContract={setContract}/>
+            <Lend Contract={Contract}/>
           </>
         } />
         <Route path='/borrow' element={
           <>
-            <Navbar setProvider={setProvider} />
-            <Borrow />
+            <Navbar setProvider={setProvider} setContract={setContract}/>
+            <Borrow Contract={Contract}/>
           </>
         } />
         <Route path='/portfolio' element={
           <>
-            <Navbar setProvider={setProvider} />
-            <Portfolio/>
+            <Navbar setProvider={setProvider} setContract={setContract}/>
+            <Portfolio Contract={Contract}/>
           </>
         } />
       </Routes>

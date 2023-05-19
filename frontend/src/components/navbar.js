@@ -1,56 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { Signer, ethers } from 'ethers';
-import nftabi from './Nft-erc721-abi.json'
+import { Signer, ethers } from "ethers"
+// import { connectWallet, ContractInstance } from '../backend';
+import nftabi from '../backend/Nft-erc721-abi.json'
+import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
 
-const Navbar = ({ setProvider }) => {
+const Navbar = ({ setProvider, setContract }) => {
   const [isConnected, setConnected] = useState(false);
-  // const [Signer, setSginer] = useState(false);
 
-
-  const handleInputClick = (e) => {
-    e.preventDefault();
-    // connectWallet();
-  }
-
-  // const connectWallet = async () => {
-  //     try {
-  //         if (!window.ethereum){
-  //             alert("Please install Metamask to use this application.");
-  //             return;
-  //         }
-  //         const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //         await provider.send("eth_requestAccounts", []);
-  //         await window.ethereum.request({
-  //             method: "eth_chainId",
-  //         });
-  //         setProvider(provider);
-  //         setSginer(provider.getSigner())
-  //         setConnected(true);
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // };
-
-  // useEffect(() => {
-  //     connectWallet();
-  // }, [isConnected]);
-
-  const approveToken = async (sender_address, token_id) => {
-    const contract = new ethers.Contract(
-      "0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA",
-      nftabi,
-      Signer,
-    );
+  const connectWallet = async () => {
     try {
-      const tx = await contract.approve(sender_address, token_id);
-      console.log('Transaction hash:', tx.hash);
+      if (!window.ethereum) {
+        alert("Please install Metamask to use this application.");
+        return;
+      }
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const Signer = provider.getSigner()
+      await provider.send("eth_requestAccounts", []);
+      await window.ethereum.request({
+        method: "eth_chainId",
+      });
+      const contract = new ethers.Contract('0x3d35b8C010E2Bf8C530cF7DE18cbF3Da50657599', AurumV1core.abi, Signer);      
+      setProvider(provider);
+      setContract(contract);
     } catch (error) {
-      console.error('Error:', error);
+      console.log(error);
     }
+  };
+
+
+
+  useEffect(() => {
+      connectWallet();
+  }, [isConnected]);
+
+
+
+  const handelclick = async(e) => {
+    e.preventDefault();
+    await connectWallet();
+    setConnected(true);   
   }
 
-  //   console.log(Signer);
 
 
 
@@ -60,14 +51,16 @@ const Navbar = ({ setProvider }) => {
         <a href="/">Aurum</a>
       </div>
       <div className="right_nav">
-        <button
-        // onClick={() => {approveToken("0x4DAb9d32ea93a0085c5333b0553CA813d0AcEE35", 4)}}
-        ><a href="/lend">Lending</a></button>
-        <button><a href="/borrow">Borrowing</a></button>
-        <button><a href="/portfolio">Portfolio</a></button>
         {isConnected ? <input type='button' value={'Connected'} /> :
-          <input type='button' value={'Connect'} onClick={(e) => { handleInputClick(e) }} />
+          <input type='button' value={'Connect'} onClick={(e) => { handelclick(e) }} />
         }
+        {/* {loading ? <p>Loading NFT...</p> : error ? <p>Error loading NFT...</p> : (
+          <NftProvider fetcher={["providers", { providers }]}>
+            <div>
+              <img src={nft.image} alt={nft.name} style={{ maxWidth: "100px" }} />
+            </div>
+          </NftProvider>
+        )} */}
       </div>
     </div>
   );
