@@ -2,13 +2,8 @@
   text-align: center;
   padding: 0;
   margin: 0;
-  background-color: black;
   width: 100vw;
-  background-image: url('./static/img/bluecrystal.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  /* background-position: 50%; */
+  background-image: linear-gradient(122.82deg, rgb(11, 9, 80) 0%, black 69.63%);
 }
 
 body{
@@ -16,8 +11,8 @@ body{
 }
 body::-webkit-scrollbar{
   background-color: transparent;
-  width: 10px;
+  width: 8px;
 }
 body::-webkit-scrollbar-thumb{
-  background-color: rgb(112, 112, 112);
+  background-color: rgb(53, 64, 105);
 }

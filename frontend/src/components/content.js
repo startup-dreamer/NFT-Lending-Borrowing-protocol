@@ -1,22 +1,32 @@
 import React from 'react';
 import "../static/css/content.css";
-import im from "../static/img/main-remove.jpg"
 import Card from './card';
+import ether_big from '../static/img/ether_big.png'
+import Popup from './popup';
 
 const Content = ({Contract}) => {
+
+    function lendPopup(){
+        try{
+        let k = document.getElementsByClassName('lend_popup');
+        console.log(k);
+        k[0].style.display = 'flex';
+        } catch{}
+    }
+
     return (
         <div className="content_holder">
             <div className="contn">
-                NFT's <br />
-                Lending Borrowing Platform
-                <div>To explore, purchase and sale</div>
+                NFT's Lending <br /> Borrowing Platform
+                <div>Unlock the future of digital ownership and join the <br /> revolution with our cutting-edge our platform</div>
                 <div className="bttn_holder">
-                    <input className='bttn_holder_2' type='button' value={'Lend'} />
+                    <input className='bttn_holder_1' type='button' value={'Lend'} onClick={lendPopup} />
                     <input className='bttn_holder_2' type='button' value={'Borrow'} />
                 </div>
             </div>
-            {/* <div className="img_contn">
-            </div> */}
+            <div className="img_contn">
+                <img src={ether_big} alt="" />
+            </div>
 
             {/* List */}
             <div className="card_list">
@@ -33,6 +43,10 @@ const Content = ({Contract}) => {
                     <Card/>
                 </div>
             </div>
+
+
+            {/* Popup divs */}
+            <Popup/>
         </div>
     );
 }

@@ -1,0 +1,61 @@
+/* Lending popup */
+.lend_popup {
+    display: none;
+    position: absolute;
+    top: 1vw;
+    left: 10vw;
+    z-index: 2;
+    height: 40vw;
+    width: 80vw;
+    background-image: linear-gradient(129.8deg, #131835 21.79%, #5F1A4E 101.8%);
+    border-radius: 6px;
+}
+
+.lend_popup i {
+    position: absolute;
+    top: 0;
+    font-size: 35px;
+    right: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.left_popup {
+    width: 45%;
+    height: 100%;
+    background-image: url('../img/galaxy.png');
+    background-size: cover;
+    background-position-x: 52%;
+}
+
+.right_popup {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin:55px 85px;
+}
+
+.right_popup input {
+    border: 0;
+    height: 40px;
+    color: white;
+    outline: none;
+    font-size: 17px;
+    padding-left: 16px;
+    width: 95%;
+    background: #4B334A;
+    border-radius: 1px;
+}
+
+.right_popup button {
+    width: 30%;
+    background: #8D1764;
+    border-radius: 1px;
+    border: 0;
+    color: white;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+}
