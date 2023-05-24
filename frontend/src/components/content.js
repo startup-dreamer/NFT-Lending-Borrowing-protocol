@@ -6,9 +6,9 @@ import Popup from './popup';
 
 const Content = ({Contract}) => {
 
-    function lendPopup(){
+    function borrowPopup(){
         try{
-        let k = document.getElementsByClassName('lend_popup');
+        let k = document.getElementsByClassName('borrow_popup');
         console.log(k);
         k[0].style.display = 'flex';
         } catch{}
@@ -20,8 +20,8 @@ const Content = ({Contract}) => {
                 NFT's Lending <br /> Borrowing Platform
                 <div>Unlock the future of digital ownership and join the <br /> revolution with our cutting-edge our platform</div>
                 <div className="bttn_holder">
-                    <input className='bttn_holder_1' type='button' value={'Lend'} onClick={lendPopup} />
-                    <input className='bttn_holder_2' type='button' value={'Borrow'} />
+                    <input className='bttn_holder_1' type='button' value={'Lend'} />
+                    <input className='bttn_holder_2' type='button' value={'Borrow'}  onClick={borrowPopup} />
                 </div>
             </div>
             <div className="img_contn">

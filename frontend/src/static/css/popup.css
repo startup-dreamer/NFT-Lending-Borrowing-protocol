@@ -1,5 +1,5 @@
 /* Lending popup */
-.lend_popup {
+.borrow_popup {
     display: none;
     position: absolute;
     top: 1vw;
@@ -11,7 +11,7 @@
     border-radius: 6px;
 }
 
-.lend_popup i {
+.borrow_popup i {
     position: absolute;
     top: 0;
     font-size: 35px;
@@ -58,4 +58,42 @@
     height: 40px;
     font-size: 15px;
     cursor: pointer;
+}
+
+/* fetch Info */
+.borrow_section{
+    text-align: left;
+}
+.fetch_info{
+    display: flex;
+    height: 200px;
+    text-align: left;
+    font-size: 22px;
+}
+.left_info_popup{
+    display: flex;
+    flex-direction: column;
+    color: #C06BC2;
+    font-size: 18px;
+    row-gap: 10px;
+    width: 50%;
+}
+.right_info_popup{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 18px;
+    row-gap: 10px;
+}
+.input_borrow{
+    display: flex;
+    justify-content: left;
+    column-gap: 20px;
+    margin: 15px 0px;
+}
+.input_borrow input{
+    width: 50%;
+}
+.lend_absent{
+    height: 200px;
 }
