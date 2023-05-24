@@ -46,7 +46,7 @@ const Content = ({Contract}) => {
 
 
             {/* Popup divs */}
-            <Popup/>
+            <Popup Contract = {Contract}/>
         </div>
     );
 }
