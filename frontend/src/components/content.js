@@ -7,14 +7,14 @@ import Popup from './popup';
 
 const Content = ({Contract}) => {
     const [data, setData] = useState({
-                                totalSupply: null,
-                                totalBorrow: null,
-                                LIR: null,
-                                BIR: null,
-                                liquidatedNFTs: null,
-                                toalDepositedNFTs: null,
-                                uttilization: null
-                            });
+        totalSupply: null,
+        totalBorrow: null,
+        LIR: null,
+        BIR: null,
+        liquidatedNFTs: null,
+        toalDepositedNFTs: null,
+        uttilization: null
+        });
 
 
 useEffect( () => {
@@ -33,7 +33,6 @@ useEffect( () => {
             //     liquidatedNFTs: totalliquidatednfts,
             //     toalDepositedNFTs: totaldepositednfts,
             //     uttilization: (totalsupply/totalborrow) * 100
-
             // });
             setData({
                 totalSupply: 0,
@@ -46,7 +45,7 @@ useEffect( () => {
             })
         };
         fetchData();
-}, )
+    }, [data])
 
     function borrowPopup(){
         try{

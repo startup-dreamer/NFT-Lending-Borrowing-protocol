@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Navbar from './components/navbar';
 import Content from './components/content';
-import Lend from './pages/Lend';
-import Borrow from './pages/Borrow';
-import Portfolio from './pages/portfolio';
+import {Lend, Borrow, Portfolio} from './pages';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 

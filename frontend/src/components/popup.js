@@ -3,7 +3,7 @@ import { getmetadata, getNftCollateralValue, borrow } from '../backend'
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png'
 
-const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
+const Popup = ({ Contract }) => {
 
     const [metadata, setMetadata] = useState({});
     const [tokenContract, setTokenContract] = useState('');

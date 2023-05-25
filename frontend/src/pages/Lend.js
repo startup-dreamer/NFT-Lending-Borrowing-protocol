@@ -9,4 +9,4 @@ const Lend = ({Contract}) => {
     );
 }
 
-export default Lend;
+export {Lend};

@@ -8,4 +8,4 @@ const Borrow = ({Contract}) => {
     );
 }
 
-export default Borrow;
+export {Borrow};

@@ -8,4 +8,4 @@ const Portfolio = ({Contract}) => {
     );
 }
 
-export default Portfolio;
+export {Portfolio};

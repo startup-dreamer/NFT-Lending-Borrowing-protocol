@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from "ethers"
-import nftabi from '../backend/Nft-erc721-abi.json'
 import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
-import ether_icon from '../static/img/ether.png'
+import ether_icon from '../static/img/logo192.png'
 
 const Navbar = ({ setProvider, setContract, setAccounts }) => {
   const [isConnected, setisConnected] = useState(false);
@@ -18,16 +17,15 @@ const Navbar = ({ setProvider, setContract, setAccounts }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const accounts = await provider.send("eth_requestAccounts", []);
-      const chainId = await window.ethereum.request({ method: "eth_chainId" });
+      await window.ethereum.request({ method: "eth_chainId" });
       if (!accounts || !accounts[0]) {
-        return;
+        alert("Accounts error no account found please connect");
       }
       const contract = new ethers.Contract(
         "0x998A67E159fb1086Acecf587c48a92dA0acE40E6",
         AurumV1core,
         signer
       );
-      setProvider(provider);
       setContract(contract);
       setAccounts(accounts);
       setisConnected(true);
