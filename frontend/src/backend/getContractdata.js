@@ -86,8 +86,33 @@ const getLoans = async (contract, address) => {
   }
 }
 
-  
+const getTotalSupply = async (contract) => {
+  return await contract.totalSupply();
+}
 
-export {getBorrow_interestRate, getmaxLtv, getLending_interestRate, getOwner, getLoans, getDeposits};
+const getTotalBorrow = async (contract) => {
+  return await contract.totalBorrowed();
+}
+
+const getTotalDepositedNFTs = async (contract) => {
+  return await contract.totalDepositedNFTs()
+}
+
+const getTotalLiquidatedNFTs = async (contract) => {
+
+}
+
+export {
+  getBorrow_interestRate, 
+  getmaxLtv, 
+  getLending_interestRate, 
+  getOwner, 
+  getLoans, 
+  getDeposits,
+  getTotalSupply,
+  getTotalBorrow,
+  getTotalDepositedNFTs,
+  getTotalLiquidatedNFTs
+};
 
 

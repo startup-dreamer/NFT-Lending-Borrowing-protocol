@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+import { getmetadata, getNftCollateralValue, borrow } from '../backend'
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png'
 
-const Popup = () => {
+const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
 
     const [metadata, setMetadata] = useState({});
     const [tokenContract, setTokenContract] = useState('');
     const [tokenId, setTokenId] = useState(undefined);
     const [NFTValue, setNFTValue] = useState(undefined);
+    const [totalSupply, setTotalSupply] = useState(null);
+    const [totalBorrow, setTotalBorrow] = useState(null);
+    const [LIR, setLIR] = useState(null);
+    const [loading, setLoading] = useState(false); // Add this state for loading
 
     function hidePopup() {
         try {
@@ -26,49 +31,36 @@ const Popup = () => {
         setMetadata({});
     }
 
-    function handleClick() {
-        setMetadata({
-            contract: {
-                address: "0xcbf0232a0b8cb5f0b41a0a9736332223fab338ca",
-                contractDeployer: undefined,
-                deployedBlockNumber: undefined,
-                name: "Crypto Devs"
-            },
-            description: "Crypto Dev is a collection of developers in crypto",
-            media: [
-                { gateway: 'https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/11.svg', raw: 'https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/11.svg' }]
-        })
-    }
+    const handleClick = async () => {
+        setLoading(true); // Set loading to true when fetching metadata
+        if (tokenContract && tokenId !== null) {
+            const data = await getmetadata(tokenContract, tokenId);
+            setMetadata(data);
+            setLoading(false); // Set loading to false after metadata is fetched
+        }
+        else {
+            alert("Enter NFT contract Address and Id")
+        }
+        const nftvalue = await getNftCollateralValue(Contract, '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA', tokenId);
+        setNFTValue(nftvalue);
+        console.log(nftvalue);
+        console.log(Contract);
 
-    function getNFTColletralValue() {
-        return 8000;
     }
-
-    // const handleClick = async () => {
-    //   if(tokenContract && tokenId !==null){
-    //   const data = await getmetadata(tokenContract, tokenId);
-    //   setMetadata(data);
-    // }
-    // else {
-    //   alert("Enter NFT contract Address and Id")
-    // }
-    //   const nftvalue = await getNftCollateralValue(Contract, '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA', '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA');
-  
-    //   setNFTValue(nftvalue);
-    //   console.log(nftvalue);
-    // }
 
     return (
         <div>
             <div className="borrow_popup">
-                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media == undefined ? galaxy : metadata.media[0].gateway)})` }}>
+                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media === undefined ? galaxy : metadata.media[0].gateway)})` }}>
                 </div>
                 <div className="right_popup">
-                    <input type="text" placeholder='Enter token contract' />
-                    <input type="text" placeholder='Enter token ID' />
-                    <button onClick={() => handleClick()}>Fetch NFT</button>
+                    <input type="text" placeholder='Enter token contract' onChange={(e) => { setTokenContract(e.target.value) }} />
+                    <input type="text" placeholder='Enter token ID' onChange={(e) => { setTokenId(e.target.value) }} />
+                    <button onClick={() => handleClick()}>
+                        {loading ? 'Loading...' : 'Fetch NFT' /* Show loading text when loading */}
+                    </button>
                     <br />
-                    {(metadata.contract == undefined ?
+                    {(metadata.contract === undefined ?
                         <div className="borrow_absent">
 
                         </div> :
@@ -82,7 +74,7 @@ const Popup = () => {
                                 </div>
                                 <div className="right_info_popup">
                                     <span>{metadata.contract.name}</span>
-                                    <span>${getNFTColletralValue()}</span>
+                                    <span>${NFTValue}</span>
                                     <span>$11590</span>
                                     <span>{metadata.description}</span>
                                 </div>
@@ -98,7 +90,7 @@ const Popup = () => {
                 <i className='bi bi-x' onClick={() => hidePopup()}></i>
             </div>
             <div className="lend_popup">
-                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media == undefined ? galaxy : metadata.media[0].gateway)})` }}>
+                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media === undefined ? galaxy : metadata.media[0].gateway)})` }}>
                 </div>
                 <div className="right_popup">
                         <div className="lend_section">
@@ -109,10 +101,9 @@ const Popup = () => {
                                     <span>Lending Interest Rate</span>
                                 </div>
                                 <div className="right_info_popup">
-                                    {/* Sumit yaha spans pe Total supply borrow and IR ka { function value } insert kardio */}
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                                    <span>{totalSupply}</span>
+                                    <span>{totalBorrow}</span>
+                                    <span>{LIR}</span>
                                 </div>
                             </div>
                             <div className="input_borrow">
@@ -121,6 +112,7 @@ const Popup = () => {
                             </div>
                             <button>Lend</button>
                         </div>
+                    
                 </div>
                 <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
             </div>

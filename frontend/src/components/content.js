@@ -1,10 +1,52 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import "../static/css/content.css";
 import Card from './card';
-import ether_big from '../static/img/ether_big.png'
+import ether_big from '../static/img/ether_big.png';
+import {getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs} from '../backend'
 import Popup from './popup';
 
 const Content = ({Contract}) => {
+    const [data, setData] = useState({
+                                totalSupply: null,
+                                totalBorrow: null,
+                                LIR: null,
+                                BIR: null,
+                                liquidatedNFTs: null,
+                                toalDepositedNFTs: null,
+                                uttilization: null
+                            });
+
+
+useEffect( () => {
+        const fetchData = async () => {
+            // const totalsupply = await getTotalSupply(Contract);
+            // const totalborrow = await getTotalBorrow(Contract);
+            // const lendinginterestrate = await getLending_interestRate(Contract);
+            // const borrowinginterestrate = await getBorrow_interestRate(Contract);
+            // const totaldepositednfts = await getTotalDepositedNFTs(Contract);
+            // const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
+            // setData({
+            //     totalSupply: totalsupply,
+            //     totalBorrow: totalborrow,
+            //     LIR: lendinginterestrate,
+            //     BIR: borrowinginterestrate,
+            //     liquidatedNFTs: totalliquidatednfts,
+            //     toalDepositedNFTs: totaldepositednfts,
+            //     uttilization: (totalsupply/totalborrow) * 100
+
+            // });
+            setData({
+                totalSupply: 0,
+                totalBorrow: 10,
+                LIR: 5,
+                BIR: 6,
+                liquidatedNFTs: 4,
+                toalDepositedNFTs: 8,
+                uttilization: (9/2) * 100
+            })
+        };
+        fetchData();
+}, )
 
     function borrowPopup(){
         try{
@@ -13,11 +55,13 @@ const Content = ({Contract}) => {
         k[0].style.display = 'flex';
         } catch{}
     }
+
     function lendPopup(){
         try{
         let k = document.getElementsByClassName('lend_popup');
         console.log(k);
         k[0].style.display = 'flex';
+
         } catch{}
     }
 
@@ -45,8 +89,8 @@ const Content = ({Contract}) => {
                     <div className="right_stats_card">
                         {/* Tere ko yaha se apna content add karna hai */}
                         <div className="total_stats_card" style={{'display':'flex', 'columnGap':'28px'}}>
-                            <div>Total Supply<br /><span>$8000</span></div>
-                            <div>Total Borrow<br /><span>$8000</span></div>
+                            <div>Total Supply<br /><span>{data.totalSupply}</span></div>
+                            <div>Total Borrow<br /><span>{data.totalBorrow}</span></div>
                         </div>
                         <br />
                         <div className="interest_rates_card" style={{'display':'flex', 'columnGap':'28px'}}>
@@ -55,8 +99,8 @@ const Content = ({Contract}) => {
                                 <div>Borrow Interest rate</div>
                             </div>
                             <div className="right_card_interest">
-                                <div>{'Lend IR'}</div>
-                                <div>{'Borrow IR'}</div>
+                                <div>{data.LIR}</div>
+                                <div>{data.BIR}</div>
                             </div>
                         </div>
                             <br />
@@ -67,9 +111,9 @@ const Content = ({Contract}) => {
                                 <div>Total Deposited NFTs</div>
                             </div>
                             <div className="details_interest">
-                                <div>{'Util Value'}</div>
-                                <div>{'Liq NFT value'}</div>
-                                <div>{'Total Depst Value'}</div>
+                                <div>{data.uttilization}</div>
+                                <div>{data.liquidatedNFTs}</div>
+                                <div>{data.toalDepositedNFTs} %</div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +137,7 @@ const Content = ({Contract}) => {
 
 
             {/* Popup divs */}
-            <Popup/>
+            <Popup Contract={Contract} totalSupply={data.totalSupply} totalBorrow={data.totalBorrow} lendingInterestRate={data.LIR}/>
         </div>
     );
 }
