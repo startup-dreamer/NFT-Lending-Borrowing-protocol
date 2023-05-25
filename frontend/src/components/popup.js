@@ -17,38 +17,46 @@ const Popup = () => {
         } catch { }
         setMetadata({});
     }
+    function hidelendPopup() {
+        try {
+            let k = document.getElementsByClassName('lend_popup');
+            console.log(k);
+            k[0].style.display = 'none';
+        } catch { }
+        setMetadata({});
+    }
 
-    // function fetchNFT() {
-    //     setMetadata({
-    //         contract: {
-    //             address: "0xcbf0232a0b8cb5f0b41a0a9736332223fab338ca",
-    //             contractDeployer: undefined,
-    //             deployedBlockNumber: undefined,
-    //             name: "Crypto Devs"
-    //         },
-    //         description: "Crypto Dev is a collection of developers in crypto",
-    //         media: [
-    //             { gateway: 'https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/11.svg', raw: 'https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/11.svg' }]
-    //     })
-    // }
+    function handleClick() {
+        setMetadata({
+            contract: {
+                address: "0xcbf0232a0b8cb5f0b41a0a9736332223fab338ca",
+                contractDeployer: undefined,
+                deployedBlockNumber: undefined,
+                name: "Crypto Devs"
+            },
+            description: "Crypto Dev is a collection of developers in crypto",
+            media: [
+                { gateway: 'https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/11.svg', raw: 'https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/11.svg' }]
+        })
+    }
 
     function getNFTColletralValue() {
         return 8000;
     }
 
-    const handleClick = async () => {
-      if(tokenContract && tokenId !==null){
-      const data = await getmetadata(tokenContract, tokenId);
-      setMetadata(data);
-    }
-    else {
-      alert("Enter NFT contract Address and Id")
-    }
-      const nftvalue = await getNftCollateralValue(Contract, '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA', '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA');
+    // const handleClick = async () => {
+    //   if(tokenContract && tokenId !==null){
+    //   const data = await getmetadata(tokenContract, tokenId);
+    //   setMetadata(data);
+    // }
+    // else {
+    //   alert("Enter NFT contract Address and Id")
+    // }
+    //   const nftvalue = await getNftCollateralValue(Contract, '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA', '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA');
   
-      setNFTValue(nftvalue);
-      console.log(nftvalue);
-    }
+    //   setNFTValue(nftvalue);
+    //   console.log(nftvalue);
+    // }
 
     return (
         <div>
@@ -61,7 +69,7 @@ const Popup = () => {
                     <button onClick={() => handleClick()}>Fetch NFT</button>
                     <br />
                     {(metadata.contract == undefined ?
-                        <div className="lend_absent">
+                        <div className="borrow_absent">
 
                         </div> :
                         <div className="borrow_section">
@@ -88,6 +96,33 @@ const Popup = () => {
                     )}
                 </div>
                 <i className='bi bi-x' onClick={() => hidePopup()}></i>
+            </div>
+            <div className="lend_popup">
+                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media == undefined ? galaxy : metadata.media[0].gateway)})` }}>
+                </div>
+                <div className="right_popup">
+                        <div className="lend_section">
+                            <div className="fetch_info">
+                                <div className="left_info_popup">
+                                    <span>Total Supply</span>
+                                    <span>Total Borrow</span>
+                                    <span>Lending Interest Rate</span>
+                                </div>
+                                <div className="right_info_popup">
+                                    {/* Sumit yaha spans pe Total supply borrow and IR ka { function value } insert kardio */}
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div className="input_borrow">
+                                <input type="number" placeholder='Enter Amount' />
+                                <input type="datetime-local" defaultValue={'2023-05-30 11:59'} />
+                            </div>
+                            <button>Lend</button>
+                        </div>
+                </div>
+                <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
             </div>
         </div>
     );
