@@ -7,7 +7,6 @@ import './App.css';
 
 
 function App() {
-  const [Provider, setProvider] = useState(null);
   const [Contract, setContract] = useState(null);
   const [Accounts, setAccounts] = useState(null);
 
@@ -16,25 +15,25 @@ function App() {
       <Routes>
         <Route path='*' element={
           <>
-            <Navbar setProvider={setProvider} setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setAccounts={setAccounts}/>
             <Content Contract={Contract}/>
           </>
         } />
         <Route path='/lend' element={
           <>
-            <Navbar setProvider={setProvider} setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setAccounts={setAccounts}/>
             <Lend Contract={Contract}/>
           </>
         } />
         <Route path='/borrow' element={
           <>
-            <Navbar setProvider={setProvider} setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setAccounts={setAccounts}/>
             <Borrow Contract={Contract}/>
           </>
         } />
         <Route path='/portfolio' element={
           <>
-            <Navbar setProvider={setProvider} setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setAccounts={setAccounts}/>
             <Portfolio Contract={Contract}/>
           </>
         } />

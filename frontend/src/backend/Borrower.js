@@ -1,3 +1,4 @@
+import { bigNumToNum } from "./getContractdata";
 
 const borrow = async (contract, amount, tokenContract, tokenId, time, priceFeed) => {
     try {
@@ -17,7 +18,9 @@ const repay = async (contract, loanId, time) => {
 
 const getNftCollateralValue = async (contract, tokenContract, tokenId) => {
     try {
-    return await contract.getNftCollateralValue(tokenContract, tokenId);
+    const bigNFTValue = await contract.getNftCollateralValue(tokenContract, tokenId);    
+    const nftValue = bigNumToNum(bigNFTValue.value._hex);
+    return nftValue
     } catch (e) {
         console.error(e);
     }

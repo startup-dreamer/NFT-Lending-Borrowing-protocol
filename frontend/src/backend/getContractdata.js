@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
 
-
 const bigNumToNum = (bigNumberString) => {
     const bigNumber = ethers.BigNumber.from(bigNumberString);
     const integer = bigNumber.toNumber();
@@ -18,7 +17,6 @@ const getBorrow_interestRate = async (contract) => {
   }
 }
 
-
 const getmaxLtv = async (contract) => {
   try {
     const MaxLtV = await contract.maxLtv();
@@ -29,7 +27,6 @@ const getmaxLtv = async (contract) => {
     throw new Error("Failed to retrieve max LTV");
   }
 }
-
 
 const getLending_interestRate = async (contract) => {
   try {
@@ -42,7 +39,6 @@ const getLending_interestRate = async (contract) => {
   }
 }
 
-
 const getOwner = async (contract) => {
   try {
     const owner = await contract.owner();
@@ -52,8 +48,6 @@ const getOwner = async (contract) => {
     throw new Error("Failed to retrieve owner");
   }
 }
-
-
 
 const getDeposits = async (contract, address) => {
   try {
@@ -112,7 +106,8 @@ export {
   getTotalSupply,
   getTotalBorrow,
   getTotalDepositedNFTs,
-  getTotalLiquidatedNFTs
+  getTotalLiquidatedNFTs,
+  bigNumToNum
 };
 
 

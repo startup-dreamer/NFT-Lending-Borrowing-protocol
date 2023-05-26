@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { ethers } from "ethers"
 import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
-import ether_icon from '../static/img/logo192.png'
+import ether_icon from '../static/img/Aurum.png'
 
-const Navbar = ({ setProvider, setContract, setAccounts }) => {
+const Navbar = ({setContract, setAccounts}) => {
   const [isConnected, setisConnected] = useState(false);
 
   const connectWallet = async () => {
@@ -57,13 +57,6 @@ const Navbar = ({ setProvider, setContract, setAccounts }) => {
           onClick={(e) => { handleConnectWallet(e) }} 
           />
         }
-        {/* {loading ? <p>Loading NFT...</p> : error ? <p>Error loading NFT...</p> : (
-          <NftProvider fetcher={["providers", { providers }]}>
-            <div>
-              <img src={nft.image} alt={nft.name} style={{ maxWidth: "100px" }} />
-            </div>
-          </NftProvider>
-        )} */}
       </div>
     </div>
   );

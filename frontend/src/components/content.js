@@ -17,35 +17,35 @@ const Content = ({Contract}) => {
         });
 
 
-useEffect( () => {
-        const fetchData = async () => {
-            // const totalsupply = await getTotalSupply(Contract);
-            // const totalborrow = await getTotalBorrow(Contract);
-            // const lendinginterestrate = await getLending_interestRate(Contract);
-            // const borrowinginterestrate = await getBorrow_interestRate(Contract);
-            // const totaldepositednfts = await getTotalDepositedNFTs(Contract);
-            // const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
-            // setData({
-            //     totalSupply: totalsupply,
-            //     totalBorrow: totalborrow,
-            //     LIR: lendinginterestrate,
-            //     BIR: borrowinginterestrate,
-            //     liquidatedNFTs: totalliquidatednfts,
-            //     toalDepositedNFTs: totaldepositednfts,
-            //     uttilization: (totalsupply/totalborrow) * 100
-            // });
-            setData({
-                totalSupply: 0,
-                totalBorrow: 10,
-                LIR: 5,
-                BIR: 6,
-                liquidatedNFTs: 4,
-                toalDepositedNFTs: 8,
-                uttilization: (9/2) * 100
-            })
-        };
-        fetchData();
-    }, [data])
+// useEffect( () => {
+//         const fetchData = async () => {
+//             // const totalsupply = await getTotalSupply(Contract);
+//             // const totalborrow = await getTotalBorrow(Contract);
+//             // const lendinginterestrate = await getLending_interestRate(Contract);
+//             // const borrowinginterestrate = await getBorrow_interestRate(Contract);
+//             // const totaldepositednfts = await getTotalDepositedNFTs(Contract);
+//             // const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
+//             // setData({
+//             //     totalSupply: totalsupply,
+//             //     totalBorrow: totalborrow,
+//             //     LIR: lendinginterestrate,
+//             //     BIR: borrowinginterestrate,
+//             //     liquidatedNFTs: totalliquidatednfts,
+//             //     toalDepositedNFTs: totaldepositednfts,
+//             //     uttilization: (totalsupply/totalborrow) * 100
+//             // });
+//             setData({
+//                 totalSupply: 0,
+//                 totalBorrow: 10,
+//                 LIR: 5,
+//                 BIR: 6,
+//                 liquidatedNFTs: 4,
+//                 toalDepositedNFTs: 8,
+//                 uttilization: (9/2) * 100
+//             })
+//         };
+//         fetchData();
+//     }, [data])
 
     function borrowPopup(){
         try{
@@ -62,7 +62,9 @@ useEffect( () => {
         k[0].style.display = 'flex';
 
         } catch{}
+        console.log(data.totalBorrow, data.totalBorrow);
     }
+    
 
     return (
         <div className="content_holder">
