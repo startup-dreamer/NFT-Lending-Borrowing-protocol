@@ -13,10 +13,10 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract AurumV1core {
     using SafeMath for uint256;
+    uint256 constant MAX_AMOUNT_LIMIT = 1e16;
     uint256 public Borrow_interestRate;
-    uint256 public maxLtv;
-    uint256 MAX_AMOUNT_LIMIT = 1e16;
     uint256 public Lending_interestRate;
+    uint256 public maxLtv;
     address public owner;
     uint256 public totalSupply;
     uint256 public totalBorrowed;
@@ -29,6 +29,7 @@ contract AurumV1core {
             uint256 interest;
     }
     mapping(address => deposit[]) public deposits;
+    mapping(address => uint256) public individualDepositNum;
 
     struct Loan {
         address borrower;
@@ -41,7 +42,8 @@ contract AurumV1core {
         bool active;
     }
     mapping(address => Loan[]) public loans;
-    mapping(address => mapping(address => uint256)) public collateralBalances;
+    mapping(address => mapping(address => uint256)) public tokenColletralNum;
+    mapping(address => uint256) public individualCOlletralNum;
 
 
     event Borrow(
@@ -49,12 +51,20 @@ contract AurumV1core {
         uint256 indexed _loanId, 
         uint256 indexed amount, 
         uint256 interest, 
-        uint256 time);
+        uint256 time
+        );
     event Repay(
         address indexed borrower, 
         uint256 indexed _loanId, 
         uint256 indexed amount, 
-        uint256 interest);
+        uint256 interest
+        );
+    event Deposition(
+        uint256 indexed depoId,
+        address indexed sender,
+        uint256 indexed time,
+        uint256 amount
+    );
     event Withdrawal(
         uint256 indexed, 
         address indexed , 
@@ -73,28 +83,28 @@ contract AurumV1core {
     }
 
     function depositToPool(
-        uint256 _amount, 
         uint256 _time
         ) external payable {
         require(
-            _amount > 0, 
+            msg.value > 0, 
             "Amount must be greater than 0"
             );
         require(
-            _amount <= MAX_AMOUNT_LIMIT, 
+            msg.value <= MAX_AMOUNT_LIMIT, 
             "Can't deposit more than 0.01 ETH"
             );
 
-        uint256 interest = _amount.mul(Lending_interestRate).div(10000);
+        uint256 interest = msg.value.mul(Lending_interestRate).div(10000);
         deposit memory dep = deposit({
-            amount: _amount,
+            amount: msg.value,
             time: _time,
             interest: interest
         });
         deposits[msg.sender].push(dep);
-        totalSupply += _amount;
-        (bool success, ) = address(this).call{value: _amount}("");
-        require(success);
+        individualDepositNum[msg.sender] = individualDepositNum[msg.sender].add(1);
+        (bool success, ) = address(this).call{value: msg.value}("");
+        require(success, "Reverted finds not transfered");
+        emit Deposition(individualDepositNum[msg.sender].sub(1), msg.sender, _time, msg.value);
     }
 
 
@@ -113,6 +123,7 @@ contract AurumV1core {
         }
         dep.amount = 0;
         totalSupply -= amountToReturn;
+        individualDepositNum[msg.sender] = individualDepositNum[msg.sender].sub(1);
         (bool success, ) = (msg.sender).call{value : amountToReturn}("");
         if (success) {
             emit Withdrawal(_depId, msg.sender, amountToReturn);
@@ -122,7 +133,6 @@ contract AurumV1core {
             revert("Internal error: funds not transferred");
         }
     }
-   
 
     function depositERC721Collateral(
         address borrower, 
@@ -143,12 +153,13 @@ contract AurumV1core {
             "Borrower is not the owner of the token"
             );
         require(
-            collateralBalances[borrower][_tokenContract].add(1) <= token.balanceOf(borrower), 
+            tokenColletralNum[borrower][_tokenContract].add(1) <= token.balanceOf(borrower), 
             "Borrower has no remaining collateral slots"
             );
 
         token.transferFrom(borrower, address(this), tokenId);
-        collateralBalances[borrower][_tokenContract] = collateralBalances[borrower][_tokenContract].add(1);
+        tokenColletralNum[borrower][_tokenContract] = tokenColletralNum[borrower][_tokenContract].add(1);
+        individualCOlletralNum[borrower] = individualCOlletralNum[borrower].add(1);
     }
 
     function withdrawERC721Collateral(
@@ -162,7 +173,7 @@ contract AurumV1core {
             "Only borrower can withdraw collateral"
             );
         require(
-            collateralBalances[borrower][_tokenContract] > 0, 
+            tokenColletralNum[borrower][_tokenContract] > 0, 
             "Borrower has no collateral to withdraw"
             );
         require(
@@ -171,7 +182,8 @@ contract AurumV1core {
             );
 
         token.transferFrom(address(this), borrower, tokenId);
-        collateralBalances[borrower][_tokenContract] = collateralBalances[borrower][_tokenContract].sub(1);
+        tokenColletralNum[borrower][_tokenContract] = tokenColletralNum[borrower][_tokenContract].sub(1);
+        individualCOlletralNum[borrower] = individualCOlletralNum[borrower].sub(1);
     }
 
     function borrow(
@@ -256,7 +268,7 @@ contract AurumV1core {
 
         (bool success, ) = (address(this)).call{value: amountToRepay}("");
         require(success, "Internal error funds not transferred");
-
+        delete loans[msg.sender][_loanId];
         emit Repay(msg.sender, _loanId, loan.amount, loan.interest);
     }
 
@@ -264,7 +276,7 @@ contract AurumV1core {
     function getNftCollateralValue(
         address _tokenContract, 
         uint256 tokenId
-        ) public returns (uint256) {
+        ) public view returns (uint256 NFTPrice) {
         uint256 price = getNFTPrice(_tokenContract, tokenId);
         if (IERC165(_tokenContract).supportsInterface(type(IERC721Metadata).interfaceId)) {
             return price;
@@ -274,7 +286,7 @@ contract AurumV1core {
         }
     }
 
-    function getNFTPrice(address _tokenContract, uint256 tokenId) internal returns (uint256) {
+    function getNFTPrice(address _tokenContract, uint256 tokenId) public pure returns (uint256 NFTPrice) {
         return 1e15;
     }
 
@@ -298,10 +310,13 @@ contract AurumV1core {
     }
     
     fallback() external payable {
+        totalSupply += msg.value;
     }
 
     receive() external payable {
+        totalSupply += msg.value;
     }
 }
 
-// sepolia address 0x998A67E159fb1086Acecf587c48a92dA0acE40E6
+// sepolia address 0x2d5059271A92bA9705c4bC700F4f6Fc5835CC87D
+

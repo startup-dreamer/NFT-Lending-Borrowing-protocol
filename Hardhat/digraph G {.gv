@@ -1,0 +1,112 @@
+digraph G {
+  graph [ ratio = "auto", page = "100", compound =true, bgcolor = "#2e3e56" ];
+  node [ style = "filled", fillcolor = "#edad56", color = "#edad56", penwidth =3 ];
+  edge [ color = "#fcfcfc", penwidth =2, fontname = "helvetica Neue Ultra Light" ];
+subgraph "clusterAurumV1core" {
+  graph [ label = "AurumV1core", color = "#445773", fontcolor = "#f0f0f0", style = "rounded", bgcolor = "#445773" ];
+  "AurumV1core.<Constructor>" [ label = "<Constructor>", color = "brown", fillcolor = "#FF9797" ];
+  "AurumV1core.depositToPool" [ label = "depositToPool", color = "brown", fillcolor = "#ffbdb9" ];
+  "AurumV1core.withdrawFromPool" [ label = "withdrawFromPool", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "AurumV1core.depositERC721Collateral" [ label = "depositERC721Collateral", color = "#f2c383", fillcolor = "#f2c383" ];
+  "AurumV1core.withdrawERC721Collateral" [ label = "withdrawERC721Collateral", color = "#f2c383", fillcolor = "#f2c383" ];
+  "AurumV1core.borrow" [ label = "borrow", color = "brown", fillcolor = "#ffbdb9" ];
+  "AurumV1core.repay" [ label = "repay", color = "brown", fillcolor = "#ffbdb9" ];
+  "AurumV1core.getNftCollateralValue" [ label = "getNftCollateralValue" ];
+  "AurumV1core.getNFTPrice" [ label = "getNFTPrice" ];
+  "AurumV1core.set_Borrow_InterestRate" [ label = "set_Borrow_InterestRate", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "AurumV1core.setLoanToCollateral" [ label = "setLoanToCollateral", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "AurumV1core.<Fallback>" [ label = "<Fallback>", color = "brown", fillcolor = "#ffbdb9" ];
+  "AurumV1core.<Receive Ether>" [ label = "<Receive Ether>", color = "brown", fillcolor = "#ffbdb9" ];
+  "AurumV1core.address" [ label = "address" ];
+  "AurumV1core.IERC721Enumerable" [ label = "IERC721Enumerable" ];
+  "AurumV1core.IERC165" [ label = "IERC165" ];
+  "AurumV1core.type" [ label = "type" ];
+}
+
+subgraph "cluster_amount" {
+  graph [ label = "_amount", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "_amount.mul" [ label = "mul" ];
+}
+
+subgraph "clusterIERC721Enumerable" {
+  graph [ label = "IERC721Enumerable", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "IERC721Enumerable.balanceOf" [ label = "balanceOf" ];
+  "IERC721Enumerable.ownerOf" [ label = "ownerOf" ];
+  "IERC721Enumerable.transferFrom" [ label = "transferFrom" ];
+}
+
+subgraph "clustercollateralValue" {
+  graph [ label = "collateralValue", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "collateralValue.mul" [ label = "mul" ];
+}
+
+  "AurumV1core.depositToPool";
+  "_amount.mul";
+  "AurumV1core.address";
+  "AurumV1core.depositERC721Collateral";
+  "AurumV1core.IERC721Enumerable";
+  "IERC721Enumerable.balanceOf";
+  "IERC721Enumerable.ownerOf";
+  "IERC721Enumerable.transferFrom";
+  "AurumV1core.withdrawERC721Collateral";
+  "AurumV1core.borrow";
+  "AurumV1core.getNftCollateralValue";
+  "collateralValue.mul";
+  "AurumV1core.IERC165";
+  "AurumV1core.type";
+  "AurumV1core.repay";
+  "AurumV1core.getNFTPrice";
+  "AurumV1core.depositToPool" -> "_amount.mul" [ color = "white" ];
+  "AurumV1core.depositToPool" -> "AurumV1core.address" [ color = "#1bc6a6" ];
+  "AurumV1core.depositERC721Collateral" -> "AurumV1core.IERC721Enumerable" [ color = "#1bc6a6" ];
+  "AurumV1core.depositERC721Collateral" -> "IERC721Enumerable.balanceOf" [ color = "white" ];
+  "AurumV1core.depositERC721Collateral" -> "IERC721Enumerable.ownerOf" [ color = "white" ];
+  "AurumV1core.depositERC721Collateral" -> "IERC721Enumerable.balanceOf" [ color = "white" ];
+  "AurumV1core.depositERC721Collateral" -> "IERC721Enumerable.transferFrom" [ color = "white" ];
+  "AurumV1core.depositERC721Collateral" -> "AurumV1core.address" [ color = "#1bc6a6" ];
+  "AurumV1core.withdrawERC721Collateral" -> "AurumV1core.IERC721Enumerable" [ color = "#1bc6a6" ];
+  "AurumV1core.withdrawERC721Collateral" -> "IERC721Enumerable.ownerOf" [ color = "white" ];
+  "AurumV1core.withdrawERC721Collateral" -> "AurumV1core.address" [ color = "#1bc6a6" ];
+  "AurumV1core.withdrawERC721Collateral" -> "IERC721Enumerable.transferFrom" [ color = "white" ];
+  "AurumV1core.withdrawERC721Collateral" -> "AurumV1core.address" [ color = "#1bc6a6" ];
+  "AurumV1core.borrow" -> "AurumV1core.getNftCollateralValue" [ color = "#1bc6a6" ];
+  "AurumV1core.borrow" -> "collateralValue.mul" [ color = "white" ];
+  "AurumV1core.borrow" -> "AurumV1core.IERC165" [ color = "#1bc6a6" ];
+  "AurumV1core.borrow" -> "AurumV1core.type" [ color = "#1bc6a6" ];
+  "AurumV1core.borrow" -> "AurumV1core.depositERC721Collateral" [ color = "#1bc6a6" ];
+  "AurumV1core.borrow" -> "_amount.mul" [ color = "white" ];
+  "AurumV1core.repay" -> "AurumV1core.IERC165" [ color = "#1bc6a6" ];
+  "AurumV1core.repay" -> "AurumV1core.type" [ color = "#1bc6a6" ];
+  "AurumV1core.repay" -> "AurumV1core.withdrawERC721Collateral" [ color = "#1bc6a6" ];
+  "AurumV1core.repay" -> "AurumV1core.address" [ color = "#1bc6a6" ];
+  "AurumV1core.getNftCollateralValue" -> "AurumV1core.getNFTPrice" [ color = "#1bc6a6" ];
+  "AurumV1core.getNftCollateralValue" -> "AurumV1core.IERC165" [ color = "#1bc6a6" ];
+  "AurumV1core.getNftCollateralValue" -> "AurumV1core.type" [ color = "#1bc6a6" ];
+
+
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 { 
+label = "Legend";
+key [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td align="right" port="i1">Internal Call</td></tr>
+  <tr><td align="right" port="i2">External Call</td></tr>
+  <tr><td align="right" port="i3">Defined Contract</td></tr>
+  <tr><td align="right" port="i4">Undefined Contract</td></tr>
+  </table>>]
+key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td port="i1">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i2">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i3" bgcolor="#445773">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i4">
+    <table border="1" cellborder="0" cellspacing="0" cellpadding="7" color="#e8726d">
+      <tr>
+       <td></td>
+      </tr>
+     </table>
+  </td></tr>
+  </table>>]
+key:i1:e -> key2:i1:w [color="#1bc6a6"]
+key:i2:e -> key2:i2:w [color="white"]
+}
+}
