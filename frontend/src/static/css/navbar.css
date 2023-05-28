@@ -6,8 +6,7 @@
     display: flex;
     column-gap: 30vw;
     justify-content: center;
-    /* background-color: transparent;*/
-    background-image: linear-gradient(7deg, rgb(11, 9, 80) 0%, black 69.63%);
+    background-image: linear-gradient(4deg, rgb(11, 9, 80) 0%, black 69.63%);
 }
 
 /* left nav */
