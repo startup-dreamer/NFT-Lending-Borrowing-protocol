@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // import { EthersEvent } from "alchemy-sdk/dist/src/internal/ethers-event";
+=======
+>>>>>>> d4bdbc4c33d14e14fc8b3ce4af573fa139f13351
 
 const deposit_to_pool = async(contract, time, amount) => {
     try {

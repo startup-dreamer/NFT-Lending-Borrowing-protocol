@@ -6,6 +6,18 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract NFTPrice {
 
+    address constant AZUKI_CONTRACT = 0xed5af388653567af2f388e6224dc7c4b3241c544;
+    address constant BAYC_CONTRACT_ADDRESS = 0x62681C8021a1f1C1C8DDba5992beB192bbBdF9BB;
+    address constant CLONEX_CONTRACT_ADDRESS = 0x627e9e04Eb7385BE5Ef8D394dBf589B11992FEe9;
+    address constant COOLSCATS_CONTRACT_ADDRESS = 0x1A92f7381B9F03921564a437210bB9396471050C;
+    address constant CRYPTOPUNKS_CONTRACT_ADDRESS = 0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB;
+    address constant CRYPTOADZ_CONTRACT_ADDRESS = 
+    address constant DOODLES_CONTRACT_ADDRESS = 
+    address constant MAYC_CONTRACT_ADDRESS = 
+    address constant VEEFRIENDS_CONTRACT_ADDRESS = 
+    address constant WORLD_OF_WOMAN_CONTRACT_ADDRESS = 0xe785E82358879F061BC3dcAC6f0444462D4b5330;
+
+
   function getNFTPrice(
     address tokenContract, 
     uint256 tokenId
