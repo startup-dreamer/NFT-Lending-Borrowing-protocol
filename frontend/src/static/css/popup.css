@@ -9,6 +9,7 @@
     width: 80vw;
     background-image: linear-gradient(129.8deg, #131835 21.79%, #5F1A4E 101.8%);
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .borrow_popup i {
@@ -23,7 +24,6 @@
 .left_popup {
     width: 45%;
     height: 100%;
-    background-image: url('../img/galaxy.png');
     background-size: cover;
     background-position-x: 52%;
 }
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    margin:55px 85px;
+    margin: 55px 85px;
 }
 
 .right_popup input {
@@ -49,7 +49,7 @@
     border-radius: 1px;
 }
 
-.right_popup button {
+.borrow_bttn_popup{
     width: 30%;
     background: #8D1764;
     border-radius: 1px;
@@ -61,16 +61,18 @@
 }
 
 /* fetch Info */
-.borrow_section{
+.borrow_section {
     text-align: left;
 }
-.fetch_info{
+
+.fetch_info {
     display: flex;
     height: 200px;
     text-align: left;
     font-size: 22px;
 }
-.left_info_popup{
+
+.left_info_popup {
     display: flex;
     flex-direction: column;
     color: #C06BC2;
@@ -78,23 +80,27 @@
     row-gap: 10px;
     width: 50%;
 }
-.right_info_popup{
+
+.right_info_popup {
     display: flex;
     flex-direction: column;
     color: white;
     font-size: 18px;
     row-gap: 10px;
 }
-.input_borrow{
+
+.input_borrow {
     display: flex;
     justify-content: left;
     column-gap: 20px;
     margin: 15px 0px;
 }
-.input_borrow input{
+
+.input_borrow input {
     width: 50%;
 }
-.borrow_absent{
+
+.borrow_absent {
     height: 200px;
 }
 
@@ -108,14 +114,58 @@
     z-index: 2;
     height: 40vw;
     width: 80vw;
-    background-image: linear-gradient(129.8deg, #131835 21.79%, #5F1A4E 101.8%);
+    background-image: linear-gradient(131.46deg, #07132B 22.81%, #1D587A 99.86%);
     border-radius: 6px;
+    overflow: hidden;
 }
-.lend_popup i{
+
+.lend_popup i {
     position: absolute;
     top: 0;
     font-size: 35px;
     right: 8px;
     color: white;
+    cursor: pointer;
+}
+
+.fetch_info_lend {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    row-gap: 45px;
+}
+
+.fetch_info_lend div {
+    font-weight: 700;
+    font-size: 25px;
+    color: #347EEC;
+}
+.fetch_info_lend span{
+    color: white;
+    font-size: 21px;
+}
+
+.lend_info {
+    display: flex;
+    column-gap: 185px;
+}
+.input_borrow_lend{
+    display: flex;
+    justify-content: left;
+    column-gap: 20px;
+    margin-top: 45px;
+    margin-bottom: 15px;
+}
+.input_borrow_lend input{
+    background: #344E6E;
+}
+.lend_bttn_popup{
+    background-color: #2347C6;
+    width: 30%;
+    border-radius: 1px;
+    border: 0;
+    color: white;
+    height: 40px;
+    font-size: 15px;
     cursor: pointer;
 }

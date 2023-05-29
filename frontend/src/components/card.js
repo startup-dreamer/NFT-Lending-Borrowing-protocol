@@ -5,12 +5,16 @@ const Card = () => {
     return (
         <div className='card_main'>
             {/* Yaha image ayegi */}
-            <img src="https://img.freepik.com/premium-vector/nft-nonfungible-token-illustration-with-red-blue-glowing-lights-dark-blue-background_92863-809.jpg" alt="" />
+            <div className="img_holder_card">
+                <img src="https://media.istockphoto.com/id/1372146767/photo/nft-hexagons-pixelated-concept.jpg?b=1&s=170667a&w=0&k=20&c=tNjLIQgkCcETa0w_nun-Bj0l3FZF0Vr-IQ6Ql0yRTzI=" />
+            </div>
             <div className="card_text">
-                <div className="card_name">{'Yaha Crypto ka name ayega'}</div>
-                <div className="card_description">{'Yaha Crypto ki description'}</div>
-                <div className="price_holder" style={{'display':'flex'}}>
-                    <div className="price_card">{'Yaha price ayega nft ka'}</div>
+                <div className="card_name">Crypto Devs</div>
+                <div className="card_description">
+                    Crypto Dev is a collection of developers in crypto
+                </div>
+                <div className="price_holder">
+                    <div className="price_card">$8000</div>
                     <button>Buy Now</button>
                 </div>
             </div>

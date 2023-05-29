@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { getmetadata, getNftCollateralValue, borrow, getmaxLtv } from '../backend'
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png'
+import space from '../static/img/Lend_main.jpg'
 
 const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
 
@@ -17,7 +17,6 @@ const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
     function hidePopup() {
         try {
             let k = document.getElementsByClassName('borrow_popup');
-            console.log(k);
             k[0].style.display = 'none';
         } catch { }
         setMetadata({});
@@ -25,11 +24,21 @@ const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
     function hidelendPopup() {
         try {
             let k = document.getElementsByClassName('lend_popup');
-            console.log(k);
             k[0].style.display = 'none';
         } catch { }
         setMetadata({});
     }
+    
+    // closing popup by esc key
+    document.addEventListener('keydown',()=>{
+        try{
+            let k1 = document.getElementsByClassName('borrow_popup');
+            let k2 = document.getElementsByClassName('lend_popup');
+
+            k1[0].style.display = 'none';
+            k2[0].style.display = 'none';
+        }catch{}
+    })
 
     const handleFetchNFT = async () => {
         setLoading(true); // Set loading to true when fetching metadata
@@ -60,17 +69,29 @@ const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
 
     }
 
+    // const handleClick = async () => {
+    //   if(tokenContract && tokenId !==null){
+    //   const data = await getmetadata(tokenContract, tokenId);
+    //   setMetadata(data);
+    // }
+    // else {
+    //   alert("Enter NFT contract Address and Id")
+    // }
+    //   const nftvalue = await getNftCollateralValue(Contract, '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA', '0xcBF0232a0b8Cb5f0b41a0a9736332223faB338cA');
+  
+    //   setNFTValue(nftvalue);
+    //   console.log(nftvalue);
+    // }
+
     return (
         <div>
             <div className="borrow_popup">
                 <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media === undefined ? galaxy : metadata.media[0].gateway)})` }}>
                 </div>
                 <div className="right_popup">
-                    <input type="text" placeholder='Enter token contract' onChange={(e) => { setTokenContract(e.target.value) }} />
-                    <input type="text" placeholder='Enter token ID' onChange={(e) => { setTokenId(e.target.value) }} />
-                    <button onClick={() => handleFetchNFT()}>
-                        {loading ? 'Loading...' : 'Fetch NFT' /* Show loading text when loading */}
-                    </button>
+                    <input type="text" placeholder='Enter token contract' />
+                    <input type="text" placeholder='Enter token ID' />
+                    <button onClick={() => handleClick()}>Fetch NFT</button>
                     <br />
                     {(metadata.contract === undefined ?
                         <div className="borrow_absent">
@@ -95,16 +116,14 @@ const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
                                 <input type="number" placeholder='Enter Amount' />
                                 <input type="datetime-local" defaultValue={'2023-05-30 11:59'} />
                             </div>
-                            <button onClick={() => handleBorrow()}>
-                        {loading ? (Approving ? 'Approving...' : 'Transfering...') : 'Borrow' /* Show loading text when loading */}
-                    </button>
+                            <button>Borrow</button>
                         </div>
                     )}
                 </div>
                 <i className='bi bi-x' onClick={() => hidePopup()}></i>
             </div>
             <div className="lend_popup">
-                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media === undefined ? galaxy : metadata.media[0].gateway)})` }}>
+                <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media == undefined ? galaxy : metadata.media[0].gateway)})` }}>
                 </div>
                 <div className="right_popup">
                         <div className="lend_section">
@@ -115,9 +134,10 @@ const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
                                     <span>Lending Interest Rate</span>
                                 </div>
                                 <div className="right_info_popup">
-                                    <span>{totalSupply}</span>
-                                    <span>{totalBorrow}</span>
-                                    <span>{lendingInterestRate}</span>
+                                    {/* Sumit yaha spans pe Total supply borrow and IR ka { function value } insert kardio */}
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                             <div className="input_borrow">
@@ -126,7 +146,6 @@ const Popup = ({ Contract, totalSupply, totalBorrow, lendingInterestRate }) => {
                             </div>
                             <button>Lend</button>
                         </div>
-                    
                 </div>
                 <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
             </div>
