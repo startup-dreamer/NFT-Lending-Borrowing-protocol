@@ -8,32 +8,32 @@ import './App.css';
 
 function App() {
   const [Contract, setContract] = useState(null);
-  const [Accounts, setAccounts] = useState(null);
+  const [Provider, setProvider] = useState(null);
 
   return (
     <div className='App'>
       <Routes>
         <Route path='*' element={
           <>
-            <Navbar setContract={setContract} setAccounts={setAccounts}/>
-            <Content Contract={Contract}/>
+            <Navbar setContract={setContract} setProvider={setProvider}/>
+            <Content Contract={Contract} Provider={Provider}/>
           </>
         } />
         <Route path='/lend' element={
           <>
-            <Navbar setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setProvider={setProvider}/>
             <Lend Contract={Contract}/>
           </>
         } />
         <Route path='/borrow' element={
           <>
-            <Navbar setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setProvider={setProvider}/>
             <Borrow Contract={Contract}/>
           </>
         } />
         <Route path='/portfolio' element={
           <>
-            <Navbar setContract={setContract} setAccounts={setAccounts}/>
+            <Navbar setContract={setContract} setProvider={setProvider}/>          
             <Portfolio Contract={Contract}/>
           </>
         } />

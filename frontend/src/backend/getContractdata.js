@@ -81,18 +81,25 @@ const getLoans = async (contract, address) => {
 }
 
 const getTotalSupply = async (contract) => {
-  return await contract.totalSupply();
+  const totalsupply = await contract.totalSupply();
+  const TotalSupply = bigNumToNum(totalsupply);
+  return TotalSupply
 }
 
 const getTotalBorrow = async (contract) => {
-  return await contract.totalBorrowed();
+  const totalborrow = await contract.totalBorrowed();
+  const TotalBorrow = bigNumToNum(totalborrow);
+  return TotalBorrow
 }
 
 const getTotalDepositedNFTs = async (contract) => {
-  return await contract.totalDepositedNFTs()
+  const totaldepositednfts = await contract.totalDepositedNFTs()
+  const TotalDepositedNFTs = bigNumToNum(totaldepositednfts);
+  return TotalDepositedNFTs
 }
 
 const getTotalLiquidatedNFTs = async (contract) => {
+  return 10
 
 }
 

@@ -1,12 +1,73 @@
-import {React, useState, useEffect} from 'react';
+import {React, useState, useEffect, useRef} from 'react';
 import "../static/css/content.css";
 import "../static/css/content_card.css";
 import Card from './card';
 import ether_big from '../static/img/ether_big.png';
 import {getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs} from '../backend'
 import Popup from './popup';
+import {motion} from "framer-motion";
 
-const Content = ({Contract}) => {
+const Content = ({Contract, Provider}) => {
+    const nftStatsRef = useRef(null);
+    const [handleChange, setHandleChange] = useState(false);
+    const [nftStatsVisible, setNftStatsVisible] = useState("hidden");
+    const [data, setData] = useState({
+        totalSupply: "-",
+        totalBorrow: "-",
+        LIR: "-",
+        BIR: "-",
+        liquidatedNFTs: "-",
+        toalDepositedNFTs: "-",
+        uttilization: "-"
+        });
+
+  const nftStatsVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+
+  useEffect(() => {
+    const ref = nftStatsRef.current;
+    if (ref) {
+      const onScroll = () => {
+        const { offsetTop, offsetHeight } = ref;
+        const halfHeight = offsetHeight * 0.8;
+        const isVisible =
+          window.scrollY > offsetTop - halfHeight &&
+          window.scrollY < offsetTop + halfHeight;
+        setNftStatsVisible(isVisible ? "visible" : "hidden");
+      };
+      window.addEventListener("scroll", onScroll);
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+  }, []);
+
+useEffect(()=> {
+    if (Contract !== null){
+        const fetchData = async () => {            
+        const totalsupply = await getTotalSupply(Contract);
+        const totalborrow = await getTotalBorrow(Contract);
+        const lendinginterestrate = await getLending_interestRate(Contract);
+        const borrowinginterestrate = await getBorrow_interestRate(Contract);
+        const totaldepositednfts = await getTotalDepositedNFTs(Contract);
+        const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
+        const utilization = (totalsupply / totalborrow) * 100;
+        setData({
+            totalSupply: totalsupply,
+            totalBorrow: totalborrow,
+            LIR: lendinginterestrate / 100,
+            BIR: borrowinginterestrate / 100,
+            liquidatedNFTs: totalliquidatednfts,
+            toalDepositedNFTs: totaldepositednfts,
+            utilization: utilization
+        }); 
+        }        
+        fetchData();
+    }
+    console.log(data);
+    
+},[Contract])
 
     function borrowPopup() {
         try {
@@ -14,15 +75,16 @@ const Content = ({Contract}) => {
             k[0].style.display = 'flex';
         } catch { }
     }
+
     function lendPopup(){
         try{
         let k = document.getElementsByClassName('lend_popup');
         console.log(k);
         k[0].style.display = 'flex';
+        setHandleChange(true);
         } catch{}
     }
     
-
     return (
         <div className="content_holder">
             <div className="contn">
@@ -37,7 +99,13 @@ const Content = ({Contract}) => {
                 <img src={ether_big} alt="" />
             </div>
 
-            <div className="nft_stats">
+            <motion.div
+                className="nft_stats"
+                ref={nftStatsRef}
+                initial={nftStatsVariants.hidden}
+                animate={nftStatsVariants[nftStatsVisible]}
+                transition={{ duration: 0.4 }}
+                >
                 <div className="left_stats">
                     <div className="left_stats_one">
                         NFT
@@ -54,8 +122,8 @@ const Content = ({Contract}) => {
                     <div className="right_stats_card">
                         {/* Tere ko yaha se apna content add karna hai */}
                         <div className="total_stats_card" style={{'display':'flex', 'columnGap':'28px'}}>
-                            <div>Total Supply<br /><span>$8000</span></div>
-                            <div>Total Borrow<br /><span>$8000</span></div>
+                            <div>Total Supply<br /><span>{data.totalSupply} ETH</span></div>
+                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH</span></div>
                         </div>
                         <div className="interest_rates_card">
                             <div className="left_card_interest">
@@ -63,8 +131,8 @@ const Content = ({Contract}) => {
                                 <div>Borrow Interest rate</div>
                             </div>
                             <div className="right_card_interest">
-                                <div>{'Lend IR'}</div>
-                                <div>{'Borrow IR'}</div>
+                                <div>{data.LIR} %</div>
+                                <div>{data.LIR} %</div>
                             </div>
                         </div>
                         <div className="details_card">
@@ -74,22 +142,22 @@ const Content = ({Contract}) => {
                                 <div>Total Deposited NFTs</div>
                             </div>
                             <div className="details_interest">
-                                <div>{'Util Value'}</div>
-                                <div>{'Liq NFT value'}</div>
-                                <div>{'Total Depst Value'}</div>
+                                <div>{data.uttilization}</div>
+                                <div>{data.liquidatedNFTs}</div>
+                                <div>{data.toalDepositedNFTs}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* List */}
             <div className="card_list">
                 <div className="heading_cards">
                     NFTs Auction
                 </div>
-                <i className="bi bi-chevron-left" onClick={listLeft}></i>
-                <i className="bi bi-chevron-right" onClick={listRight}></i>
+                <i className="bi bi-chevron-left"></i>
+                <i className="bi bi-chevron-right"></i>
                 <div className="list_holder">
                     <div className="list_card_container">
                         <Card />
@@ -102,10 +170,10 @@ const Content = ({Contract}) => {
                     </div>
                 </div>
             </div>
-
-
             {/* Popup divs */}
-            <Popup/>
+            <div>
+                <Popup Contract={Contract} handleChange={handleChange} totalSupply={data.totalSupply} totalBorrow={data.totalBorrow} LIR={data.LIR}/>
+            </div>
         </div>
     );
 }

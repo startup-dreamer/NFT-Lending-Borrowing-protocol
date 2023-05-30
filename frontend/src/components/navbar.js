@@ -4,7 +4,7 @@ import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
 import ether_icon from '../static/img/Aurum.png'
 
-const Navbar = ({setContract, setAccounts}) => {
+const Navbar = ({setContract, setProvider}) => {
   const [isConnected, setisConnected] = useState(false);
 
   const connectWallet = async () => {
@@ -17,18 +17,19 @@ const Navbar = ({setContract, setAccounts}) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const accounts = await provider.send("eth_requestAccounts", []);
-      await window.ethereum.request({ method: "eth_chainId" });
       if (!accounts || !accounts[0]) {
         alert("Accounts error no account found please connect");
       }
       const contract = new ethers.Contract(
-        "0x998A67E159fb1086Acecf587c48a92dA0acE40E6",
+        "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27",
         AurumV1core,
         signer
       );
       setContract(contract);
-      setAccounts(accounts);
+      setProvider(provider);
       setisConnected(true);
+      console.log(contract);
+      
     } catch (err) {
       console.error(err);
     }
@@ -38,9 +39,6 @@ const Navbar = ({setContract, setAccounts}) => {
     e.preventDefault();
     await connectWallet();
   };
-
-
-
 
   return (
     <div className='navbar'>
@@ -54,7 +52,7 @@ const Navbar = ({setContract, setAccounts}) => {
         <button>Portfolio</button>
         {isConnected ? <input type='button' value={'Connected'} /> :
           <input type='button' value={'Connect'} 
-          onClick={(e) => { handleConnectWallet(e) }} 
+          onClick={(e) => {handleConnectWallet(e)}} 
           />
         }
       </div>
