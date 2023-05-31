@@ -54,8 +54,8 @@ useEffect(()=> {
         const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
         const utilization = (totalsupply / totalborrow) * 100;
         setData({
-            totalSupply: totalsupply,
-            totalBorrow: totalborrow,
+            totalSupply: totalsupply / 1e18,
+            totalBorrow: totalborrow / 1e18,
             LIR: lendinginterestrate / 100,
             BIR: borrowinginterestrate / 100,
             liquidatedNFTs: totalliquidatednfts,
@@ -64,24 +64,22 @@ useEffect(()=> {
         }); 
         }        
         fetchData();
-    }
-    console.log(data);
-    
+    }    
 },[Contract])
 
     function borrowPopup() {
         try {
             let k = document.getElementsByClassName('borrow_popup');
+            console.log(k);
             k[0].style.display = 'flex';
         } catch { }
     }
 
     function lendPopup(){
         try{
-        let k = document.getElementsByClassName('lend_popup');
-        console.log(k);
-        k[0].style.display = 'flex';
-        setHandleChange(true);
+            let k = document.getElementsByClassName('lend_popup');
+            console.log(k);
+            k[0].style.display = 'flex';
         } catch{}
     }
     
@@ -131,8 +129,8 @@ useEffect(()=> {
                                 <div>Borrow Interest rate</div>
                             </div>
                             <div className="right_card_interest">
-                                <div>{data.LIR} %</div>
-                                <div>{data.LIR} %</div>
+                                <div>{data.LIR} % APY</div>
+                                <div>{data.LIR} % APY</div>
                             </div>
                         </div>
                         <div className="details_card">
@@ -142,7 +140,7 @@ useEffect(()=> {
                                 <div>Total Deposited NFTs</div>
                             </div>
                             <div className="details_interest">
-                                <div>{data.uttilization}</div>
+                                <div>{data.uttilization} %</div>
                                 <div>{data.liquidatedNFTs}</div>
                                 <div>{data.toalDepositedNFTs}</div>
                             </div>

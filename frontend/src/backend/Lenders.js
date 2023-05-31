@@ -3,7 +3,8 @@
 
 const deposit_to_pool = async(contract, time, amount) => {
     try {
-        await contract.depositToPool(time, { value: amount});
+        const Tx = await contract.depositToPool(time, { value: amount});
+        return Tx
     } catch (e) {
         console.error(e);    
     }
@@ -11,7 +12,8 @@ const deposit_to_pool = async(contract, time, amount) => {
 
 const withdraw_to_pool = async(contract, time, depId) => {
     try {
-    await contract.withdrawToPool(depId, time);
+        const Tx = await contract.withdrawToPool(depId, time);
+        return Tx
     } catch (e) {
         console.error(e);
     }

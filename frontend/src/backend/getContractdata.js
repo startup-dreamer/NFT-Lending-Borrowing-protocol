@@ -13,7 +13,6 @@ const getBorrow_interestRate = async (contract) => {
     return number;
   } catch (error) {
     console.error("Error in getBorrow_interestRate(): ", error);
-    throw new Error("Failed to retrieve borrow interest rate");
   }
 }
 
@@ -24,7 +23,6 @@ const getmaxLtv = async (contract) => {
     return integer;
   } catch (error) {
     console.error("Error in getmaxLtv(): ", error);
-    throw new Error("Failed to retrieve max LTV");
   }
 }
 
@@ -35,7 +33,6 @@ const getLending_interestRate = async (contract) => {
     return integer;
   } catch (error) {
     console.error("Error in getLending_interestRate(): ", error);
-    throw new Error("Failed to retrieve Lending_interestRate");
   }
 }
 
@@ -45,7 +42,6 @@ const getOwner = async (contract) => {
     return owner;
   } catch (error) {
     console.error("Error in getOwner(): ", error);
-    throw new Error("Failed to retrieve owner");
   }
 }
 
@@ -58,7 +54,6 @@ const getDeposits = async (contract, address) => {
     return [amount, currency, date];
   } catch (error) {
     console.error("Error in getDeposits(): ", error);
-    throw new Error("Failed to retrieve deposits");
   }
 }
 
@@ -76,32 +71,46 @@ const getLoans = async (contract, address) => {
     return [borrower, tokenContract, tokenId, amount, collateralValue, interest, time, active];
   } catch (error) {
     console.error("Error in getLoans(): ", error);
-    throw new Error("Failed to retrieve loans");
+  }
+}
+const getTotalSupply = async (contract) => {
+  try {
+    const totalsupply = await contract.totalSupply();
+    const TotalSupply = bigNumToNum(totalsupply);
+    return TotalSupply
+  } catch (error) {
+    console.log(error);
   }
 }
 
-const getTotalSupply = async (contract) => {
-  const totalsupply = await contract.totalSupply();
-  const TotalSupply = bigNumToNum(totalsupply);
-  return TotalSupply
-}
-
 const getTotalBorrow = async (contract) => {
-  const totalborrow = await contract.totalBorrowed();
-  const TotalBorrow = bigNumToNum(totalborrow);
-  return TotalBorrow
+  try {
+    const totalborrow = await contract.totalBorrowed();
+    const TotalBorrow = bigNumToNum(totalborrow);
+    return TotalBorrow
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const getTotalDepositedNFTs = async (contract) => {
-  const totaldepositednfts = await contract.totalDepositedNFTs()
-  const TotalDepositedNFTs = bigNumToNum(totaldepositednfts);
-  return TotalDepositedNFTs
+  try {
+    const totaldepositednfts = await contract.totalDepositedNFTs()
+    const TotalDepositedNFTs = bigNumToNum(totaldepositednfts);
+    return TotalDepositedNFTs
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const getTotalLiquidatedNFTs = async (contract) => {
-  return 10
-
+  try {
+    return 10
+  } catch (error) {
+    console.log(error);
+  }
 }
+
 
 export {
   getBorrow_interestRate, 

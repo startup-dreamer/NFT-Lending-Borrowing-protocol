@@ -2,7 +2,8 @@ import { bigNumToNum } from "./getContractdata";
 
 const borrow = async (contract, amount, tokenContract, tokenId, time, priceFeed) => {
     try {
-        await contract.borrow(amount, tokenContract, tokenId, time, priceFeed);
+        const Tx = await contract.borrow(amount, tokenContract, tokenId, time, priceFeed);
+        return Tx
     } catch (e) {
         console.error(e);
     }
@@ -10,7 +11,8 @@ const borrow = async (contract, amount, tokenContract, tokenId, time, priceFeed)
 
 const repay = async (contract, loanId, time) => {
     try {
-    await contract.repay(loanId, time);
+        const Tx = await contract.repay(loanId, time);
+        return Tx
     } catch (e) {
         console.error(e);
     }
@@ -19,7 +21,7 @@ const repay = async (contract, loanId, time) => {
 const getNftCollateralValue = async (contract, tokenContract, tokenId) => {
     try {
     const bigNFTValue = await contract.getNftCollateralValue(tokenContract, tokenId);    
-    const nftValue = bigNumToNum(bigNFTValue.value._hex);
+    const nftValue = bigNumToNum(bigNFTValue._hex);
     return nftValue
     } catch (e) {
         console.error(e);
@@ -37,8 +39,8 @@ const getPrice = async (contract, priceFeed) => {
 
 const approveToken = async (contract, senderAddress, tokenId) => {
     try {
-      const tx = await contract.approve(senderAddress, tokenId);
-      console.log('Transaction hash:', tx.hash);
+      const Tx = await contract.approve(senderAddress, tokenId);
+      return Tx
     } catch (e) {
       console.error(e);
     }
