@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { ethers } from "ethers"
 import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
@@ -7,12 +7,7 @@ import ether_icon from '../static/img/Aurum.png'
 const Navbar = ({setContract, setProvider}) => {
   const [isConnected, setisConnected] = useState(false);
 
-  const connectWallet = async () => {
-    if (!window.ethereum) {
-      alert("Please install Metamask to use this application.");
-      return;
-    }
-  
+  const connectWallet = async () => {  
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -40,6 +35,16 @@ const Navbar = ({setContract, setProvider}) => {
     await connectWallet();
   };
 
+  useEffect(()=>{
+    const checkMetaMask = () => {
+      if (!window.ethereum) {
+        alert("Please install Metamask to use this application.");
+        return;
+      }
+    }
+    checkMetaMask();
+  },[]);
+  
   return (
     <div className='navbar'>
       <div className="left_nav">
