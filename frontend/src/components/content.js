@@ -70,7 +70,6 @@ useEffect(()=> {
     function borrowPopup() {
         try {
             let k = document.getElementsByClassName('borrow_popup');
-            console.log(k);
             k[0].style.display = 'flex';
         } catch { }
     }
@@ -78,9 +77,28 @@ useEffect(()=> {
     function lendPopup(){
         try{
             let k = document.getElementsByClassName('lend_popup');
-            console.log(k);
             k[0].style.display = 'flex';
         } catch{}
+    }
+
+    function listLeft() {
+        try {
+            let a = document.getElementsByClassName('list_holder')[0];
+            a.scroll({
+                left: (a.scrollLeft-850),
+                behavior:'smooth'
+            })
+        } catch { }
+    }
+
+    function listRight() {
+        try {
+            let a = document.getElementsByClassName('list_holder')[0];
+            a.scroll({
+                left: (a.scrollLeft+850),
+                behavior:'smooth'
+            })
+        } catch { }
     }
     
     return (
@@ -154,8 +172,8 @@ useEffect(()=> {
                 <div className="heading_cards">
                     NFTs Auction
                 </div>
-                <i className="bi bi-chevron-left"></i>
-                <i className="bi bi-chevron-right"></i>
+                <i className="bi bi-chevron-left" onClick={listLeft}></i>
+                <i className="bi bi-chevron-right" onClick={listRight}></i>
                 <div className="list_holder">
                     <div className="list_card_container">
                         <Card />

@@ -111,7 +111,7 @@
     position: absolute;
     top: 1vw;
     left: 10vw;
-    z-index: 2;
+    z-index: 3;
     height: 40vw;
     width: 80vw;
     background-image: linear-gradient(131.46deg, #07132B 22.81%, #1D587A 99.86%);
@@ -168,4 +168,7 @@
     height: 40px;
     font-size: 15px;
     cursor: pointer;
+}
+.lend_section{
+    text-align: left;
 }

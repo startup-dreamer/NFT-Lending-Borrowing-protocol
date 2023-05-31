@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png'
 import space from '../static/img/Lend_main.jpg'
-import {getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow} from '../backend';
+import { getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow } from '../backend';
 
-const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
+const Popup = ({ Contract, handleChange, totalSupply, totalBorrow, LIR }) => {
 
-/**************************************************** LEND ****************************************************/
+    /**************************************************** LEND ****************************************************/
     const [Amount, setAmount] = useState(0);
     const [Time, setTime] = useState(0);
 
@@ -19,8 +19,8 @@ const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
     function hidelendPopup() {
         try {
             let k = document.getElementsByClassName('lend_popup');
-            k[0].style.display = 'none';            
-        } catch {}
+            k[0].style.display = 'none';
+        } catch { }
         setMetadata({});
     }
 
@@ -34,27 +34,27 @@ const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
                 if (receipt.status === 1) {
                     console.log("Transaction confirmed with", receipt);
                     window.location.href = "portfolio.html";
-                } 
+                }
                 else if (receipt.status === 0) {
                     alert("transaction failed please retry")
                 }
-            } 
+            }
             else if (Amount > 0.01) {
-            alert("Only 0.01 ETH of less than could be deposited in beta testing");
-            } 
+                alert("Only 0.01 ETH of less than could be deposited in beta testing");
+            }
             else {
-            alert("Enter Amount and Time of lending");
+                alert("Enter Amount and Time of lending");
             }
         }
         catch (e) {
-           console.error(e);
+            console.error(e);
         }
     };
 
     // closing popup by esc key
-    document.addEventListener('keydown',(e)=>{
-        if(e.key === "Escape") {
-            try{
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            try {
                 let k1 = document.getElementsByClassName('borrow_popup');
                 let k2 = document.getElementsByClassName('lend_popup');
                 k1[0].style.display = 'none';
@@ -65,7 +65,7 @@ const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
         }
     });
 
-/**************************************************** BORROW ****************************************************/
+    /**************************************************** BORROW ****************************************************/
     const [metadata, setMetadata] = useState({});
     const [tokenContract, setTokenContract] = useState('');
     const [tokenId, setTokenId] = useState(undefined);
@@ -124,28 +124,28 @@ const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
             const receipt2 = await Tx2.wait();
             if (receipt2.status === 1) {
                 console.log("Transaction confirmed with", receipt2);
-            } 
+            }
             else if (receipt2.status === 0) {
                 alert("Transfer failed please retry")
             }
-        else if (receipt1.status === 0) {
-            alert("Approval failed please retry")
+            else if (receipt1.status === 0) {
+                alert("Approval failed please retry")
+            }
+            setLoading(false);
         }
-        setLoading(false);
-
     }
 
     return (
-        <div>
+        <>
             <div className="borrow_popup">
                 <div className="left_popup" style={{ 'backgroundImage': `url(${(metadata.media === undefined ? galaxy : metadata.media[0].gateway)})` }}>
                 </div>
                 <div className="right_popup">
-                    <input type="text" placeholder='Enter token contract' onChange={(e) => setTokenContract(e.target.value)}/>
-                    <input type="text" placeholder='Enter token ID' onChange={(e) => setTokenId(e.target.value)}/>
-                    {(loading ? 
+                    <input type="text" placeholder='Enter token contract' onChange={(e) => setTokenContract(e.target.value)} />
+                    <input type="text" placeholder='Enter token ID' onChange={(e) => setTokenId(e.target.value)} />
+                    {(loading ?
                         <button>Loading...</button> :
-                        <button onClick={()=>{handleFetchNFT()}}>Fetch NFT</button>
+                        <button className='borrow_bttn_popup' onClick={() => { handleFetchNFT() }}>Fetch NFT</button>
                     )}
                     <br />
                     {(metadata.contract === undefined ?
@@ -167,13 +167,13 @@ const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
                                 </div>
                             </div>
                             <div className="input_borrow">
-                                <input type="float" placeholder='Enter Amount in ETH' onChange={(e)=>{setBorrowAmount(e.target.value)}}/>
-                                <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e)=>{getBorrowEpochTime(e.target.value)}}/>
+                                <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => { setBorrowAmount(e.target.value) }} />
+                                <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e) => { getBorrowEpochTime(e.target.value) }} />
                             </div>
                             {/* {loading ? <button onClick={()=>{Borrow()}}>Lend</button> :
                             <button onClick={()=>{Borrow()}}>Lend</button>
                             } */}
-                            // a ? b : (c ? d : e)
+                            {/* // a ? b : (c ? d : e) */}
                         </div>
                     )}
                 </div>
@@ -183,30 +183,29 @@ const Popup = ({Contract, handleChange, totalSupply, totalBorrow, LIR}) => {
                 <div className="left_popup" style={{ 'backgroundImage': `url(${(space)})` }}>
                 </div>
                 <div className="right_popup">
-                        <div className="lend_section">
-                            <div className="fetch_info">
-                                <div className="left_info_popup">
-                                    <span>Total Supply</span>
-                                    <span>Total Borrow</span>
-                                    <span>Lending Interest Rate</span>
-                                </div>
-                                <div className="right_info_popup">
-                                    <span>{totalSupply} ETH</span>
-                                    <span>{totalBorrow} ETH</span>
-                                    <span>{LIR} % APY</span>
-                                </div>
+                    <div className="lend_section">
+                        <div className="fetch_info">
+                            <div className="left_info_popup">
+                                <span>Total Supply</span>
+                                <span>Total Borrow</span>
+                                <span>Lending Interest Rate</span>
                             </div>
-                            <div className="input_borrow">
-                                <input type="float" placeholder='Enter Amount in ETH' onChange={(e)=>{setAmount(e.target.value)}}/>
-                                <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e)=>{getEpochTime(e.target.value)}}/>
+                            <div className="right_info_popup">
+                                <span>{totalSupply} ETH</span>
+                                <span>{totalBorrow} ETH</span>
+                                <span>{LIR} % APY</span>
                             </div>
-                            <button onClick={()=>{Lend()}}>Lend</button>
                         </div>
+                        <div className="input_borrow">
+                            <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => { setAmount(e.target.value) }} />
+                            <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e) => { getEpochTime(e.target.value) }} />
+                        </div>
+                        <button className='lend_bttn_popup' onClick={() => { Lend() }}>Lend</button>
+                    </div>
                 </div>
                 <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
             </div>
-        </div>
+        </>
     );
-}
 }
 export default Popup;

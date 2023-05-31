@@ -7,7 +7,8 @@
 .heading_cards {
     color: white;
     font-size: 55px;
-    font-family: monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     margin: 45px 0;
 }
 
