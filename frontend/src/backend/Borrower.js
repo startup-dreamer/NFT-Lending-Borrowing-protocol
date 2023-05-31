@@ -1,8 +1,8 @@
 import { bigNumToNum } from "./getContractdata";
 
-const borrow = async (contract, amount, tokenContract, tokenId, time, priceFeed) => {
+const borrow = async (contract, amount, tokenContract, tokenId, time) => {
     try {
-        const Tx = await contract.borrow(amount, tokenContract, tokenId, time, priceFeed);
+        const Tx = await contract.borrow(amount, tokenContract, tokenId, time);
         return Tx
     } catch (e) {
         console.error(e);
@@ -37,9 +37,9 @@ const getPrice = async (contract, priceFeed) => {
 }
 
 
-const approveToken = async (contract, senderAddress, tokenId) => {
+const approveToken = async (contract, approvingAddress, tokenId) => {
     try {
-      const Tx = await contract.approve(senderAddress, tokenId);
+      const Tx = await contract.approve(approvingAddress, tokenId);
       return Tx
     } catch (e) {
       console.error(e);
