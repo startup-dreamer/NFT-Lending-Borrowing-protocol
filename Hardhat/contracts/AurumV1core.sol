@@ -1,12 +1,9 @@
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
-import "@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./getProceFeed.sol";
@@ -29,6 +26,16 @@ contract AurumV1core is NFTPrice {
             uint256 interest;
     }
     mapping(address => deposit[]) public deposits;
+
+    struct DepositedNFTs {
+        address tokenContract;
+        uint256 tokenId;
+        uint256 amount;
+        uint256 time;
+        bool active;
+    }
+    // add the public visibility specifier here
+    DepositedNFTs[] public totalDepositedNFTs;
 
     struct Loan {
         address borrower;
@@ -55,11 +62,6 @@ contract AurumV1core is NFTPrice {
         uint256 indexed _loanId, 
         uint256 indexed amount, 
         uint256 interest);
-    event Withdrawal(
-        uint256 indexed, 
-        address indexed , 
-        uint256 indexed);
-
 
     constructor(
         uint256 _Borrow_interestRate, 
@@ -70,59 +72,7 @@ contract AurumV1core is NFTPrice {
         Lending_interestRate = _Lending_interestRate;
         maxLtv = _maxLtv;
         owner = msg.sender;
-    }
-
-    function depositToPool(
-        uint256 _amount, 
-        uint256 _time
-        ) external payable {
-        require(
-            _amount > 0, 
-            "Amount must be greater than 0"
-            );
-        require(
-            _amount <= MAX_AMOUNT_LIMIT, 
-            "Can't deposit more than 0.01 ETH"
-            );
-
-        uint256 interest = _amount.mul(Lending_interestRate).div(10000);
-        deposit memory dep = deposit({
-            amount: _amount,
-            time: _time,
-            interest: interest
-        });
-        deposits[msg.sender].push(dep);
-        totalSupply += _amount;
-        (bool success, ) = address(this).call{value: _amount}();
-        require(success);
-    }
-
-
-    function withdrawFromPool(
-        uint256 _depId
-        ) external {
-        deposit storage dep = deposits[msg.sender][_depId];
-        require(
-            dep.amount > 0, 
-            "Deposit not found or already withdrawn"
-            );
-
-        uint256 amountToReturn = dep.interest + dep.amount;
-        if (block.timestamp < dep.time) {
-            amountToReturn = dep.amount;
-        }
-        dep.amount = 0;
-        totalSupply -= amountToReturn;
-        (bool success, ) = (msg.sender).call{value : amountToReturn}("");
-        if (success) {
-            emit Withdrawal(_depId, msg.sender, amountToReturn);
-            delete deposits[msg.sender][_depId];
-        } else {
-            dep.amount = amountToReturn;
-            revert("Internal error: funds not transferred");
-        }
-    }
-   
+    }   
 
     function depositERC721Collateral(
         address borrower, 
@@ -270,31 +220,6 @@ contract AurumV1core is NFTPrice {
         else {
             revert("Unsupported token type");
         }
-    }
-
-    function set_Borrow_InterestRate(
-        uint256 _Borrow_interestRate
-        ) external {
-        require(
-            msg.sender == owner
-            );
-        Borrow_interestRate = _Borrow_interestRate;
-        Lending_interestRate = _Borrow_interestRate * (totalBorrowed/totalSupply); // Utilization of pool
-    }
-
-    function setLoanToCollateral(
-        uint256 _maxLtv
-        ) external {
-        require(
-            msg.sender == owner
-            );
-        maxLtv = _maxLtv;
-    }
-    
-    fallback() external payable {
-    }
-
-    receive() external payable {
     }
 }
 
