@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png'
 import space from '../static/img/Lend_main.jpg'
 import { getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow } from '../backend';
 
 const Popup = ({ Contract, handleChange, totalSupply, totalBorrow, LIR }) => {
+    const navigate = useNavigate();
 
     /**************************************************** LEND ****************************************************/
     const [Amount, setAmount] = useState(0);
@@ -33,7 +35,7 @@ const Popup = ({ Contract, handleChange, totalSupply, totalBorrow, LIR }) => {
                 const receipt = await Tx.wait();
                 if (receipt.status === 1) {
                     console.log("Transaction confirmed with", receipt);
-                    window.location.href = "portfolio.html";
+                    navigate('/portfolio');
                 }
                 else if (receipt.status === 0) {
                     alert("transaction failed please retry")
@@ -205,6 +207,7 @@ const Popup = ({ Contract, handleChange, totalSupply, totalBorrow, LIR }) => {
                 </div>
                 <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
             </div>
+            <div className="hide_div"></div>
         </>
     );
 }
