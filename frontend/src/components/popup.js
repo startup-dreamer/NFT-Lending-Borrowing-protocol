@@ -207,7 +207,7 @@ const Borrow = async () => {
                             </div>
                             <div className="input_borrow">
                                 <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => {setBorrowAmount(e.target.value)}} />
-                                <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e) => {getBorrowEpochTime(e.target.value)}} />
+                                <input type="datetime-local" onChange={(e) => {getBorrowEpochTime(e.target.value)}} />
                             </div>
                             <button onClick={()=>{Borrow()}}>{loading ? (approving ? 'Approving...' : 'Transfering...') : 'Borrow'}</button>
                         </div>
@@ -234,7 +234,7 @@ const Borrow = async () => {
                         </div>
                         <div className="input_borrow">
                             <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => { setAmount(e.target.value) }} />
-                            <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e) => { getEpochTime(e.target.value) }} />
+                            <input type="datetime-local" onChange={(e) => { getEpochTime(e.target.value) }} />
                         </div>
                         <button className='lend_bttn_popup' onClick={() => { Lend() }}>Lend</button>
                     </div>
