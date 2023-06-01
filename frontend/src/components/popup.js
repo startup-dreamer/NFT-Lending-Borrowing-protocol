@@ -132,7 +132,7 @@ const Popup = ({ Contract, handleChange, totalSupply, totalBorrow, LIR }) => {
                         if (receipt2.status === 1) {
                             setLoading(false);
                             console.log("Transaction confirmed with", receipt2);
-                            window.location.href = "portfolio.html";
+                            navigate('/portfolio');
                         }
                         else if (receipt2.status === 0) {
                             alert("Transfer failed please retry");
