@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ethers } from "ethers"
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png';
@@ -6,7 +7,9 @@ import space from '../static/img/Lend_main.jpg';
 import nftABI from '../backend/Nft-erc721-abi.json';
 import { getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow } from '../backend';
 
+
 const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) => {
+    const navigate = useNavigate();
 
 /**************************************************** LEND ****************************************************/
     const [Amount, setAmount] = useState(0);
@@ -17,11 +20,15 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
         const epochTime = Math.floor(date.getTime() / 1000);
         setTime(epochTime);
     }
-
+    
     function hidelendPopup() {
         try {
             let k = document.getElementsByClassName('lend_popup');
             k[0].style.display = 'none';
+            let hide_div = document.getElementsByClassName('hide_div');
+            hide_div[0].style.display = 'none';
+            document.body.style.height = 'auto';
+            document.body.style.overflowY = 'overlay';
         } catch { }
         setMetadata({});
     }
@@ -35,7 +42,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
                 const receipt = await Tx.wait();
                 if (receipt.status === 1) {
                     console.log("Transaction confirmed with", receipt);
-                    window.location.href = "portfolio.html";
+                    navigate('/portfolio');
                 }
                 else if (receipt.status === 0) {
                     alert("transaction failed please retry")
@@ -72,15 +79,20 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
             let k = document.getElementsByClassName('borrow_popup');
             if (k.length > 0) {
                 k[0].style.display = 'none';
+                let hide_div = document.getElementsByClassName('hide_div');
+                hide_div[0].style.display = 'none';
+                document.body.style.height = 'auto';
+                document.body.style.overflowY = 'overlay';
             }
         } catch (e) {
             console.error(e);
         }
         setMetadata({});
     }
-
+    
     const handleFetchNFT = async () => {
         try {
+<<<<<<< HEAD
         setFetching(true);
         if (tokenContract && tokenId !== null) {
             const data = await getmetadata(tokenContract, tokenId);
@@ -93,6 +105,19 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
             setFetching(false);
             setMaxLtV(maxltv / 100)
             console.log(data);
+=======
+            setFetching(true);
+            if (tokenContract && tokenId !== null) {
+                const data = await getmetadata(tokenContract, tokenId);
+                const nftvalue = await getNftCollateralValue(protocolContract, tokenContract, tokenId);
+                const maxltv = await getmaxLtv(protocolContract);
+                const borrowingpower = (maxltv * nftvalue) / 1e22;
+                setMetadata(data);
+                setNFTValue(nftvalue / 1e18);
+                setBorrwingPower(borrowingpower);
+                setFetching(false);
+                console.log(data);
+>>>>>>> 59fb67c7abe73ca46bf63fecb508aa527d07f011
             console.log(maxltv); 
         }
         else {
@@ -102,46 +127,46 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
     } catch (e) {
         console.log(e);        
     }
-    }
+}
 
-    function getBorrowEpochTime(value) {
-        const date = new Date(value.replace(' ', 'T'));
-        const epochTime = Math.floor(date.getTime() / 1000);
-        setBorrowTime(epochTime);
-    }
+function getBorrowEpochTime(value) {
+    const date = new Date(value.replace(' ', 'T'));
+    const epochTime = Math.floor(date.getTime() / 1000);
+    setBorrowTime(epochTime);
+}
 
-    const Borrow = async () => {
-        try{
-            if ((borrowAmount && borrowTime !== 0) && (borrowAmount <= BorrowingPower)){
-                    setLoading(true);
-                    setApproving(true);
-                    const signer = Provider.getSigner();
-                    const contract = new ethers.Contract(
-                        "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27",
-                        nftABI,
-                        signer
-                      );
-                    const Tx1 = await approveToken(contract, "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27", tokenId);
-                    const receipt1 = await Tx1.wait();
-                    if (receipt1.status === 1) {
-                        console.log("Transaction confirmed with", receipt1);
-                        setApproving(false);
-                        const Tx2 = await borrow(protocolContract, borrowAmount, tokenContract, tokenId, borrowTime);
-                        const receipt2 = await Tx2.wait();
-                        if (receipt2.status === 1) {
-                            setLoading(false);
-                            console.log("Transaction confirmed with", receipt2);
-                            window.location.href = "portfolio.html";
-                        }
-                        else if (receipt2.status === 0) {
-                            alert("Transfer failed please retry");
-                            setLoading(false);
-                        }
+const Borrow = async () => {
+    try{
+        if ((borrowAmount && borrowTime !== 0) && (borrowAmount <= BorrowingPower)){
+            setLoading(true);
+            setApproving(true);
+            const signer = Provider.getSigner();
+            const contract = new ethers.Contract(
+                "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27",
+                nftABI,
+                signer
+                );
+                const Tx1 = await approveToken(contract, "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27", tokenId);
+                const receipt1 = await Tx1.wait();
+                if (receipt1.status === 1) {
+                    console.log("Transaction confirmed with", receipt1);
+                    setApproving(false);
+                    const Tx2 = await borrow(protocolContract, borrowAmount, tokenContract, tokenId, borrowTime);
+                    const receipt2 = await Tx2.wait();
+                    if (receipt2.status === 1) {
+                        setLoading(false);
+                        console.log("Transaction confirmed with", receipt2);
+                        navigate('/portfolio');
                     }
-                    else if (receipt1.status === 0) {
-                        setApproving(false);
-                        alert("Approval failed please retry")
+                    else if (receipt2.status === 0) {
+                        alert("Transfer failed please retry");
+                        setLoading(false);
                     }
+                }
+                else if (receipt1.status === 0) {
+                    setApproving(false);
+                    alert("Approval failed please retry")
+                }
             }
             else {
                 alert(`Enter Amount and Time correctly, Amount should br less than ${BorrowingPower}`, BorrowingPower);
@@ -151,19 +176,19 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
             console.error(e);
         }
     }
-        // closing popup by esc key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") {
-                try {
-                    let k1 = document.getElementsByClassName('borrow_popup');
-                    let k2 = document.getElementsByClassName('lend_popup');
-                    k1[0].style.display = 'none';
-                    k2[0].style.display = 'none';
-                } catch (e) {
-                    console.error(e);
-                }
+    // closing popup by esc key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            try {
+                let k1 = document.getElementsByClassName('borrow_popup');
+                let k2 = document.getElementsByClassName('lend_popup');
+                k1[0].style.display = 'none';
+                k2[0].style.display = 'none';
+            } catch (e) {
+                console.error(e);
             }
-        });
+        }
+    });
     
     return (
         <>
@@ -198,7 +223,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
                             </div>
                             <div className="input_borrow">
                                 <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => {setBorrowAmount(e.target.value)}} />
-                                <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e) => {getBorrowEpochTime(e.target.value)}} />
+                                <input type="datetime-local" onChange={(e) => {getBorrowEpochTime(e.target.value)}} />
                             </div>
                             <button onClick={()=>{Borrow()}}>{loading ? (approving ? 'Approving...' : 'Transfering...') : 'Borrow'}</button>
                         </div>
@@ -225,13 +250,14 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
                         </div>
                         <div className="input_borrow">
                             <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => { setAmount(e.target.value) }} />
-                            <input type="datetime-local" defaultValue={'2023-05-30 11:59'} onChange={(e) => { getEpochTime(e.target.value) }} />
+                            <input type="datetime-local" onChange={(e) => { getEpochTime(e.target.value) }} />
                         </div>
                         <button className='lend_bttn_popup' onClick={() => { Lend() }}>Lend</button>
                     </div>
                 </div>
                 <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
             </div>
+            <div className="hide_div"></div>
         </>
     );
 }

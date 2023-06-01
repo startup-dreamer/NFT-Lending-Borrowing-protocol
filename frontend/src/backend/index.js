@@ -10,7 +10,8 @@ export {
 } from './Lenders';
 
 export {
-    borrow, repay, 
+    borrow, 
+    repay, 
     getNftCollateralValue, 
     getPrice, 
     approveToken, 
