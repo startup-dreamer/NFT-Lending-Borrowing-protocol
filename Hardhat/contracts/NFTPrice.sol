@@ -17,6 +17,7 @@ contract NFTPrice {
     address constant MAYC_PRICEFEED_CONTRACT_ADDRESS = 0xCbDcc8788019226d09FcCEb4C727C48A062D8124;
     address constant VEEFRIENDS_PRICEFEED_CONTRACT_ADDRESS = 0x4b531A318B0e44B549F3b2f824721b3D0d51930A;
     address constant WORLD_OF_WOMAN_PRICEFEED_CONTRACT_ADDRESS = 0x2748A42aBd328835DFDA748bdD1D77Ce3c3312EE;
+    address constant ETH_TO_USD_PRICEFEED = 0x694AA1769357215DE4FAC081bf1f309aDC325306; //Gperli 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
 
 /*************************************** [Public Function] ***************************************/
 
@@ -35,7 +36,7 @@ contract NFTPrice {
         owner != address(0),
         "Azuki NFT doesn't exists"
       );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(AZUKI_PRICEFEED_CONTRACT_ADDRESS);
     } 
     // BAYC
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("BAYC"))) {
@@ -43,7 +44,7 @@ contract NFTPrice {
         owner != address(0), 
         "BAYC NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(BAYC_PRICEFEED_CONTRACT_ADDRESS);
     } 
     // CloneX    
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("CloneX"))) {
@@ -51,7 +52,7 @@ contract NFTPrice {
         owner != address(0), 
         "CloneX NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(CLONEX_PRICEFEED_CONTRACT_ADDRESS);
     } 
     // CoolCats    
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("COOL"))) {
@@ -59,7 +60,7 @@ contract NFTPrice {
         owner != address(0), 
         "CoolCats NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(COOLSCATS_PRICEFEED_CONTRACT_ADDRESS);
     } 
     // CryptoPunks    
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode(unicode"Ͼ"))) {
@@ -67,7 +68,7 @@ contract NFTPrice {
         owner != address(0), 
         "CryptoPunks NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(CRYPTOADZ_PRICEFEED_CONTRACT_ADDRESS);
     }
     // Cryptoadz 
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("TOADZ"))) {
@@ -75,7 +76,7 @@ contract NFTPrice {
         owner != address(0), 
         "Cryptoadz NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(CRYPTOADZ_PRICEFEED_CONTRACT_ADDRESS);
     }
     // Doodles
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("DOODLE"))) {
@@ -83,7 +84,7 @@ contract NFTPrice {
         owner != address(0), 
         "Doodles NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(DOODLES_PRICEFEED_CONTRACT_ADDRESS);
     }
     // MAYC 
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("MAYC"))) {
@@ -91,7 +92,7 @@ contract NFTPrice {
         owner != address(0), 
         "MAYC NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(MAYC_PRICEFEED_CONTRACT_ADDRESS);
     }
     // World of Women 
     else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("WOW"))) {
@@ -99,7 +100,7 @@ contract NFTPrice {
         owner != address(0), 
         "World of Women NFT doesn't exists"
         );
-      return _getPrice(address(nftContract));
+      return _getNFTPrice(WORLD_OF_WOMAN_PRICEFEED_CONTRACT_ADDRESS);
     } else {
       // revert(
       //   "Unsupported token contract"
@@ -109,9 +110,14 @@ contract NFTPrice {
     }
   }
 
+  function get_ETHtoUSD_Price() public view returns (uint256) {
+    uint256 ETH_USD_Price = _getNFTPrice(ETH_TO_USD_PRICEFEED);
+    return ETH_USD_Price;
+  }
+
 /*************************************** [Internal Function] ***************************************/
 
-  function _getPrice(
+  function _getNFTPrice(
     address _priceFeed
     ) internal view returns (uint256) {
     AggregatorV3Interface priceFeed = AggregatorV3Interface(_priceFeed);
