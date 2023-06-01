@@ -9,7 +9,6 @@ import {motion} from "framer-motion";
 
 const Content = ({Contract, Provider}) => {
     const nftStatsRef = useRef(null);
-    const [handleChange, setHandleChange] = useState(false);
     const [nftStatsVisible, setNftStatsVisible] = useState("hidden");
     const [data, setData] = useState({
         totalSupply: "-",
@@ -188,7 +187,7 @@ useEffect(()=> {
             </div>
             {/* Popup divs */}
             <div>
-                <Popup Contract={Contract} handleChange={handleChange} totalSupply={data.totalSupply} totalBorrow={data.totalBorrow} LIR={data.LIR}/>
+                <Popup protocolContract={Contract} Provider={Provider} totalSupply={data.totalSupply} totalBorrow={data.totalBorrow} LIR={data.LIR}/>
             </div>
         </div>
     );
