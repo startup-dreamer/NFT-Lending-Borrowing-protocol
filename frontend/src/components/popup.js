@@ -92,7 +92,6 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
     
     const handleFetchNFT = async () => {
         try {
-<<<<<<< HEAD
         setFetching(true);
         if (tokenContract && tokenId !== null) {
             const data = await getmetadata(tokenContract, tokenId);
@@ -105,19 +104,6 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
             setFetching(false);
             setMaxLtV(maxltv / 100)
             console.log(data);
-=======
-            setFetching(true);
-            if (tokenContract && tokenId !== null) {
-                const data = await getmetadata(tokenContract, tokenId);
-                const nftvalue = await getNftCollateralValue(protocolContract, tokenContract, tokenId);
-                const maxltv = await getmaxLtv(protocolContract);
-                const borrowingpower = (maxltv * nftvalue) / 1e22;
-                setMetadata(data);
-                setNFTValue(nftvalue / 1e18);
-                setBorrwingPower(borrowingpower);
-                setFetching(false);
-                console.log(data);
->>>>>>> 59fb67c7abe73ca46bf63fecb508aa527d07f011
             console.log(maxltv); 
         }
         else {
