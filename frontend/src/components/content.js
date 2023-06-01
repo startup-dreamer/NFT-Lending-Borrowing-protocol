@@ -70,6 +70,10 @@ useEffect(()=> {
         try {
             let k = document.getElementsByClassName('borrow_popup');
             k[0].style.display = 'flex';
+            let hide_div = document.getElementsByClassName('hide_div');
+            hide_div[0].style.display = 'block';
+            document.body.style.height = '100%';
+            document.body.style.overflowY = 'hidden';
         } catch { }
     }
 
@@ -77,6 +81,10 @@ useEffect(()=> {
         try{
             let k = document.getElementsByClassName('lend_popup');
             k[0].style.display = 'flex';
+            let hide_div = document.getElementsByClassName('hide_div');
+            hide_div[0].style.display = 'block';
+            document.body.style.height = '100%';
+            document.body.style.overflowY = 'hidden';
         } catch{}
     }
 
@@ -137,8 +145,8 @@ useEffect(()=> {
                     <div className="right_stats_card">
                         {/* Tere ko yaha se apna content add karna hai */}
                         <div className="total_stats_card" style={{'display':'flex', 'columnGap':'28px'}}>
-                            <div>Total Supply<br /><span>{data.totalSupply} ETH</span></div>
-                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH</span></div>
+                            <div>Total Supply<br /><span>{data.totalSupply} ETH</span> <br /> <span style={{'fontSize':'17px', 'fontWeight':'400'}}>$1500</span></div>
+                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH</span> <br /> <span style={{'fontSize':'17px', 'fontWeight':'400'}}>$1500</span></div>
                         </div>
                         <div className="interest_rates_card">
                             <div className="left_card_interest">
