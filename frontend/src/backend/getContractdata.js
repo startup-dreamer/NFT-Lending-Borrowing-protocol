@@ -45,34 +45,6 @@ const getOwner = async (contract) => {
   }
 }
 
-const getDeposits = async (contract, address) => {
-  try {
-    const allDeposits = await contract.deposits(address, 0);
-    const amount = parseInt(allDeposits.amount);
-    const currency = parseInt(allDeposits.time);
-    const date = parseInt(allDeposits.interest);
-    return [amount, currency, date];
-  } catch (error) {
-    console.error("Error in getDeposits(): ", error);
-  }
-}
-
-const getLoans = async (contract, address) => {
-  try {
-    const allLoans = await contract.loans(address, 0);
-    const borrower = parseInt(allLoans.borrower);
-    const tokenContract = parseInt(allLoans.tokenContract);
-    const tokenId = parseInt(allLoans.tokenId);
-    const amount = parseInt(allLoans.amount);
-    const collateralValue = parseInt(allLoans.collateralValue);
-    const interest = parseInt(allLoans.interest);
-    const time = parseInt(allLoans.time);
-    const active = allLoans.active;
-    return [borrower, tokenContract, tokenId, amount, collateralValue, interest, time, active];
-  } catch (error) {
-    console.error("Error in getLoans(): ", error);
-  }
-}
 const getTotalSupply = async (contract) => {
   try {
     const totalsupply = await contract.totalSupply();
@@ -105,9 +77,19 @@ const getTotalDepositedNFTs = async (contract) => {
 
 const getTotalLiquidatedNFTs = async (contract) => {
   try {
-    return 10
+    return 0
   } catch (error) {
     console.log(error);
+  }
+}
+
+const getUtilization = async (contract) => {
+  try {
+    const utilization = await contract.getUtilization();
+    const Utilization = bigNumToNum(utilization);
+    return Utilization
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -123,7 +105,8 @@ export {
   getTotalBorrow,
   getTotalDepositedNFTs,
   getTotalLiquidatedNFTs,
-  bigNumToNum
+  bigNumToNum,
+  getUtilization,
 };
 
 

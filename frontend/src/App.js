@@ -34,7 +34,7 @@ function App() {
         <Route path='/portfolio' element={
           <>
             <Navbar setContract={setContract} setProvider={setProvider}/>          
-            <Portfolio Contract={Contract}/>
+            <Portfolio Contract={Contract} Provider={Provider}/>
           </>
         } />
       </Routes>

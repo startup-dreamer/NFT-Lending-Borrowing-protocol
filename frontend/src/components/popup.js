@@ -61,6 +61,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
     const [NFTValue, setNFTValue] = useState(undefined);
     const [BorrowingPower, setBorrwingPower] = useState(undefined);
     const [borrowAmount, setBorrowAmount] = useState(0);
+    const [maxLtV, setMaxLtV] = useState(0);
     const [borrowTime, setBorrowTime] = useState(0);
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(false);
@@ -90,6 +91,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
             setNFTValue(nftvalue / 1e18);
             setBorrwingPower(borrowingpower);
             setFetching(false);
+            setMaxLtV(maxltv / 100)
             console.log(data);
             console.log(maxltv); 
         }
@@ -190,7 +192,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
                                 <div className="right_info_popup">
                                     <span>{metadata.contract.name}</span>
                                     <span>{NFTValue} ETH</span>
-                                    <span>{BorrowingPower} ETH</span>
+                                    <span>{BorrowingPower} ETH (Loan to Value ratio {maxLtV} %)</span>
                                     <span>{metadata.description}</span>
                                 </div>
                             </div>

@@ -1,5 +1,4 @@
-// import { EthersEvent } from "alchemy-sdk/dist/src/internal/ethers-event";
-
+import { bigNumToNum } from "./getContractdata";
 
 const deposit_to_pool = async(contract, time, amount) => {
     try {
@@ -19,7 +18,34 @@ const withdraw_to_pool = async(contract, time, depId) => {
     }
 };
 
-export {deposit_to_pool, withdraw_to_pool};
+const getDeposits = async (contract, address, depositId) => {
+    try {
+      const allDeposits = await contract.deposits(address, depositId);
+      const amount = parseInt(allDeposits.amount);
+      const time = parseInt(allDeposits.time);
+      const interest = parseInt(allDeposits.interest);
+      return ({
+        Amount: amount, 
+        Time: time, 
+        Interest: interest
+        });
+    } catch (error) {
+      console.error("Error in getDeposits(): ", error);
+    }
+}
+  
+const getIndividualDepositNum = async (contract, address) => {
+    const individualDepositNum = contract.individualDepositNum(address);
+    const IndividualDepositNum = bigNumToNum(individualDepositNum);
+    return IndividualDepositNum
+}
+
+export {
+    deposit_to_pool, 
+    withdraw_to_pool, 
+    getDeposits,
+    getIndividualDepositNum
+};
 
 // {
         // totalsupply: in ETH
