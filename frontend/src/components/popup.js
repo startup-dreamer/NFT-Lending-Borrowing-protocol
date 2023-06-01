@@ -8,7 +8,7 @@ import nftABI from '../backend/Nft-erc721-abi.json';
 import { getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow } from '../backend';
 
 
-const Popup = ({ Contract, handleChange, totalSupply, totalBorrow, LIR }) => {
+const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) => {
     const navigate = useNavigate();
 
 /**************************************************** LEND ****************************************************/
