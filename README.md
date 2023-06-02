@@ -7,7 +7,7 @@
 
 <center>
 
-![Schema of the Contract](./Hardhat/graph.svg "Schema") 
+![Schema of the Contract](./Hardhat/graph.png "Schema" )
 
 </center>
 
