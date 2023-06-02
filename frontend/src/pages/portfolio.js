@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool } from '../backend';
+import {call, getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool } from '../backend';
 import '../App.css';
 
 const Portfolio = ({Contract, Provider}) => {
@@ -102,6 +102,7 @@ const withdrawFromPool = async (Contract, depositId) => {
     }
 }
 
+call();
     return (
         <div>
         </div>

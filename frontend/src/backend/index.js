@@ -33,3 +33,6 @@ export {
     get_ETHtoUSD_Price
 } from './getContractdata';
 
+export {
+    call
+} from './graphqueries'
