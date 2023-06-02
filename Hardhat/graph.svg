@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="983pt" height="809pt" viewBox="0.00 0.00 982.89 809">
-<g id="graph0" class="graph" transform="translate(-76.41658424094078,1025.4069492333974) scale(1.256349000676101)" data-name="G">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="983pt" height="809pt" viewBox="0.00 0.00 982.89 809.00">
+<g id="graph0" class="graph" transform="translate(4,805) scale(1)" data-name="G">
 
-<polygon fill="#2e3e56" stroke="none" points="-4,4 -4,-805 978.89,-805 978.89,4 -4,4"/>
+<polygon fill="#2e3e56" stroke="none" points="-4,4 -4,-805 978.89,-805 978.89,4 -4,4" style=""/>
 <g id="clust1" class="cluster" data-name="clusterAurumV1core">
 
 <path fill="#445773" stroke="#445773" d="M20,-201C20,-201 954.89,-201 954.89,-201 960.89,-201 966.89,-207 966.89,-213 966.89,-213 966.89,-644 966.89,-644 966.89,-650 960.89,-656 954.89,-656 954.89,-656 20,-656 20,-656 14,-656 8,-650 8,-644 8,-644 8,-213 8,-213 8,-207 14,-201 20,-201" style=""/>
@@ -31,284 +31,289 @@
 <!-- AurumV1core.&lt;Constructor&gt; -->
 <g id="node1" class="node" pointer-events="visible" data-name="AurumV1core.&lt;Constructor&gt;">
 
-<ellipse fill="#ff9797" stroke="brown" stroke-width="3" cx="123.58" cy="-605" rx="67.55" ry="18"/>
+<ellipse fill="#ff9797" stroke="brown" stroke-width="3" cx="123.58" cy="-605" rx="67.55" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-600.8" font-family="Times,serif" font-size="14.00">&lt;Constructor&gt;</text>
 </g>
 <!-- AurumV1core.&lt;Fallback&gt; -->
 <g id="node2" class="node" pointer-events="visible" data-name="AurumV1core.&lt;Fallback&gt;">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="123.58" cy="-551" rx="55.36" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="123.58" cy="-551" rx="55.36" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-546.8" font-family="Times,serif" font-size="14.00">&lt;Fallback&gt;</text>
 </g>
 <!-- AurumV1core.&lt;Receive Ether&gt; -->
 <g id="node3" class="node" pointer-events="visible" data-name="AurumV1core.&lt;Receive Ether&gt;">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="123.58" cy="-497" rx="76.21" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="123.58" cy="-497" rx="76.21" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-492.8" font-family="Times,serif" font-size="14.00">&lt;Receive Ether&gt;</text>
 </g>
-<!-- AurumV1core.depositToPool --><g id="edge1" class="edge" data-name="AurumV1core.depositToPool-&gt;AurumV1core.address" data-comment="AurumV1core.depositToPool">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M681.09,-491.15C699.52,-487.21 718.84,-480.7 734.54,-470 793,-430.16 832.62,-354.34 851.33,-311.84"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="854.47,-313.41 855.17,-302.83 848.03,-310.66 854.47,-313.41"/>
-</g>
+<!-- AurumV1core.depositToPool -->
 <g id="node4" class="node" pointer-events="visible" data-name="AurumV1core.depositToPool">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="615.69" cy="-497" rx="67.24" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="615.69" cy="-497" rx="67.24" ry="18" style=""/>
 <text text-anchor="middle" x="615.69" y="-492.8" font-family="Times,serif" font-size="14.00">depositToPool</text>
 </g>
 <!-- AurumV1core.address -->
 <g id="node14" class="node" pointer-events="visible" data-name="AurumV1core.address">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-281" rx="40" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-281" rx="40" ry="18" style=""/>
 <text text-anchor="middle" x="864.71" y="-276.8" font-family="Times,serif" font-size="14.00">address</text>
 </g>
 <!-- AurumV1core.depositToPool&#45;&gt;AurumV1core.address -->
+<g id="edge1" class="edge" data-name="AurumV1core.depositToPool-&gt;AurumV1core.address">
 
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M681.09,-491.15C699.52,-487.21 718.84,-480.7 734.54,-470 793,-430.16 832.62,-354.34 851.33,-311.84" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="854.47,-313.41 855.17,-302.83 848.03,-310.66 854.47,-313.41" style=""/>
+</g>
 <!-- AurumV1core.withdrawFromPool -->
 <g id="node5" class="node" pointer-events="visible" data-name="AurumV1core.withdrawFromPool">
 
-<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-443" rx="86.29" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-443" rx="86.29" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-438.8" font-family="Times,serif" font-size="14.00">withdrawFromPool</text>
 </g>
-<!-- AurumV1core.borrow --><g id="edge2" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.getNftCollateralValue" data-comment="AurumV1core.borrow">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M163.68,-389C188.23,-389 221.22,-389 253.28,-389"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="252.95,-392.5 262.95,-389 252.95,-385.5 252.95,-392.5"/>
-</g>
+<!-- AurumV1core.borrow -->
 <g id="node6" class="node" pointer-events="visible" data-name="AurumV1core.borrow">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="123.58" cy="-389" rx="38.86" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="123.58" cy="-389" rx="38.86" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-384.8" font-family="Times,serif" font-size="14.00">borrow</text>
 </g>
 <!-- AurumV1core.getNftCollateralValue -->
 <g id="node11" class="node" pointer-events="visible" data-name="AurumV1core.getNftCollateralValue">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="364" cy="-389" rx="96.68" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="364" cy="-389" rx="96.68" ry="18" style=""/>
 <text text-anchor="middle" x="364" y="-384.8" font-family="Times,serif" font-size="14.00">getNftCollateralValue</text>
 </g>
-<!-- AurumV1core.borrow&#45;&gt;AurumV1core.getNftCollateralValue --><g id="edge6" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.depositERC721Collateral" data-comment="AurumV1core.borrow-&gt;AurumV1core.getNftCollateralValue">
+<!-- AurumV1core.borrow&#45;&gt;AurumV1core.getNftCollateralValue -->
+<g id="edge2" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.getNftCollateralValue">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M163.53,-386.91C185.39,-383.96 212.03,-377.21 231.16,-362 258.53,-340.22 239.1,-312.9 267.16,-292 331.7,-243.91 421.3,-228.03 493.36,-223.98"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="493.29,-227.49 503.12,-223.52 492.96,-220.5 493.29,-227.49"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M163.68,-389C188.23,-389 221.22,-389 253.28,-389" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="252.95,-392.5 262.95,-389 252.95,-385.5 252.95,-392.5" style=""/>
 </g>
-
 <!-- AurumV1core.depositERC721Collateral -->
 <g id="node12" class="node" pointer-events="visible" data-name="AurumV1core.depositERC721Collateral">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-227" rx="110.05" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-227" rx="110.05" ry="18" style=""/>
 <text text-anchor="middle" x="615.69" y="-222.8" font-family="Times,serif" font-size="14.00">depositERC721Collateral</text>
 </g>
-<!-- AurumV1core.borrow&#45;&gt;AurumV1core.depositERC721Collateral --><g id="edge4" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.IERC165" data-comment="AurumV1core.borrow-&gt;AurumV1core.depositERC721Collateral">
+<!-- AurumV1core.borrow&#45;&gt;AurumV1core.depositERC721Collateral -->
+<g id="edge6" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.depositERC721Collateral">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M163.41,-386C184.98,-382.75 211.36,-376 231.16,-362 254.71,-345.35 241.72,-321.61 267.16,-308 316.27,-281.71 474.48,-307.2 559.47,-323.59"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="558.75,-327.01 569.23,-325.5 560.09,-320.14 558.75,-327.01"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M163.53,-386.91C185.39,-383.96 212.03,-377.21 231.16,-362 258.53,-340.22 239.1,-312.9 267.16,-292 331.7,-243.91 421.3,-228.03 493.36,-223.98" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="493.29,-227.49 503.12,-223.52 492.96,-220.5 493.29,-227.49" style=""/>
 </g>
-
 <!-- AurumV1core.IERC165 -->
 <g id="node15" class="node" pointer-events="visible" data-name="AurumV1core.IERC165">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-335" rx="47.54" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-335" rx="47.54" ry="18" style=""/>
 <text text-anchor="middle" x="615.69" y="-330.8" font-family="Times,serif" font-size="14.00">IERC165</text>
 </g>
-<!-- AurumV1core.borrow&#45;&gt;AurumV1core.IERC165 --><g id="edge5" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.type" data-comment="AurumV1core.borrow-&gt;AurumV1core.IERC165">
+<!-- AurumV1core.borrow&#45;&gt;AurumV1core.IERC165 -->
+<g id="edge4" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.IERC165">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M159.76,-397.57C188.46,-404.09 230.16,-412.53 267.16,-416 352.86,-424.04 375.08,-423.47 460.84,-416 500.2,-412.57 544.59,-404.3 575.53,-397.81"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="575.91,-401.31 584.96,-395.79 574.45,-394.46 575.91,-401.31"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M163.41,-386C184.98,-382.75 211.36,-376 231.16,-362 254.71,-345.35 241.72,-321.61 267.16,-308 316.27,-281.71 474.48,-307.2 559.47,-323.59" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="558.75,-327.01 569.23,-325.5 560.09,-320.14 558.75,-327.01" style=""/>
 </g>
-
 <!-- AurumV1core.type -->
 <g id="node16" class="node" pointer-events="visible" data-name="AurumV1core.type">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-389" rx="27.83" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-389" rx="27.83" ry="18" style=""/>
 <text text-anchor="middle" x="615.69" y="-384.8" font-family="Times,serif" font-size="14.00">type</text>
 </g>
-<!-- AurumV1core.borrow&#45;&gt;AurumV1core.type --><g id="edge3" class="edge" data-name="AurumV1core.borrow-&gt;collateralValue.mul" data-comment="AurumV1core.borrow-&gt;AurumV1core.type">
+<!-- AurumV1core.borrow&#45;&gt;AurumV1core.type -->
+<g id="edge5" class="edge" data-name="AurumV1core.borrow-&gt;AurumV1core.type">
 
-<path fill="none" stroke="white" stroke-width="2" d="M163.82,-388.8C186.48,-386.57 213.84,-379.9 231.16,-362 283.34,-308.05 222.79,-257.55 267.16,-197 281.71,-177.14 305.76,-163.36 326.13,-154.57"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="327.43,-157.82 335.41,-150.85 324.83,-151.32 327.43,-157.82"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M159.76,-397.57C188.46,-404.09 230.16,-412.53 267.16,-416 352.86,-424.04 375.08,-423.47 460.84,-416 500.2,-412.57 544.59,-404.3 575.53,-397.81" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="575.91,-401.31 584.96,-395.79 574.45,-394.46 575.91,-401.31" style=""/>
 </g>
-
 <!-- collateralValue.mul -->
 <g id="node19" class="node" pointer-events="visible" data-name="collateralValue.mul">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="364" cy="-142" rx="27" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="364" cy="-142" rx="27" ry="18" style=""/>
 <text text-anchor="middle" x="364" y="-137.8" font-family="Times,serif" font-size="14.00">mul</text>
 </g>
-<!-- AurumV1core.borrow&#45;&gt;collateralValue.mul --><g id="edge7" class="edge" data-name="AurumV1core.borrow-&gt;_amount.mul" data-comment="AurumV1core.borrow-&gt;collateralValue.mul">
+<!-- AurumV1core.borrow&#45;&gt;collateralValue.mul -->
+<g id="edge3" class="edge" data-name="AurumV1core.borrow-&gt;collateralValue.mul">
 
-<path fill="none" stroke="white" stroke-width="2" d="M163.77,-389.29C186.7,-387.27 214.36,-380.66 231.16,-362 306.25,-278.56 204.1,-204.88 267.16,-112 281.05,-91.53 305.27,-77.73 325.88,-69.07"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="326.93,-72.41 334.99,-65.53 324.4,-65.89 326.93,-72.41"/>
+<path fill="none" stroke="white" stroke-width="2" d="M163.82,-388.8C186.48,-386.57 213.84,-379.9 231.16,-362 283.34,-308.05 222.79,-257.55 267.16,-197 281.71,-177.14 305.76,-163.36 326.13,-154.57" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="327.43,-157.82 335.41,-150.85 324.83,-151.32 327.43,-157.82" style=""/>
 </g>
-
 <!-- _amount.mul -->
 <g id="node20" class="node" pointer-events="visible" data-name="_amount.mul">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="364" cy="-57" rx="27" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="364" cy="-57" rx="27" ry="18" style=""/>
 <text text-anchor="middle" x="364" y="-52.8" font-family="Times,serif" font-size="14.00">mul</text>
 </g>
 <!-- AurumV1core.borrow&#45;&gt;_amount.mul -->
+<g id="edge7" class="edge" data-name="AurumV1core.borrow-&gt;_amount.mul">
 
-<!-- AurumV1core.repay --><g id="edge10" class="edge" data-name="AurumV1core.repay-&gt;AurumV1core.withdrawERC721Collateral" data-comment="AurumV1core.repay">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M395.86,-328.32C429.33,-321.09 484.18,-309.22 530.59,-299.19"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="531.13,-302.65 540.16,-297.12 529.65,-295.81 531.13,-302.65"/>
+<path fill="none" stroke="white" stroke-width="2" d="M163.77,-389.29C186.7,-387.27 214.36,-380.66 231.16,-362 306.25,-278.56 204.1,-204.88 267.16,-112 281.05,-91.53 305.27,-77.73 325.88,-69.07" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="326.93,-72.41 334.99,-65.53 324.4,-65.89 326.93,-72.41" style=""/>
 </g>
+<!-- AurumV1core.repay -->
 <g id="node7" class="node" pointer-events="visible" data-name="AurumV1core.repay">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="364" cy="-335" rx="32.46" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="364" cy="-335" rx="32.46" ry="18" style=""/>
 <text text-anchor="middle" x="364" y="-330.8" font-family="Times,serif" font-size="14.00">repay</text>
 </g>
-<!-- AurumV1core.withdrawERC721Collateral --><g id="edge8" class="edge" data-name="AurumV1core.repay-&gt;AurumV1core.IERC165" data-comment="AurumV1core.withdrawERC721Collateral">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M397.9,-335C437.44,-335 504.6,-335 553.72,-335"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="553.71,-338.5 563.71,-335 553.71,-331.5 553.71,-338.5"/>
-</g>
+<!-- AurumV1core.withdrawERC721Collateral -->
 <g id="node13" class="node" pointer-events="visible" data-name="AurumV1core.withdrawERC721Collateral">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-281" rx="118.7" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-281" rx="118.7" ry="18" style=""/>
 <text text-anchor="middle" x="615.69" y="-276.8" font-family="Times,serif" font-size="14.00">withdrawERC721Collateral</text>
 </g>
-<!-- AurumV1core.repay&#45;&gt;AurumV1core.withdrawERC721Collateral --><g id="edge9" class="edge" data-name="AurumV1core.repay-&gt;AurumV1core.type" data-comment="AurumV1core.repay-&gt;AurumV1core.withdrawERC721Collateral">
+<!-- AurumV1core.repay&#45;&gt;AurumV1core.withdrawERC721Collateral -->
+<g id="edge10" class="edge" data-name="AurumV1core.repay-&gt;AurumV1core.withdrawERC721Collateral">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M395.86,-341.68C441.14,-351.47 525.55,-369.72 575.26,-380.47"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="574.23,-383.83 584.74,-382.52 575.71,-376.99 574.23,-383.83"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M395.86,-328.32C429.33,-321.09 484.18,-309.22 530.59,-299.19" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="531.13,-302.65 540.16,-297.12 529.65,-295.81 531.13,-302.65" style=""/>
+</g>
+<!-- AurumV1core.repay&#45;&gt;AurumV1core.IERC165 -->
+<g id="edge8" class="edge" data-name="AurumV1core.repay-&gt;AurumV1core.IERC165">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M397.9,-335C437.44,-335 504.6,-335 553.72,-335" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="553.71,-338.5 563.71,-335 553.71,-331.5 553.71,-338.5" style=""/>
+</g>
+<!-- AurumV1core.repay&#45;&gt;AurumV1core.type -->
+<g id="edge9" class="edge" data-name="AurumV1core.repay-&gt;AurumV1core.type">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M395.86,-341.68C441.14,-351.47 525.55,-369.72 575.26,-380.47" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="574.23,-383.83 584.74,-382.52 575.71,-376.99 574.23,-383.83" style=""/>
 </g>
 <!-- AurumV1core.set_Borrow_InterestRate -->
-<!-- AurumV1core.repay&#45;&gt;AurumV1core.IERC165 -->
-<!-- AurumV1core.setLoanToCollateral -->
-<!-- AurumV1core.repay&#45;&gt;AurumV1core.type -->
-<!-- AurumV1core.getUtilization -->
-<g id="node8" class="node" pointer-events="visible" data-name="AurumV1core.set_Borrow_InterestRate" data-comment="AurumV1core.getUtilization">
+<g id="node8" class="node" pointer-events="visible" data-name="AurumV1core.set_Borrow_InterestRate">
 
-<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-335" rx="107.66" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-335" rx="107.66" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-330.8" font-family="Times,serif" font-size="14.00">set_Borrow_InterestRate</text>
-</g><g id="node9" class="node" pointer-events="visible" data-name="AurumV1core.setLoanToCollateral" data-comment="AurumV1core.getUtilization">
+</g>
+<!-- AurumV1core.setLoanToCollateral -->
+<g id="node9" class="node" pointer-events="visible" data-name="AurumV1core.setLoanToCollateral">
 
-<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-281" rx="90.32" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-281" rx="90.32" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-276.8" font-family="Times,serif" font-size="14.00">setLoanToCollateral</text>
-</g><g id="node10" class="node" pointer-events="visible" data-name="AurumV1core.getUtilization">
+</g>
+<!-- AurumV1core.getUtilization -->
+<g id="node10" class="node" pointer-events="visible" data-name="AurumV1core.getUtilization">
 
-<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-227" rx="64.27" ry="18"/>
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="123.58" cy="-227" rx="64.27" ry="18" style=""/>
 <text text-anchor="middle" x="123.58" y="-222.8" font-family="Times,serif" font-size="14.00">getUtilization</text>
 </g>
 <!-- AurumV1core.getNftCollateralValue&#45;&gt;AurumV1core.IERC165 -->
 <g id="edge12" class="edge" data-name="AurumV1core.getNftCollateralValue-&gt;AurumV1core.IERC165">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M430.93,-374.74C471.3,-366.01 522.33,-354.97 560.37,-346.75"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="560.75,-350.25 569.78,-344.71 559.27,-343.41 560.75,-350.25"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M430.93,-374.74C471.3,-366.01 522.33,-354.97 560.37,-346.75" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="560.75,-350.25 569.78,-344.71 559.27,-343.41 560.75,-350.25" style=""/>
 </g>
 <!-- AurumV1core.getNftCollateralValue&#45;&gt;AurumV1core.type -->
 <g id="edge13" class="edge" data-name="AurumV1core.getNftCollateralValue-&gt;AurumV1core.type">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M461.89,-389C500.65,-389 543.19,-389 573.52,-389"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="573.51,-392.5 583.51,-389 573.51,-385.5 573.51,-392.5"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M461.89,-389C500.65,-389 543.19,-389 573.52,-389" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="573.51,-392.5 583.51,-389 573.51,-385.5 573.51,-392.5" style=""/>
 </g>
 <!-- AurumV1core.getNFTPrice -->
 <g id="node17" class="node" pointer-events="visible" data-name="AurumV1core.getNFTPrice">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-443" rx="60.84" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="615.69" cy="-443" rx="60.84" ry="18" style=""/>
 <text text-anchor="middle" x="615.69" y="-438.8" font-family="Times,serif" font-size="14.00">getNFTPrice</text>
 </g>
 <!-- AurumV1core.getNftCollateralValue&#45;&gt;AurumV1core.getNFTPrice -->
 <g id="edge11" class="edge" data-name="AurumV1core.getNftCollateralValue-&gt;AurumV1core.getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M430.93,-403.26C468.28,-411.34 514.76,-421.39 551.63,-429.36"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="550.77,-432.76 561.28,-431.45 552.25,-425.91 550.77,-432.76"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M430.93,-403.26C468.28,-411.34 514.76,-421.39 551.63,-429.36" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="550.77,-432.76 561.28,-431.45 552.25,-425.91 550.77,-432.76" style=""/>
 </g>
 <!-- AurumV1core.depositERC721Collateral&#45;&gt;AurumV1core.address -->
 <g id="edge19" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;AurumV1core.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M685.83,-242.11C726.81,-251.07 777.78,-262.21 814.64,-270.27"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="813.57,-273.62 824.09,-272.34 815.07,-266.78 813.57,-273.62"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M685.83,-242.11C726.81,-251.07 777.78,-262.21 814.64,-270.27" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="813.57,-273.62 824.09,-272.34 815.07,-266.78 813.57,-273.62" style=""/>
 </g>
 <!-- AurumV1core.IERC721Enumerable -->
 <g id="node18" class="node" pointer-events="visible" data-name="AurumV1core.IERC721Enumerable">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-227" rx="94.34" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-227" rx="94.34" ry="18" style=""/>
 <text text-anchor="middle" x="864.71" y="-222.8" font-family="Times,serif" font-size="14.00">IERC721Enumerable</text>
 </g>
 <!-- AurumV1core.depositERC721Collateral&#45;&gt;AurumV1core.IERC721Enumerable -->
 <g id="edge14" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;AurumV1core.IERC721Enumerable">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M727.2,-227C736.82,-227 746.56,-227 756.16,-227"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="756.12,-230.5 766.12,-227 756.12,-223.5 756.12,-230.5"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M727.2,-227C736.82,-227 746.56,-227 756.16,-227" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="756.12,-230.5 766.12,-227 756.12,-223.5 756.12,-230.5" style=""/>
 </g>
 <!-- IERC721Enumerable.balanceOf -->
 <g id="node21" class="node" pointer-events="visible" data-name="IERC721Enumerable.balanceOf">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-34" rx="50.92" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-34" rx="50.92" ry="18" style=""/>
 <text text-anchor="middle" x="864.71" y="-29.8" font-family="Times,serif" font-size="14.00">balanceOf</text>
 </g>
 <!-- AurumV1core.depositERC721Collateral&#45;&gt;IERC721Enumerable.balanceOf -->
 <g id="edge15" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;IERC721Enumerable.balanceOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M625.95,-207.86C647.37,-171.37 703.65,-93.26 770.54,-52 779.71,-46.34 790.11,-41.83 800.56,-38.38"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="801.26,-41.82 809.88,-35.66 799.29,-35.1 801.26,-41.82"/>
+<path fill="none" stroke="white" stroke-width="2" d="M625.95,-207.86C647.37,-171.37 703.65,-93.26 770.54,-52 779.71,-46.34 790.11,-41.83 800.56,-38.38" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="801.26,-41.82 809.88,-35.66 799.29,-35.1 801.26,-41.82" style=""/>
 </g>
 <!-- AurumV1core.depositERC721Collateral&#45;&gt;IERC721Enumerable.balanceOf -->
+<g id="edge17" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;IERC721Enumerable.balanceOf">
 
+<path fill="none" stroke="white" stroke-width="2" d="M633.19,-207.76C658.45,-174.49 710.18,-107.24 770.54,-70 784.09,-61.64 800.34,-55.77 815.44,-51.25" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="816.21,-54.67 824.87,-48.56 814.29,-47.93 816.21,-54.67" style=""/>
+</g>
 <!-- IERC721Enumerable.ownerOf -->
 <g id="node22" class="node" pointer-events="visible" data-name="IERC721Enumerable.ownerOf">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-88" rx="45.22" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-88" rx="45.22" ry="18" style=""/>
 <text text-anchor="middle" x="864.71" y="-83.8" font-family="Times,serif" font-size="14.00">ownerOf</text>
 </g>
 <!-- AurumV1core.depositERC721Collateral&#45;&gt;IERC721Enumerable.ownerOf -->
 <g id="edge16" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;IERC721Enumerable.ownerOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M637.56,-208.1C665.79,-183.44 718.62,-140.44 770.54,-115 783.16,-108.82 797.46,-103.79 810.99,-99.83"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="811.5,-103.32 820.22,-97.3 809.65,-96.57 811.5,-103.32"/>
+<path fill="none" stroke="white" stroke-width="2" d="M637.56,-208.1C665.79,-183.44 718.62,-140.44 770.54,-115 783.16,-108.82 797.46,-103.79 810.99,-99.83" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="811.5,-103.32 820.22,-97.3 809.65,-96.57 811.5,-103.32" style=""/>
 </g>
-<!-- IERC721Enumerable.transferFrom --><g id="edge17" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;IERC721Enumerable.balanceOf" data-comment="IERC721Enumerable.transferFrom">
-
-<path fill="none" stroke="white" stroke-width="2" d="M633.19,-207.76C658.45,-174.49 710.18,-107.24 770.54,-70 784.09,-61.64 800.34,-55.77 815.44,-51.25"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="816.21,-54.67 824.87,-48.56 814.29,-47.93 816.21,-54.67"/>
-</g>
+<!-- IERC721Enumerable.transferFrom -->
 <g id="node23" class="node" pointer-events="visible" data-name="IERC721Enumerable.transferFrom">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-142" rx="61.41" ry="18"/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="864.71" cy="-142" rx="61.41" ry="18" style=""/>
 <text text-anchor="middle" x="864.71" y="-137.8" font-family="Times,serif" font-size="14.00">transferFrom</text>
 </g>
 <!-- AurumV1core.depositERC721Collateral&#45;&gt;IERC721Enumerable.transferFrom -->
 <g id="edge18" class="edge" data-name="AurumV1core.depositERC721Collateral-&gt;IERC721Enumerable.transferFrom">
 
-<path fill="none" stroke="white" stroke-width="2" d="M666.98,-209.7C708.58,-195.38 767.52,-175.1 810.03,-160.47"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="810.92,-163.87 819.24,-157.3 808.65,-157.25 810.92,-163.87"/>
+<path fill="none" stroke="white" stroke-width="2" d="M666.98,-209.7C708.58,-195.38 767.52,-175.1 810.03,-160.47" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="810.92,-163.87 819.24,-157.3 808.65,-157.25 810.92,-163.87" style=""/>
 </g>
 <!-- AurumV1core.withdrawERC721Collateral&#45;&gt;AurumV1core.address -->
 <g id="edge22" class="edge" data-name="AurumV1core.withdrawERC721Collateral-&gt;AurumV1core.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M728.28,-274.28C757.4,-274.14 787.42,-274.51 811.78,-275.38"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="811.52,-278.87 821.66,-275.79 811.81,-271.88 811.52,-278.87"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M728.28,-274.28C757.4,-274.14 787.42,-274.51 811.78,-275.38" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="811.52,-278.87 821.66,-275.79 811.81,-271.88 811.52,-278.87" style=""/>
 </g>
 <!-- AurumV1core.withdrawERC721Collateral&#45;&gt;AurumV1core.address -->
+<g id="edge24" class="edge" data-name="AurumV1core.withdrawERC721Collateral-&gt;AurumV1core.address">
 
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M728.28,-287.72C757.4,-287.86 787.42,-287.49 811.78,-286.62" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="811.81,-290.12 821.66,-286.21 811.52,-283.13 811.81,-290.12" style=""/>
+</g>
 <!-- AurumV1core.withdrawERC721Collateral&#45;&gt;AurumV1core.IERC721Enumerable -->
 <g id="edge20" class="edge" data-name="AurumV1core.withdrawERC721Collateral-&gt;AurumV1core.IERC721Enumerable">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M687.81,-265.45C718.62,-258.72 754.78,-250.81 786.28,-243.93"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="787.02,-247.35 796.04,-241.79 785.53,-240.51 787.02,-247.35"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M687.81,-265.45C718.62,-258.72 754.78,-250.81 786.28,-243.93" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="787.02,-247.35 796.04,-241.79 785.53,-240.51 787.02,-247.35" style=""/>
 </g>
 <!-- AurumV1core.withdrawERC721Collateral&#45;&gt;IERC721Enumerable.ownerOf -->
 <g id="edge21" class="edge" data-name="AurumV1core.withdrawERC721Collateral-&gt;IERC721Enumerable.ownerOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M711.67,-269.36C720.09,-265.46 727.92,-260.44 734.54,-254 780.3,-209.52 726.07,-160.77 770.54,-115 780.25,-105.01 793.4,-98.66 806.77,-94.64"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="807.23,-98.13 816.07,-92.3 805.52,-91.34 807.23,-98.13"/>
+<path fill="none" stroke="white" stroke-width="2" d="M711.67,-269.36C720.09,-265.46 727.92,-260.44 734.54,-254 780.3,-209.52 726.07,-160.77 770.54,-115 780.25,-105.01 793.4,-98.66 806.77,-94.64" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="807.23,-98.13 816.07,-92.3 805.52,-91.34 807.23,-98.13" style=""/>
 </g>
-<!-- AurumV1core.withdrawERC721Collateral&#45;&gt;IERC721Enumerable.transferFrom --><g id="edge24" class="edge" data-name="AurumV1core.withdrawERC721Collateral-&gt;AurumV1core.address" data-comment="AurumV1core.withdrawERC721Collateral-&gt;IERC721Enumerable.transferFrom">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M728.28,-287.72C757.4,-287.86 787.42,-287.49 811.78,-286.62"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="811.81,-290.12 821.66,-286.21 811.52,-283.13 811.81,-290.12"/>
-</g>
+<!-- AurumV1core.withdrawERC721Collateral&#45;&gt;IERC721Enumerable.transferFrom -->
 <g id="edge23" class="edge" data-name="AurumV1core.withdrawERC721Collateral-&gt;IERC721Enumerable.transferFrom">
 
-<path fill="none" stroke="white" stroke-width="2" d="M706.48,-268.36C716.46,-264.7 726.06,-260.01 734.54,-254 758.99,-236.68 749.04,-217.87 770.54,-197 783.99,-183.95 801.11,-172.71 817,-163.87"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="818.43,-167.07 825.61,-159.28 815.13,-160.89 818.43,-167.07"/>
+<path fill="none" stroke="white" stroke-width="2" d="M706.48,-268.36C716.46,-264.7 726.06,-260.01 734.54,-254 758.99,-236.68 749.04,-217.87 770.54,-197 783.99,-183.95 801.11,-172.71 817,-163.87" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="818.43,-167.07 825.61,-159.28 815.13,-160.89 818.43,-167.07" style=""/>
 </g>
 <!-- key -->
 <g id="node24" class="node" pointer-events="visible" data-name="key">
 
-<polygon fill="#edad56" stroke="none" stroke-width="3" points="188.58,-760 58.58,-760 58.58,-672 188.58,-672 188.58,-760"/>
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="188.58,-760 58.58,-760 58.58,-672 188.58,-672 188.58,-760" style=""/>
 <text text-anchor="start" x="108.22" y="-741.4" font-family="Times,serif" font-size="14.00">Internal Call</text>
 <text text-anchor="start" x="104.33" y="-721.4" font-family="Times,serif" font-size="14.00">External Call</text>
 <text text-anchor="start" x="81.78" y="-701.4" font-family="Times,serif" font-size="14.00">Defined Contract</text>
@@ -317,29 +322,24 @@
 <!-- key2 -->
 <g id="node25" class="node" pointer-events="visible" data-name="key2">
 
-<polygon fill="#edad56" stroke="none" stroke-width="3" points="391,-760 337,-760 337,-672 391,-672 391,-760"/>
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="391,-760 337,-760 337,-672 391,-672 391,-760" style=""/>
 <text text-anchor="start" x="354" y="-741.4" font-family="Times,serif" font-size="14.00">   </text>
 <text text-anchor="start" x="354" y="-721.4" font-family="Times,serif" font-size="14.00">   </text>
-<polygon fill="#445773" stroke="none" points="352,-696 352,-716 377,-716 377,-696 352,-696"/>
+<polygon fill="#445773" stroke="none" points="352,-696 352,-716 377,-716 377,-696 352,-696" style=""/>
 <text text-anchor="start" x="354" y="-701.4" font-family="Times,serif" font-size="14.00">   </text>
-<polygon fill="none" stroke="#e8726d" points="354,-678 354,-694 375,-694 375,-678 354,-678"/>
+<polygon fill="none" stroke="#e8726d" points="354,-678 354,-694 375,-694 375,-678 354,-678" style=""/>
 </g>
-
 <!-- key&#45;&gt;key2 -->
-
 <g id="edge25" class="edge" data-name="key-&gt;key2">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M181.58,-746C252.46,-746 273.3,-746 338.32,-746"/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="337.97,-749.5 347.97,-746 337.97,-742.5 337.97,-749.5"/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M181.58,-746C252.46,-746 273.3,-746 338.32,-746" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="337.97,-749.5 347.97,-746 337.97,-742.5 337.97,-749.5" style=""/>
 </g>
-
 <!-- key&#45;&gt;key2 -->
-
-
 <g id="edge26" class="edge" data-name="key-&gt;key2">
 
-<path fill="none" stroke="white" stroke-width="2" d="M181.58,-726C252.46,-726 273.3,-726 338.32,-726"/>
-<polygon fill="white" stroke="white" stroke-width="2" points="337.97,-729.5 347.97,-726 337.97,-722.5 337.97,-729.5"/>
+<path fill="none" stroke="white" stroke-width="2" d="M181.58,-726C252.46,-726 273.3,-726 338.32,-726" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="337.97,-729.5 347.97,-726 337.97,-722.5 337.97,-729.5" style=""/>
 </g>
 </g>
 </svg>
