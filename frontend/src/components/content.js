@@ -146,10 +146,9 @@ useEffect(()=> {
                 </div>
                 <div className="right_stats" style={{ 'color': 'white' }}>
                     <div className="right_stats_card">
-                        {/* Tere ko yaha se apna content add karna hai */}
                         <div className="total_stats_card" style={{'display':'flex', 'columnGap':'28px'}}>
                             <div>Total Supply<br /><span>{data.totalSupply} ETH <small>({(data.totalSupply * data.ethTousd).toFixed(2)} USD)</small></span></div>
-                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH <small>({(data.totalSupply * data.ethTousd).toFixed(2)} USD)</small></span></div>
+                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH <small>({(data.totalBorrow * data.ethTousd).toFixed(2)} USD)</small></span></div>
                         </div>
                         <div className="interest_rates_card">
                             <div className="left_card_interest">

@@ -5,7 +5,8 @@ export {
 export {
     deposit_to_pool, 
     withdraw_to_pool,
-    getDeposits
+    getDeposits,
+    getDepositId
 } from './Lenders';
 
 export {
@@ -14,7 +15,8 @@ export {
     getNftCollateralValue, 
     getPrice, 
     approveToken,
-    getLoans
+    getLoans,
+    getLoanId
 } from './Borrower';
 
 export {

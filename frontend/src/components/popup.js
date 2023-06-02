@@ -16,6 +16,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR, ETHt
     const [Time, setTime] = useState(0);
 
     function getEpochTime(value) {
+        console.log(value);        
         const date = new Date(value.replace(' ', 'T'));
         const epochTime = Math.floor(date.getTime() / 1000);
         setTime(epochTime);
@@ -141,6 +142,8 @@ const Borrow = async () => {
                         setLoading(false);
                         console.log("Transaction confirmed with", receipt2);
                         navigate('/portfolio');
+                        document.body.style.height = 'auto';
+                        document.body.style.overflowY = 'overlay';
                     }
                     else if (receipt2.status === 0) {
                         alert("Transfer failed please retry");
@@ -234,8 +237,7 @@ const Borrow = async () => {
                             </div>
                             <div className="right_info_popup">
                                 <span>{totalSupply} ETH <small>({(totalSupply * ETHtoUSD).toFixed(2)} USD)</small></span>
-                                <span>{totalBorrow} ETH <small>({(totalBorrow * ETHtoUSD).toFixed(2)} USD)</small></span>
-                                <sub style={{'fontSize':'15px', 'marginLeft': '5px', 'marginTop': '-5px'}}>$ {totalBorrow * ETHtoUSD}</sub>
+                                <span>{totalBorrow} ETH <small>({(totalBorrow * ETHtoUSD).toFixed(2)} USD)</small></span>                                
                                 <span>{LIR} % APY</span>
                             </div>
                         </div>

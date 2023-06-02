@@ -9,9 +9,9 @@ const borrow = async (contract, amount, tokenContract, tokenId, time) => {
     }
 }
 
-const repay = async (contract, loanId, time) => {
+const repay = async (contract, loanId) => {
     try {
-        const Tx = await contract.repay(loanId, time);
+        const Tx = await contract.repay(loanId);
         return Tx
     } catch (e) {
         console.error(e);
@@ -72,9 +72,11 @@ const getLoans = async (contract, address, loanId) => {
     }
   }
 
-// const getLoanId = async (contract, address) => {
-//     const 
-// }
+const getLoanId = async (contract, address) => {
+    const loanId = await contract.individualCOlletralNum(address);
+    const LoanId = parseInt(loanId);
+    return LoanId
+}
 
 export {
     borrow,
@@ -82,7 +84,8 @@ export {
     getNftCollateralValue, 
     getPrice, 
     approveToken,
-    getLoans
+    getLoans,
+    getLoanId
 }
 
 
