@@ -9,9 +9,9 @@ const borrow = async (contract, amount, tokenContract, tokenId, time) => {
     }
 }
 
-const repay = async (contract, loanId, time) => {
+const repay = async (contract, loanId) => {
     try {
-        const Tx = await contract.repay(loanId, time);
+        const Tx = await contract.repay(loanId);
         return Tx
     } catch (e) {
         console.error(e);
@@ -46,9 +46,9 @@ const approveToken = async (contract, approvingAddress, tokenId) => {
     }
 }
 
-const getLoans = async (contract, address, depositId) => {
+const getLoans = async (contract, address, loanId) => {
     try {
-      const allLoans = await contract.loans(address, depositId);
+      const allLoans = await contract.loans(address, loanId);
       const borrower = parseInt(allLoans.borrower);
       const tokenContract = parseInt(allLoans.tokenContract);
       const tokenId = parseInt(allLoans.tokenId);
@@ -57,7 +57,7 @@ const getLoans = async (contract, address, depositId) => {
       const interest = parseInt(allLoans.interest);
       const time = parseInt(allLoans.time);
       const active = allLoans.active;
-      return ({
+      return {
         Borrower: borrower, 
         TokenContract: tokenContract, 
         TokenId: tokenId, 
@@ -66,27 +66,26 @@ const getLoans = async (contract, address, depositId) => {
         Interest: interest, 
         Time: time, 
         Active: active
-        });
-
+    };
     } catch (error) {
       console.error("Error in getLoans(): ", error);
     }
-}
+  }
 
-const getindividualCOlletralNum = async (contract, address) => {
-    const individualColletralNum = await contract.individualCOlletralNum(address)
-    const IndividualColletralNum = bigNumToNum(individualColletralNum);
-    return IndividualColletralNum
+const getLoanId = async (contract, address) => {
+    const loanId = await contract.individualCOlletralNum(address);
+    const LoanId = parseInt(loanId);
+    return LoanId
 }
 
 export {
-    borrow, 
+    borrow,
     repay, 
     getNftCollateralValue, 
     getPrice, 
-    approveToken, 
-    getLoans, 
-    getindividualCOlletralNum
+    approveToken,
+    getLoans,
+    getLoanId
 }
 
 

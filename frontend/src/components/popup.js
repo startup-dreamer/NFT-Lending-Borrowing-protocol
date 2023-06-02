@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ethers } from "ethers"
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {ethers} from "ethers"
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png';
 import space from '../static/img/Lend_main.jpg';
 import nftABI from '../backend/Nft-erc721-abi.json';
-import { getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow } from '../backend';
+import {getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow} from '../backend';
 
 
-const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) => {
+const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR, ETHtoUSD}) => {
     const navigate = useNavigate();
 
 /**************************************************** LEND ****************************************************/
@@ -16,6 +16,7 @@ const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR }) =>
     const [Time, setTime] = useState(0);
 
     function getEpochTime(value) {
+        console.log(value);        
         const date = new Date(value.replace(' ', 'T'));
         const epochTime = Math.floor(date.getTime() / 1000);
         setTime(epochTime);
@@ -128,11 +129,11 @@ const Borrow = async () => {
             setApproving(true);
             const signer = Provider.getSigner();
             const contract = new ethers.Contract(
-                "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27",
+                tokenContract,
                 nftABI,
                 signer
                 );
-                const Tx1 = await approveToken(contract, "0x98490bD0924C2E4B8C2316e03AD04BBaDf69AE27", tokenId);
+                const Tx1 = await approveToken(contract, "0x481f5ecF06933713bBBF60433fd0cADAD921db3b", tokenId);
                 const receipt1 = await Tx1.wait();
                 if (receipt1.status === 1) {
                     console.log("Transaction confirmed with", receipt1);
@@ -143,6 +144,8 @@ const Borrow = async () => {
                         setLoading(false);
                         console.log("Transaction confirmed with", receipt2);
                         navigate('/portfolio');
+                        document.body.style.height = 'auto';
+                        document.body.style.overflowY = 'overlay';
                     }
                     else if (receipt2.status === 0) {
                         alert("Transfer failed please retry");
@@ -170,6 +173,10 @@ const Borrow = async () => {
                 let k2 = document.getElementsByClassName('lend_popup');
                 k1[0].style.display = 'none';
                 k2[0].style.display = 'none';
+                let hide_div = document.getElementsByClassName('hide_div');
+                hide_div[0].style.display = 'none';
+                document.body.style.height = 'auto';
+                document.body.style.overflowY = 'overlay';
             } catch (e) {
                 console.error(e);
             }
@@ -202,8 +209,8 @@ const Borrow = async () => {
                                 </div>
                                 <div className="right_info_popup">
                                     <span>{metadata.contract.name}</span>
-                                    <span>{NFTValue} ETH</span>
-                                    <span>{BorrowingPower} ETH (Loan to Value ratio {maxLtV} %)</span>
+                                    <span>{NFTValue} ETH <small>({(NFTValue * ETHtoUSD).toFixed(3)} USD)</small></span>
+                                    <span>{BorrowingPower} ETH <small>({(BorrowingPower * ETHtoUSD).toFixed(3)} USD)</small></span>
                                     <span>{metadata.description}</span>
                                 </div>
                             </div>
@@ -225,12 +232,14 @@ const Borrow = async () => {
                         <div className="fetch_info">
                             <div className="left_info_popup">
                                 <span>Total Supply</span>
+                                <sub></sub>
                                 <span>Total Borrow</span>
+                                <sub></sub>
                                 <span>Lending Interest Rate</span>
                             </div>
                             <div className="right_info_popup">
-                                <span>{totalSupply} ETH</span>
-                                <span>{totalBorrow} ETH</span>
+                                <span>{totalSupply} ETH <small>({(totalSupply * ETHtoUSD).toFixed(2)} USD)</small></span>
+                                <span>{totalBorrow} ETH <small>({(totalBorrow * ETHtoUSD).toFixed(2)} USD)</small></span>                                
                                 <span>{LIR} % APY</span>
                             </div>
                         </div>

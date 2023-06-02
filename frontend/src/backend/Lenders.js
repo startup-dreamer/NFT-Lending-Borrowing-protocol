@@ -1,4 +1,3 @@
-import { bigNumToNum } from "./getContractdata";
 
 const deposit_to_pool = async(contract, time, amount) => {
     try {
@@ -9,9 +8,9 @@ const deposit_to_pool = async(contract, time, amount) => {
     }
 };
 
-const withdraw_to_pool = async(contract, time, depId) => {
+const withdraw_to_pool = async(contract, depId) => {
     try {
-        const Tx = await contract.withdrawToPool(depId, time);
+        const Tx = await contract.withdrawToPool(depId);
         return Tx
     } catch (e) {
         console.error(e);
@@ -22,29 +21,29 @@ const getDeposits = async (contract, address, depositId) => {
     try {
       const allDeposits = await contract.deposits(address, depositId);
       const amount = parseInt(allDeposits.amount);
-      const time = parseInt(allDeposits.time);
-      const interest = parseInt(allDeposits.interest);
-      return ({
+      const currency = parseInt(allDeposits.time);
+      const date = parseInt(allDeposits.interest);
+      return {
         Amount: amount, 
-        Time: time, 
-        Interest: interest
-        });
+        Currency: currency, 
+        Date: date
+      }
     } catch (error) {
       console.error("Error in getDeposits(): ", error);
     }
-}
-  
-const getIndividualDepositNum = async (contract, address) => {
-    const individualDepositNum = contract.individualDepositNum(address);
-    const IndividualDepositNum = bigNumToNum(individualDepositNum);
-    return IndividualDepositNum
-}
+  }
+
+  const getDepositId = async (contract, address) => {
+    const individualDepositNum = await contract.individualDepositNum(address);
+    const IndividualCOlletralNum = parseInt(individualDepositNum);
+    return IndividualCOlletralNum
+  }
 
 export {
     deposit_to_pool, 
-    withdraw_to_pool, 
+    withdraw_to_pool,
     getDeposits,
-    getIndividualDepositNum
+    getDepositId
 };
 
 // {

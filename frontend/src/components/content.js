@@ -3,7 +3,7 @@ import "../static/css/content.css";
 import "../static/css/content_card.css";
 import Card from './card';
 import ether_big from '../static/img/ether_big.png';
-import {getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs} from '../backend'
+import {getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs, getUtilization, get_ETHtoUSD_Price} from '../backend'
 import Popup from './popup';
 import {motion} from "framer-motion";
 
@@ -17,7 +17,8 @@ const Content = ({Contract, Provider}) => {
         BIR: "-",
         liquidatedNFTs: "-",
         toalDepositedNFTs: "-",
-        uttilization: "-"
+        utilization: "-",
+        ethTousd: "-"
         });
 
   const nftStatsVariants = {
@@ -51,7 +52,8 @@ useEffect(()=> {
         const borrowinginterestrate = await getBorrow_interestRate(Contract);
         const totaldepositednfts = await getTotalDepositedNFTs(Contract);
         const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
-        const utilization = (totalsupply / totalborrow) * 100;
+        const utilization = await getUtilization(Contract);
+        const ethTousd = await get_ETHtoUSD_Price(Contract)
         setData({
             totalSupply: totalsupply / 1e18,
             totalBorrow: totalborrow / 1e18,
@@ -59,9 +61,10 @@ useEffect(()=> {
             BIR: borrowinginterestrate / 100,
             liquidatedNFTs: totalliquidatednfts,
             toalDepositedNFTs: totaldepositednfts,
-            utilization: utilization
-        }); 
-        }        
+            utilization: utilization,
+            ethTousd: ethTousd / 1e8
+        });
+        }
         fetchData();
     }    
 },[Contract])
@@ -143,10 +146,9 @@ useEffect(()=> {
                 </div>
                 <div className="right_stats" style={{ 'color': 'white' }}>
                     <div className="right_stats_card">
-                        {/* Tere ko yaha se apna content add karna hai */}
                         <div className="total_stats_card" style={{'display':'flex', 'columnGap':'28px'}}>
-                            <div>Total Supply<br /><span>{data.totalSupply} ETH</span> <br /> <span style={{'fontSize':'17px', 'fontWeight':'400'}}>$1500</span></div>
-                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH</span> <br /> <span style={{'fontSize':'17px', 'fontWeight':'400'}}>$1500</span></div>
+                            <div>Total Supply<br /><span>{data.totalSupply} ETH <small>({(data.totalSupply * data.ethTousd).toFixed(2)} USD)</small></span></div>
+                            <div>Total Borrow<br /><span>{data.totalBorrow} ETH <small>({(data.totalBorrow * data.ethTousd).toFixed(2)} USD)</small></span></div>
                         </div>
                         <div className="interest_rates_card">
                             <div className="left_card_interest">
@@ -165,7 +167,7 @@ useEffect(()=> {
                                 <div>Total Deposited NFTs</div>
                             </div>
                             <div className="details_interest">
-                                <div>{data.uttilization} %</div>
+                                <div>{data.utilization} %</div>
                                 <div>{data.liquidatedNFTs}</div>
                                 <div>{data.toalDepositedNFTs}</div>
                             </div>
@@ -195,7 +197,7 @@ useEffect(()=> {
             </div>
             {/* Popup divs */}
             <div>
-                <Popup protocolContract={Contract} Provider={Provider} totalSupply={data.totalSupply} totalBorrow={data.totalBorrow} LIR={data.LIR}/>
+                <Popup protocolContract={Contract} Provider={Provider} totalSupply={data.totalSupply} totalBorrow={data.totalBorrow} LIR={data.LIR} ETHtoUSD={data.ethTousd}/>
             </div>
         </div>
     );

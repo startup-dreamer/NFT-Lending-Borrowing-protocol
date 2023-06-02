@@ -4,19 +4,19 @@ export {
 
 export {
     deposit_to_pool, 
-    withdraw_to_pool, 
-    getDeposits, 
-    getIndividualDepositNum
+    withdraw_to_pool,
+    getDeposits,
+    getDepositId
 } from './Lenders';
 
 export {
-    borrow, 
+    borrow,
     repay, 
     getNftCollateralValue, 
     getPrice, 
-    approveToken, 
-    getLoans, 
-    getindividualCOlletralNum
+    approveToken,
+    getLoans,
+    getLoanId
 } from './Borrower';
 
 export {
@@ -24,11 +24,12 @@ export {
     getmaxLtv, 
     getLending_interestRate, 
     getOwner, 
-    getTotalSupply, 
-    getTotalBorrow, 
-    getTotalDepositedNFTs, 
-    getTotalLiquidatedNFTs, 
-    bigNumToNum, 
-    getUtilization
+    getTotalSupply,
+    getTotalBorrow,
+    getTotalDepositedNFTs,
+    getTotalLiquidatedNFTs,
+    bigNumToNum,
+    getUtilization,
+    get_ETHtoUSD_Price
 } from './getContractdata';
 

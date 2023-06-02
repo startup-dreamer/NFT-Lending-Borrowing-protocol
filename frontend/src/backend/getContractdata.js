@@ -84,27 +84,29 @@ const getTotalLiquidatedNFTs = async (contract) => {
 }
 
 const getUtilization = async (contract) => {
-  try {
-    const utilization = await contract.getUtilization();
-    const Utilization = bigNumToNum(utilization);
-    return Utilization
-  } catch (error) {
-    console.error(error);
-  }
+  const utilization = await contract.getUtilization();
+  const Utilization = bigNumToNum(utilization);
+  return Utilization 
 }
 
+const get_ETHtoUSD_Price = async (contract) => {
+  const ethtousd = await contract.get_ETHtoUSD_Price();
+  const ETHToUSD = bigNumToNum(ethtousd);
+  return ETHToUSD
+}
 
 export {
   getBorrow_interestRate, 
   getmaxLtv, 
   getLending_interestRate, 
-  getOwner,  
+  getOwner,   
   getTotalSupply,
   getTotalBorrow,
   getTotalDepositedNFTs,
   getTotalLiquidatedNFTs,
   bigNumToNum,
   getUtilization,
+  get_ETHtoUSD_Price
 };
 
 
