@@ -1,13 +1,13 @@
-<p align = "center"> 
+<center> 
   <img src="./svg.svg" height="70" width="80" style="background-color: black; display: inline-block;">
-  </p>
-<p align="center">
+</center>
+
+<center>
   <img src="./schema.png" alt="Schema of the project" title="Schema" />
-</p>
+</center>
 
 <center>
 
 ![Schema of the Contract](./Hardhat/graph.png "Schema" )
-
 </center>
 
