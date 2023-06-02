@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {call, getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool } from '../backend';
 import '../App.css';
+import '../static/css/portfolio.css'
+import PortfolioLend from './portfolio_lend';
+import PortfolioBorrow from './portfolio_borrow';
 
 const Portfolio = ({Contract, Provider}) => {
     const [account, setAccount] = useState('0x');
@@ -104,7 +107,50 @@ const withdrawFromPool = async (Contract, depositId) => {
 
 call();
     return (
-        <div>
+        <div className='portfolio_main'>
+            <div className="user_portfolio_section">
+                <div className="user_section_head">
+                    User Portfolio
+                </div>
+
+                <br />
+
+                <div className="user_content">
+                    <div className="left_content">
+                        <img src="" alt="" />
+                    </div>
+                    <div className="right_content">
+                        <div className="right_content1">
+                            <div>ChainID <br /><span>Dut_deox</span></div>
+                            <div>Total Amount <br /><span>$5000</span></div>
+                        </div>
+                        
+                        <br />
+
+                        <div className="right_content2">
+                            Address <br /><span>Kgstsbu$%6t2762y##6bdjbskjbk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br /> <br />
+
+            <div className="lend_history">
+                <div className="lend_history_head">Lend Transactions History</div>
+                <div className="lend_history_card_holder">
+                        <PortfolioLend/>
+                </div>
+            </div>
+
+            <br />
+
+            <div className="borrow_history">
+                <div className="borrow_history_head">Borrow Transactions History</div>
+                <div className="borrow_history_card_holder">
+                        <PortfolioBorrow/>
+                </div>
+            </div>
         </div>
     );
 }

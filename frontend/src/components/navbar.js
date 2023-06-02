@@ -3,6 +3,7 @@ import { ethers } from "ethers"
 import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
 import ether_icon from '../static/img/Aurum.png'
+import { Link } from 'react-router-dom';
 
 const Navbar = ({setContract, setProvider}) => {
   const [isConnected, setisConnected] = useState(false);
@@ -54,7 +55,7 @@ const Navbar = ({setContract, setProvider}) => {
       <div className="right_nav">
         <button>Lending</button>
         <button>Borrowing</button>
-        <button>Portfolio</button>
+        <button><Link to='/portfolio'>Portfolio</Link></button>
         {isConnected ? <input type='button' value={'Connected'} /> :
           <input type='button' value={'Connect'} 
           onClick={(e) => {handleConnectWallet(e)}} 

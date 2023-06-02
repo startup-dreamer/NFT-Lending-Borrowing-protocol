@@ -1,4 +1,4 @@
-import {createClient, cacheExchange, fetchExchange} from '@urql/core';
+// import {createClient, cacheExchange, fetchExchange} from '@urql/core';
 
 const APIURL = 'https://api.studio.thegraph.com/query/47255/aurumv1core/version/latest';
 
@@ -14,19 +14,19 @@ const call = async () => {
         }
     }
     `
-    try {const client = createClient({
-      url: APIURL,
-      exchanges: [cacheExchange, fetchExchange],
-    })
-    const data = await client.query(query);
-    console.log(data);
+    // try {const client = createClient({
+    //   url: APIURL,
+    //   exchanges: [cacheExchange, fetchExchange],
+    // })
+    // const data = await client.query(query);
+    // console.log(data);
     
   }
-catch (e) {
-    console.log(e);
+// catch (e) {
+//     console.log(e);
     
-}
-}
+// }
+// }
   export {
     call
   }
