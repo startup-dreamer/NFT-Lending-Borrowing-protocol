@@ -146,8 +146,9 @@ const Portfolio = ({Contract, Provider, Connected}) => {
 
             <div className="lend_history">
                 <div className="lend_history_head">Lend Transactions History</div>
-                <div className="lend_history_card_holder">{(
-                        <PortfolioLend Contract={Contract} account={account} Provider={Provider}/>
+                <div className="lend_history_card_holder">{(deposits.map((deposit, key)=>{
+                    return <PortfolioLend deposit={deposit} key={key}/>;
+                })      
                 )}
                 </div>
             </div>
@@ -156,8 +157,10 @@ const Portfolio = ({Contract, Provider, Connected}) => {
 
             <div className="borrow_history">
                 <div className="borrow_history_head">Borrow Transactions History</div>
-                <div className="borrow_history_card_holder">
-                    <PortfolioBorrow Contract={Contract} account={account} Provider={Provider}/>   
+                <div className="borrow_history_card_holder">{(loans.map((loan)=>{
+                    return <PortfolioBorrow loan={loan} key={key}/>
+                })
+                )}    
                 </div>
             </div>
         </div>
