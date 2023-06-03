@@ -34,5 +34,5 @@ export {
 } from './getContractdata';
 
 export {
-    call
+    getLiquidatedNFTs
 } from './graphqueries'

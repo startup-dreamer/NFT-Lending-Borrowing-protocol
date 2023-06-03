@@ -1,6 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { repay } from '../backend';
 
 const PortfolioBorrow = () => {
+    // const [loading, setLoading] = useState(false);
+
+// const Repay = async () => {
+//     setLoading(true);
+//     const Tx = await repay(Contract, userDeposit.Id);
+//     const receipt = await Tx.wait();
+//     if (receipt.status === 1) {
+//         console.log("Transaction confirmed with", receipt);
+//         setLoading(false);
+//     }
+//     else if (receipt.status === 0) {
+//         setLoading(false);
+//         alert("Transaction failed please retry");
+//     }
+// }
+
     return (
         <div className='borrow_history_main_card'>
             <div className="left_borrow_card_history">

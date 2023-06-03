@@ -21,11 +21,11 @@ const getDeposits = async (contract, address, depositId) => {
     try {
       const allDeposits = await contract.deposits(address, depositId);
       const amount = parseInt(allDeposits.amount);
-      const currency = parseInt(allDeposits.time);
-      const date = parseInt(allDeposits.interest);
+      const interest = parseInt(allDeposits.interest);
+      const date = parseInt(allDeposits.time);
       return {
         Amount: amount, 
-        Currency: currency, 
+        Interest: interest, 
         Date: date
       }
     } catch (error) {

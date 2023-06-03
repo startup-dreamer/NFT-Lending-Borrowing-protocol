@@ -3,13 +3,22 @@ import "../static/css/content.css";
 import "../static/css/content_card.css";
 import Card from './card';
 import ether_big from '../static/img/ether_big.png';
-import {getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs, getUtilization, get_ETHtoUSD_Price} from '../backend'
+import {getLiquidatedNFTs, getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs, getUtilization, get_ETHtoUSD_Price} from '../backend'
 import Popup from './popup';
 import {motion} from "framer-motion";
+import { errors } from 'ethers';
 
 const Content = ({Contract, Provider}) => {
     const nftStatsRef = useRef(null);
     const [nftStatsVisible, setNftStatsVisible] = useState("hidden");
+    const [liquidatedLoans, setLiquidatedLoans] = useState([{
+        TokenContract: "-",
+        TokenId: "-",
+        CollateralValue: "-",
+        imageURL: "-",
+        nftName: "-",
+        nftDescription: "-"
+    }]);
     const [data, setData] = useState({
         totalSupply: "-",
         totalBorrow: "-",
@@ -66,6 +75,13 @@ useEffect(()=> {
         });
         }
         fetchData();
+        // try {
+        // const liquidatedLoans = getLiquidatedNFTs(Contract);
+        // setLiquidatedLoans(liquidatedLoans);
+        // }
+        // catch (e) {
+        //     console.error(e);
+        // }
     }    
 },[Contract])
 
@@ -110,7 +126,7 @@ useEffect(()=> {
             })
         } catch { }
     }
-    
+
     return (
         <div className="content_holder">
             <div className="contn">
@@ -184,14 +200,9 @@ useEffect(()=> {
                 <i className="bi bi-chevron-left" onClick={listLeft}></i>
                 <i className="bi bi-chevron-right" onClick={listRight}></i>
                 <div className="list_holder">
-                    <div className="list_card_container">
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
+                    <div className="list_card_container">{(liquidatedLoans.map((liquidatedLoan, key)=>{
+                        return(<Card liquidatedNFT={liquidatedLoan} key={key}/>)
+                    }))}
                     </div>
                 </div>
             </div>

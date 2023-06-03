@@ -1,19 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import {call, getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool } from '../backend';
+import { useLocation } from 'react-router-dom';
+import {getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool } from '../backend';
 import '../App.css';
 import '../static/css/portfolio.css'
 import PortfolioLend from './portfolio_lend';
 import PortfolioBorrow from './portfolio_borrow';
 
 const Portfolio = ({Contract, Provider}) => {
+    const location = useLocation();
     const [account, setAccount] = useState('0x');
     const [loading, setLoading] = useState(false);
     const [deposits, setDeposits] = useState([{
+        Id: "-",
         Amount: "-", 
-        Currency: "-", 
+        Interest: "-", 
         Date: "-"
       }]);
     const [loans, setLoans] = useState([{
+        Id: "-",
         Borrower: "-", 
         TokenContract: "-", 
         TokenId: "-", 
@@ -22,90 +26,62 @@ const Portfolio = ({Contract, Provider}) => {
         Interest: "-", 
         Time: "-", 
         Active: "-"
-    }])
-
-    useEffect(() => {
-        if (Provider !== null) {
-        const accountChange = async () => {
-            window.ethereum.on('accountChanged', (a) => {
-                setAccount(a);
-                console.log(a);
-                
-                window.location.reload()
-            });         
-        }
-        accountChange();
-    }
-    });
-
-useEffect(() => {
-    if (Provider !== null) {
-    const setAccount = async () => {
-        const accounts = await Provider.send("eth_requestAccounts", []);
-        setAccount(accounts[0]); 
-        window.ethereum.on('accountChanged', (a) => {
-            setAccount(a);
-            window.location.reload()
-        });         
-    }
-    setAccount();
-}
-},[Provider, Contract])
-
-useEffect(() => {
-    if (Provider !== null && account !== "0x") {
-    const setAccounts = async () => {
-        setLoading(true);
-        const depositId = await getDepositId(Contract, account);
-        const deposits = [];
-        for(let i = 0; i < depositId; i++) {
-            const deposit = await getDeposits(Contract, account, i);
-            deposits.push(deposit);
-        }
-        setDeposits(deposits);
-        
-        const loanId = await getLoanId(Contract, account);
-        const loans = [];
-        for(let i = 0; i < loanId; i++) {
-            const loan = await getLoans(Contract, account, i);
-            loans.push(loan);
-        }
-        setLoans(loans);
-        setLoading(false);        
-    }
-    setAccounts();     
-}
-},[account])
+    }]);
   
-const Repay = async (Contract, loanId) => {
-    setLoading(true);
-    const Tx = await repay(Contract, loanId);
-    const receipt = await Tx.wait();
-    if (receipt.status === 1) {
-        console.log("Transaction confirmed with", receipt);
-        setLoading(false);
-    }
-    else if (receipt.status === 0) {
-        setLoading(false);
-        alert("Transaction failed please retry");
-    }
-}
+    useEffect(() => {
+      async function init() {
+        if (window.ethereum) {
+          await window.ethereum.send('eth_requestAccounts');
+          const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+          setAccount(accounts[0]);
+            console.log(account);
+        }
+      }
+      init();
+    }, [location.pathname]);
+    // console.log(location.pathname);
+  
+    useEffect(() => {
+        const setAccounts = async () => {
+            if (Provider !== null && account !== "0x") {
+                setLoading(true);
+                const depositId = await getDepositId(Contract, account);                
+                const deposits = [];
+                for(let i = 0; i < depositId; i++) {
+                    const deposit = await getDeposits(Contract, account, i);
+                    deposits.push({
+                        Id: i,
+                        Amount: deposit.Amount, 
+                        Interest: deposit.Interest ,
+                        Date: deposit.Date});
+                }
+                setDeposits(deposits);
+                // console.log(deposits);
+                  
+                const loanId = await getLoanId(Contract, account);
+                const loans = [];
+                for(let i = 0; i < loanId; i++) {
+                    const loan = await getLoans(Contract, account, i);
+                    loans.push({
+                                Id: i,
+                                Borrower: loan.Borrower, 
+                                TokenContract: loan.TokenContract, 
+                                TokenId: loan.TokenId, 
+                                Amount: loan.Amount, 
+                                CollateralValue: loan.CollateralValue, 
+                                Interest: loan.Interest, 
+                                Time: loan.Time, 
+                                Acti: loan.Active
+                    });
+                }
+                setLoans(loans);                
+                // console.log(loans);
+                setLoading(false);
+            }
+        };
+        setAccounts();
+    },[Provider, Contract, account])  
 
-const withdrawFromPool = async (Contract, depositId) => {
-    setLoading(true);
-    const Tx = await withdraw_to_pool(Contract, depositId);
-    const receipt = await Tx.wait();
-    if (receipt.status === 1) {
-        console.log("Transaction confirmed with", receipt);
-        setLoading(false);
-    }
-    else if (receipt.status === 0) {
-        setLoading(false);
-        alert("Transaction failed please retry");
-    }
-}
-
-call();
     return (
         <div className='portfolio_main'>
             <div className="user_portfolio_section">
@@ -139,7 +115,7 @@ call();
             <div className="lend_history">
                 <div className="lend_history_head">Lend Transactions History</div>
                 <div className="lend_history_card_holder">
-                        <PortfolioLend/>
+                        <PortfolioLend Contract={Contract} account={account} Provider={Provider}/>
                 </div>
             </div>
 
@@ -148,7 +124,7 @@ call();
             <div className="borrow_history">
                 <div className="borrow_history_head">Borrow Transactions History</div>
                 <div className="borrow_history_card_holder">
-                        <PortfolioBorrow/>
+                    return <PortfolioBorrow Contract={Contract} account={account} Provider={Provider}/>   
                 </div>
             </div>
         </div>

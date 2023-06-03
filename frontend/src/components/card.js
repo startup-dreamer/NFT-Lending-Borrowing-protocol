@@ -4,7 +4,6 @@ import '../static/css/content.css'
 const Card = () => {
     return (
         <div className='card_main'>
-            {/* Yaha image ayegi */}
             <div className="img_holder_card">
                 <img src="https://media.istockphoto.com/id/1372146767/photo/nft-hexagons-pixelated-concept.jpg?b=1&s=170667a&w=0&k=20&c=tNjLIQgkCcETa0w_nun-Bj0l3FZF0Vr-IQ6Ql0yRTzI=" />
             </div>
