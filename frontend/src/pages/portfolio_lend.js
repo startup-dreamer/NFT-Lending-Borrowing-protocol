@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import '../static/css/portfolio.css'
 // import { getDepositId, getDeposits, withdraw_to_pool } from '../backend';
 
 const PortfolioLend = (Contract, account, Provider) => {

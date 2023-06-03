@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { repay } from '../backend';
+import '../static/css/portfolio.css'
+import demo_img from '../static/img/galaxy.png'
 
 const PortfolioBorrow = () => {
     // const [loading, setLoading] = useState(false);
@@ -21,7 +23,7 @@ const PortfolioBorrow = () => {
     return (
         <div className='borrow_history_main_card'>
             <div className="left_borrow_card_history">
-                <img src="" alt="" />
+                <img src={demo_img} alt="" />
             </div>
             <div className="right_borrow_card_history">
                 <div className="right_borrow_card_history1">

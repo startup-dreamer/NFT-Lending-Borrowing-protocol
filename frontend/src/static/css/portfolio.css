@@ -1,5 +1,123 @@
-.portfolio_main{
+.portfolio_main {
     background-image: linear-gradient(122.82deg, rgb(11, 9, 80) 0%, black 69.63%);
-    height: 100vh;
     color: white;
+}
+
+.user_portfolio_section {
+    padding-top: 55px;
+    padding-left: 55px;
+}
+
+.user_section_head {
+    text-align: left;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.user_content {
+    margin-top: 75px;
+    display: flex;
+    column-gap: 75px;
+    text-align: left;
+}
+
+.left_content {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    border: 2px solid white;
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+.left_content img {
+    width: 120%;
+}
+
+.right_content {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 38px;
+}
+
+.right_content1 {
+    display: flex;
+    column-gap: 50px;
+}
+
+.right_content1 div {
+    width: 300px;
+    font-weight: 700;
+    font-size: 27px;
+}
+
+.right_content1 span {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.right_content2 {
+    font-weight: 700;
+    font-size: 27px;
+}
+
+.right_content2 span {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* Lend */
+.lend_history {
+    margin-top: 55px;
+    padding-left: 55px;
+}
+
+.lend_history_head {
+    font-weight: 700;
+    font-size: 45px;
+    text-align: left;
+}
+
+.lend_history_card_holder {
+    margin-top: 85px;
+    display: flex;
+    justify-content: left;
+}
+
+.lend_history_card {
+    padding: 25px;
+    background-image: linear-gradient(120deg, rgb(36, 10, 131), 70%, rgb(160, 19, 173));
+    text-align: left;
+    height: 250px;
+    width: 400px;
+}
+
+.lend_history_name {
+    font-weight: 700;
+    font-size: 37px;
+}
+
+.lend_history_content1 {
+    margin-top: 40px;
+    display: flex;
+    column-gap: 65px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.lend_history_content1 span {
+    font-weight: 400;
+    font-size: 19px;
+}
+
+.lend_history_content2{
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 24px;
+}
+.lend_history_content2 span {
+    font-weight: 400;
+    font-size: 19px;
 }
