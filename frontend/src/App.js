@@ -9,32 +9,33 @@ import './App.css';
 function App() {
   const [Contract, setContract] = useState(null);
   const [Provider, setProvider] = useState(null);
+  const [Connected, setConnected] = useState(false);
 
   return (
     <div className='App'>
       <Routes>
         <Route path='*' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>
             <Content Contract={Contract} Provider={Provider}/>
           </>
         } />
         <Route path='/lend' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>
             <Lend Contract={Contract}/>
           </>
         } />
         <Route path='/borrow' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>
             <Borrow Contract={Contract}/>
           </>
         } />
         <Route path='/portfolio' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider}/>          
-            <Portfolio Contract={Contract} Provider={Provider}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>          
+            <Portfolio Contract={Contract} Provider={Provider} Connected={Connected}/>
           </>
         } />
       </Routes>

@@ -5,7 +5,7 @@ import "../static/css/navbar.css"
 import ether_icon from '../static/img/Aurum.png'
 import { Link } from 'react-router-dom';
 
-const Navbar = ({setContract, setProvider}) => {
+const Navbar = ({setContract, setProvider, setConnected}) => {
   const [isConnected, setisConnected] = useState(false);
 
   const connectWallet = async () => {  
@@ -24,6 +24,7 @@ const Navbar = ({setContract, setProvider}) => {
       setContract(contract);
       setProvider(provider);
       setisConnected(true);
+      setConnected(true);
       console.log(contract);
       
     } catch (err) {
