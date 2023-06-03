@@ -1,10 +1,10 @@
-<center> 
+<p align = "center"> 
   <img src="./svg.svg" height="70" width="80" style="background-color: black; display: inline-block;">
-</center>
+</p align = "center">
 
-<center>
+<p align = "center">
   <img src="./schema.png" alt="Schema of the project" title="Schema" />
-</center>
+</p align = "center">
 
 <center>
 
