@@ -11,5 +11,7 @@
 ![Schema of the Contract](./Hardhat/graph.png "Schema" )
 </center>
 
+![Alt text](./Hardhat/graph.svg)
+
 
 // text sepolia 0xE15B2B61253EF9a1B2C83423787f2409C048Df80

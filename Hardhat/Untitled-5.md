@@ -6,20 +6,6 @@
    │  └─ value: ^0.8.0
    ├─ 1
    │  ├─ type: ImportDirective
-   │  ├─ path: @openzeppelin/contracts/token/ERC20/IERC20.sol
-   │  ├─ pathLiteral
-   │  │  ├─ type: StringLiteral
-   │  │  ├─ value: @openzeppelin/contracts/token/ERC20/IERC20.sol
-   │  │  ├─ parts
-   │  │  │  └─ 0: @openzeppelin/contracts/token/ERC20/IERC20.sol
-   │  │  └─ isUnicode
-   │  │     └─ 0: false
-   │  ├─ unitAlias
-   │  ├─ unitAliasIdentifier
-   │  ├─ symbolAliases
-   │  └─ symbolAliasesIdentifiers
-   ├─ 2
-   │  ├─ type: ImportDirective
    │  ├─ path: @openzeppelin/contracts/token/ERC721/IERC721.sol
    │  ├─ pathLiteral
    │  │  ├─ type: StringLiteral
@@ -32,21 +18,7 @@
    │  ├─ unitAliasIdentifier
    │  ├─ symbolAliases
    │  └─ symbolAliasesIdentifiers
-   ├─ 3
-   │  ├─ type: ImportDirective
-   │  ├─ path: @openzeppelin/contracts/token/ERC1155/IERC1155.sol
-   │  ├─ pathLiteral
-   │  │  ├─ type: StringLiteral
-   │  │  ├─ value: @openzeppelin/contracts/token/ERC1155/IERC1155.sol
-   │  │  ├─ parts
-   │  │  │  └─ 0: @openzeppelin/contracts/token/ERC1155/IERC1155.sol
-   │  │  └─ isUnicode
-   │  │     └─ 0: false
-   │  ├─ unitAlias
-   │  ├─ unitAliasIdentifier
-   │  ├─ symbolAliases
-   │  └─ symbolAliasesIdentifiers
-   ├─ 4
+   ├─ 2
    │  ├─ type: ImportDirective
    │  ├─ path: @openzeppelin/contracts/utils/introspection/IERC165.sol
    │  ├─ pathLiteral
@@ -60,7 +32,7 @@
    │  ├─ unitAliasIdentifier
    │  ├─ symbolAliases
    │  └─ symbolAliasesIdentifiers
-   ├─ 5
+   ├─ 3
    │  ├─ type: ImportDirective
    │  ├─ path: @openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol
    │  ├─ pathLiteral
@@ -74,7 +46,7 @@
    │  ├─ unitAliasIdentifier
    │  ├─ symbolAliases
    │  └─ symbolAliasesIdentifiers
-   ├─ 6
+   ├─ 4
    │  ├─ type: ImportDirective
    │  ├─ path: @openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
    │  ├─ pathLiteral
@@ -88,21 +60,7 @@
    │  ├─ unitAliasIdentifier
    │  ├─ symbolAliases
    │  └─ symbolAliasesIdentifiers
-   ├─ 7
-   │  ├─ type: ImportDirective
-   │  ├─ path: @openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol
-   │  ├─ pathLiteral
-   │  │  ├─ type: StringLiteral
-   │  │  ├─ value: @openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol
-   │  │  ├─ parts
-   │  │  │  └─ 0: @openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol
-   │  │  └─ isUnicode
-   │  │     └─ 0: false
-   │  ├─ unitAlias
-   │  ├─ unitAliasIdentifier
-   │  ├─ symbolAliases
-   │  └─ symbolAliasesIdentifiers
-   ├─ 8
+   ├─ 5
    │  ├─ type: ImportDirective
    │  ├─ path: @openzeppelin/contracts/utils/math/SafeMath.sol
    │  ├─ pathLiteral
@@ -116,24 +74,30 @@
    │  ├─ unitAliasIdentifier
    │  ├─ symbolAliases
    │  └─ symbolAliasesIdentifiers
-   ├─ 9
+   ├─ 6
    │  ├─ type: ImportDirective
-   │  ├─ path: @chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol
+   │  ├─ path: ./NFTPrice.sol
    │  ├─ pathLiteral
    │  │  ├─ type: StringLiteral
-   │  │  ├─ value: @chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol
+   │  │  ├─ value: ./NFTPrice.sol
    │  │  ├─ parts
-   │  │  │  └─ 0: @chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol
+   │  │  │  └─ 0: ./NFTPrice.sol
    │  │  └─ isUnicode
    │  │     └─ 0: false
    │  ├─ unitAlias
    │  ├─ unitAliasIdentifier
    │  ├─ symbolAliases
    │  └─ symbolAliasesIdentifiers
-   └─ 10
+   └─ 7
       ├─ type: ContractDefinition
       ├─ name: AurumV1core
       ├─ baseContracts
+      │  └─ 0
+      │     ├─ type: InheritanceSpecifier
+      │     ├─ baseName
+      │     │  ├─ type: UserDefinedTypeName
+      │     │  └─ namePath: NFTPrice
+      │     └─ arguments
       ├─ subNodes
       │  ├─ 0
       │  │  ├─ type: UsingForDeclaration
@@ -145,6 +109,34 @@
       │  │  ├─ libraryName: SafeMath
       │  │  └─ functions
       │  ├─ 1
+      │  │  ├─ type: StateVariableDeclaration
+      │  │  ├─ variables
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name: MAX_AMOUNT_LIMIT
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: MAX_AMOUNT_LIMIT
+      │  │  │     ├─ expression
+      │  │  │     │  ├─ type: NumberLiteral
+      │  │  │     │  ├─ number: 1e16
+      │  │  │     │  └─ subdenomination
+      │  │  │     ├─ visibility: default
+      │  │  │     ├─ isStateVar: true
+      │  │  │     ├─ isDeclaredConst: true
+      │  │  │     ├─ isIndexed: false
+      │  │  │     ├─ isImmutable: false
+      │  │  │     ├─ override
+      │  │  │     └─ storageLocation
+      │  │  └─ initialValue
+      │  │     ├─ type: NumberLiteral
+      │  │     ├─ number: 1e16
+      │  │     └─ subdenomination
+      │  ├─ 2
       │  │  ├─ type: StateVariableDeclaration
       │  │  ├─ variables
       │  │  │  └─ 0
@@ -166,57 +158,7 @@
       │  │  │     ├─ override
       │  │  │     └─ storageLocation
       │  │  └─ initialValue
-      │  ├─ 2
-      │  │  ├─ type: StateVariableDeclaration
-      │  │  ├─ variables
-      │  │  │  └─ 0
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: maxLtv
-      │  │  │     ├─ identifier
-      │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: maxLtv
-      │  │  │     ├─ expression
-      │  │  │     ├─ visibility: public
-      │  │  │     ├─ isStateVar: true
-      │  │  │     ├─ isDeclaredConst: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     ├─ isImmutable: false
-      │  │  │     ├─ override
-      │  │  │     └─ storageLocation
-      │  │  └─ initialValue
       │  ├─ 3
-      │  │  ├─ type: StateVariableDeclaration
-      │  │  ├─ variables
-      │  │  │  └─ 0
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: MAX_AMOUNT_LIMIT
-      │  │  │     ├─ identifier
-      │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: MAX_AMOUNT_LIMIT
-      │  │  │     ├─ expression
-      │  │  │     │  ├─ type: NumberLiteral
-      │  │  │     │  ├─ number: 1e16
-      │  │  │     │  └─ subdenomination
-      │  │  │     ├─ visibility: default
-      │  │  │     ├─ isStateVar: true
-      │  │  │     ├─ isDeclaredConst: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     ├─ isImmutable: false
-      │  │  │     ├─ override
-      │  │  │     └─ storageLocation
-      │  │  └─ initialValue
-      │  │     ├─ type: NumberLiteral
-      │  │     ├─ number: 1e16
-      │  │     └─ subdenomination
-      │  ├─ 4
       │  │  ├─ type: StateVariableDeclaration
       │  │  ├─ variables
       │  │  │  └─ 0
@@ -229,6 +171,28 @@
       │  │  │     ├─ identifier
       │  │  │     │  ├─ type: Identifier
       │  │  │     │  └─ name: Lending_interestRate
+      │  │  │     ├─ expression
+      │  │  │     ├─ visibility: public
+      │  │  │     ├─ isStateVar: true
+      │  │  │     ├─ isDeclaredConst: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     ├─ isImmutable: false
+      │  │  │     ├─ override
+      │  │  │     └─ storageLocation
+      │  │  └─ initialValue
+      │  ├─ 4
+      │  │  ├─ type: StateVariableDeclaration
+      │  │  ├─ variables
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name: maxLtv
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: maxLtv
       │  │  │     ├─ expression
       │  │  │     ├─ visibility: public
       │  │  │     ├─ isStateVar: true
@@ -425,6 +389,34 @@
       │  │  │     └─ storageLocation
       │  │  └─ initialValue
       │  ├─ 12
+      │  │  ├─ type: StateVariableDeclaration
+      │  │  ├─ variables
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: Mapping
+      │  │  │     │  ├─ keyType
+      │  │  │     │  │  ├─ type: ElementaryTypeName
+      │  │  │     │  │  ├─ name: address
+      │  │  │     │  │  └─ stateMutability
+      │  │  │     │  └─ valueType
+      │  │  │     │     ├─ type: ElementaryTypeName
+      │  │  │     │     ├─ name: uint256
+      │  │  │     │     └─ stateMutability
+      │  │  │     ├─ name: individualDepositNum
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: individualDepositNum
+      │  │  │     ├─ expression
+      │  │  │     ├─ visibility: public
+      │  │  │     ├─ isStateVar: true
+      │  │  │     ├─ isDeclaredConst: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     ├─ isImmutable: false
+      │  │  │     ├─ override
+      │  │  │     └─ storageLocation
+      │  │  └─ initialValue
+      │  ├─ 13
       │  │  ├─ type: StructDefinition
       │  │  ├─ name: Loan
       │  │  └─ members
@@ -540,7 +532,7 @@
       │  │        ├─ isStateVar: false
       │  │        ├─ isIndexed: false
       │  │        └─ expression
-      │  ├─ 13
+      │  ├─ 14
       │  │  ├─ type: StateVariableDeclaration
       │  │  ├─ variables
       │  │  │  └─ 0
@@ -570,7 +562,7 @@
       │  │  │     ├─ override
       │  │  │     └─ storageLocation
       │  │  └─ initialValue
-      │  ├─ 14
+      │  ├─ 15
       │  │  ├─ type: StateVariableDeclaration
       │  │  ├─ variables
       │  │  │  └─ 0
@@ -591,10 +583,10 @@
       │  │  │     │        ├─ type: ElementaryTypeName
       │  │  │     │        ├─ name: uint256
       │  │  │     │        └─ stateMutability
-      │  │  │     ├─ name: collateralBalances
+      │  │  │     ├─ name: tokenColletralNum
       │  │  │     ├─ identifier
       │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: collateralBalances
+      │  │  │     │  └─ name: tokenColletralNum
       │  │  │     ├─ expression
       │  │  │     ├─ visibility: public
       │  │  │     ├─ isStateVar: true
@@ -604,7 +596,35 @@
       │  │  │     ├─ override
       │  │  │     └─ storageLocation
       │  │  └─ initialValue
-      │  ├─ 15
+      │  ├─ 16
+      │  │  ├─ type: StateVariableDeclaration
+      │  │  ├─ variables
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: Mapping
+      │  │  │     │  ├─ keyType
+      │  │  │     │  │  ├─ type: ElementaryTypeName
+      │  │  │     │  │  ├─ name: address
+      │  │  │     │  │  └─ stateMutability
+      │  │  │     │  └─ valueType
+      │  │  │     │     ├─ type: ElementaryTypeName
+      │  │  │     │     ├─ name: uint256
+      │  │  │     │     └─ stateMutability
+      │  │  │     ├─ name: individualCOlletralNum
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: individualCOlletralNum
+      │  │  │     ├─ expression
+      │  │  │     ├─ visibility: public
+      │  │  │     ├─ isStateVar: true
+      │  │  │     ├─ isDeclaredConst: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     ├─ isImmutable: false
+      │  │  │     ├─ override
+      │  │  │     └─ storageLocation
+      │  │  └─ initialValue
+      │  ├─ 17
       │  │  ├─ type: EventDefinition
       │  │  ├─ name: Borrow
       │  │  ├─ parameters
@@ -679,7 +699,7 @@
       │  │  │     ├─ storageLocation
       │  │  │     └─ expression
       │  │  └─ isAnonymous: false
-      │  ├─ 16
+      │  ├─ 18
       │  │  ├─ type: EventDefinition
       │  │  ├─ name: Repay
       │  │  ├─ parameters
@@ -740,7 +760,68 @@
       │  │  │     ├─ storageLocation
       │  │  │     └─ expression
       │  │  └─ isAnonymous: false
-      │  ├─ 17
+      │  ├─ 19
+      │  │  ├─ type: EventDefinition
+      │  │  ├─ name: Deposition
+      │  │  ├─ parameters
+      │  │  │  ├─ 0
+      │  │  │  │  ├─ type: VariableDeclaration
+      │  │  │  │  ├─ typeName
+      │  │  │  │  │  ├─ type: ElementaryTypeName
+      │  │  │  │  │  ├─ name: uint256
+      │  │  │  │  │  └─ stateMutability
+      │  │  │  │  ├─ name: depoId
+      │  │  │  │  ├─ identifier
+      │  │  │  │  │  ├─ type: Identifier
+      │  │  │  │  │  └─ name: depoId
+      │  │  │  │  ├─ isStateVar: false
+      │  │  │  │  ├─ isIndexed: true
+      │  │  │  │  ├─ storageLocation
+      │  │  │  │  └─ expression
+      │  │  │  ├─ 1
+      │  │  │  │  ├─ type: VariableDeclaration
+      │  │  │  │  ├─ typeName
+      │  │  │  │  │  ├─ type: ElementaryTypeName
+      │  │  │  │  │  ├─ name: address
+      │  │  │  │  │  └─ stateMutability
+      │  │  │  │  ├─ name: sender
+      │  │  │  │  ├─ identifier
+      │  │  │  │  │  ├─ type: Identifier
+      │  │  │  │  │  └─ name: sender
+      │  │  │  │  ├─ isStateVar: false
+      │  │  │  │  ├─ isIndexed: true
+      │  │  │  │  ├─ storageLocation
+      │  │  │  │  └─ expression
+      │  │  │  ├─ 2
+      │  │  │  │  ├─ type: VariableDeclaration
+      │  │  │  │  ├─ typeName
+      │  │  │  │  │  ├─ type: ElementaryTypeName
+      │  │  │  │  │  ├─ name: uint256
+      │  │  │  │  │  └─ stateMutability
+      │  │  │  │  ├─ name: time
+      │  │  │  │  ├─ identifier
+      │  │  │  │  │  ├─ type: Identifier
+      │  │  │  │  │  └─ name: time
+      │  │  │  │  ├─ isStateVar: false
+      │  │  │  │  ├─ isIndexed: true
+      │  │  │  │  ├─ storageLocation
+      │  │  │  │  └─ expression
+      │  │  │  └─ 3
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name: amount
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: amount
+      │  │  │     ├─ isStateVar: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     ├─ storageLocation
+      │  │  │     └─ expression
+      │  │  └─ isAnonymous: false
+      │  ├─ 20
       │  │  ├─ type: EventDefinition
       │  │  ├─ name: Withdrawal
       │  │  ├─ parameters
@@ -781,7 +862,7 @@
       │  │  │     ├─ storageLocation
       │  │  │     └─ expression
       │  │  └─ isAnonymous: false
-      │  ├─ 18
+      │  ├─ 21
       │  │  ├─ type: FunctionDefinition
       │  │  ├─ name
       │  │  ├─ parameters
@@ -886,25 +967,71 @@
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
       │  │  └─ stateMutability: payable
-      │  ├─ 19
+      │  ├─ 22
+      │  │  ├─ type: FunctionDefinition
+      │  │  ├─ name
+      │  │  ├─ parameters
+      │  │  ├─ returnParameters
+      │  │  ├─ body
+      │  │  │  ├─ type: Block
+      │  │  │  └─ statements
+      │  │  │     └─ 0
+      │  │  │        ├─ type: ExpressionStatement
+      │  │  │        └─ expression
+      │  │  │           ├─ type: BinaryOperation
+      │  │  │           ├─ operator: +=
+      │  │  │           ├─ left
+      │  │  │           │  ├─ type: Identifier
+      │  │  │           │  └─ name: totalSupply
+      │  │  │           └─ right
+      │  │  │              ├─ type: MemberAccess
+      │  │  │              ├─ expression
+      │  │  │              │  ├─ type: Identifier
+      │  │  │              │  └─ name: msg
+      │  │  │              └─ memberName: value
+      │  │  ├─ visibility: external
+      │  │  ├─ modifiers
+      │  │  ├─ override
+      │  │  ├─ isConstructor: false
+      │  │  ├─ isReceiveEther: false
+      │  │  ├─ isFallback: true
+      │  │  ├─ isVirtual: false
+      │  │  └─ stateMutability: payable
+      │  ├─ 23
+      │  │  ├─ type: FunctionDefinition
+      │  │  ├─ name
+      │  │  ├─ parameters
+      │  │  ├─ returnParameters
+      │  │  ├─ body
+      │  │  │  ├─ type: Block
+      │  │  │  └─ statements
+      │  │  │     └─ 0
+      │  │  │        ├─ type: ExpressionStatement
+      │  │  │        └─ expression
+      │  │  │           ├─ type: BinaryOperation
+      │  │  │           ├─ operator: +=
+      │  │  │           ├─ left
+      │  │  │           │  ├─ type: Identifier
+      │  │  │           │  └─ name: totalSupply
+      │  │  │           └─ right
+      │  │  │              ├─ type: MemberAccess
+      │  │  │              ├─ expression
+      │  │  │              │  ├─ type: Identifier
+      │  │  │              │  └─ name: msg
+      │  │  │              └─ memberName: value
+      │  │  ├─ visibility: external
+      │  │  ├─ modifiers
+      │  │  ├─ override
+      │  │  ├─ isConstructor: false
+      │  │  ├─ isReceiveEther: true
+      │  │  ├─ isFallback: false
+      │  │  ├─ isVirtual: false
+      │  │  └─ stateMutability: payable
+      │  ├─ 24
       │  │  ├─ type: FunctionDefinition
       │  │  ├─ name: depositToPool
       │  │  ├─ parameters
-      │  │  │  ├─ 0
-      │  │  │  │  ├─ type: VariableDeclaration
-      │  │  │  │  ├─ typeName
-      │  │  │  │  │  ├─ type: ElementaryTypeName
-      │  │  │  │  │  ├─ name: uint256
-      │  │  │  │  │  └─ stateMutability
-      │  │  │  │  ├─ name: _amount
-      │  │  │  │  ├─ identifier
-      │  │  │  │  │  ├─ type: Identifier
-      │  │  │  │  │  └─ name: _amount
-      │  │  │  │  ├─ storageLocation
-      │  │  │  │  ├─ isStateVar: false
-      │  │  │  │  ├─ isIndexed: false
-      │  │  │  │  └─ expression
-      │  │  │  └─ 1
+      │  │  │  └─ 0
       │  │  │     ├─ type: VariableDeclaration
       │  │  │     ├─ typeName
       │  │  │     │  ├─ type: ElementaryTypeName
@@ -934,8 +1061,11 @@
       │  │  │     │     │  │  ├─ type: BinaryOperation
       │  │  │     │     │  │  ├─ operator: >
       │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  └─ name: _amount
+      │  │  │     │     │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  └─ name: msg
+      │  │  │     │     │  │  │  └─ memberName: value
       │  │  │     │     │  │  └─ right
       │  │  │     │     │  │     ├─ type: NumberLiteral
       │  │  │     │     │  │     ├─ number: 0
@@ -961,8 +1091,11 @@
       │  │  │     │     │  │  ├─ type: BinaryOperation
       │  │  │     │     │  │  ├─ operator: <=
       │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  └─ name: _amount
+      │  │  │     │     │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  └─ name: msg
+      │  │  │     │     │  │  │  └─ memberName: value
       │  │  │     │     │  │  └─ right
       │  │  │     │     │  │     ├─ type: Identifier
       │  │  │     │     │  │     └─ name: MAX_AMOUNT_LIMIT
@@ -1001,8 +1134,11 @@
       │  │  │     │     │  │  ├─ expression
       │  │  │     │     │  │  │  ├─ type: MemberAccess
       │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  └─ name: _amount
+      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  │  └─ name: msg
+      │  │  │     │     │  │  │  │  └─ memberName: value
       │  │  │     │     │  │  │  └─ memberName: mul
       │  │  │     │     │  │  ├─ arguments
       │  │  │     │     │  │  │  └─ 0
@@ -1041,8 +1177,11 @@
       │  │  │     │     │  └─ name: deposit
       │  │  │     │     ├─ arguments
       │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │  └─ name: _amount
+      │  │  │     │     │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  ├─ expression
+      │  │  │     │     │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  └─ name: msg
+      │  │  │     │     │  │  └─ memberName: value
       │  │  │     │     │  ├─ 1
       │  │  │     │     │  │  ├─ type: Identifier
       │  │  │     │     │  │  └─ name: _time
@@ -1091,13 +1230,41 @@
       │  │  │     │  ├─ type: ExpressionStatement
       │  │  │     │  └─ expression
       │  │  │     │     ├─ type: BinaryOperation
-      │  │  │     │     ├─ operator: +=
+      │  │  │     │     ├─ operator: =
       │  │  │     │     ├─ left
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: totalSupply
+      │  │  │     │     │  ├─ type: IndexAccess
+      │  │  │     │     │  ├─ base
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: individualDepositNum
+      │  │  │     │     │  └─ index
+      │  │  │     │     │     ├─ type: MemberAccess
+      │  │  │     │     │     ├─ expression
+      │  │  │     │     │     │  ├─ type: Identifier
+      │  │  │     │     │     │  └─ name: msg
+      │  │  │     │     │     └─ memberName: sender
       │  │  │     │     └─ right
-      │  │  │     │        ├─ type: Identifier
-      │  │  │     │        └─ name: _amount
+      │  │  │     │        ├─ type: FunctionCall
+      │  │  │     │        ├─ expression
+      │  │  │     │        │  ├─ type: MemberAccess
+      │  │  │     │        │  ├─ expression
+      │  │  │     │        │  │  ├─ type: IndexAccess
+      │  │  │     │        │  │  ├─ base
+      │  │  │     │        │  │  │  ├─ type: Identifier
+      │  │  │     │        │  │  │  └─ name: individualDepositNum
+      │  │  │     │        │  │  └─ index
+      │  │  │     │        │  │     ├─ type: MemberAccess
+      │  │  │     │        │  │     ├─ expression
+      │  │  │     │        │  │     │  ├─ type: Identifier
+      │  │  │     │        │  │     │  └─ name: msg
+      │  │  │     │        │  │     └─ memberName: sender
+      │  │  │     │        │  └─ memberName: add
+      │  │  │     │        ├─ arguments
+      │  │  │     │        │  └─ 0
+      │  │  │     │        │     ├─ type: NumberLiteral
+      │  │  │     │        │     ├─ number: 1
+      │  │  │     │        │     └─ subdenomination
+      │  │  │     │        ├─ names
+      │  │  │     │        └─ identifiers
       │  │  │     ├─ 6
       │  │  │     │  ├─ type: VariableDeclarationStatement
       │  │  │     │  ├─ variables
@@ -1144,8 +1311,11 @@
       │  │  │     │     │     │     └─ name: value
       │  │  │     │     │     └─ arguments
       │  │  │     │     │        └─ 0
-      │  │  │     │     │           ├─ type: Identifier
-      │  │  │     │     │           └─ name: _amount
+      │  │  │     │     │           ├─ type: MemberAccess
+      │  │  │     │     │           ├─ expression
+      │  │  │     │     │           │  ├─ type: Identifier
+      │  │  │     │     │           │  └─ name: msg
+      │  │  │     │     │           └─ memberName: value
       │  │  │     │     ├─ arguments
       │  │  │     │     │  └─ 0
       │  │  │     │     │     ├─ type: StringLiteral
@@ -1156,17 +1326,72 @@
       │  │  │     │     │        └─ 0: false
       │  │  │     │     ├─ names
       │  │  │     │     └─ identifiers
-      │  │  │     └─ 7
-      │  │  │        ├─ type: ExpressionStatement
-      │  │  │        └─ expression
+      │  │  │     ├─ 7
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: success
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Reverted finds not transfered
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Reverted finds not transfered
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     └─ 8
+      │  │  │        ├─ type: EmitStatement
+      │  │  │        └─ eventCall
       │  │  │           ├─ type: FunctionCall
       │  │  │           ├─ expression
       │  │  │           │  ├─ type: Identifier
-      │  │  │           │  └─ name: require
+      │  │  │           │  └─ name: Deposition
       │  │  │           ├─ arguments
-      │  │  │           │  └─ 0
-      │  │  │           │     ├─ type: Identifier
-      │  │  │           │     └─ name: success
+      │  │  │           │  ├─ 0
+      │  │  │           │  │  ├─ type: FunctionCall
+      │  │  │           │  │  ├─ expression
+      │  │  │           │  │  │  ├─ type: MemberAccess
+      │  │  │           │  │  │  ├─ expression
+      │  │  │           │  │  │  │  ├─ type: IndexAccess
+      │  │  │           │  │  │  │  ├─ base
+      │  │  │           │  │  │  │  │  ├─ type: Identifier
+      │  │  │           │  │  │  │  │  └─ name: individualDepositNum
+      │  │  │           │  │  │  │  └─ index
+      │  │  │           │  │  │  │     ├─ type: MemberAccess
+      │  │  │           │  │  │  │     ├─ expression
+      │  │  │           │  │  │  │     │  ├─ type: Identifier
+      │  │  │           │  │  │  │     │  └─ name: msg
+      │  │  │           │  │  │  │     └─ memberName: sender
+      │  │  │           │  │  │  └─ memberName: sub
+      │  │  │           │  │  ├─ arguments
+      │  │  │           │  │  │  └─ 0
+      │  │  │           │  │  │     ├─ type: NumberLiteral
+      │  │  │           │  │  │     ├─ number: 1
+      │  │  │           │  │  │     └─ subdenomination
+      │  │  │           │  │  ├─ names
+      │  │  │           │  │  └─ identifiers
+      │  │  │           │  ├─ 1
+      │  │  │           │  │  ├─ type: MemberAccess
+      │  │  │           │  │  ├─ expression
+      │  │  │           │  │  │  ├─ type: Identifier
+      │  │  │           │  │  │  └─ name: msg
+      │  │  │           │  │  └─ memberName: sender
+      │  │  │           │  ├─ 2
+      │  │  │           │  │  ├─ type: Identifier
+      │  │  │           │  │  └─ name: _time
+      │  │  │           │  └─ 3
+      │  │  │           │     ├─ type: MemberAccess
+      │  │  │           │     ├─ expression
+      │  │  │           │     │  ├─ type: Identifier
+      │  │  │           │     │  └─ name: msg
+      │  │  │           │     └─ memberName: value
       │  │  │           ├─ names
       │  │  │           └─ identifiers
       │  │  ├─ visibility: external
@@ -1177,7 +1402,7 @@
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
       │  │  └─ stateMutability: payable
-      │  ├─ 20
+      │  ├─ 25
       │  │  ├─ type: FunctionDefinition
       │  │  ├─ name: withdrawFromPool
       │  │  ├─ parameters
@@ -1355,6 +1580,45 @@
       │  │  │     │        ├─ type: Identifier
       │  │  │     │        └─ name: amountToReturn
       │  │  │     ├─ 6
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: BinaryOperation
+      │  │  │     │     ├─ operator: =
+      │  │  │     │     ├─ left
+      │  │  │     │     │  ├─ type: IndexAccess
+      │  │  │     │     │  ├─ base
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: individualDepositNum
+      │  │  │     │     │  └─ index
+      │  │  │     │     │     ├─ type: MemberAccess
+      │  │  │     │     │     ├─ expression
+      │  │  │     │     │     │  ├─ type: Identifier
+      │  │  │     │     │     │  └─ name: msg
+      │  │  │     │     │     └─ memberName: sender
+      │  │  │     │     └─ right
+      │  │  │     │        ├─ type: FunctionCall
+      │  │  │     │        ├─ expression
+      │  │  │     │        │  ├─ type: MemberAccess
+      │  │  │     │        │  ├─ expression
+      │  │  │     │        │  │  ├─ type: IndexAccess
+      │  │  │     │        │  │  ├─ base
+      │  │  │     │        │  │  │  ├─ type: Identifier
+      │  │  │     │        │  │  │  └─ name: individualDepositNum
+      │  │  │     │        │  │  └─ index
+      │  │  │     │        │  │     ├─ type: MemberAccess
+      │  │  │     │        │  │     ├─ expression
+      │  │  │     │        │  │     │  ├─ type: Identifier
+      │  │  │     │        │  │     │  └─ name: msg
+      │  │  │     │        │  │     └─ memberName: sender
+      │  │  │     │        │  └─ memberName: sub
+      │  │  │     │        ├─ arguments
+      │  │  │     │        │  └─ 0
+      │  │  │     │        │     ├─ type: NumberLiteral
+      │  │  │     │        │     ├─ number: 1
+      │  │  │     │        │     └─ subdenomination
+      │  │  │     │        ├─ names
+      │  │  │     │        └─ identifiers
+      │  │  │     ├─ 7
       │  │  │     │  ├─ type: VariableDeclarationStatement
       │  │  │     │  ├─ variables
       │  │  │     │  │  ├─ 0
@@ -1411,7 +1675,7 @@
       │  │  │     │     │        └─ 0: false
       │  │  │     │     ├─ names
       │  │  │     │     └─ identifiers
-      │  │  │     └─ 7
+      │  │  │     └─ 8
       │  │  │        ├─ type: IfStatement
       │  │  │        ├─ condition
       │  │  │        │  ├─ type: Identifier
@@ -1505,597 +1769,7 @@
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
       │  │  └─ stateMutability
-      │  ├─ 21
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: depositERC721Collateral
-      │  │  ├─ parameters
-      │  │  │  ├─ 0
-      │  │  │  │  ├─ type: VariableDeclaration
-      │  │  │  │  ├─ typeName
-      │  │  │  │  │  ├─ type: ElementaryTypeName
-      │  │  │  │  │  ├─ name: address
-      │  │  │  │  │  └─ stateMutability
-      │  │  │  │  ├─ name: borrower
-      │  │  │  │  ├─ identifier
-      │  │  │  │  │  ├─ type: Identifier
-      │  │  │  │  │  └─ name: borrower
-      │  │  │  │  ├─ storageLocation
-      │  │  │  │  ├─ isStateVar: false
-      │  │  │  │  ├─ isIndexed: false
-      │  │  │  │  └─ expression
-      │  │  │  ├─ 1
-      │  │  │  │  ├─ type: VariableDeclaration
-      │  │  │  │  ├─ typeName
-      │  │  │  │  │  ├─ type: ElementaryTypeName
-      │  │  │  │  │  ├─ name: address
-      │  │  │  │  │  └─ stateMutability
-      │  │  │  │  ├─ name: _tokenContract
-      │  │  │  │  ├─ identifier
-      │  │  │  │  │  ├─ type: Identifier
-      │  │  │  │  │  └─ name: _tokenContract
-      │  │  │  │  ├─ storageLocation
-      │  │  │  │  ├─ isStateVar: false
-      │  │  │  │  ├─ isIndexed: false
-      │  │  │  │  └─ expression
-      │  │  │  └─ 2
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: tokenId
-      │  │  │     ├─ identifier
-      │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: tokenId
-      │  │  │     ├─ storageLocation
-      │  │  │     ├─ isStateVar: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     └─ expression
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  │  ├─ type: Block
-      │  │  │  └─ statements
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: VariableDeclarationStatement
-      │  │  │     │  ├─ variables
-      │  │  │     │  │  └─ 0
-      │  │  │     │  │     ├─ type: VariableDeclaration
-      │  │  │     │  │     ├─ typeName
-      │  │  │     │  │     │  ├─ type: UserDefinedTypeName
-      │  │  │     │  │     │  └─ namePath: IERC721Enumerable
-      │  │  │     │  │     ├─ name: token
-      │  │  │     │  │     ├─ identifier
-      │  │  │     │  │     │  ├─ type: Identifier
-      │  │  │     │  │     │  └─ name: token
-      │  │  │     │  │     ├─ storageLocation
-      │  │  │     │  │     ├─ isStateVar: false
-      │  │  │     │  │     ├─ isIndexed: false
-      │  │  │     │  │     └─ expression
-      │  │  │     │  └─ initialValue
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: IERC721Enumerable
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  └─ 0
-      │  │  │     │     │     ├─ type: Identifier
-      │  │  │     │     │     └─ name: _tokenContract
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 1
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: ==
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  └─ name: msg
-      │  │  │     │     │  │  │  └─ memberName: sender
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: Identifier
-      │  │  │     │     │  │     └─ name: borrower
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Only borrower can deposit collateral
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Only borrower can deposit collateral
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 2
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: >
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: FunctionCall
-      │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │  └─ name: token
-      │  │  │     │     │  │  │  │  └─ memberName: balanceOf
-      │  │  │     │     │  │  │  ├─ arguments
-      │  │  │     │     │  │  │  │  └─ 0
-      │  │  │     │     │  │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │  │     └─ name: borrower
-      │  │  │     │     │  │  │  ├─ names
-      │  │  │     │     │  │  │  └─ identifiers
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: NumberLiteral
-      │  │  │     │     │  │     ├─ number: 0
-      │  │  │     │     │  │     └─ subdenomination
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Borrower has no tokens
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Borrower has no tokens
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 3
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: ==
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: FunctionCall
-      │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │  └─ name: token
-      │  │  │     │     │  │  │  │  └─ memberName: ownerOf
-      │  │  │     │     │  │  │  ├─ arguments
-      │  │  │     │     │  │  │  │  └─ 0
-      │  │  │     │     │  │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │  │     └─ name: tokenId
-      │  │  │     │     │  │  │  ├─ names
-      │  │  │     │     │  │  │  └─ identifiers
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: Identifier
-      │  │  │     │     │  │     └─ name: borrower
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Borrower is not the owner of the token
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Borrower is not the owner of the token
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 4
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: <=
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: FunctionCall
-      │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  │  ├─ type: IndexAccess
-      │  │  │     │     │  │  │  │  │  ├─ base
-      │  │  │     │     │  │  │  │  │  │  ├─ type: IndexAccess
-      │  │  │     │     │  │  │  │  │  │  ├─ base
-      │  │  │     │     │  │  │  │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │  │  │  └─ name: collateralBalances
-      │  │  │     │     │  │  │  │  │  │  └─ index
-      │  │  │     │     │  │  │  │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │  │     └─ name: borrower
-      │  │  │     │     │  │  │  │  │  └─ index
-      │  │  │     │     │  │  │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │     └─ name: _tokenContract
-      │  │  │     │     │  │  │  │  └─ memberName: add
-      │  │  │     │     │  │  │  ├─ arguments
-      │  │  │     │     │  │  │  │  └─ 0
-      │  │  │     │     │  │  │  │     ├─ type: NumberLiteral
-      │  │  │     │     │  │  │  │     ├─ number: 1
-      │  │  │     │     │  │  │  │     └─ subdenomination
-      │  │  │     │     │  │  │  ├─ names
-      │  │  │     │     │  │  │  └─ identifiers
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: FunctionCall
-      │  │  │     │     │  │     ├─ expression
-      │  │  │     │     │  │     │  ├─ type: MemberAccess
-      │  │  │     │     │  │     │  ├─ expression
-      │  │  │     │     │  │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │     │  │  └─ name: token
-      │  │  │     │     │  │     │  └─ memberName: balanceOf
-      │  │  │     │     │  │     ├─ arguments
-      │  │  │     │     │  │     │  └─ 0
-      │  │  │     │     │  │     │     ├─ type: Identifier
-      │  │  │     │     │  │     │     └─ name: borrower
-      │  │  │     │     │  │     ├─ names
-      │  │  │     │     │  │     └─ identifiers
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Borrower has no remaining collateral slots
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Borrower has no remaining collateral slots
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 5
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: MemberAccess
-      │  │  │     │     │  ├─ expression
-      │  │  │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │  └─ name: token
-      │  │  │     │     │  └─ memberName: transferFrom
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │  └─ name: borrower
-      │  │  │     │     │  ├─ 1
-      │  │  │     │     │  │  ├─ type: FunctionCall
-      │  │  │     │     │  │  ├─ expression
-      │  │  │     │     │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  └─ name: address
-      │  │  │     │     │  │  ├─ arguments
-      │  │  │     │     │  │  │  └─ 0
-      │  │  │     │     │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │     └─ name: this
-      │  │  │     │     │  │  ├─ names
-      │  │  │     │     │  │  └─ identifiers
-      │  │  │     │     │  └─ 2
-      │  │  │     │     │     ├─ type: Identifier
-      │  │  │     │     │     └─ name: tokenId
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     └─ 6
-      │  │  │        ├─ type: ExpressionStatement
-      │  │  │        └─ expression
-      │  │  │           ├─ type: BinaryOperation
-      │  │  │           ├─ operator: =
-      │  │  │           ├─ left
-      │  │  │           │  ├─ type: IndexAccess
-      │  │  │           │  ├─ base
-      │  │  │           │  │  ├─ type: IndexAccess
-      │  │  │           │  │  ├─ base
-      │  │  │           │  │  │  ├─ type: Identifier
-      │  │  │           │  │  │  └─ name: collateralBalances
-      │  │  │           │  │  └─ index
-      │  │  │           │  │     ├─ type: Identifier
-      │  │  │           │  │     └─ name: borrower
-      │  │  │           │  └─ index
-      │  │  │           │     ├─ type: Identifier
-      │  │  │           │     └─ name: _tokenContract
-      │  │  │           └─ right
-      │  │  │              ├─ type: FunctionCall
-      │  │  │              ├─ expression
-      │  │  │              │  ├─ type: MemberAccess
-      │  │  │              │  ├─ expression
-      │  │  │              │  │  ├─ type: IndexAccess
-      │  │  │              │  │  ├─ base
-      │  │  │              │  │  │  ├─ type: IndexAccess
-      │  │  │              │  │  │  ├─ base
-      │  │  │              │  │  │  │  ├─ type: Identifier
-      │  │  │              │  │  │  │  └─ name: collateralBalances
-      │  │  │              │  │  │  └─ index
-      │  │  │              │  │  │     ├─ type: Identifier
-      │  │  │              │  │  │     └─ name: borrower
-      │  │  │              │  │  └─ index
-      │  │  │              │  │     ├─ type: Identifier
-      │  │  │              │  │     └─ name: _tokenContract
-      │  │  │              │  └─ memberName: add
-      │  │  │              ├─ arguments
-      │  │  │              │  └─ 0
-      │  │  │              │     ├─ type: NumberLiteral
-      │  │  │              │     ├─ number: 1
-      │  │  │              │     └─ subdenomination
-      │  │  │              ├─ names
-      │  │  │              └─ identifiers
-      │  │  ├─ visibility: internal
-      │  │  ├─ modifiers
-      │  │  ├─ override
-      │  │  ├─ isConstructor: false
-      │  │  ├─ isReceiveEther: false
-      │  │  ├─ isFallback: false
-      │  │  ├─ isVirtual: false
-      │  │  └─ stateMutability
-      │  ├─ 22
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: withdrawERC721Collateral
-      │  │  ├─ parameters
-      │  │  │  ├─ 0
-      │  │  │  │  ├─ type: VariableDeclaration
-      │  │  │  │  ├─ typeName
-      │  │  │  │  │  ├─ type: ElementaryTypeName
-      │  │  │  │  │  ├─ name: address
-      │  │  │  │  │  └─ stateMutability
-      │  │  │  │  ├─ name: borrower
-      │  │  │  │  ├─ identifier
-      │  │  │  │  │  ├─ type: Identifier
-      │  │  │  │  │  └─ name: borrower
-      │  │  │  │  ├─ storageLocation
-      │  │  │  │  ├─ isStateVar: false
-      │  │  │  │  ├─ isIndexed: false
-      │  │  │  │  └─ expression
-      │  │  │  ├─ 1
-      │  │  │  │  ├─ type: VariableDeclaration
-      │  │  │  │  ├─ typeName
-      │  │  │  │  │  ├─ type: ElementaryTypeName
-      │  │  │  │  │  ├─ name: address
-      │  │  │  │  │  └─ stateMutability
-      │  │  │  │  ├─ name: _tokenContract
-      │  │  │  │  ├─ identifier
-      │  │  │  │  │  ├─ type: Identifier
-      │  │  │  │  │  └─ name: _tokenContract
-      │  │  │  │  ├─ storageLocation
-      │  │  │  │  ├─ isStateVar: false
-      │  │  │  │  ├─ isIndexed: false
-      │  │  │  │  └─ expression
-      │  │  │  └─ 2
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: tokenId
-      │  │  │     ├─ identifier
-      │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: tokenId
-      │  │  │     ├─ storageLocation
-      │  │  │     ├─ isStateVar: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     └─ expression
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  │  ├─ type: Block
-      │  │  │  └─ statements
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: VariableDeclarationStatement
-      │  │  │     │  ├─ variables
-      │  │  │     │  │  └─ 0
-      │  │  │     │  │     ├─ type: VariableDeclaration
-      │  │  │     │  │     ├─ typeName
-      │  │  │     │  │     │  ├─ type: UserDefinedTypeName
-      │  │  │     │  │     │  └─ namePath: IERC721Enumerable
-      │  │  │     │  │     ├─ name: token
-      │  │  │     │  │     ├─ identifier
-      │  │  │     │  │     │  ├─ type: Identifier
-      │  │  │     │  │     │  └─ name: token
-      │  │  │     │  │     ├─ storageLocation
-      │  │  │     │  │     ├─ isStateVar: false
-      │  │  │     │  │     ├─ isIndexed: false
-      │  │  │     │  │     └─ expression
-      │  │  │     │  └─ initialValue
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: IERC721Enumerable
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  └─ 0
-      │  │  │     │     │     ├─ type: Identifier
-      │  │  │     │     │     └─ name: _tokenContract
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 1
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: ==
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  └─ name: msg
-      │  │  │     │     │  │  │  └─ memberName: sender
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: Identifier
-      │  │  │     │     │  │     └─ name: borrower
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Only borrower can withdraw collateral
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Only borrower can withdraw collateral
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 2
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: >
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: IndexAccess
-      │  │  │     │     │  │  │  ├─ base
-      │  │  │     │     │  │  │  │  ├─ type: IndexAccess
-      │  │  │     │     │  │  │  │  ├─ base
-      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │  └─ name: collateralBalances
-      │  │  │     │     │  │  │  │  └─ index
-      │  │  │     │     │  │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │  │     └─ name: borrower
-      │  │  │     │     │  │  │  └─ index
-      │  │  │     │     │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │     └─ name: _tokenContract
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: NumberLiteral
-      │  │  │     │     │  │     ├─ number: 0
-      │  │  │     │     │  │     └─ subdenomination
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Borrower has no collateral to withdraw
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Borrower has no collateral to withdraw
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 3
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: ==
-      │  │  │     │     │  │  ├─ left
-      │  │  │     │     │  │  │  ├─ type: FunctionCall
-      │  │  │     │     │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  │  │  ├─ expression
-      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │  │  └─ name: token
-      │  │  │     │     │  │  │  │  └─ memberName: ownerOf
-      │  │  │     │     │  │  │  ├─ arguments
-      │  │  │     │     │  │  │  │  └─ 0
-      │  │  │     │     │  │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │  │     └─ name: tokenId
-      │  │  │     │     │  │  │  ├─ names
-      │  │  │     │     │  │  │  └─ identifiers
-      │  │  │     │     │  │  └─ right
-      │  │  │     │     │  │     ├─ type: FunctionCall
-      │  │  │     │     │  │     ├─ expression
-      │  │  │     │     │  │     │  ├─ type: Identifier
-      │  │  │     │     │  │     │  └─ name: address
-      │  │  │     │     │  │     ├─ arguments
-      │  │  │     │     │  │     │  └─ 0
-      │  │  │     │     │  │     │     ├─ type: Identifier
-      │  │  │     │     │  │     │     └─ name: this
-      │  │  │     │     │  │     ├─ names
-      │  │  │     │     │  │     └─ identifiers
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Token is not being used as collateral
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Token is not being used as collateral
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 4
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: MemberAccess
-      │  │  │     │     │  ├─ expression
-      │  │  │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │  └─ name: token
-      │  │  │     │     │  └─ memberName: transferFrom
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: FunctionCall
-      │  │  │     │     │  │  ├─ expression
-      │  │  │     │     │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  └─ name: address
-      │  │  │     │     │  │  ├─ arguments
-      │  │  │     │     │  │  │  └─ 0
-      │  │  │     │     │  │  │     ├─ type: Identifier
-      │  │  │     │     │  │  │     └─ name: this
-      │  │  │     │     │  │  ├─ names
-      │  │  │     │     │  │  └─ identifiers
-      │  │  │     │     │  ├─ 1
-      │  │  │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │  └─ name: borrower
-      │  │  │     │     │  └─ 2
-      │  │  │     │     │     ├─ type: Identifier
-      │  │  │     │     │     └─ name: tokenId
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     └─ 5
-      │  │  │        ├─ type: ExpressionStatement
-      │  │  │        └─ expression
-      │  │  │           ├─ type: BinaryOperation
-      │  │  │           ├─ operator: =
-      │  │  │           ├─ left
-      │  │  │           │  ├─ type: IndexAccess
-      │  │  │           │  ├─ base
-      │  │  │           │  │  ├─ type: IndexAccess
-      │  │  │           │  │  ├─ base
-      │  │  │           │  │  │  ├─ type: Identifier
-      │  │  │           │  │  │  └─ name: collateralBalances
-      │  │  │           │  │  └─ index
-      │  │  │           │  │     ├─ type: Identifier
-      │  │  │           │  │     └─ name: borrower
-      │  │  │           │  └─ index
-      │  │  │           │     ├─ type: Identifier
-      │  │  │           │     └─ name: _tokenContract
-      │  │  │           └─ right
-      │  │  │              ├─ type: FunctionCall
-      │  │  │              ├─ expression
-      │  │  │              │  ├─ type: MemberAccess
-      │  │  │              │  ├─ expression
-      │  │  │              │  │  ├─ type: IndexAccess
-      │  │  │              │  │  ├─ base
-      │  │  │              │  │  │  ├─ type: IndexAccess
-      │  │  │              │  │  │  ├─ base
-      │  │  │              │  │  │  │  ├─ type: Identifier
-      │  │  │              │  │  │  │  └─ name: collateralBalances
-      │  │  │              │  │  │  └─ index
-      │  │  │              │  │  │     ├─ type: Identifier
-      │  │  │              │  │  │     └─ name: borrower
-      │  │  │              │  │  └─ index
-      │  │  │              │  │     ├─ type: Identifier
-      │  │  │              │  │     └─ name: _tokenContract
-      │  │  │              │  └─ memberName: sub
-      │  │  │              ├─ arguments
-      │  │  │              │  └─ 0
-      │  │  │              │     ├─ type: NumberLiteral
-      │  │  │              │     ├─ number: 1
-      │  │  │              │     └─ subdenomination
-      │  │  │              ├─ names
-      │  │  │              └─ identifiers
-      │  │  ├─ visibility: internal
-      │  │  ├─ modifiers
-      │  │  ├─ override
-      │  │  ├─ isConstructor: false
-      │  │  ├─ isReceiveEther: false
-      │  │  ├─ isFallback: false
-      │  │  ├─ isVirtual: false
-      │  │  └─ stateMutability
-      │  ├─ 23
+      │  ├─ 26
       │  │  ├─ type: FunctionDefinition
       │  │  ├─ name: borrow
       │  │  ├─ parameters
@@ -2141,30 +1815,16 @@
       │  │  │  │  ├─ isStateVar: false
       │  │  │  │  ├─ isIndexed: false
       │  │  │  │  └─ expression
-      │  │  │  ├─ 3
-      │  │  │  │  ├─ type: VariableDeclaration
-      │  │  │  │  ├─ typeName
-      │  │  │  │  │  ├─ type: ElementaryTypeName
-      │  │  │  │  │  ├─ name: uint256
-      │  │  │  │  │  └─ stateMutability
-      │  │  │  │  ├─ name: _time
-      │  │  │  │  ├─ identifier
-      │  │  │  │  │  ├─ type: Identifier
-      │  │  │  │  │  └─ name: _time
-      │  │  │  │  ├─ storageLocation
-      │  │  │  │  ├─ isStateVar: false
-      │  │  │  │  ├─ isIndexed: false
-      │  │  │  │  └─ expression
-      │  │  │  └─ 4
+      │  │  │  └─ 3
       │  │  │     ├─ type: VariableDeclaration
       │  │  │     ├─ typeName
       │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: address
+      │  │  │     │  ├─ name: uint256
       │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: _priceFeed
+      │  │  │     ├─ name: _time
       │  │  │     ├─ identifier
       │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: _priceFeed
+      │  │  │     │  └─ name: _time
       │  │  │     ├─ storageLocation
       │  │  │     ├─ isStateVar: false
       │  │  │     ├─ isIndexed: false
@@ -2582,11 +2242,19 @@
       │  │  │     │     │  │  │  ├─ type: TupleExpression
       │  │  │     │     │  │  │  ├─ components
       │  │  │     │     │  │  │  │  └─ 0
-      │  │  │     │     │  │  │  │     ├─ type: MemberAccess
+      │  │  │     │     │  │  │  │     ├─ type: FunctionCall
       │  │  │     │     │  │  │  │     ├─ expression
       │  │  │     │     │  │  │  │     │  ├─ type: Identifier
-      │  │  │     │     │  │  │  │     │  └─ name: msg
-      │  │  │     │     │  │  │  │     └─ memberName: sender
+      │  │  │     │     │  │  │  │     │  └─ name: payable
+      │  │  │     │     │  │  │  │     ├─ arguments
+      │  │  │     │     │  │  │  │     │  └─ 0
+      │  │  │     │     │  │  │  │     │     ├─ type: MemberAccess
+      │  │  │     │     │  │  │  │     │     ├─ expression
+      │  │  │     │     │  │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │     │     │  └─ name: msg
+      │  │  │     │     │  │  │  │     │     └─ memberName: sender
+      │  │  │     │     │  │  │  │     ├─ names
+      │  │  │     │     │  │  │  │     └─ identifiers
       │  │  │     │     │  │  │  └─ isArray: false
       │  │  │     │     │  │  └─ memberName: call
       │  │  │     │     │  └─ arguments
@@ -2685,7 +2353,7 @@
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
       │  │  └─ stateMutability: payable
-      │  ├─ 24
+      │  ├─ 27
       │  │  ├─ type: FunctionDefinition
       │  │  ├─ name: repay
       │  │  ├─ parameters
@@ -2749,7 +2417,7 @@
       │  │  │     │     ├─ arguments
       │  │  │     │     │  ├─ 0
       │  │  │     │     │  │  ├─ type: BinaryOperation
-      │  │  │     │     │  │  ├─ operator: >=
+      │  │  │     │     │  │  ├─ operator: >
       │  │  │     │     │  │  ├─ left
       │  │  │     │     │  │  │  ├─ type: MemberAccess
       │  │  │     │     │  │  │  ├─ expression
@@ -2835,6 +2503,52 @@
       │  │  │     │  │     │  ├─ type: ElementaryTypeName
       │  │  │     │  │     │  ├─ name: uint256
       │  │  │     │  │     │  └─ stateMutability
+      │  │  │     │  │     ├─ name: amount
+      │  │  │     │  │     ├─ identifier
+      │  │  │     │  │     │  ├─ type: Identifier
+      │  │  │     │  │     │  └─ name: amount
+      │  │  │     │  │     ├─ storageLocation
+      │  │  │     │  │     ├─ isStateVar: false
+      │  │  │     │  │     ├─ isIndexed: false
+      │  │  │     │  │     └─ expression
+      │  │  │     │  └─ initialValue
+      │  │  │     │     ├─ type: MemberAccess
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: loan
+      │  │  │     │     └─ memberName: amount
+      │  │  │     ├─ 5
+      │  │  │     │  ├─ type: VariableDeclarationStatement
+      │  │  │     │  ├─ variables
+      │  │  │     │  │  └─ 0
+      │  │  │     │  │     ├─ type: VariableDeclaration
+      │  │  │     │  │     ├─ typeName
+      │  │  │     │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  │     │  ├─ name: uint256
+      │  │  │     │  │     │  └─ stateMutability
+      │  │  │     │  │     ├─ name: interest
+      │  │  │     │  │     ├─ identifier
+      │  │  │     │  │     │  ├─ type: Identifier
+      │  │  │     │  │     │  └─ name: interest
+      │  │  │     │  │     ├─ storageLocation
+      │  │  │     │  │     ├─ isStateVar: false
+      │  │  │     │  │     ├─ isIndexed: false
+      │  │  │     │  │     └─ expression
+      │  │  │     │  └─ initialValue
+      │  │  │     │     ├─ type: MemberAccess
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: loan
+      │  │  │     │     └─ memberName: interest
+      │  │  │     ├─ 6
+      │  │  │     │  ├─ type: VariableDeclarationStatement
+      │  │  │     │  ├─ variables
+      │  │  │     │  │  └─ 0
+      │  │  │     │  │     ├─ type: VariableDeclaration
+      │  │  │     │  │     ├─ typeName
+      │  │  │     │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  │     │  ├─ name: uint256
+      │  │  │     │  │     │  └─ stateMutability
       │  │  │     │  │     ├─ name: amountToRepay
       │  │  │     │  │     ├─ identifier
       │  │  │     │  │     │  ├─ type: Identifier
@@ -2844,26 +2558,15 @@
       │  │  │     │  │     ├─ isIndexed: false
       │  │  │     │  │     └─ expression
       │  │  │     │  └─ initialValue
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: MemberAccess
-      │  │  │     │     │  ├─ expression
-      │  │  │     │     │  │  ├─ type: MemberAccess
-      │  │  │     │     │  │  ├─ expression
-      │  │  │     │     │  │  │  ├─ type: Identifier
-      │  │  │     │     │  │  │  └─ name: loan
-      │  │  │     │     │  │  └─ memberName: amount
-      │  │  │     │     │  └─ memberName: add
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  └─ 0
-      │  │  │     │     │     ├─ type: MemberAccess
-      │  │  │     │     │     ├─ expression
-      │  │  │     │     │     │  ├─ type: Identifier
-      │  │  │     │     │     │  └─ name: loan
-      │  │  │     │     │     └─ memberName: interest
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 5
+      │  │  │     │     ├─ type: BinaryOperation
+      │  │  │     │     ├─ operator: +
+      │  │  │     │     ├─ left
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: amount
+      │  │  │     │     └─ right
+      │  │  │     │        ├─ type: Identifier
+      │  │  │     │        └─ name: interest
+      │  │  │     ├─ 7
       │  │  │     │  ├─ type: IfStatement
       │  │  │     │  ├─ condition
       │  │  │     │  │  ├─ type: FunctionCall
@@ -2952,7 +2655,7 @@
       │  │  │     │              │        └─ 0: false
       │  │  │     │              ├─ names
       │  │  │     │              └─ identifiers
-      │  │  │     ├─ 6
+      │  │  │     ├─ 8
       │  │  │     │  ├─ type: ExpressionStatement
       │  │  │     │  └─ expression
       │  │  │     │     ├─ type: BinaryOperation
@@ -2966,7 +2669,7 @@
       │  │  │     │     └─ right
       │  │  │     │        ├─ type: BooleanLiteral
       │  │  │     │        └─ value: false
-      │  │  │     ├─ 7
+      │  │  │     ├─ 9
       │  │  │     │  ├─ type: ExpressionStatement
       │  │  │     │  └─ expression
       │  │  │     │     ├─ type: BinaryOperation
@@ -2976,8 +2679,8 @@
       │  │  │     │     │  └─ name: totalBorrowed
       │  │  │     │     └─ right
       │  │  │     │        ├─ type: Identifier
-      │  │  │     │        └─ name: amountToRepay
-      │  │  │     ├─ 8
+      │  │  │     │        └─ name: amount
+      │  │  │     ├─ 10
       │  │  │     │  ├─ type: ExpressionStatement
       │  │  │     │  └─ expression
       │  │  │     │     ├─ type: BinaryOperation
@@ -2989,7 +2692,567 @@
       │  │  │     │        ├─ type: NumberLiteral
       │  │  │     │        ├─ number: 1
       │  │  │     │        └─ subdenomination
-      │  │  │     ├─ 9
+      │  │  │     ├─ 11
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: ==
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  └─ name: amountToRepay
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: MemberAccess
+      │  │  │     │     │  │     ├─ expression
+      │  │  │     │     │  │     │  ├─ type: Identifier
+      │  │  │     │     │  │     │  └─ name: msg
+      │  │  │     │     │  │     └─ memberName: value
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: reverted
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: reverted
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 12
+      │  │  │     │  ├─ type: VariableDeclarationStatement
+      │  │  │     │  ├─ variables
+      │  │  │     │  │  ├─ 0
+      │  │  │     │  │  │  ├─ type: VariableDeclaration
+      │  │  │     │  │  │  ├─ name: success
+      │  │  │     │  │  │  ├─ identifier
+      │  │  │     │  │  │  │  ├─ type: Identifier
+      │  │  │     │  │  │  │  └─ name: success
+      │  │  │     │  │  │  ├─ typeName
+      │  │  │     │  │  │  │  ├─ type: ElementaryTypeName
+      │  │  │     │  │  │  │  ├─ name: bool
+      │  │  │     │  │  │  │  └─ stateMutability
+      │  │  │     │  │  │  ├─ storageLocation
+      │  │  │     │  │  │  ├─ isStateVar: false
+      │  │  │     │  │  │  ├─ isIndexed: false
+      │  │  │     │  │  │  └─ expression
+      │  │  │     │  │  └─ 1
+      │  │  │     │  └─ initialValue
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: NameValueExpression
+      │  │  │     │     │  ├─ expression
+      │  │  │     │     │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  ├─ expression
+      │  │  │     │     │  │  │  ├─ type: TupleExpression
+      │  │  │     │     │  │  │  ├─ components
+      │  │  │     │     │  │  │  │  └─ 0
+      │  │  │     │     │  │  │  │     ├─ type: FunctionCall
+      │  │  │     │     │  │  │  │     ├─ expression
+      │  │  │     │     │  │  │  │     │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │     │  └─ name: address
+      │  │  │     │     │  │  │  │     ├─ arguments
+      │  │  │     │     │  │  │  │     │  └─ 0
+      │  │  │     │     │  │  │  │     │     ├─ type: Identifier
+      │  │  │     │     │  │  │  │     │     └─ name: this
+      │  │  │     │     │  │  │  │     ├─ names
+      │  │  │     │     │  │  │  │     └─ identifiers
+      │  │  │     │     │  │  │  └─ isArray: false
+      │  │  │     │     │  │  └─ memberName: call
+      │  │  │     │     │  └─ arguments
+      │  │  │     │     │     ├─ type: NameValueList
+      │  │  │     │     │     ├─ names
+      │  │  │     │     │     │  └─ 0: value
+      │  │  │     │     │     ├─ identifiers
+      │  │  │     │     │     │  └─ 0
+      │  │  │     │     │     │     ├─ type: Identifier
+      │  │  │     │     │     │     └─ name: value
+      │  │  │     │     │     └─ arguments
+      │  │  │     │     │        └─ 0
+      │  │  │     │     │           ├─ type: MemberAccess
+      │  │  │     │     │           ├─ expression
+      │  │  │     │     │           │  ├─ type: Identifier
+      │  │  │     │     │           │  └─ name: msg
+      │  │  │     │     │           └─ memberName: value
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  └─ 0
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: 
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: 
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 13
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: success
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Internal error funds not transferred
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Internal error funds not transferred
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 14
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: UnaryOperation
+      │  │  │     │     ├─ operator: delete
+      │  │  │     │     ├─ subExpression
+      │  │  │     │     │  ├─ type: IndexAccess
+      │  │  │     │     │  ├─ base
+      │  │  │     │     │  │  ├─ type: IndexAccess
+      │  │  │     │     │  │  ├─ base
+      │  │  │     │     │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  └─ name: loans
+      │  │  │     │     │  │  └─ index
+      │  │  │     │     │  │     ├─ type: MemberAccess
+      │  │  │     │     │  │     ├─ expression
+      │  │  │     │     │  │     │  ├─ type: Identifier
+      │  │  │     │     │  │     │  └─ name: msg
+      │  │  │     │     │  │     └─ memberName: sender
+      │  │  │     │     │  └─ index
+      │  │  │     │     │     ├─ type: Identifier
+      │  │  │     │     │     └─ name: _loanId
+      │  │  │     │     └─ isPrefix: true
+      │  │  │     └─ 15
+      │  │  │        ├─ type: EmitStatement
+      │  │  │        └─ eventCall
+      │  │  │           ├─ type: FunctionCall
+      │  │  │           ├─ expression
+      │  │  │           │  ├─ type: Identifier
+      │  │  │           │  └─ name: Repay
+      │  │  │           ├─ arguments
+      │  │  │           │  ├─ 0
+      │  │  │           │  │  ├─ type: MemberAccess
+      │  │  │           │  │  ├─ expression
+      │  │  │           │  │  │  ├─ type: Identifier
+      │  │  │           │  │  │  └─ name: msg
+      │  │  │           │  │  └─ memberName: sender
+      │  │  │           │  ├─ 1
+      │  │  │           │  │  ├─ type: Identifier
+      │  │  │           │  │  └─ name: _loanId
+      │  │  │           │  ├─ 2
+      │  │  │           │  │  ├─ type: MemberAccess
+      │  │  │           │  │  ├─ expression
+      │  │  │           │  │  │  ├─ type: Identifier
+      │  │  │           │  │  │  └─ name: loan
+      │  │  │           │  │  └─ memberName: amount
+      │  │  │           │  └─ 3
+      │  │  │           │     ├─ type: MemberAccess
+      │  │  │           │     ├─ expression
+      │  │  │           │     │  ├─ type: Identifier
+      │  │  │           │     │  └─ name: loan
+      │  │  │           │     └─ memberName: interest
+      │  │  │           ├─ names
+      │  │  │           └─ identifiers
+      │  │  ├─ visibility: external
+      │  │  ├─ modifiers
+      │  │  ├─ override
+      │  │  ├─ isConstructor: false
+      │  │  ├─ isReceiveEther: false
+      │  │  ├─ isFallback: false
+      │  │  ├─ isVirtual: false
+      │  │  └─ stateMutability: payable
+      │  ├─ 28
+      │  │  ├─ type: FunctionDefinition
+      │  │  ├─ name: set_Borrow_InterestRate
+      │  │  ├─ parameters
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name: _Borrow_interestRate
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: _Borrow_interestRate
+      │  │  │     ├─ storageLocation
+      │  │  │     ├─ isStateVar: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     └─ expression
+      │  │  ├─ returnParameters
+      │  │  ├─ body
+      │  │  │  ├─ type: Block
+      │  │  │  └─ statements
+      │  │  │     ├─ 0
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  └─ 0
+      │  │  │     │     │     ├─ type: BinaryOperation
+      │  │  │     │     │     ├─ operator: ==
+      │  │  │     │     │     ├─ left
+      │  │  │     │     │     │  ├─ type: MemberAccess
+      │  │  │     │     │     │  ├─ expression
+      │  │  │     │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │     │  │  └─ name: msg
+      │  │  │     │     │     │  └─ memberName: sender
+      │  │  │     │     │     └─ right
+      │  │  │     │     │        ├─ type: Identifier
+      │  │  │     │     │        └─ name: owner
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 1
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: BinaryOperation
+      │  │  │     │     ├─ operator: =
+      │  │  │     │     ├─ left
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: Borrow_interestRate
+      │  │  │     │     └─ right
+      │  │  │     │        ├─ type: Identifier
+      │  │  │     │        └─ name: _Borrow_interestRate
+      │  │  │     └─ 2
+      │  │  │        ├─ type: ExpressionStatement
+      │  │  │        └─ expression
+      │  │  │           ├─ type: BinaryOperation
+      │  │  │           ├─ operator: =
+      │  │  │           ├─ left
+      │  │  │           │  ├─ type: Identifier
+      │  │  │           │  └─ name: Lending_interestRate
+      │  │  │           └─ right
+      │  │  │              ├─ type: BinaryOperation
+      │  │  │              ├─ operator: *
+      │  │  │              ├─ left
+      │  │  │              │  ├─ type: Identifier
+      │  │  │              │  └─ name: _Borrow_interestRate
+      │  │  │              └─ right
+      │  │  │                 ├─ type: TupleExpression
+      │  │  │                 ├─ components
+      │  │  │                 │  └─ 0
+      │  │  │                 │     ├─ type: BinaryOperation
+      │  │  │                 │     ├─ operator: /
+      │  │  │                 │     ├─ left
+      │  │  │                 │     │  ├─ type: Identifier
+      │  │  │                 │     │  └─ name: totalBorrowed
+      │  │  │                 │     └─ right
+      │  │  │                 │        ├─ type: Identifier
+      │  │  │                 │        └─ name: totalSupply
+      │  │  │                 └─ isArray: false
+      │  │  ├─ visibility: external
+      │  │  ├─ modifiers
+      │  │  ├─ override
+      │  │  ├─ isConstructor: false
+      │  │  ├─ isReceiveEther: false
+      │  │  ├─ isFallback: false
+      │  │  ├─ isVirtual: false
+      │  │  └─ stateMutability
+      │  ├─ 29
+      │  │  ├─ type: FunctionDefinition
+      │  │  ├─ name: setLoanToCollateral
+      │  │  ├─ parameters
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name: _maxLtv
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: _maxLtv
+      │  │  │     ├─ storageLocation
+      │  │  │     ├─ isStateVar: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     └─ expression
+      │  │  ├─ returnParameters
+      │  │  ├─ body
+      │  │  │  ├─ type: Block
+      │  │  │  └─ statements
+      │  │  │     ├─ 0
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  └─ 0
+      │  │  │     │     │     ├─ type: BinaryOperation
+      │  │  │     │     │     ├─ operator: ==
+      │  │  │     │     │     ├─ left
+      │  │  │     │     │     │  ├─ type: MemberAccess
+      │  │  │     │     │     │  ├─ expression
+      │  │  │     │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │     │  │  └─ name: msg
+      │  │  │     │     │     │  └─ memberName: sender
+      │  │  │     │     │     └─ right
+      │  │  │     │     │        ├─ type: Identifier
+      │  │  │     │     │        └─ name: owner
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     └─ 1
+      │  │  │        ├─ type: ExpressionStatement
+      │  │  │        └─ expression
+      │  │  │           ├─ type: BinaryOperation
+      │  │  │           ├─ operator: =
+      │  │  │           ├─ left
+      │  │  │           │  ├─ type: Identifier
+      │  │  │           │  └─ name: maxLtv
+      │  │  │           └─ right
+      │  │  │              ├─ type: Identifier
+      │  │  │              └─ name: _maxLtv
+      │  │  ├─ visibility: external
+      │  │  ├─ modifiers
+      │  │  ├─ override
+      │  │  ├─ isConstructor: false
+      │  │  ├─ isReceiveEther: false
+      │  │  ├─ isFallback: false
+      │  │  ├─ isVirtual: false
+      │  │  └─ stateMutability
+      │  ├─ 30
+      │  │  ├─ type: FunctionDefinition
+      │  │  ├─ name: getUtilization
+      │  │  ├─ parameters
+      │  │  ├─ returnParameters
+      │  │  │  └─ 0
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name
+      │  │  │     ├─ identifier
+      │  │  │     ├─ storageLocation
+      │  │  │     ├─ isStateVar: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     └─ expression
+      │  │  ├─ body
+      │  │  │  ├─ type: Block
+      │  │  │  └─ statements
+      │  │  │     └─ 0
+      │  │  │        ├─ type: ReturnStatement
+      │  │  │        └─ expression
+      │  │  │           ├─ type: Conditional
+      │  │  │           ├─ condition
+      │  │  │           │  ├─ type: TupleExpression
+      │  │  │           │  ├─ components
+      │  │  │           │  │  └─ 0
+      │  │  │           │  │     ├─ type: BinaryOperation
+      │  │  │           │  │     ├─ operator: ||
+      │  │  │           │  │     ├─ left
+      │  │  │           │  │     │  ├─ type: BinaryOperation
+      │  │  │           │  │     │  ├─ operator: ==
+      │  │  │           │  │     │  ├─ left
+      │  │  │           │  │     │  │  ├─ type: Identifier
+      │  │  │           │  │     │  │  └─ name: totalBorrowed
+      │  │  │           │  │     │  └─ right
+      │  │  │           │  │     │     ├─ type: NumberLiteral
+      │  │  │           │  │     │     ├─ number: 0
+      │  │  │           │  │     │     └─ subdenomination
+      │  │  │           │  │     └─ right
+      │  │  │           │  │        ├─ type: BinaryOperation
+      │  │  │           │  │        ├─ operator: ==
+      │  │  │           │  │        ├─ left
+      │  │  │           │  │        │  ├─ type: Identifier
+      │  │  │           │  │        │  └─ name: totalSupply
+      │  │  │           │  │        └─ right
+      │  │  │           │  │           ├─ type: NumberLiteral
+      │  │  │           │  │           ├─ number: 0
+      │  │  │           │  │           └─ subdenomination
+      │  │  │           │  └─ isArray: false
+      │  │  │           ├─ trueExpression
+      │  │  │           │  ├─ type: NumberLiteral
+      │  │  │           │  ├─ number: 0
+      │  │  │           │  └─ subdenomination
+      │  │  │           └─ falseExpression
+      │  │  │              ├─ type: BinaryOperation
+      │  │  │              ├─ operator: *
+      │  │  │              ├─ left
+      │  │  │              │  ├─ type: TupleExpression
+      │  │  │              │  ├─ components
+      │  │  │              │  │  └─ 0
+      │  │  │              │  │     ├─ type: BinaryOperation
+      │  │  │              │  │     ├─ operator: /
+      │  │  │              │  │     ├─ left
+      │  │  │              │  │     │  ├─ type: Identifier
+      │  │  │              │  │     │  └─ name: totalBorrowed
+      │  │  │              │  │     └─ right
+      │  │  │              │  │        ├─ type: Identifier
+      │  │  │              │  │        └─ name: totalSupply
+      │  │  │              │  └─ isArray: false
+      │  │  │              └─ right
+      │  │  │                 ├─ type: NumberLiteral
+      │  │  │                 ├─ number: 100
+      │  │  │                 └─ subdenomination
+      │  │  ├─ visibility: external
+      │  │  ├─ modifiers
+      │  │  ├─ override
+      │  │  ├─ isConstructor: false
+      │  │  ├─ isReceiveEther: false
+      │  │  ├─ isFallback: false
+      │  │  ├─ isVirtual: false
+      │  │  └─ stateMutability: view
+      │  ├─ 31
+      │  │  ├─ type: FunctionDefinition
+      │  │  ├─ name: withdraw_liquidateNFT
+      │  │  ├─ parameters
+      │  │  │  ├─ 0
+      │  │  │  │  ├─ type: VariableDeclaration
+      │  │  │  │  ├─ typeName
+      │  │  │  │  │  ├─ type: ElementaryTypeName
+      │  │  │  │  │  ├─ name: address
+      │  │  │  │  │  └─ stateMutability
+      │  │  │  │  ├─ name: borrowerAddress
+      │  │  │  │  ├─ identifier
+      │  │  │  │  │  ├─ type: Identifier
+      │  │  │  │  │  └─ name: borrowerAddress
+      │  │  │  │  ├─ storageLocation
+      │  │  │  │  ├─ isStateVar: false
+      │  │  │  │  ├─ isIndexed: false
+      │  │  │  │  └─ expression
+      │  │  │  └─ 1
+      │  │  │     ├─ type: VariableDeclaration
+      │  │  │     ├─ typeName
+      │  │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  ├─ name: uint256
+      │  │  │     │  └─ stateMutability
+      │  │  │     ├─ name: _loanId
+      │  │  │     ├─ identifier
+      │  │  │     │  ├─ type: Identifier
+      │  │  │     │  └─ name: _loanId
+      │  │  │     ├─ storageLocation
+      │  │  │     ├─ isStateVar: false
+      │  │  │     ├─ isIndexed: false
+      │  │  │     └─ expression
+      │  │  ├─ returnParameters
+      │  │  ├─ body
+      │  │  │  ├─ type: Block
+      │  │  │  └─ statements
+      │  │  │     ├─ 0
+      │  │  │     │  ├─ type: VariableDeclarationStatement
+      │  │  │     │  ├─ variables
+      │  │  │     │  │  └─ 0
+      │  │  │     │  │     ├─ type: VariableDeclaration
+      │  │  │     │  │     ├─ typeName
+      │  │  │     │  │     │  ├─ type: UserDefinedTypeName
+      │  │  │     │  │     │  └─ namePath: Loan
+      │  │  │     │  │     ├─ name: loan
+      │  │  │     │  │     ├─ identifier
+      │  │  │     │  │     │  ├─ type: Identifier
+      │  │  │     │  │     │  └─ name: loan
+      │  │  │     │  │     ├─ storageLocation: storage
+      │  │  │     │  │     ├─ isStateVar: false
+      │  │  │     │  │     ├─ isIndexed: false
+      │  │  │     │  │     └─ expression
+      │  │  │     │  └─ initialValue
+      │  │  │     │     ├─ type: IndexAccess
+      │  │  │     │     ├─ base
+      │  │  │     │     │  ├─ type: IndexAccess
+      │  │  │     │     │  ├─ base
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: loans
+      │  │  │     │     │  └─ index
+      │  │  │     │     │     ├─ type: Identifier
+      │  │  │     │     │     └─ name: borrowerAddress
+      │  │  │     │     └─ index
+      │  │  │     │        ├─ type: Identifier
+      │  │  │     │        └─ name: _loanId
+      │  │  │     ├─ 1
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: <
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  └─ name: loan
+      │  │  │     │     │  │  │  └─ memberName: time
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: MemberAccess
+      │  │  │     │     │  │     ├─ expression
+      │  │  │     │     │  │     │  ├─ type: Identifier
+      │  │  │     │     │  │     │  └─ name: block
+      │  │  │     │     │  │     └─ memberName: timestamp
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: not liquidated
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: not liquidated
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 2
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: ==
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  └─ name: loan
+      │  │  │     │     │  │  │  └─ memberName: active
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: BooleanLiteral
+      │  │  │     │     │  │     └─ value: false
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Debt payed
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Debt payed
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 3
+      │  │  │     │  ├─ type: VariableDeclarationStatement
+      │  │  │     │  ├─ variables
+      │  │  │     │  │  └─ 0
+      │  │  │     │  │     ├─ type: VariableDeclaration
+      │  │  │     │  │     ├─ typeName
+      │  │  │     │  │     │  ├─ type: ElementaryTypeName
+      │  │  │     │  │     │  ├─ name: uint256
+      │  │  │     │  │     │  └─ stateMutability
+      │  │  │     │  │     ├─ name: amount
+      │  │  │     │  │     ├─ identifier
+      │  │  │     │  │     │  ├─ type: Identifier
+      │  │  │     │  │     │  └─ name: amount
+      │  │  │     │  │     ├─ storageLocation
+      │  │  │     │  │     ├─ isStateVar: false
+      │  │  │     │  │     ├─ isIndexed: false
+      │  │  │     │  │     └─ expression
+      │  │  │     │  └─ initialValue
+      │  │  │     │     ├─ type: MemberAccess
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: loan
+      │  │  │     │     └─ memberName: collateralValue
+      │  │  │     ├─ 4
       │  │  │     │  ├─ type: VariableDeclarationStatement
       │  │  │     │  ├─ variables
       │  │  │     │  │  ├─ 0
@@ -3040,7 +3303,7 @@
       │  │  │     │     │     └─ arguments
       │  │  │     │     │        └─ 0
       │  │  │     │     │           ├─ type: Identifier
-      │  │  │     │     │           └─ name: amountToRepay
+      │  │  │     │     │           └─ name: amount
       │  │  │     │     ├─ arguments
       │  │  │     │     │  └─ 0
       │  │  │     │     │     ├─ type: StringLiteral
@@ -3051,55 +3314,24 @@
       │  │  │     │     │        └─ 0: false
       │  │  │     │     ├─ names
       │  │  │     │     └─ identifiers
-      │  │  │     ├─ 10
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  ├─ 0
-      │  │  │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │  │  └─ name: success
-      │  │  │     │     │  └─ 1
-      │  │  │     │     │     ├─ type: StringLiteral
-      │  │  │     │     │     ├─ value: Internal error funds not transferred
-      │  │  │     │     │     ├─ parts
-      │  │  │     │     │     │  └─ 0: Internal error funds not transferred
-      │  │  │     │     │     └─ isUnicode
-      │  │  │     │     │        └─ 0: false
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     └─ 11
-      │  │  │        ├─ type: EmitStatement
-      │  │  │        └─ eventCall
+      │  │  │     └─ 5
+      │  │  │        ├─ type: ExpressionStatement
+      │  │  │        └─ expression
       │  │  │           ├─ type: FunctionCall
       │  │  │           ├─ expression
       │  │  │           │  ├─ type: Identifier
-      │  │  │           │  └─ name: Repay
+      │  │  │           │  └─ name: require
       │  │  │           ├─ arguments
       │  │  │           │  ├─ 0
-      │  │  │           │  │  ├─ type: MemberAccess
-      │  │  │           │  │  ├─ expression
-      │  │  │           │  │  │  ├─ type: Identifier
-      │  │  │           │  │  │  └─ name: msg
-      │  │  │           │  │  └─ memberName: sender
-      │  │  │           │  ├─ 1
       │  │  │           │  │  ├─ type: Identifier
-      │  │  │           │  │  └─ name: _loanId
-      │  │  │           │  ├─ 2
-      │  │  │           │  │  ├─ type: MemberAccess
-      │  │  │           │  │  ├─ expression
-      │  │  │           │  │  │  ├─ type: Identifier
-      │  │  │           │  │  │  └─ name: loan
-      │  │  │           │  │  └─ memberName: amount
-      │  │  │           │  └─ 3
-      │  │  │           │     ├─ type: MemberAccess
-      │  │  │           │     ├─ expression
-      │  │  │           │     │  ├─ type: Identifier
-      │  │  │           │     │  └─ name: loan
-      │  │  │           │     └─ memberName: interest
+      │  │  │           │  │  └─ name: success
+      │  │  │           │  └─ 1
+      │  │  │           │     ├─ type: StringLiteral
+      │  │  │           │     ├─ value: Internal error funds not transferred
+      │  │  │           │     ├─ parts
+      │  │  │           │     │  └─ 0: Internal error funds not transferred
+      │  │  │           │     └─ isUnicode
+      │  │  │           │        └─ 0: false
       │  │  │           ├─ names
       │  │  │           └─ identifiers
       │  │  ├─ visibility: external
@@ -3110,7 +3342,7 @@
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
       │  │  └─ stateMutability: payable
-      │  ├─ 25
+      │  ├─ 32
       │  │  ├─ type: FunctionDefinition
       │  │  ├─ name: getNftCollateralValue
       │  │  ├─ parameters
@@ -3259,12 +3491,26 @@
       │  │  ├─ isReceiveEther: false
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
-      │  │  └─ stateMutability
-      │  ├─ 26
+      │  │  └─ stateMutability: view
+      │  ├─ 33
       │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: getNFTPrice
+      │  │  ├─ name: depositERC721Collateral
       │  │  ├─ parameters
       │  │  │  ├─ 0
+      │  │  │  │  ├─ type: VariableDeclaration
+      │  │  │  │  ├─ typeName
+      │  │  │  │  │  ├─ type: ElementaryTypeName
+      │  │  │  │  │  ├─ name: address
+      │  │  │  │  │  └─ stateMutability
+      │  │  │  │  ├─ name: borrower
+      │  │  │  │  ├─ identifier
+      │  │  │  │  │  ├─ type: Identifier
+      │  │  │  │  │  └─ name: borrower
+      │  │  │  │  ├─ storageLocation
+      │  │  │  │  ├─ isStateVar: false
+      │  │  │  │  ├─ isIndexed: false
+      │  │  │  │  └─ expression
+      │  │  │  ├─ 1
       │  │  │  │  ├─ type: VariableDeclaration
       │  │  │  │  ├─ typeName
       │  │  │  │  │  ├─ type: ElementaryTypeName
@@ -3278,7 +3524,7 @@
       │  │  │  │  ├─ isStateVar: false
       │  │  │  │  ├─ isIndexed: false
       │  │  │  │  └─ expression
-      │  │  │  └─ 1
+      │  │  │  └─ 2
       │  │  │     ├─ type: VariableDeclaration
       │  │  │     ├─ typeName
       │  │  │     │  ├─ type: ElementaryTypeName
@@ -3293,27 +3539,305 @@
       │  │  │     ├─ isIndexed: false
       │  │  │     └─ expression
       │  │  ├─ returnParameters
-      │  │  │  └─ 0
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name
-      │  │  │     ├─ identifier
-      │  │  │     ├─ storageLocation
-      │  │  │     ├─ isStateVar: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     └─ expression
       │  │  ├─ body
       │  │  │  ├─ type: Block
       │  │  │  └─ statements
-      │  │  │     └─ 0
-      │  │  │        ├─ type: ReturnStatement
+      │  │  │     ├─ 0
+      │  │  │     │  ├─ type: VariableDeclarationStatement
+      │  │  │     │  ├─ variables
+      │  │  │     │  │  └─ 0
+      │  │  │     │  │     ├─ type: VariableDeclaration
+      │  │  │     │  │     ├─ typeName
+      │  │  │     │  │     │  ├─ type: UserDefinedTypeName
+      │  │  │     │  │     │  └─ namePath: IERC721Enumerable
+      │  │  │     │  │     ├─ name: token
+      │  │  │     │  │     ├─ identifier
+      │  │  │     │  │     │  ├─ type: Identifier
+      │  │  │     │  │     │  └─ name: token
+      │  │  │     │  │     ├─ storageLocation
+      │  │  │     │  │     ├─ isStateVar: false
+      │  │  │     │  │     ├─ isIndexed: false
+      │  │  │     │  │     └─ expression
+      │  │  │     │  └─ initialValue
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: IERC721Enumerable
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  └─ 0
+      │  │  │     │     │     ├─ type: Identifier
+      │  │  │     │     │     └─ name: _tokenContract
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 1
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: ==
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  └─ name: msg
+      │  │  │     │     │  │  │  └─ memberName: sender
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: Identifier
+      │  │  │     │     │  │     └─ name: borrower
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Only borrower can deposit collateral
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Only borrower can deposit collateral
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 2
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: >
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: FunctionCall
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  │  └─ name: token
+      │  │  │     │     │  │  │  │  └─ memberName: balanceOf
+      │  │  │     │     │  │  │  ├─ arguments
+      │  │  │     │     │  │  │  │  └─ 0
+      │  │  │     │     │  │  │  │     ├─ type: Identifier
+      │  │  │     │     │  │  │  │     └─ name: borrower
+      │  │  │     │     │  │  │  ├─ names
+      │  │  │     │     │  │  │  └─ identifiers
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: NumberLiteral
+      │  │  │     │     │  │     ├─ number: 0
+      │  │  │     │     │  │     └─ subdenomination
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Borrower has no tokens
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Borrower has no tokens
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 3
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: ==
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: FunctionCall
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  │  └─ name: token
+      │  │  │     │     │  │  │  │  └─ memberName: ownerOf
+      │  │  │     │     │  │  │  ├─ arguments
+      │  │  │     │     │  │  │  │  └─ 0
+      │  │  │     │     │  │  │  │     ├─ type: Identifier
+      │  │  │     │     │  │  │  │     └─ name: tokenId
+      │  │  │     │     │  │  │  ├─ names
+      │  │  │     │     │  │  │  └─ identifiers
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: Identifier
+      │  │  │     │     │  │     └─ name: borrower
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Borrower is not the owner of the token
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Borrower is not the owner of the token
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 4
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: Identifier
+      │  │  │     │     │  └─ name: require
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: BinaryOperation
+      │  │  │     │     │  │  ├─ operator: <=
+      │  │  │     │     │  │  ├─ left
+      │  │  │     │     │  │  │  ├─ type: FunctionCall
+      │  │  │     │     │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  ├─ type: MemberAccess
+      │  │  │     │     │  │  │  │  ├─ expression
+      │  │  │     │     │  │  │  │  │  ├─ type: IndexAccess
+      │  │  │     │     │  │  │  │  │  ├─ base
+      │  │  │     │     │  │  │  │  │  │  ├─ type: IndexAccess
+      │  │  │     │     │  │  │  │  │  │  ├─ base
+      │  │  │     │     │  │  │  │  │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  │  │  │  │  └─ name: tokenColletralNum
+      │  │  │     │     │  │  │  │  │  │  └─ index
+      │  │  │     │     │  │  │  │  │  │     ├─ type: Identifier
+      │  │  │     │     │  │  │  │  │  │     └─ name: borrower
+      │  │  │     │     │  │  │  │  │  └─ index
+      │  │  │     │     │  │  │  │  │     ├─ type: Identifier
+      │  │  │     │     │  │  │  │  │     └─ name: _tokenContract
+      │  │  │     │     │  │  │  │  └─ memberName: add
+      │  │  │     │     │  │  │  ├─ arguments
+      │  │  │     │     │  │  │  │  └─ 0
+      │  │  │     │     │  │  │  │     ├─ type: NumberLiteral
+      │  │  │     │     │  │  │  │     ├─ number: 1
+      │  │  │     │     │  │  │  │     └─ subdenomination
+      │  │  │     │     │  │  │  ├─ names
+      │  │  │     │     │  │  │  └─ identifiers
+      │  │  │     │     │  │  └─ right
+      │  │  │     │     │  │     ├─ type: FunctionCall
+      │  │  │     │     │  │     ├─ expression
+      │  │  │     │     │  │     │  ├─ type: MemberAccess
+      │  │  │     │     │  │     │  ├─ expression
+      │  │  │     │     │  │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │     │  │  └─ name: token
+      │  │  │     │     │  │     │  └─ memberName: balanceOf
+      │  │  │     │     │  │     ├─ arguments
+      │  │  │     │     │  │     │  └─ 0
+      │  │  │     │     │  │     │     ├─ type: Identifier
+      │  │  │     │     │  │     │     └─ name: borrower
+      │  │  │     │     │  │     ├─ names
+      │  │  │     │     │  │     └─ identifiers
+      │  │  │     │     │  └─ 1
+      │  │  │     │     │     ├─ type: StringLiteral
+      │  │  │     │     │     ├─ value: Borrower has no remaining collateral slots
+      │  │  │     │     │     ├─ parts
+      │  │  │     │     │     │  └─ 0: Borrower has no remaining collateral slots
+      │  │  │     │     │     └─ isUnicode
+      │  │  │     │     │        └─ 0: false
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 5
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: FunctionCall
+      │  │  │     │     ├─ expression
+      │  │  │     │     │  ├─ type: MemberAccess
+      │  │  │     │     │  ├─ expression
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: token
+      │  │  │     │     │  └─ memberName: transferFrom
+      │  │  │     │     ├─ arguments
+      │  │  │     │     │  ├─ 0
+      │  │  │     │     │  │  ├─ type: Identifier
+      │  │  │     │     │  │  └─ name: borrower
+      │  │  │     │     │  ├─ 1
+      │  │  │     │     │  │  ├─ type: FunctionCall
+      │  │  │     │     │  │  ├─ expression
+      │  │  │     │     │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  └─ name: address
+      │  │  │     │     │  │  ├─ arguments
+      │  │  │     │     │  │  │  └─ 0
+      │  │  │     │     │  │  │     ├─ type: Identifier
+      │  │  │     │     │  │  │     └─ name: this
+      │  │  │     │     │  │  ├─ names
+      │  │  │     │     │  │  └─ identifiers
+      │  │  │     │     │  └─ 2
+      │  │  │     │     │     ├─ type: Identifier
+      │  │  │     │     │     └─ name: tokenId
+      │  │  │     │     ├─ names
+      │  │  │     │     └─ identifiers
+      │  │  │     ├─ 6
+      │  │  │     │  ├─ type: ExpressionStatement
+      │  │  │     │  └─ expression
+      │  │  │     │     ├─ type: BinaryOperation
+      │  │  │     │     ├─ operator: =
+      │  │  │     │     ├─ left
+      │  │  │     │     │  ├─ type: IndexAccess
+      │  │  │     │     │  ├─ base
+      │  │  │     │     │  │  ├─ type: IndexAccess
+      │  │  │     │     │  │  ├─ base
+      │  │  │     │     │  │  │  ├─ type: Identifier
+      │  │  │     │     │  │  │  └─ name: tokenColletralNum
+      │  │  │     │     │  │  └─ index
+      │  │  │     │     │  │     ├─ type: Identifier
+      │  │  │     │     │  │     └─ name: borrower
+      │  │  │     │     │  └─ index
+      │  │  │     │     │     ├─ type: Identifier
+      │  │  │     │     │     └─ name: _tokenContract
+      │  │  │     │     └─ right
+      │  │  │     │        ├─ type: FunctionCall
+      │  │  │     │        ├─ expression
+      │  │  │     │        │  ├─ type: MemberAccess
+      │  │  │     │        │  ├─ expression
+      │  │  │     │        │  │  ├─ type: IndexAccess
+      │  │  │     │        │  │  ├─ base
+      │  │  │     │        │  │  │  ├─ type: IndexAccess
+      │  │  │     │        │  │  │  ├─ base
+      │  │  │     │        │  │  │  │  ├─ type: Identifier
+      │  │  │     │        │  │  │  │  └─ name: tokenColletralNum
+      │  │  │     │        │  │  │  └─ index
+      │  │  │     │        │  │  │     ├─ type: Identifier
+      │  │  │     │        │  │  │     └─ name: borrower
+      │  │  │     │        │  │  └─ index
+      │  │  │     │        │  │     ├─ type: Identifier
+      │  │  │     │        │  │     └─ name: _tokenContract
+      │  │  │     │        │  └─ memberName: add
+      │  │  │     │        ├─ arguments
+      │  │  │     │        │  └─ 0
+      │  │  │     │        │     ├─ type: NumberLiteral
+      │  │  │     │        │     ├─ number: 1
+      │  │  │     │        │     └─ subdenomination
+      │  │  │     │        ├─ names
+      │  │  │     │        └─ identifiers
+      │  │  │     └─ 7
+      │  │  │        ├─ type: ExpressionStatement
       │  │  │        └─ expression
-      │  │  │           ├─ type: NumberLiteral
-      │  │  │           ├─ number: 1e15
-      │  │  │           └─ subdenomination
+      │  │  │           ├─ type: BinaryOperation
+      │  │  │           ├─ operator: =
+      │  │  │           ├─ left
+      │  │  │           │  ├─ type: IndexAccess
+      │  │  │           │  ├─ base
+      │  │  │           │  │  ├─ type: Identifier
+      │  │  │           │  │  └─ name: individualCOlletralNum
+      │  │  │           │  └─ index
+      │  │  │           │     ├─ type: Identifier
+      │  │  │           │     └─ name: borrower
+      │  │  │           └─ right
+      │  │  │              ├─ type: FunctionCall
+      │  │  │              ├─ expression
+      │  │  │              │  ├─ type: MemberAccess
+      │  │  │              │  ├─ expression
+      │  │  │              │  │  ├─ type: IndexAccess
+      │  │  │              │  │  ├─ base
+      │  │  │              │  │  │  ├─ type: Identifier
+      │  │  │              │  │  │  └─ name: individualCOlletralNum
+      │  │  │              │  │  └─ index
+      │  │  │              │  │     ├─ type: Identifier
+      │  │  │              │  │     └─ name: borrower
+      │  │  │              │  └─ memberName: add
+      │  │  │              ├─ arguments
+      │  │  │              │  └─ 0
+      │  │  │              │     ├─ type: NumberLiteral
+      │  │  │              │     ├─ number: 1
+      │  │  │              │     └─ subdenomination
+      │  │  │              ├─ names
+      │  │  │              └─ identifiers
       │  │  ├─ visibility: internal
       │  │  ├─ modifiers
       │  │  ├─ override
@@ -3322,189 +3846,306 @@
       │  │  ├─ isFallback: false
       │  │  ├─ isVirtual: false
       │  │  └─ stateMutability
-      │  ├─ 27
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: set_Borrow_InterestRate
-      │  │  ├─ parameters
-      │  │  │  └─ 0
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: _Borrow_interestRate
-      │  │  │     ├─ identifier
-      │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: _Borrow_interestRate
-      │  │  │     ├─ storageLocation
-      │  │  │     ├─ isStateVar: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     └─ expression
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  │  ├─ type: Block
-      │  │  │  └─ statements
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  └─ 0
-      │  │  │     │     │     ├─ type: BinaryOperation
-      │  │  │     │     │     ├─ operator: ==
-      │  │  │     │     │     ├─ left
-      │  │  │     │     │     │  ├─ type: MemberAccess
-      │  │  │     │     │     │  ├─ expression
-      │  │  │     │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │     │  │  └─ name: msg
-      │  │  │     │     │     │  └─ memberName: sender
-      │  │  │     │     │     └─ right
-      │  │  │     │     │        ├─ type: Identifier
-      │  │  │     │     │        └─ name: owner
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     ├─ 1
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: BinaryOperation
-      │  │  │     │     ├─ operator: =
-      │  │  │     │     ├─ left
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: Borrow_interestRate
-      │  │  │     │     └─ right
-      │  │  │     │        ├─ type: Identifier
-      │  │  │     │        └─ name: _Borrow_interestRate
-      │  │  │     └─ 2
-      │  │  │        ├─ type: ExpressionStatement
-      │  │  │        └─ expression
-      │  │  │           ├─ type: BinaryOperation
-      │  │  │           ├─ operator: =
-      │  │  │           ├─ left
-      │  │  │           │  ├─ type: Identifier
-      │  │  │           │  └─ name: Lending_interestRate
-      │  │  │           └─ right
-      │  │  │              ├─ type: BinaryOperation
-      │  │  │              ├─ operator: *
-      │  │  │              ├─ left
-      │  │  │              │  ├─ type: Identifier
-      │  │  │              │  └─ name: _Borrow_interestRate
-      │  │  │              └─ right
-      │  │  │                 ├─ type: TupleExpression
-      │  │  │                 ├─ components
-      │  │  │                 │  └─ 0
-      │  │  │                 │     ├─ type: BinaryOperation
-      │  │  │                 │     ├─ operator: /
-      │  │  │                 │     ├─ left
-      │  │  │                 │     │  ├─ type: Identifier
-      │  │  │                 │     │  └─ name: totalBorrowed
-      │  │  │                 │     └─ right
-      │  │  │                 │        ├─ type: Identifier
-      │  │  │                 │        └─ name: totalSupply
-      │  │  │                 └─ isArray: false
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ override
-      │  │  ├─ isConstructor: false
-      │  │  ├─ isReceiveEther: false
-      │  │  ├─ isFallback: false
-      │  │  ├─ isVirtual: false
-      │  │  └─ stateMutability
-      │  ├─ 28
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: setLoanToCollateral
-      │  │  ├─ parameters
-      │  │  │  └─ 0
-      │  │  │     ├─ type: VariableDeclaration
-      │  │  │     ├─ typeName
-      │  │  │     │  ├─ type: ElementaryTypeName
-      │  │  │     │  ├─ name: uint256
-      │  │  │     │  └─ stateMutability
-      │  │  │     ├─ name: _maxLtv
-      │  │  │     ├─ identifier
-      │  │  │     │  ├─ type: Identifier
-      │  │  │     │  └─ name: _maxLtv
-      │  │  │     ├─ storageLocation
-      │  │  │     ├─ isStateVar: false
-      │  │  │     ├─ isIndexed: false
-      │  │  │     └─ expression
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  │  ├─ type: Block
-      │  │  │  └─ statements
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: ExpressionStatement
-      │  │  │     │  └─ expression
-      │  │  │     │     ├─ type: FunctionCall
-      │  │  │     │     ├─ expression
-      │  │  │     │     │  ├─ type: Identifier
-      │  │  │     │     │  └─ name: require
-      │  │  │     │     ├─ arguments
-      │  │  │     │     │  └─ 0
-      │  │  │     │     │     ├─ type: BinaryOperation
-      │  │  │     │     │     ├─ operator: ==
-      │  │  │     │     │     ├─ left
-      │  │  │     │     │     │  ├─ type: MemberAccess
-      │  │  │     │     │     │  ├─ expression
-      │  │  │     │     │     │  │  ├─ type: Identifier
-      │  │  │     │     │     │  │  └─ name: msg
-      │  │  │     │     │     │  └─ memberName: sender
-      │  │  │     │     │     └─ right
-      │  │  │     │     │        ├─ type: Identifier
-      │  │  │     │     │        └─ name: owner
-      │  │  │     │     ├─ names
-      │  │  │     │     └─ identifiers
-      │  │  │     └─ 1
-      │  │  │        ├─ type: ExpressionStatement
-      │  │  │        └─ expression
-      │  │  │           ├─ type: BinaryOperation
-      │  │  │           ├─ operator: =
-      │  │  │           ├─ left
-      │  │  │           │  ├─ type: Identifier
-      │  │  │           │  └─ name: maxLtv
-      │  │  │           └─ right
-      │  │  │              ├─ type: Identifier
-      │  │  │              └─ name: _maxLtv
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ override
-      │  │  ├─ isConstructor: false
-      │  │  ├─ isReceiveEther: false
-      │  │  ├─ isFallback: false
-      │  │  ├─ isVirtual: false
-      │  │  └─ stateMutability
-      │  ├─ 29
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name
-      │  │  ├─ parameters
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  │  ├─ type: Block
-      │  │  │  └─ statements
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ override
-      │  │  ├─ isConstructor: false
-      │  │  ├─ isReceiveEther: false
-      │  │  ├─ isFallback: true
-      │  │  ├─ isVirtual: false
-      │  │  └─ stateMutability: payable
-      │  └─ 30
+      │  └─ 34
       │     ├─ type: FunctionDefinition
-      │     ├─ name
+      │     ├─ name: withdrawERC721Collateral
       │     ├─ parameters
+      │     │  ├─ 0
+      │     │  │  ├─ type: VariableDeclaration
+      │     │  │  ├─ typeName
+      │     │  │  │  ├─ type: ElementaryTypeName
+      │     │  │  │  ├─ name: address
+      │     │  │  │  └─ stateMutability
+      │     │  │  ├─ name: borrower
+      │     │  │  ├─ identifier
+      │     │  │  │  ├─ type: Identifier
+      │     │  │  │  └─ name: borrower
+      │     │  │  ├─ storageLocation
+      │     │  │  ├─ isStateVar: false
+      │     │  │  ├─ isIndexed: false
+      │     │  │  └─ expression
+      │     │  ├─ 1
+      │     │  │  ├─ type: VariableDeclaration
+      │     │  │  ├─ typeName
+      │     │  │  │  ├─ type: ElementaryTypeName
+      │     │  │  │  ├─ name: address
+      │     │  │  │  └─ stateMutability
+      │     │  │  ├─ name: _tokenContract
+      │     │  │  ├─ identifier
+      │     │  │  │  ├─ type: Identifier
+      │     │  │  │  └─ name: _tokenContract
+      │     │  │  ├─ storageLocation
+      │     │  │  ├─ isStateVar: false
+      │     │  │  ├─ isIndexed: false
+      │     │  │  └─ expression
+      │     │  └─ 2
+      │     │     ├─ type: VariableDeclaration
+      │     │     ├─ typeName
+      │     │     │  ├─ type: ElementaryTypeName
+      │     │     │  ├─ name: uint256
+      │     │     │  └─ stateMutability
+      │     │     ├─ name: tokenId
+      │     │     ├─ identifier
+      │     │     │  ├─ type: Identifier
+      │     │     │  └─ name: tokenId
+      │     │     ├─ storageLocation
+      │     │     ├─ isStateVar: false
+      │     │     ├─ isIndexed: false
+      │     │     └─ expression
       │     ├─ returnParameters
       │     ├─ body
       │     │  ├─ type: Block
       │     │  └─ statements
-      │     ├─ visibility: external
+      │     │     ├─ 0
+      │     │     │  ├─ type: VariableDeclarationStatement
+      │     │     │  ├─ variables
+      │     │     │  │  └─ 0
+      │     │     │  │     ├─ type: VariableDeclaration
+      │     │     │  │     ├─ typeName
+      │     │     │  │     │  ├─ type: UserDefinedTypeName
+      │     │     │  │     │  └─ namePath: IERC721Enumerable
+      │     │     │  │     ├─ name: token
+      │     │     │  │     ├─ identifier
+      │     │     │  │     │  ├─ type: Identifier
+      │     │     │  │     │  └─ name: token
+      │     │     │  │     ├─ storageLocation
+      │     │     │  │     ├─ isStateVar: false
+      │     │     │  │     ├─ isIndexed: false
+      │     │     │  │     └─ expression
+      │     │     │  └─ initialValue
+      │     │     │     ├─ type: FunctionCall
+      │     │     │     ├─ expression
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: IERC721Enumerable
+      │     │     │     ├─ arguments
+      │     │     │     │  └─ 0
+      │     │     │     │     ├─ type: Identifier
+      │     │     │     │     └─ name: _tokenContract
+      │     │     │     ├─ names
+      │     │     │     └─ identifiers
+      │     │     ├─ 1
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: FunctionCall
+      │     │     │     ├─ expression
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: require
+      │     │     │     ├─ arguments
+      │     │     │     │  ├─ 0
+      │     │     │     │  │  ├─ type: BinaryOperation
+      │     │     │     │  │  ├─ operator: ==
+      │     │     │     │  │  ├─ left
+      │     │     │     │  │  │  ├─ type: MemberAccess
+      │     │     │     │  │  │  ├─ expression
+      │     │     │     │  │  │  │  ├─ type: Identifier
+      │     │     │     │  │  │  │  └─ name: msg
+      │     │     │     │  │  │  └─ memberName: sender
+      │     │     │     │  │  └─ right
+      │     │     │     │  │     ├─ type: Identifier
+      │     │     │     │  │     └─ name: borrower
+      │     │     │     │  └─ 1
+      │     │     │     │     ├─ type: StringLiteral
+      │     │     │     │     ├─ value: Only borrower can withdraw collateral
+      │     │     │     │     ├─ parts
+      │     │     │     │     │  └─ 0: Only borrower can withdraw collateral
+      │     │     │     │     └─ isUnicode
+      │     │     │     │        └─ 0: false
+      │     │     │     ├─ names
+      │     │     │     └─ identifiers
+      │     │     ├─ 2
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: FunctionCall
+      │     │     │     ├─ expression
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: require
+      │     │     │     ├─ arguments
+      │     │     │     │  ├─ 0
+      │     │     │     │  │  ├─ type: BinaryOperation
+      │     │     │     │  │  ├─ operator: >
+      │     │     │     │  │  ├─ left
+      │     │     │     │  │  │  ├─ type: IndexAccess
+      │     │     │     │  │  │  ├─ base
+      │     │     │     │  │  │  │  ├─ type: IndexAccess
+      │     │     │     │  │  │  │  ├─ base
+      │     │     │     │  │  │  │  │  ├─ type: Identifier
+      │     │     │     │  │  │  │  │  └─ name: tokenColletralNum
+      │     │     │     │  │  │  │  └─ index
+      │     │     │     │  │  │  │     ├─ type: Identifier
+      │     │     │     │  │  │  │     └─ name: borrower
+      │     │     │     │  │  │  └─ index
+      │     │     │     │  │  │     ├─ type: Identifier
+      │     │     │     │  │  │     └─ name: _tokenContract
+      │     │     │     │  │  └─ right
+      │     │     │     │  │     ├─ type: NumberLiteral
+      │     │     │     │  │     ├─ number: 0
+      │     │     │     │  │     └─ subdenomination
+      │     │     │     │  └─ 1
+      │     │     │     │     ├─ type: StringLiteral
+      │     │     │     │     ├─ value: Borrower has no collateral to withdraw
+      │     │     │     │     ├─ parts
+      │     │     │     │     │  └─ 0: Borrower has no collateral to withdraw
+      │     │     │     │     └─ isUnicode
+      │     │     │     │        └─ 0: false
+      │     │     │     ├─ names
+      │     │     │     └─ identifiers
+      │     │     ├─ 3
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: FunctionCall
+      │     │     │     ├─ expression
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: require
+      │     │     │     ├─ arguments
+      │     │     │     │  ├─ 0
+      │     │     │     │  │  ├─ type: BinaryOperation
+      │     │     │     │  │  ├─ operator: ==
+      │     │     │     │  │  ├─ left
+      │     │     │     │  │  │  ├─ type: FunctionCall
+      │     │     │     │  │  │  ├─ expression
+      │     │     │     │  │  │  │  ├─ type: MemberAccess
+      │     │     │     │  │  │  │  ├─ expression
+      │     │     │     │  │  │  │  │  ├─ type: Identifier
+      │     │     │     │  │  │  │  │  └─ name: token
+      │     │     │     │  │  │  │  └─ memberName: ownerOf
+      │     │     │     │  │  │  ├─ arguments
+      │     │     │     │  │  │  │  └─ 0
+      │     │     │     │  │  │  │     ├─ type: Identifier
+      │     │     │     │  │  │  │     └─ name: tokenId
+      │     │     │     │  │  │  ├─ names
+      │     │     │     │  │  │  └─ identifiers
+      │     │     │     │  │  └─ right
+      │     │     │     │  │     ├─ type: FunctionCall
+      │     │     │     │  │     ├─ expression
+      │     │     │     │  │     │  ├─ type: Identifier
+      │     │     │     │  │     │  └─ name: address
+      │     │     │     │  │     ├─ arguments
+      │     │     │     │  │     │  └─ 0
+      │     │     │     │  │     │     ├─ type: Identifier
+      │     │     │     │  │     │     └─ name: this
+      │     │     │     │  │     ├─ names
+      │     │     │     │  │     └─ identifiers
+      │     │     │     │  └─ 1
+      │     │     │     │     ├─ type: StringLiteral
+      │     │     │     │     ├─ value: Token is not being used as collateral
+      │     │     │     │     ├─ parts
+      │     │     │     │     │  └─ 0: Token is not being used as collateral
+      │     │     │     │     └─ isUnicode
+      │     │     │     │        └─ 0: false
+      │     │     │     ├─ names
+      │     │     │     └─ identifiers
+      │     │     ├─ 4
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: FunctionCall
+      │     │     │     ├─ expression
+      │     │     │     │  ├─ type: MemberAccess
+      │     │     │     │  ├─ expression
+      │     │     │     │  │  ├─ type: Identifier
+      │     │     │     │  │  └─ name: token
+      │     │     │     │  └─ memberName: transferFrom
+      │     │     │     ├─ arguments
+      │     │     │     │  ├─ 0
+      │     │     │     │  │  ├─ type: FunctionCall
+      │     │     │     │  │  ├─ expression
+      │     │     │     │  │  │  ├─ type: Identifier
+      │     │     │     │  │  │  └─ name: address
+      │     │     │     │  │  ├─ arguments
+      │     │     │     │  │  │  └─ 0
+      │     │     │     │  │  │     ├─ type: Identifier
+      │     │     │     │  │  │     └─ name: this
+      │     │     │     │  │  ├─ names
+      │     │     │     │  │  └─ identifiers
+      │     │     │     │  ├─ 1
+      │     │     │     │  │  ├─ type: Identifier
+      │     │     │     │  │  └─ name: borrower
+      │     │     │     │  └─ 2
+      │     │     │     │     ├─ type: Identifier
+      │     │     │     │     └─ name: tokenId
+      │     │     │     ├─ names
+      │     │     │     └─ identifiers
+      │     │     ├─ 5
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: BinaryOperation
+      │     │     │     ├─ operator: =
+      │     │     │     ├─ left
+      │     │     │     │  ├─ type: IndexAccess
+      │     │     │     │  ├─ base
+      │     │     │     │  │  ├─ type: IndexAccess
+      │     │     │     │  │  ├─ base
+      │     │     │     │  │  │  ├─ type: Identifier
+      │     │     │     │  │  │  └─ name: tokenColletralNum
+      │     │     │     │  │  └─ index
+      │     │     │     │  │     ├─ type: Identifier
+      │     │     │     │  │     └─ name: borrower
+      │     │     │     │  └─ index
+      │     │     │     │     ├─ type: Identifier
+      │     │     │     │     └─ name: _tokenContract
+      │     │     │     └─ right
+      │     │     │        ├─ type: FunctionCall
+      │     │     │        ├─ expression
+      │     │     │        │  ├─ type: MemberAccess
+      │     │     │        │  ├─ expression
+      │     │     │        │  │  ├─ type: IndexAccess
+      │     │     │        │  │  ├─ base
+      │     │     │        │  │  │  ├─ type: IndexAccess
+      │     │     │        │  │  │  ├─ base
+      │     │     │        │  │  │  │  ├─ type: Identifier
+      │     │     │        │  │  │  │  └─ name: tokenColletralNum
+      │     │     │        │  │  │  └─ index
+      │     │     │        │  │  │     ├─ type: Identifier
+      │     │     │        │  │  │     └─ name: borrower
+      │     │     │        │  │  └─ index
+      │     │     │        │  │     ├─ type: Identifier
+      │     │     │        │  │     └─ name: _tokenContract
+      │     │     │        │  └─ memberName: sub
+      │     │     │        ├─ arguments
+      │     │     │        │  └─ 0
+      │     │     │        │     ├─ type: NumberLiteral
+      │     │     │        │     ├─ number: 1
+      │     │     │        │     └─ subdenomination
+      │     │     │        ├─ names
+      │     │     │        └─ identifiers
+      │     │     └─ 6
+      │     │        ├─ type: ExpressionStatement
+      │     │        └─ expression
+      │     │           ├─ type: BinaryOperation
+      │     │           ├─ operator: =
+      │     │           ├─ left
+      │     │           │  ├─ type: IndexAccess
+      │     │           │  ├─ base
+      │     │           │  │  ├─ type: Identifier
+      │     │           │  │  └─ name: individualCOlletralNum
+      │     │           │  └─ index
+      │     │           │     ├─ type: Identifier
+      │     │           │     └─ name: borrower
+      │     │           └─ right
+      │     │              ├─ type: FunctionCall
+      │     │              ├─ expression
+      │     │              │  ├─ type: MemberAccess
+      │     │              │  ├─ expression
+      │     │              │  │  ├─ type: IndexAccess
+      │     │              │  │  ├─ base
+      │     │              │  │  │  ├─ type: Identifier
+      │     │              │  │  │  └─ name: individualCOlletralNum
+      │     │              │  │  └─ index
+      │     │              │  │     ├─ type: Identifier
+      │     │              │  │     └─ name: borrower
+      │     │              │  └─ memberName: sub
+      │     │              ├─ arguments
+      │     │              │  └─ 0
+      │     │              │     ├─ type: NumberLiteral
+      │     │              │     ├─ number: 1
+      │     │              │     └─ subdenomination
+      │     │              ├─ names
+      │     │              └─ identifiers
+      │     ├─ visibility: internal
       │     ├─ modifiers
       │     ├─ override
       │     ├─ isConstructor: false
-      │     ├─ isReceiveEther: true
+      │     ├─ isReceiveEther: false
       │     ├─ isFallback: false
       │     ├─ isVirtual: false
-      │     └─ stateMutability: payable
+      │     └─ stateMutability
       └─ kind: contract
