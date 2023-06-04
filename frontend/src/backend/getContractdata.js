@@ -48,7 +48,7 @@ const getOwner = async (contract) => {
 const getTotalSupply = async (contract) => {
   try {
     const totalsupply = await contract.totalSupply();
-    const TotalSupply = bigNumToNum(totalsupply);
+    const TotalSupply = parseInt(totalsupply._hex);
     return TotalSupply
   } catch (error) {
     console.log(error);
@@ -58,7 +58,7 @@ const getTotalSupply = async (contract) => {
 const getTotalBorrow = async (contract) => {
   try {
     const totalborrow = await contract.totalBorrowed();
-    const TotalBorrow = bigNumToNum(totalborrow);
+    const TotalBorrow = parseInt(totalborrow._hex);
     return TotalBorrow
   } catch (error) {
     console.log(error);

@@ -9,9 +9,9 @@ const borrow = async (contract, amount, tokenContract, tokenId, time) => {
     }
 }
 
-const repay = async (contract, loanId) => {
+const repay = async (contract, loanId, amount) => {
     try {
-        const Tx = await contract.repay(loanId);
+        const Tx = await contract.repay(loanId, {value: amount});
         return Tx
     } catch (e) {
         console.error(e);
@@ -49,8 +49,8 @@ const approveToken = async (contract, approvingAddress, tokenId) => {
 const getLoans = async (contract, address, loanId) => {
     try {
       const allLoans = await contract.loans(address, loanId);
-      const borrower = parseInt(allLoans.borrower);
-      const tokenContract = parseInt(allLoans.tokenContract);
+      const borrower = allLoans.borrower;
+      const tokenContract = allLoans.tokenContract;
       const tokenId = parseInt(allLoans.tokenId);
       const amount = parseInt(allLoans.amount);
       const collateralValue = parseInt(allLoans.collateralValue);
@@ -62,7 +62,7 @@ const getLoans = async (contract, address, loanId) => {
         TokenContract: tokenContract, 
         TokenId: tokenId, 
         Amount: amount, 
-        CollateralValue: collateralValue, 
+        CollateralValue: collateralValue / 1e18, 
         Interest: interest, 
         Time: time, 
         Active: active
@@ -89,4 +89,4 @@ export {
 }
 
 
-// 0x3d35b8C010E2Bf8C530cF7DE18cbF3Da50657599
+// 0xa86Dc302F1Ba19c5f372cCa85633D779a741c07D

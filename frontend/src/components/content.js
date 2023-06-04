@@ -62,7 +62,9 @@ useEffect(()=> {
         const totaldepositednfts = await getTotalDepositedNFTs(Contract);
         const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
         const utilization = await getUtilization(Contract);
-        const ethTousd = await get_ETHtoUSD_Price(Contract)
+        const ethTousd = await get_ETHtoUSD_Price(Contract);
+        // console.log(totalsupply);
+        
         setData({
             totalSupply: totalsupply / 1e18,
             totalBorrow: totalborrow / 1e18,

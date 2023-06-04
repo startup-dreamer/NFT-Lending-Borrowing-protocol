@@ -198,11 +198,11 @@ contract AurumV1core is NFTPrice {
         totalBorrowed += _amount;
         totalDepositedNFTs += 1;
 
-        // (bool success, ) = (msg.sender).call{value : _amount}("");
-        // require(
-        //     success, 
-        //     "Internal error funds not transferred"
-        //     );
+        (bool success, ) = (msg.sender).call{value : _amount}("");
+        require(
+            success, 
+            "Internal error funds not transferred"
+            );
 
         emit Borrow(msg.sender, loans[msg.sender].length - 1, _amount, interest, _time);
     }
@@ -224,7 +224,9 @@ contract AurumV1core is NFTPrice {
             "Loan is already closed"
             );
 
-        uint256 amountToRepay = loan.amount.add(loan.interest);
+        uint256 amount = loan.amount;
+        uint256 interest = loan.interest;
+        uint256 amountToRepay = amount + interest;
         if (IERC165(loan.tokenContract).supportsInterface(type(IERC721).interfaceId)) {
             withdrawERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
         }
@@ -232,11 +234,17 @@ contract AurumV1core is NFTPrice {
             revert("Unsupported token type");
         }
         loan.active = false;
-        totalBorrowed -= amountToRepay;
+        totalBorrowed -= amount;
         totalDepositedNFTs -= 1;
 
-        // (bool success, ) = (address(this)).call{value: amountToRepay}("");
-        // require(success, "Internal error funds not transferred");
+        require(
+            amountToRepay == msg.value,"reverted"
+        );
+        (bool success, ) = (address(this)).call{value: msg.value}("");
+        require(
+            success, 
+            "Internal error funds not transferred"
+        );
         delete loans[msg.sender][_loanId];
         emit Repay(msg.sender, _loanId, loan.amount, loan.interest);
     }
@@ -263,6 +271,19 @@ contract AurumV1core is NFTPrice {
 
     function getUtilization() external view returns(uint256) {
         return (totalBorrowed == 0 || totalSupply == 0) ? 0 : (totalBorrowed / totalSupply) * 100;
+    }
+
+    function withdraw_liquidateNFT(address borrowerAddress, uint256 _loanId) external payable {
+        Loan storage loan = loans[borrowerAddress][_loanId];
+        require(loan.time < block.timestamp, "not liquidated");
+        require(loan.active == false, "Debt payed");
+        uint256 amount = loan.collateralValue;
+        (bool success, ) = (address(this)).call{value : amount}("");
+        require(
+            success, 
+            "Internal error funds not transferred"
+            );
+
     }
 
 /*************************************** [Public Functions] ***************************************/
@@ -334,5 +355,5 @@ contract AurumV1core is NFTPrice {
     
 }
 
-// sepolia address 0x481f5ecF06933713bBBF60433fd0cADAD921db3b
+// sepolia address 0xa86Dc302F1Ba19c5f372cCa85633D779a741c07D
 

@@ -10,7 +10,7 @@ const deposit_to_pool = async(contract, time, amount) => {
 
 const withdraw_to_pool = async(contract, depId) => {
     try {
-        const Tx = await contract.withdrawToPool(depId);
+        const Tx = await contract.withdrawFromPool(depId);
         return Tx
     } catch (e) {
         console.error(e);
@@ -45,20 +45,3 @@ export {
     getDeposits,
     getDepositId
 };
-
-// {
-        // totalsupply: in ETH
-        // totalBorrow: in ETH
-        // Lending_interestRate: in APY
-// }
-
-
-// {
-    // totalSupply: in Eth
-    // totalBorrow: in Eth
-    // Lending_interestRate: in APY
-    // Borrowing_interestRate: in APY
-    // Utilization: totalBoorow/totalSupply
-    // total deposited NFTs: 
-    // Liquidated NFTs:
-// }
