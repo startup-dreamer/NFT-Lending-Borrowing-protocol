@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "./contracts/NFTPrice.sol";
+import "./NFTPrice.sol";
 
 
 contract AurumV1core is NFTPrice {
@@ -212,7 +212,7 @@ contract AurumV1core is NFTPrice {
         ) external payable {
         Loan storage loan = loans[msg.sender][_loanId];
         require(
-            true, 
+            loan.time > block.timestamp, 
             "NFT liquidated debt not paid in time"
             );
         require(
@@ -355,5 +355,5 @@ contract AurumV1core is NFTPrice {
     
 }
 
-// sepolia address 0xa86Dc302F1Ba19c5f372cCa85633D779a741c07D
+// sepolia address 0xD388C6f5D36541a826D3F7C5ddF750fa11fd6E88
 

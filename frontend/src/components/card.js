@@ -13,7 +13,7 @@ const Card = () => {
                     Crypto Dev is a collection of developers in crypto
                 </div>
                 <div className="price_holder">
-                    <div className="price_card">$8000</div>
+                    <div className="price_card">0.0001 ETH</div>
                     <button>Buy Now</button>
                 </div>
             </div>

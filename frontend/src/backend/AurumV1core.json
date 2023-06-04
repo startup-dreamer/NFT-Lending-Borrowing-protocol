@@ -575,6 +575,24 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "borrowerAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_loanId",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw_liquidateNFT",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"stateMutability": "payable",
 		"type": "receive"
 	}

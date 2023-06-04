@@ -172,7 +172,7 @@ function getTimeFromSeconds(seconds) {
                 <div className="lend_history_card_holder">
                     {(deposits.map((deposit, key) => {
                         return(
-                        (deposit.Id === "-" ? <span>No Deposits</span> :
+                        (deposit.Amount === 0 ? <span></span> :
                         <PortfolioLend Contract={Contract} deposit={deposit} key={key} />)
                         );
                     })
@@ -186,7 +186,7 @@ function getTimeFromSeconds(seconds) {
                 <div className="borrow_history_head">Borrow Transactions History</div>
                 <div className="borrow_history_card_holder">{(loans.map((loan,key) => {
                     return(
-                        (loan.Id === "-" ? <span>No loans</span> :
+                        (loan.Amount === 0 ? <span>No loans</span> :
                         <PortfolioBorrow Contract={Contract} loan={loan} key={key} />)
                     );
                    

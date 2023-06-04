@@ -2,7 +2,7 @@ import { bigNumToNum } from "./getContractdata";
 
 const borrow = async (contract, amount, tokenContract, tokenId, time) => {
     try {
-        const Tx = await contract.borrow(amount, tokenContract, tokenId, time);
+        const Tx = await contract.borrow(amount * 1e18, tokenContract, tokenId, time);
         return Tx
     } catch (e) {
         console.error(e);

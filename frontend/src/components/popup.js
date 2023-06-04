@@ -120,6 +120,8 @@ function getBorrowEpochTime(value) {
     const date = new Date(value.replace(' ', 'T'));
     const epochTime = Math.floor(date.getTime() / 1000);
     setBorrowTime(epochTime);
+    console.log(epochTime);
+    
 }
 
 const Borrow = async () => {
@@ -133,7 +135,7 @@ const Borrow = async () => {
                 nftABI,
                 signer
                 );
-                const Tx1 = await approveToken(contract, "0x481f5ecF06933713bBBF60433fd0cADAD921db3b", tokenId);
+                const Tx1 = await approveToken(contract, "0x51322D5fbc5A582BA20EA067cc11Da144fe38F3B", tokenId);
                 const receipt1 = await Tx1.wait();
                 if (receipt1.status === 1) {
                     console.log("Transaction confirmed with", receipt1);
