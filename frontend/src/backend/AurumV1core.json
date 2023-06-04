@@ -463,6 +463,19 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "_loanId",
+				"type": "uint256"
+			}
+		],
+		"name": "repay1",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "_maxLtv",
 				"type": "uint256"
 			}

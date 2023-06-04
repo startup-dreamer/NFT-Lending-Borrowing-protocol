@@ -61,7 +61,8 @@ useEffect(()=> {
         const borrowinginterestrate = await getBorrow_interestRate(Contract);
         const totaldepositednfts = await getTotalDepositedNFTs(Contract);
         const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
-        const utilization = await getUtilization(Contract);
+        const utilization = totalborrow / totalsupply * 100;
+        // const utilization = await getUtilization(Contract);
         const ethTousd = await get_ETHtoUSD_Price(Contract);
         // console.log(totalsupply);
         
@@ -165,8 +166,8 @@ useEffect(()=> {
                 <div className="right_stats" style={{ 'color': 'white' }}>
                     <div className="right_stats_card">
                         <div className="total_stats_card" style={{'display':'flex', 'columnGap':'28px'}}>
-                            <div>Total Supply<br /><span>{parseInt(data.totalSupply)} ETH <small>({(data.totalSupply * data.ethTousd).toFixed(2)} USD)</small></span></div>
-                            <div>Total Borrow<br /><span>{parseInt(data.totalBorrow)} ETH <small>({(data.totalBorrow * data.ethTousd).toFixed(2)} USD)</small></span></div>
+                            <div>Total Supply<br /><span>{(data.totalSupply)} ETH <small>({(data.totalSupply * data.ethTousd).toFixed(2)} USD)</small></span></div>
+                            <div>Total Borrow<br /><span>{(data.totalBorrow)} ETH <small>({(data.totalBorrow * data.ethTousd).toFixed(2)} USD)</small></span></div>
                         </div>
                         <div className="interest_rates_card">
                             <div className="left_card_interest">

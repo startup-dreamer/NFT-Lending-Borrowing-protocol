@@ -198,7 +198,7 @@ contract AurumV1core is NFTPrice {
         totalBorrowed += _amount;
         totalDepositedNFTs += 1;
 
-        (bool success, ) = (msg.sender).call{value : _amount}("");
+        (bool success, ) = (payable(msg.sender)).call{value : _amount}("");
         require(
             success, 
             "Internal error funds not transferred"
@@ -257,8 +257,10 @@ contract AurumV1core is NFTPrice {
             );
         Borrow_interestRate = _Borrow_interestRate;
         // Utilization of pool
-        Lending_interestRate = _Borrow_interestRate * (totalBorrowed/totalSupply);
+        Lending_interestRate = _Borrow_interestRate * (totalBorrowed / totalSupply);
     }
+
+    
 
     function setLoanToCollateral(
         uint256 _maxLtv
@@ -355,5 +357,5 @@ contract AurumV1core is NFTPrice {
     
 }
 
-// sepolia address 0xD388C6f5D36541a826D3F7C5ddF750fa11fd6E88
+// sepolia address 0x2c184D8aB9f4E9665612AFE5FB57B319dfa757F6
 
