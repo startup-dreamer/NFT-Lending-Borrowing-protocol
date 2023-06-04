@@ -6,11 +6,6 @@
   <img src="./schema.png" alt="Schema of the project" title="Schema" />
 </p align = "center">
 
-<center>
-
-![Schema of the Contract](./Hardhat/graph.png "Schema" )
-</center>
-
 ![Alt text](./Hardhat/graph.svg)
 
 
