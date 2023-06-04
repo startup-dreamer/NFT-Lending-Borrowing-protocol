@@ -1,8 +1,0 @@
-Compiling and executing the given code results in a successful execution with no errors. The code defines a smart contract named "Lending" that allows users to borrow funds by depositing NFTs as collateral. The contract interacts with other contracts/interfaces in the OpenZeppelin and Chainlink libraries. 
-The contract allows users to set the interest rate and maximum loan to collateral ratio. Users can borrow funds by sending a request with the desired amount, NFT contract address, and token ID. The contract verifies that the requested amount does not exceed the borrowing power (which is based on the collateral's value), and deposits the NFT as collateral if it's an ERC721. It then calculates the interest based on the chosen interest rate, creates a loan object, and emits a Borrow event.
-The contract also allows borrowers to repay the loan by sending the amount borrowed plus interest. If the collateral is ERC721, the NFT is returned to the borrower. Once the loan is repaid, it is marked inactive and the Repay event is emitted.
-The contract provides a method to fetch the value of the NFT based on the ETH/USD price feed provided by Chainlink, and allows for setting the interest rate and maximum loan to collateral ratio.
-
-
-goerli NFT colletral : 0x0e47DFa9191Ae7733E14Ca07aa343b2Db7D43c2c
-borrowing contract goerli : 0xB4B0044Eb07fe0be31FDb3f792eA750107DC33fb

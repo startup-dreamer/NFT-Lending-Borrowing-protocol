@@ -1,6 +1,3 @@
-├─ type: SourceUnit
-└─ children
-   ├─ 0
    │  ├─ type: PragmaDirective
    │  ├─ name: solidity
    │  └─ value: ^0.8.0
