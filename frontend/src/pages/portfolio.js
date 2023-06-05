@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { useLocation } from 'react-router-dom';
-import { getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool, getmetadata } from '../backend';
+import { getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool, getmetadata, get_ETHtoUSD_Price } from '../backend';
 import PortfolioBorrow from './portfolio_borrow';
 import PortfolioLend from './portfolio_lend';
 import user_img from '../static/img/user.png';
@@ -30,7 +30,8 @@ const Portfolio = ({ Contract, Provider, Connected }) => {
         Active: "-",
         ImageURL: demo_img,
         NFTName: "NFT Name",
-        NFTDescription: "Description"
+        NFTDescription: "Description",
+        EthToUsd: "-"
     }]);
 
     const [userData, setUserData] = useState({
@@ -114,7 +115,10 @@ function getTimeFromSeconds(seconds) {
                 for (let i = 0; i < loanId; i++) {
                     const loan = await getLoans(Contract, account, i);                    
                     const NFTData = await getmetadata(loan.TokenContract, loan.TokenId);
+                    const ethTousd = await get_ETHtoUSD_Price(Contract)
                     console.log(NFTData);
+                    console.log(ethTousd);
+                    
                     
                     const date = getTimeFromSeconds(loan.Time)
                     loans.push({
@@ -129,19 +133,22 @@ function getTimeFromSeconds(seconds) {
                         Active: loan.Active,
                         ImageURL: NFTData.media[0].gateway,
                         NFTName: NFTData.contract.name,
-                        NFTDescription: NFTData.description
+                        NFTDescription: NFTData.description,
+                        EthToUsd: ethTousd / 1e8
                     });
                 }
                 setLoans(loans);
                 // console.log(loans);
-                setLoading(false);
+                setLoading(false);                
             }
         };
         setAccounts();
+        
     }, [Provider, Contract, account, Connected])
     
     /********************************************************** [Portfolio Data] **********************************************************/
     // console.log(getTimeFromSeconds(1687652160));
+    console.log(loans);
     
     return (
         <div className='portfolio_main'>
@@ -186,7 +193,7 @@ function getTimeFromSeconds(seconds) {
                 <div className="borrow_history_head">Borrow Transactions History</div>
                 <div className="borrow_history_card_holder">{(loans.map((loan,key) => {
                     return(
-                        (loan.Amount === 0 ? <span>No loans</span> :
+                        (loan.Active === false ? <span>No loans</span> :
                         <PortfolioBorrow Contract={Contract} loan={loan} key={key} />)
                     );
                    

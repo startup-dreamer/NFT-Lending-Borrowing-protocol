@@ -62,7 +62,7 @@ const getLoans = async (contract, address, loanId) => {
         TokenContract: tokenContract, 
         TokenId: tokenId, 
         Amount: amount, 
-        CollateralValue: collateralValue / 1e18, 
+        CollateralValue: collateralValue /1e6, 
         Interest: interest, 
         Time: time, 
         Active: active

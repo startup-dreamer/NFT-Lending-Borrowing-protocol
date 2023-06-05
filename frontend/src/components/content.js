@@ -17,7 +17,7 @@ const Content = ({Contract, Provider}) => {
         CollateralValue: "-",
         imageURL: "-",
         nftName: "-",
-        nftDescription: "-"
+        nftDescription: "-",
     }]);
     const [data, setData] = useState({
         totalSupply: "-",
@@ -61,8 +61,13 @@ useEffect(()=> {
         const borrowinginterestrate = await getBorrow_interestRate(Contract);
         const totaldepositednfts = await getTotalDepositedNFTs(Contract);
         const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
+        console.log(totalliquidatednfts);
+        
         const utilization = totalborrow / totalsupply * 100;
         // const utilization = await getUtilization(Contract);
+        const liquidatedNFTs = await getLiquidatedNFTs(Contract);
+        console.log(liquidatedNFTs);
+        setLiquidatedLoans(liquidatedNFTs);
         const ethTousd = await get_ETHtoUSD_Price(Contract);
         // console.log(totalsupply);
         
@@ -204,7 +209,7 @@ useEffect(()=> {
                 <i className="bi bi-chevron-right" onClick={listRight}></i>
                 <div className="list_holder">
                     <div className="list_card_container">{(liquidatedLoans.map((liquidatedLoan, key)=>{
-                        return(<Card liquidatedNFT={liquidatedLoan} key={key}/>)
+                        return(<Card Contract={Contract} liquidatedNFT={liquidatedLoan} key={key}/>)
                     }))}
                     </div>
                 </div>

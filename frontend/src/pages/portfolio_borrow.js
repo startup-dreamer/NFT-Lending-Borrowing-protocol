@@ -9,7 +9,6 @@ const Repay = async () => {
     try{
     setLoading(true);
     const amount = loan.Amount + loan.Interest
-    console.log(amount);
     
     const Tx = await repay(Contract, loan.Id, amount);
     const receipt = await Tx.wait();
@@ -43,7 +42,7 @@ catch (error) {
                     <div>TokenID<br /><span>{loan.TokenId}</span></div>
                 </div>
                 <div className="right_borrow_card_history3">
-                    <div>Value<br /><span>{loan.CollateralValue}</span></div>
+                    <div>Value<br /><span>{loan.CollateralValue} ETH <small>({(loan.CollateralValue * loan.EthToUsd).toFixed(2)} USD)</small></span></div>
                     <div>Description<br /><span>{loan.NFTDescription}</span></div>
                     {(loading ? <button>Loading...</button> : <button onClick={()=>{Repay()}}>Click Here</button>)}
                 </div>

@@ -77,7 +77,10 @@ const getTotalDepositedNFTs = async (contract) => {
 
 const getTotalLiquidatedNFTs = async (contract) => {
   try {
-    return 0
+    const totalliquidatednfts = await contract.totalLiquidatedNFTs();
+    const totalLiquidatedNFTs = parseInt(totalliquidatednfts._hex)
+    console.log(totalliquidatednfts);
+    return totalLiquidatedNFTs
   } catch (error) {
     console.log(error);
   }
