@@ -1,66 +1,74 @@
-import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {ethers} from "ethers"
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ethers } from 'ethers';
 import '../static/css/popup.css';
 import galaxy from '../static/img/galaxy.png';
 import space from '../static/img/Lend_main.jpg';
 import nftABI from '../backend/Nft-erc721-abi.json';
-import {getNftCollateralValue, deposit_to_pool, getmetadata, getmaxLtv, approveToken, borrow} from '../backend';
+import {
+  getNftCollateralValue,
+  deposit_to_pool,
+  getmetadata,
+  getmaxLtv,
+  approveToken,
+  borrow,
+} from '../backend';
 
+const Popup = ({
+  protocolContract,
+  Provider,
+  totalSupply,
+  totalBorrow,
+  LIR,
+  ETHtoUSD,
+}) => {
+  const navigate = useNavigate();
 
-const Popup = ({ protocolContract, Provider, totalSupply, totalBorrow, LIR, ETHtoUSD}) => {
-    const navigate = useNavigate();
+  /**************************************************** LEND ****************************************************/
+  const [Amount, setAmount] = useState(0);
+  const [Time, setTime] = useState(0);
 
-/**************************************************** LEND ****************************************************/
-    const [Amount, setAmount] = useState(0);
-    const [Time, setTime] = useState(0);
+  function getEpochTime(value) {
+    console.log(value);
+    const date = new Date(value.replace(' ', 'T'));
+    const epochTime = Math.floor(date.getTime() / 1000);
+    setTime(epochTime);
+  }
 
-    function getEpochTime(value) {
-        console.log(value);        
-        const date = new Date(value.replace(' ', 'T'));
-        const epochTime = Math.floor(date.getTime() / 1000);
-        setTime(epochTime);
-    }
-    
-    function hidelendPopup() {
-        try {
-            let k = document.getElementsByClassName('lend_popup');
-            k[0].style.display = 'none';
-            let hide_div = document.getElementsByClassName('hide_div');
-            hide_div[0].style.display = 'none';
-            document.body.style.height = 'auto';
-            document.body.style.overflowY = 'overlay';
-        } catch { }
-        setMetadata({});
-    }
+  function hidelendPopup() {
+    try {
+      let k = document.getElementsByClassName('lend_popup');
+      k[0].style.display = 'none';
+      let hide_div = document.getElementsByClassName('hide_div');
+      hide_div[0].style.display = 'none';
+      document.body.style.height = 'auto';
+      document.body.style.overflowY = 'overlay';
+    } catch {}
+    setMetadata({});
+  }
 
-    const Lend = async () => {
-        try {
-            if ((Amount && Time !== 0) && Amount <= 0.01) {
-                const amount = Amount * 1e18;
-                const time = Time;
-                const Tx = await deposit_to_pool(protocolContract, time, amount);
-                const receipt = await Tx.wait();
-                if (receipt.status === 1) {
-                    console.log("Transaction confirmed with", receipt);
-                    navigate('/portfolio');
-                }
-                else if (receipt.status === 0) {
-                    alert("transaction failed please retry")
-                }
-            }
-            else if (Amount > 0.01) {
-                alert("Only 0.01 ETH of less than could be deposited in beta testing");
-            }
-            else {
-                alert("Enter Amount and Time of lending");
-            }
+  const Lend = async () => {
+    try {
+      if (Amount && Time !== 0 && Amount <= 0.01) {
+        const amount = Amount * 1e18;
+        const time = Time;
+        const Tx = await deposit_to_pool(protocolContract, time, amount);
+        const receipt = await Tx.wait();
+        if (receipt.status === 1) {
+          console.log('Transaction confirmed with', receipt);
+          navigate('/portfolio');
+        } else if (receipt.status === 0) {
+          alert('transaction failed please retry');
         }
-        catch (e) {
-            console.error(e);
-        }
-    };
-
+      } else if (Amount > 0.01) {
+        alert('Only 0.01 ETH or less can be deposited in beta testing');
+      } else {
+        alert('Enter Amount and Time of lending');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
 /**************************************************** BORROW ****************************************************/
     const [metadata, setMetadata] = useState({});

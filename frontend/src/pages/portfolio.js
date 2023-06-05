@@ -112,15 +112,14 @@ function getTimeFromSeconds(seconds) {
                 
                 const loanId = await getLoanId(Contract, account);
                 const loans = [];
-                for (let i = 0; i < loanId; i++) {
+                for (let i = 0; i <= loanId; i++) {
                     const loan = await getLoans(Contract, account, i);                    
                     const NFTData = await getmetadata(loan.TokenContract, loan.TokenId);
                     const ethTousd = await get_ETHtoUSD_Price(Contract)
                     console.log(NFTData);
-                    console.log(ethTousd);
-                    
-                    
+                    console.log(ethTousd);                    
                     const date = getTimeFromSeconds(loan.Time)
+                    if (NFTData.rawMetadata !== {}) {
                     loans.push({
                         Id: i,
                         Borrower: loan.Borrower,
@@ -131,11 +130,12 @@ function getTimeFromSeconds(seconds) {
                         Interest: loan.Interest,
                         Time: date,
                         Active: loan.Active,
-                        ImageURL: NFTData.media[0].gateway,
+                        ImageURL: NFTData.rawMetadata.image,
                         NFTName: NFTData.contract.name,
                         NFTDescription: NFTData.description,
                         EthToUsd: ethTousd / 1e8
                     });
+                }
                 }
                 setLoans(loans);
                 // console.log(loans);
@@ -148,7 +148,7 @@ function getTimeFromSeconds(seconds) {
     
     /********************************************************** [Portfolio Data] **********************************************************/
     // console.log(getTimeFromSeconds(1687652160));
-    console.log(loans);
+    // console.log(loans);
     
     return (
         <div className='portfolio_main'>
