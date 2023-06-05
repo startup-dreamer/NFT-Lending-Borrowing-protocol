@@ -138,6 +138,10 @@
     font-size: 24px;
     color: white;
 }
+.total_stats_card small{
+    font-size: 18px;
+    font-weight: 200;
+}
 .interest_rates_card{
     margin-top: 50px;
     display: flex;
@@ -181,6 +185,14 @@
     display: flex;
     flex-direction: column;
     row-gap: 11px;
+}
+.details_interest{
+    width: 100px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    row-gap: 11px;
+    font-size: 20px;
 }
 
 

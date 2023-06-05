@@ -6,7 +6,7 @@
     display: flex;
     column-gap: 30vw;
     justify-content: center;
-    background-image: linear-gradient(4.7deg, rgb(11, 9, 80) 0%, black 69.63%);
+    background-image: linear-gradient(4.2deg, rgb(11, 9, 80) 0%, black 69.63%);
 }
 
 /* left nav */
@@ -26,8 +26,8 @@
 
 .left_nav img {
     margin-top: 15px;
-    height: 35px;
-    width: 75px;
+    height: 38px;
+    width: 45px;
 }
 
 /* Right nav */
@@ -58,6 +58,8 @@
 .right_nav input {
     border: 0;
     border-radius: 15px;
+    text-align: center;
+    width: 170px;
     padding: 0px 40px;
     font-size: 20px;
     color: black;
@@ -68,90 +70,4 @@
 .right_nav button:hover {
     cursor: pointer;
     border: 1px solid white;
-}
-
-/* Borrow */
-.borrow_history {
-    margin-top: 55px;
-    padding-left: 55px;
-    padding-bottom: 105px;
-}
-
-.borrow_history_head {
-    font-weight: 700;
-    text-align: left;
-    font-size: 43px;
-}
-
-.borrow_history_card_holder {
-    margin: 35px 0px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
-}
-
-.borrow_history_main_card {
-    display: flex;
-    justify-content: left;
-    width: 95%;
-    height: 370px;
-    background-image: linear-gradient(120deg, rgb(0, 0, 81),rgb(63, 55, 86));
-}
-
-.left_borrow_card_history {
-    display: flex;
-    justify-content: center;
-    width: 35%;
-    overflow: hidden;
-}
-
-.right_borrow_card_history {
-    padding: 10px 35px;
-    padding-right: 0;
-    text-align: left;
-}
-
-.right_borrow_card_history1 {
-    display: flex;
-    width: 100%;
-    column-gap: 270px;
-}
-
-.borrow_card_name {
-    font-weight: 700;
-    font-size: 43px;
-}
-
-.date_borrow_card {
-    font-weight: 400;
-    font-size: 20px;
-}
-
-.right_borrow_card_history2 {
-    margin-top: 45px;
-    display: flex;
-    font-weight: 700;
-    font-size: 24px;
-}
-.right_borrow_card_history2 div{
-    width: 350px;
-}
-.right_borrow_card_history3 div{
-    width: 350px;
-}
-
-.right_borrow_card_history2 span {
-    font-weight: 400;
-    font-size: 18px;
-}
-.right_borrow_card_history3 {
-    margin-top: 28px;
-    display: flex;
-    font-weight: 700;
-    font-size: 24px;
-}
-
-.right_borrow_card_history3 span {
-    font-weight: 400;
-    font-size: 18px;
 }

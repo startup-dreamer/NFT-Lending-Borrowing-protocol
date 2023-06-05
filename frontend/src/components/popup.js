@@ -228,7 +228,7 @@ const Borrow = async () => {
                                 <input type="float" placeholder='Enter Amount in ETH' onChange={(e) => {setBorrowAmount(e.target.value)}} />
                                 <input type="datetime-local" onChange={(e) => {getBorrowEpochTime(e.target.value)}} />
                             </div>
-                            <button onClick={()=>{Borrow()}}>{loading ? (approving ? 'Approving...' : 'Transfering...') : 'Borrow'}</button>
+                            <button className='borrow_bttn_popup' onClick={()=>{Borrow()}}>{loading ? (approving ? 'Approving...' : 'Transfering...') : 'Borrow'}</button>
                         </div>
                     )}
                 </div>

@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 import { ethers } from "ethers"
 import AurumV1core from '../backend/AurumV1core.json'
 import "../static/css/navbar.css"
-import ether_icon from '../static/img/Aurum.png'
+import ether_icon from '../static/img/ether.png'
 import { Link } from 'react-router-dom';
 
 const Navbar = ({setContract, setProvider, setConnected}) => {

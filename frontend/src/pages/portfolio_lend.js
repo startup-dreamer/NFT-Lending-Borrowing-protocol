@@ -29,8 +29,8 @@ const withdrawFromPool = async () => {
             </div>
             <div className="lend_history_content2">
                 Date <br /><span>{deposit.Date}</span>
-                {(loading ? <button>Loading...</button> : <button onClick={()=>{withdrawFromPool()}}>Click Here</button>)}
             </div>
+            {(loading ? <button className='portfolio_lend_bttn'>Loading...</button> : <button className='portfolio_lend_bttn' onClick={()=>{withdrawFromPool()}}>Withdraw</button>)}
         </div>
     );
 }
