@@ -6,7 +6,8 @@ export {
     deposit_to_pool, 
     withdraw_to_pool,
     getDeposits,
-    getDepositId
+    getDepositId,
+    withdrawLiquidateNFT
 } from './Lenders';
 
 export {

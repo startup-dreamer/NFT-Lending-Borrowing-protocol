@@ -13,6 +13,7 @@ const Content = ({Contract, Provider}) => {
     const [nftStatsVisible, setNftStatsVisible] = useState("hidden");
     const [liquidatedLoans, setLiquidatedLoans] = useState([{
         TokenContract: "-",
+        Borrower: "-",
         TokenId: "-",
         CollateralValue: "-",
         imageURL: "-",

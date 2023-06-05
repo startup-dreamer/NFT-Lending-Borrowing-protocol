@@ -39,9 +39,20 @@ const getDeposits = async (contract, address, depositId) => {
     return IndividualCOlletralNum
   }
 
+  const withdrawLiquidateNFT = async(contract, borrowerAddress, loanId) => {
+    try{
+    const Tx = await contract.withdraw_liquidatNFT(borrowerAddress, loanId);
+    return Tx
+    }
+    catch (e) {
+      console.error(e);
+    }
+  }
+
 export {
     deposit_to_pool, 
     withdraw_to_pool,
     getDeposits,
-    getDepositId
+    getDepositId,
+    withdrawLiquidateNFT
 };

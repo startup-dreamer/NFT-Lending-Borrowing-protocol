@@ -35,11 +35,12 @@ const getLiquidatedNFTs = async (Contract) => {
 
         liquidatedLoans.push({
           TokenContract: loan.TokenContract,
+          Borrower: loan.Borrower,
           TokenId: loan.TokenId,
           CollateralValue: loan.CollateralValue,
           imageURL: metadata.media[0].gateway,
           nftName: metadata.contract.name,
-          nftDescription: metadata.description
+          nftDescription: metadata.description,
         });
       };
     };
