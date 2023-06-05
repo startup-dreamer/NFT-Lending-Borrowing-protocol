@@ -10,9 +10,11 @@ body{
   overflow-y: overlay;
 }
 body::-webkit-scrollbar{
-  background-color: transparent;
   width: 8px;
 }
 body::-webkit-scrollbar-thumb{
   background-color: rgb(53, 64, 105);
+}
+body::-webkit-scrollbar-track{
+  background-color: black;
 }

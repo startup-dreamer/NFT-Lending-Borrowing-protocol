@@ -24,14 +24,14 @@ const Portfolio = ({ Contract, Provider, Connected }) => {
         Borrower: "-",
         TokenContract: "-",
         TokenId: "-",
-        CollateralValue: "-",
+        CollateralValue: 0,
         Interest: "-",
-        Time: "-",
+        Time: "--/--/--",
         Active: "-",
         ImageURL: demo_img,
         NFTName: "NFT Name",
-        NFTDescription: "Description",
-        EthToUsd: "-"
+        NFTDescription: "-",
+        EthToUsd: 0
     }]);
 
     const [userData, setUserData] = useState({
@@ -193,7 +193,7 @@ function getTimeFromSeconds(seconds) {
                 <div className="borrow_history_head">Borrow Transactions History</div>
                 <div className="borrow_history_card_holder">{(loans.map((loan,key) => {
                     return(
-                        (loan.Active === false ? <span>No loans</span> :
+                        (loan.Active === false ? <div style={{'color':'white',"fontSize":'35px'}}>No loans</div> :
                         <PortfolioBorrow Contract={Contract} loan={loan} key={key} />)
                     );
                    

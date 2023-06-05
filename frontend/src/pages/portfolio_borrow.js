@@ -38,14 +38,14 @@ catch (error) {
                     <div className="date_borrow_card">{loan.Time}</div>
                 </div>
                 <div className="right_borrow_card_history2">
-                    <div>Token Contract <br /><span>{loan.TokenContract}</span></div>
-                    <div>TokenID<br /><span>{loan.TokenId}</span></div>
+                    <div>Token Contract <br /><div className='borrow_small'>{loan.TokenContract}</div></div>
+                    <div>TokenID<br /><div className='borrow_small'>{loan.TokenId}</div></div>
                 </div>
                 <div className="right_borrow_card_history3">
                     <div>Value<br /><span>{loan.CollateralValue} ETH <small>({(loan.CollateralValue * loan.EthToUsd).toFixed(2)} USD)</small></span></div>
                     <div>Description<br /><span>{loan.NFTDescription}</span></div>
-                    {(loading ? <button>Loading...</button> : <button onClick={()=>{Repay()}}>Click Here</button>)}
                 </div>
+                {(loading ? <button className='portfolio_borrow_bttn'>Loading...</button> : <button className='portfolio_borrow_bttn' onClick={()=>{Repay()}}>Withdraw</button>)}
             </div>
         </div>
     );
