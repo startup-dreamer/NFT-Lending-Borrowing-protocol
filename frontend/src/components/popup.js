@@ -27,9 +27,9 @@ const Popup = ({
   /**************************************************** LEND ****************************************************/
   const [Amount, setAmount] = useState(0);
   const [Time, setTime] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   function getEpochTime(value) {
-    console.log(value);
     const date = new Date(value.replace(' ', 'T'));
     const epochTime = Math.floor(date.getTime() / 1000);
     setTime(epochTime);
@@ -50,22 +50,28 @@ const Popup = ({
   const Lend = async () => {
     try {
       if (Amount && Time !== 0 && Amount <= 0.01) {
+        setLoading(true);
         const amount = Amount * 1e18;
         const time = Time;
         const Tx = await deposit_to_pool(protocolContract, time, amount);
         const receipt = await Tx.wait();
         if (receipt.status === 1) {
-          console.log('Transaction confirmed with', receipt);
-          navigate('/portfolio');
+            setLoading(false);
+            console.log('Transaction confirmed with', receipt);
+            navigate('/portfolio');
         } else if (receipt.status === 0) {
-          alert('transaction failed please retry');
+            setLoading(false);
+            alert('transaction failed please retry');
         }
       } else if (Amount > 0.01) {
+        setLoading(false);
         alert('Only 0.01 ETH or less can be deposited in beta testing');
       } else {
+        setLoading(false);
         alert('Enter Amount and Time of lending');
       }
     } catch (e) {
+        setLoading(false);
       console.error(e);
     }
   };
@@ -79,7 +85,6 @@ const Popup = ({
     const [borrowAmount, setBorrowAmount] = useState(0);
     const [maxLtV, setMaxLtV] = useState(0);
     const [borrowTime, setBorrowTime] = useState(0);
-    const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(false);
     const [approving, setApproving] = useState(false);
 
@@ -120,6 +125,7 @@ const Popup = ({
             alert("Enter NFT contract Address and Id")
         }
     } catch (e) {
+        setFetching(false);
         console.log(e);        
     }
 }
@@ -158,8 +164,8 @@ const Borrow = async () => {
                         document.body.style.overflowY = 'overlay';
                     }
                     else if (receipt2.status === 0) {
-                        alert("Transfer failed please retry");
                         setLoading(false);
+                        alert("Transfer failed please retry");
                     }
                 }
                 else if (receipt1.status === 0) {
@@ -168,10 +174,14 @@ const Borrow = async () => {
                 }
             }
             else {
+                setLoading(false);
+                setApproving(false);
                 alert(`Enter Amount and Time correctly, Amount should br less than ${BorrowingPower}`, BorrowingPower);
             }
         } 
         catch (e) {
+            setLoading(false);
+            setApproving(false);
             console.error(e);
         }
     }

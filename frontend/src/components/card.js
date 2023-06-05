@@ -4,7 +4,7 @@ import { withdrawLiquidateNFT } from '../backend';
 
 const Card = ({Contract, liquidatedNFT}) => {
     const [loading, setLoading] = useState(false);
-console.log(liquidatedNFT);
+// console.log(liquidatedNFT);
 
     const buyNFT = async () => {
         try{
@@ -20,6 +20,7 @@ console.log(liquidatedNFT);
         alert("Transaction failed please retry");
         }
     } catch(e) {
+        setLoading(false);
         console.error(e);
     }
     }
@@ -35,7 +36,10 @@ console.log(liquidatedNFT);
                 </div>
                 <div className="price_holder">
                     <div className="price_card">{liquidatedNFT.CollateralValue} ETH </div>
+                    {(loading ? <button>Loading...</button> : 
                     <button onClick={()=>{buyNFT()}}>Buy</button>
+                    )}
+                    
                 </div>
             </div>
         </div>

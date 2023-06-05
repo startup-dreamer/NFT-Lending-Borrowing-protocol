@@ -112,14 +112,19 @@ function getTimeFromSeconds(seconds) {
                 
                 const loanId = await getLoanId(Contract, account);
                 const loans = [];
-                for (let i = 0; i <= loanId; i++) {
+                for (let i = 0; i <= loanId+1; i++) {
                     const loan = await getLoans(Contract, account, i);                    
                     const NFTData = await getmetadata(loan.TokenContract, loan.TokenId);
                     const ethTousd = await get_ETHtoUSD_Price(Contract)
                     console.log(NFTData);
                     console.log(ethTousd);                    
                     const date = getTimeFromSeconds(loan.Time)
-                    if (NFTData.rawMetadata !== {}) {
+                    if (Object.keys(NFTData.rawMetadata).length !== 0) {
+                    const image = NFTData.rawMetadata.image.includes('ipfs://') ? 
+                        `https${NFTData.rawMetadata.image.replace('ipfs', '')}.ipfs.dweb.link/` : 
+                        NFTData.rawMetadata.image;
+                        console.log(image);
+                        
                     loans.push({
                         Id: i,
                         Borrower: loan.Borrower,
@@ -130,7 +135,7 @@ function getTimeFromSeconds(seconds) {
                         Interest: loan.Interest,
                         Time: date,
                         Active: loan.Active,
-                        ImageURL: NFTData.rawMetadata.image,
+                        ImageURL: image,
                         NFTName: NFTData.contract.name,
                         NFTDescription: NFTData.description,
                         EthToUsd: ethTousd / 1e8
@@ -138,7 +143,7 @@ function getTimeFromSeconds(seconds) {
                 }
                 }
                 setLoans(loans);
-                // console.log(loans);
+                console.log(loans);
                 setLoading(false);                
             }
         };
@@ -192,9 +197,9 @@ function getTimeFromSeconds(seconds) {
             <div className="borrow_history">
                 <div className="borrow_history_head">Borrow Transactions History</div>
                 <div className="borrow_history_card_holder">{(loans.map((loan,key) => {
-                    return(
-                        (loan.Active === false ? <div style={{'color':'white',"fontSize":'35px'}}>No loans</div> :
-                        <PortfolioBorrow Contract={Contract} loan={loan} key={key} />)
+                    return(                    
+                        (loan.Active !== true && loan.CollateralValue !== 0 ? <div style={{'color':'white',"fontSize":'35px'}}>No loans</div> :
+                        (loan.CollateralValue === 0 ? <div> </div> : <PortfolioBorrow Contract={Contract} loan={loan} key={key} />))
                     );
                    
                 })
