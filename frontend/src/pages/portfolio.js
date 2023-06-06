@@ -110,7 +110,7 @@ const Portfolio = ({setConnected}) => {
         setLoading(true);
         const depositId = await getDepositId(Contract, account);
         const deposits = [];
-        for (let i = 0; i < depositId; i++) {
+        for (let i = 0; i <= depositId+1; i++) {
           const deposit = await getDeposits(Contract, account, i);
           const date = getTimeFromSeconds(deposit.Date);
           deposits.push({
@@ -193,7 +193,7 @@ const Portfolio = ({setConnected}) => {
         <div className="lend_history_card_holder">
           {deposits.map((deposit, key) => {
             return (
-              deposit.Amount === 0 ? <span></span> :
+              deposit.Amount === 0 ? <></> :
                 <PortfolioLend Contract={Contract} deposit={deposit} key={key} />
             );
           })}
