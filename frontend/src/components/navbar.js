@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ethers } from 'ethers';
 import AurumV1core from '../backend/AurumV1core.json';
 import '../static/css/navbar.css';
 import ether_icon from '../static/img/ether.png';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ setContract, setProvider, setConnected }) => {
-  const [isConnected, setisConnected] = useState(false);
+const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
 
   const connectWallet = async () => {
     try {
@@ -23,7 +22,6 @@ const Navbar = ({ setContract, setProvider, setConnected }) => {
       );
       setContract(contract);
       setProvider(provider);
-      setisConnected(true);
       setConnected(true);
       console.log(contract);
     } catch (err) {
@@ -58,7 +56,7 @@ const Navbar = ({ setContract, setProvider, setConnected }) => {
         <button>
           <Link to='/portfolio'>Portfolio</Link>
         </button>
-        {isConnected ? (
+        {Connected ? (
           <input type='button' value={'Connected'} />
         ) : (
           <input

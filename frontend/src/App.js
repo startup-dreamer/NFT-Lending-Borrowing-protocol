@@ -16,41 +16,30 @@ function App() {
       <Routes>
         <Route path='*' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected} Connected={Connected}/>
             <Content Contract={Contract} Provider={Provider}/>
           </>
         } />
         <Route path='/lend' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected} Connected={Connected}/>
             <Lend Contract={Contract}/>
           </>
         } />
         <Route path='/borrow' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected} Connected={Connected}/>
             <Borrow Contract={Contract}/>
           </>
         } />
         <Route path='/portfolio' element={
           <>
-            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected}/>          
-            <Portfolio Contract={Contract} Provider={Provider} Connected={Connected}/>
+            <Navbar setContract={setContract} setProvider={setProvider} setConnected={setConnected} Connected={Connected}/>          
+            <Portfolio setConnected={setConnected}/>
           </>
         } />
       </Routes>
     </div>
-
-
-
-    // <div>
-    //    <label>Token address </label>
-    //    <input type="text" id="identifier" />
-    //    <label>Token id </label>
-    //    <input type="number" id="cost" />
-    //    <button onClick={() => {approveToken(document.getElementById("identifier").value, document.getElementById("cost").value)}}>Approve Token</button>
-    //    <button onClick={() => {transferto("0x01751bd851599d98ed52CB75AA2682a31D79AaD6",document.getElementById("identifier").value, document.getElementById("cost").value)}}>transfer Token</button>
-    // </div>
   );
 
 }
