@@ -117,8 +117,6 @@ const Popup = ({
         setBorrwingPower(borrowingpower);
         setFetching(false);
         setMaxLtV(maxltv / 100);
-        console.log(data);
-        console.log(maxltv);
       } else {
         setFetching(false);
         alert('Enter NFT contract Address and Id');

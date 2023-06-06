@@ -110,7 +110,7 @@ const Portfolio = ({setConnected}) => {
         setLoading(true);
         const depositId = await getDepositId(Contract, account);
         const deposits = [];
-        for (let i = 0; i <= depositId+1; i++) {
+        for (let i = 0; i < depositId; i++) {
           const deposit = await getDeposits(Contract, account, i);
           const date = getTimeFromSeconds(deposit.Date);
           deposits.push({
@@ -125,7 +125,7 @@ const Portfolio = ({setConnected}) => {
   
         const loanId = await getLoanId(Contract, account);
         const loans = [];
-        for (let i = 0; i <= loanId + 1; i++) {
+        for (let i = 0; i < loanId ; i++) {
           const loan = await getLoans(Contract, account, i);
           const NFTData = await getmetadata(loan.TokenContract, loan.TokenId);
           const ethTousd = await get_ETHtoUSD_Price(Contract);

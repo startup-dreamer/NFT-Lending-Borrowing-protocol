@@ -63,17 +63,14 @@ const Content = ({ Contract, Provider }) => {
                 const borrowinginterestrate = await getBorrow_interestRate(Contract);
                 const totaldepositednfts = await getTotalDepositedNFTs(Contract);
                 const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
-                console.log(totalliquidatednfts);
-
                 const utilization = totalborrow / totalsupply * 100;
-                // const utilization = await getUtilization(Contract);
                 const liquidatedNFTs = await getLiquidatedNFTs(Contract);
+                const ethTousd = await get_ETHtoUSD_Price(Contract);
+
                 if(liquidatedNFTs){
                     console.log(liquidatedNFTs);
                     setLiquidatedLoans(liquidatedNFTs);
                 }
-                const ethTousd = await get_ETHtoUSD_Price(Contract);
-                // console.log(totalsupply);
 
                 setData({
                     totalSupply: totalsupply / 1e18,
@@ -87,13 +84,6 @@ const Content = ({ Contract, Provider }) => {
                 });
             }
             fetchData();
-            // try {
-            // const liquidatedLoans = getLiquidatedNFTs(Contract);
-            // setLiquidatedLoans(liquidatedLoans);
-            // }
-            // catch (e) {
-            //     console.error(e);
-            // }
         }
     }, [Contract])
 
