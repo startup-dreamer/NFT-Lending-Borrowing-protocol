@@ -18,7 +18,7 @@ const PortfolioBorrow = ({ Contract, loan }) => {
         window.location.reload();
       } else if (receipt.status === 0) {
         setLoading(false);
-        alert("Transaction failed please retry");
+        alert("Transaction failed, please retry");
       }
     } catch (error) {
       setLoading(false);
