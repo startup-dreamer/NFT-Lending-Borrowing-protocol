@@ -4,10 +4,9 @@ import "../static/css/content_card.css";
 import Card from './card';
 import ether_big from '../static/img/ether_big.png';
 
-import { getLiquidatedNFTs, getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs, getUtilization, get_ETHtoUSD_Price, getmaxLtv } from '../backend'
+import { getLiquidatedNFTs, getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, get_ETHtoUSD_Price, getmaxLtv } from '../backend'
 import Popup from './popup';
 import { motion } from "framer-motion";
-import { errors } from 'ethers';
 
 const Content = ({ Contract, Provider }) => {
     const nftStatsRef = useRef(null);
@@ -24,11 +23,11 @@ const Content = ({ Contract, Provider }) => {
     const [data, setData] = useState({
         totalSupply: 0,
         totalBorrow: 0,
-        maxLtV: "-",
         LIR: "-",
         BIR: "-",
         liquidatedNFTs: "-",
         toalDepositedNFTs: "-",
+        maxLtV: 0,
         utilization: "-",
         ethTousd: 0
     });
@@ -63,10 +62,10 @@ const Content = ({ Contract, Provider }) => {
                 const lendinginterestrate = await getLending_interestRate(Contract);
                 const borrowinginterestrate = await getBorrow_interestRate(Contract);
                 const totaldepositednfts = await getTotalDepositedNFTs(Contract);
-                const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
                 const maxLtV = await getmaxLtv(Contract);
                 const utilization = totalborrow / totalsupply * 100;
                 const liquidatedNFTs = await getLiquidatedNFTs(Contract);
+                const totalliquidatednfts = liquidatedNFTs === undefined ? 0 : liquidatedNFTs.length;
                 const ethTousd = await get_ETHtoUSD_Price(Contract);
 
                 if(liquidatedNFTs){
@@ -77,11 +76,11 @@ const Content = ({ Contract, Provider }) => {
                 setData({
                     totalSupply: totalsupply / 1e18,
                     totalBorrow: totalborrow / 1e18,
-                    maxLtV: maxLtV / 100,
                     LIR: lendinginterestrate / 100,
                     BIR: borrowinginterestrate / 100,
                     liquidatedNFTs: totalliquidatednfts,
                     toalDepositedNFTs: totaldepositednfts,
+                    maxLtV: maxLtV / 1e2,
                     utilization: utilization,
                     ethTousd: ethTousd / 1e8
                 });
@@ -157,7 +156,7 @@ const Content = ({ Contract, Provider }) => {
             >
                 <div className="left_stats">
                     <div className="left_stats_one">
-                        Aurum's
+                        Protocol's
                     </div>
                     <div className="left_stats_two">
                         Statistics
@@ -180,7 +179,7 @@ const Content = ({ Contract, Provider }) => {
                             </div>
                             <div className="right_card_interest">
                                 <div>{data.LIR} % APY</div>
-                                <div>{data.LIR} % APY</div>
+                                <div>{data.BIR} % APY</div>
                             </div>
                         </div>
                         <div className="details_card">
@@ -188,14 +187,14 @@ const Content = ({ Contract, Provider }) => {
                                 <div>Utilization</div>
                                 <div>Liquidated NFTs</div>
                                 <div>Total Deposited NFTs</div>
-                                <div>Max Loan To Value</div>
-
+                                <div>Loan To Value Ratio</div>
                             </div>
                             <div className="details_interest">
                                 <div>{(data.utilization.toString()).substring(0,6)} %</div>
                                 <div>{data.liquidatedNFTs}</div>
                                 <div>{data.toalDepositedNFTs}</div>
                                 <div>{data.maxLtV} %</div>
+
                             </div>
                         </div>
                     </div>

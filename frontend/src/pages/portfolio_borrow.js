@@ -33,7 +33,7 @@ const PortfolioBorrow = ({ Contract, loan }) => {
       </div>
       <div className="right_borrow_card_history">
         <div className="right_borrow_card_history1">
-          <div className="borrow_card_name">{loan.NFTName}</div>
+          <div className="borrow_card_name">{loan.NFTName} <small>#{loan.Id}</small></div>
           <div className="date_borrow_card">{loan.Time}</div>
         </div>
         <div className="right_borrow_card_history2">

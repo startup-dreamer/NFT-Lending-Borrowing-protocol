@@ -75,17 +75,6 @@ const getTotalDepositedNFTs = async (contract) => {
   }
 }
 
-const getTotalLiquidatedNFTs = async (contract) => {
-  try {
-    const totalliquidatednfts = await contract.totalLiquidatedNFTs();
-    const totalLiquidatedNFTs = parseInt(totalliquidatednfts._hex)
-    console.log(totalliquidatednfts);
-    return totalLiquidatedNFTs
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 const getUtilization = async (contract) => {
   const utilization = await contract.getUtilization();
   const Utilization = bigNumToNum(utilization);
@@ -106,7 +95,6 @@ export {
   getTotalSupply,
   getTotalBorrow,
   getTotalDepositedNFTs,
-  getTotalLiquidatedNFTs,
   bigNumToNum,
   getUtilization,
   get_ETHtoUSD_Price

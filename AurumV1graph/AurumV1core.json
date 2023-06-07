@@ -125,19 +125,19 @@
 			{
 				"indexed": true,
 				"internalType": "uint256",
-				"name": "",
+				"name": "depoId",
 				"type": "uint256"
 			},
 			{
 				"indexed": true,
 				"internalType": "address",
-				"name": "",
+				"name": "lender",
 				"type": "address"
 			},
 			{
 				"indexed": true,
 				"internalType": "uint256",
-				"name": "",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
@@ -331,7 +331,7 @@
 				"type": "address"
 			}
 		],
-		"name": "individualCOlletralNum",
+		"name": "individualColletralNum",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -455,19 +455,6 @@
 			}
 		],
 		"name": "repay",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_loanId",
-				"type": "uint256"
-			}
-		],
-		"name": "repay1",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"

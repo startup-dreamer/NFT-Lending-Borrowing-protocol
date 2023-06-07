@@ -62,7 +62,7 @@ const getLoans = async (contract, address, loanId) => {
         TokenContract: tokenContract, 
         TokenId: tokenId, 
         Amount: amount, 
-        CollateralValue: collateralValue /1e6, 
+        CollateralValue: collateralValue / 1e6, 
         Interest: interest, 
         Time: time, 
         Active: active
@@ -73,7 +73,7 @@ const getLoans = async (contract, address, loanId) => {
   }
 
 const getLoanId = async (contract, address) => {
-    const loanId = await contract.individualCOlletralNum(address);
+    const loanId = await contract.individualColletralNum(address);
     const LoanId = parseInt(loanId);
     return LoanId
 }

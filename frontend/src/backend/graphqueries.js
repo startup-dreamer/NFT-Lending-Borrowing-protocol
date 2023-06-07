@@ -2,7 +2,7 @@ import { createClient, cacheExchange, fetchExchange } from '@urql/core';
 import { getLoans } from './Borrower';
 import getmetadata from './Metadata';
 
-const APIURL = 'https://api.studio.thegraph.com/query/47255/aurumv1core/version/latest';
+const APIURL = 'https://api.studio.thegraph.com/query/47255/aurumv1core_/version/latest';
 
 const getLiquidatedNFTs = async (Contract) => {
   const queryBorrows = `

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-import { useLocation } from 'react-router-dom';
-import { getDepositId, getLoanId, getDeposits, getLoans, repay, withdraw_to_pool, getmetadata, get_ETHtoUSD_Price } from '../backend';
+import { getDepositId, getLoanId, getDeposits, getLoans, getmetadata, get_ETHtoUSD_Price } from '../backend';
 import AurumV1core from '../backend/AurumV1core.json';
 import PortfolioBorrow from './portfolio_borrow';
 import PortfolioLend from './portfolio_lend';
@@ -11,7 +10,6 @@ import '../App.css';
 import '../static/css/portfolio.css';
 
 const Portfolio = ({setConnected}) => {
-  const location = useLocation();
   const [Contract, setContract] = useState(null);
   const [Provider, setProvider] = useState(null);
   const [account, setAccount] = useState('0x');
@@ -21,7 +19,8 @@ const Portfolio = ({setConnected}) => {
       Id: "-",
       Amount: "-",
       Interest: "-",
-      Date: "-"
+      Date: "-",
+      EthToUsd: 0
     }
   ]);
   const [loans, setLoans] = useState([
@@ -86,10 +85,10 @@ const Portfolio = ({setConnected}) => {
             11155111: 'Sepolia',
             80001: 'Mumbai Polygon'
           }[chainId]) || `chainId ${chainId}`;
-        const signer = await Provider.getSigner();
+        const signer = Provider.getSigner();
         const balance = await signer.getBalance();
         const Balance = (parseInt(balance._hex) / 1e18).toFixed(3);
-        const contractInstance = new ethers.Contract("0x2c184D8aB9f4E9665612AFE5FB57B319dfa757F6", AurumV1core, signer);
+        const contractInstance = new ethers.Contract("0xff0AF63633f2FEeB37a9E6bD46013A6333B20460", AurumV1core, signer);
         setProvider(Provider);
         setContract(contractInstance);
         setConnected(true);
@@ -110,6 +109,7 @@ const Portfolio = ({setConnected}) => {
         setLoading(true);
         const depositId = await getDepositId(Contract, account);
         const deposits = [];
+        const ethTousd = await get_ETHtoUSD_Price(Contract);
         for (let i = 0; i < depositId; i++) {
           const deposit = await getDeposits(Contract, account, i);
           const date = getTimeFromSeconds(deposit.Date);
@@ -117,20 +117,17 @@ const Portfolio = ({setConnected}) => {
             Id: i,
             Amount: deposit.Amount,
             Interest: deposit.Interest,
-            Date: date
+            Date: date,
+            EthToUsd: ethTousd / 1e8
           });
         }
         setDeposits(deposits);
-        // console.log(deposits);
   
         const loanId = await getLoanId(Contract, account);
         const loans = [];
         for (let i = 0; i < loanId ; i++) {
           const loan = await getLoans(Contract, account, i);
           const NFTData = await getmetadata(loan.TokenContract, loan.TokenId);
-          const ethTousd = await get_ETHtoUSD_Price(Contract);
-        //   console.log(NFTData);
-        //   console.log(ethTousd);
           const date = getTimeFromSeconds(loan.Time);
           if (Object.keys(NFTData.rawMetadata).length !== 0) {
             const image = NFTData.rawMetadata.image.includes('ipfs://')
@@ -156,7 +153,6 @@ const Portfolio = ({setConnected}) => {
           }
         }
         setLoans(loans);
-        // console.log(loans);
         setLoading(false);
       }
     };

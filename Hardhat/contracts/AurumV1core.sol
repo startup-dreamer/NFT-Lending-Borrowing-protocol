@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "./NFTPrice.sol";
+import "./contracts/NFTPrice.sol";
 
 
 contract AurumV1core is NFTPrice {

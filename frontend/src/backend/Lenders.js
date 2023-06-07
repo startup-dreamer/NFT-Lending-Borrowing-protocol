@@ -24,8 +24,8 @@ const getDeposits = async (contract, address, depositId) => {
       const interest = parseInt(allDeposits.interest);
       const date = parseInt(allDeposits.time);
       return {
-        Amount: amount, 
-        Interest: interest, 
+        Amount: amount / 1e18, 
+        Interest: interest / 1e18, 
         Date: date
       }
     } catch (error) {
@@ -41,7 +41,7 @@ const getDeposits = async (contract, address, depositId) => {
 
   const withdrawLiquidateNFT = async(contract, borrowerAddress, loanId) => {
     try{
-    const Tx = await contract.withdraw_liquidatNFT(borrowerAddress, loanId);
+    const Tx = await contract.withdraw_liquidateNFT(borrowerAddress, loanId);
     return Tx
     }
     catch (e) {

@@ -28,8 +28,8 @@ const PortfolioLend = ({ Contract, deposit }) => {
     <div className='lend_history_card'>
       <div className="lend_history_name">Deposit #{deposit.Id}</div>
       <div className="lend_history_content1">
-        <div>Amount <br /><span>{deposit.Amount / 1e18}</span></div>
-        <div>Interest <br /><span>{deposit.Interest / 1e18}</span></div>
+        <div>Amount <br /><span>{deposit.Amount} ETH <small>({(deposit.Amount * deposit.EthToUsd).toFixed(2)} USD)</small></span></div>
+        <div>Interest <br /><span>{deposit.Interest} ETH <small>({(deposit.Interest * deposit.EthToUsd).toFixed(2)} USD)</small></span></div>
       </div>
       <div className="lend_history_content2">
         Date <br /><span>{deposit.Date}</span>

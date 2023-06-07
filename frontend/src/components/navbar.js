@@ -17,7 +17,7 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
         alert('Accounts error: No account found. Please connect.');
       }
       const contract = new ethers.Contract(
-        '0x2c184D8aB9f4E9665612AFE5FB57B319dfa757F6',
+        '0x3a9CD02dcf474d0151a94c74690091844e99B04F',
         AurumV1core,
         signer
       );
@@ -39,11 +39,19 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
   };
 
   useEffect(() => {
-    const checkMetaMask = () => {
+    const checkMetaMask = async () => {
       if (!window.ethereum) {
         alert('Please install MetaMask to use this application.');
         return;
       }
+        const Provider = new ethers.providers.Web3Provider(window.ethereum);
+        await window.ethereum.send('eth_requestAccounts');
+        const signer = Provider.getSigner();
+
+        const contractInstance = new ethers.Contract("0xff0AF63633f2FEeB37a9E6bD46013A6333B20460", AurumV1core, signer);
+        setProvider(Provider);
+        setContract(contractInstance);
+        setConnected(true);
     };
     checkMetaMask();
   }, []);

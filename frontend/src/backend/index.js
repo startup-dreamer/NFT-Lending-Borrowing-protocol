@@ -28,7 +28,6 @@ export {
     getTotalSupply,
     getTotalBorrow,
     getTotalDepositedNFTs,
-    getTotalLiquidatedNFTs,
     bigNumToNum,
     getUtilization,
     get_ETHtoUSD_Price
