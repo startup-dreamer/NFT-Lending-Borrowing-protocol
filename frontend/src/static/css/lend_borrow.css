@@ -1,0 +1,28 @@
+/* Main*/
+.lend_borrow_main{
+    color: white;
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    background-image: linear-gradient(122.82deg, rgb(11, 9, 80) 0%, black 69.63%);
+}
+
+/* No history div */
+.no_history_div_main{
+    padding-top: 9%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 38%;
+}
+.no_history_div_main div{
+    margin-top: 18px;
+    margin-left: 35px;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-family: cursive;
+}
+.no_history_div_main img{
+    width: 340px;
+    height:240px;
+}

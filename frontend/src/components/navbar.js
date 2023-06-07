@@ -57,16 +57,16 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
   }, []);
 
   // coloreffect
-  useEffect(()=>{
-    let k = document.getElementsByClassName('portfolio_nav')[0];
-    if(window.location.pathname.includes('portfolio')){
-      k.style.color = 'aqua';
-      k.style.textDecoration = 'underline';
-    }
-    else{
-      k.style.textDecoration = 'none';
-    }
-  },[window.location.pathname])
+  // useEffect(()=>{
+  //   let k = document.getElementsByClassName('portfolio_nav')[0];
+  //   if(window.location.pathname.includes('portfolio')){
+  //     k.style.color = 'aqua';
+  //     k.style.textDecoration = 'underline';
+  //   }
+  //   else{
+  //     k.style.textDecoration = 'none';
+  //   }
+  // },[window.location.pathname]);
 
   return (
     <div className='navbar'>
@@ -75,8 +75,12 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
         <a href='/'>Aurum</a>
       </div>
       <div className='right_nav'>
-        <button>Lending</button>
-        <button>Borrowing</button>
+        <button>
+        <Link to='/lend' className='lend_nav'>Lending</Link>
+        </button>
+        <button>
+        <Link to='/borrow' className='borrow_nav'>Borrowing</Link>
+        </button>
         <button>
           <Link to='/portfolio' className='portfolio_nav'>Portfolio</Link>
         </button>
