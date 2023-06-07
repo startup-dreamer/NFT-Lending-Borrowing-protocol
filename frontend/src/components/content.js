@@ -4,7 +4,7 @@ import "../static/css/content_card.css";
 import Card from './card';
 import ether_big from '../static/img/ether_big.png';
 
-import { getLiquidatedNFTs, getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs, getUtilization, get_ETHtoUSD_Price } from '../backend'
+import { getLiquidatedNFTs, getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, getTotalLiquidatedNFTs, getUtilization, get_ETHtoUSD_Price, getmaxLtv } from '../backend'
 import Popup from './popup';
 import { motion } from "framer-motion";
 import { errors } from 'ethers';
@@ -24,6 +24,7 @@ const Content = ({ Contract, Provider }) => {
     const [data, setData] = useState({
         totalSupply: 0,
         totalBorrow: 0,
+        maxLtV: "-",
         LIR: "-",
         BIR: "-",
         liquidatedNFTs: "-",
@@ -63,6 +64,7 @@ const Content = ({ Contract, Provider }) => {
                 const borrowinginterestrate = await getBorrow_interestRate(Contract);
                 const totaldepositednfts = await getTotalDepositedNFTs(Contract);
                 const totalliquidatednfts = await getTotalLiquidatedNFTs(Contract);
+                const maxLtV = await getmaxLtv(Contract);
                 const utilization = totalborrow / totalsupply * 100;
                 const liquidatedNFTs = await getLiquidatedNFTs(Contract);
                 const ethTousd = await get_ETHtoUSD_Price(Contract);
@@ -75,6 +77,7 @@ const Content = ({ Contract, Provider }) => {
                 setData({
                     totalSupply: totalsupply / 1e18,
                     totalBorrow: totalborrow / 1e18,
+                    maxLtV: maxLtV / 100,
                     LIR: lendinginterestrate / 100,
                     BIR: borrowinginterestrate / 100,
                     liquidatedNFTs: totalliquidatednfts,
@@ -185,11 +188,14 @@ const Content = ({ Contract, Provider }) => {
                                 <div>Utilization</div>
                                 <div>Liquidated NFTs</div>
                                 <div>Total Deposited NFTs</div>
+                                <div>Max Loan To Value</div>
+
                             </div>
                             <div className="details_interest">
                                 <div>{(data.utilization.toString()).substring(0,6)} %</div>
                                 <div>{data.liquidatedNFTs}</div>
                                 <div>{data.toalDepositedNFTs}</div>
+                                <div>{data.maxLtV} %</div>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,7 @@ const getBorrow_interestRate = async (contract) => {
 const getmaxLtv = async (contract) => {
   try {
     const MaxLtV = await contract.maxLtv();
-    const integer = bigNumToNum(MaxLtV);
+    const integer = parseInt(MaxLtV._hex);
     return integer;
   } catch (error) {
     console.error("Error in getmaxLtv(): ", error);
