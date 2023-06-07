@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../static/css/content.css';
+import "../static/css/content_card.css";
 import { withdrawLiquidateNFT } from '../backend';
 
 const Card = ({ Contract, liquidatedNFT }) => {
