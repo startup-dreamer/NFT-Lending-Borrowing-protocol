@@ -134,8 +134,8 @@ const Content = ({ Contract, Provider }) => {
     return (
         <div className="content_holder">
             <div className="contn">
-                NFT's Lending <br /> Borrowing Platform
-                <div>Unlock the future of digital ownership and join the <br /> revolution with our cutting-edge our platform</div>
+                NFT Lending <br /> Borrowing Platform
+                <div>Unlock the Value of Your NFTs with Seamless Lending and Borrowing.</div>
                 <div className="bttn_holder">
                     <input className='bttn_holder_1' type='button' value={'Lend'} onClick={lendPopup} />
                     <input className='bttn_holder_2' type='button' value={'Borrow'} onClick={borrowPopup} />
@@ -154,7 +154,7 @@ const Content = ({ Contract, Provider }) => {
             >
                 <div className="left_stats">
                     <div className="left_stats_one">
-                        NFT
+                        Aurum's
                     </div>
                     <div className="left_stats_two">
                         Statistics

@@ -10,6 +10,7 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
   const connectWallet = async () => {
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const { chainId } = await provider.getNetwork();
       const signer = provider.getSigner();
       const accounts = await provider.send('eth_requestAccounts', []);
       if (!accounts || !accounts[0]) {
@@ -20,6 +21,9 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
         AurumV1core,
         signer
       );
+      if (chainId !== 11155111) {
+        alert("Please switch to Sepoli Testnet");
+      }
       setContract(contract);
       setProvider(provider);
       setConnected(true);
