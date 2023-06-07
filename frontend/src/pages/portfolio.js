@@ -6,10 +6,11 @@ import PortfolioBorrow from './portfolio_borrow';
 import PortfolioLend from './portfolio_lend';
 import user_img from '../static/img/user.png';
 import demo_img from '../static/img/galaxy.png';
+import no_history from '../static/img/blank_history.jpg'
 import '../App.css';
 import '../static/css/portfolio.css';
 
-const Portfolio = ({setConnected}) => {
+const Portfolio = ({ setConnected }) => {
   const [Contract, setContract] = useState(null);
   const [Provider, setProvider] = useState(null);
   const [account, setAccount] = useState('0x');
@@ -70,7 +71,7 @@ const Portfolio = ({setConnected}) => {
   useEffect(() => {
     async function init() {
       if (window.ethereum) {
-      const Provider = new ethers.providers.Web3Provider(window.ethereum);
+        const Provider = new ethers.providers.Web3Provider(window.ethereum);
         await window.ethereum.send('eth_requestAccounts');
         const accounts = await window.ethereum.request({ method: 'eth_accounts' });
         setAccount(accounts[0]);
@@ -92,7 +93,7 @@ const Portfolio = ({setConnected}) => {
         setProvider(Provider);
         setContract(contractInstance);
         setConnected(true);
-        
+
         setUserData({
           Chain: chainName,
           WalletBalance: Balance,
@@ -122,10 +123,10 @@ const Portfolio = ({setConnected}) => {
           });
         }
         setDeposits(deposits);
-  
+
         const loanId = await getLoanId(Contract, account);
         const loans = [];
-        for (let i = 0; i < loanId ; i++) {
+        for (let i = 0; i < loanId; i++) {
           const loan = await getLoans(Contract, account, i);
           const NFTData = await getmetadata(loan.TokenContract, loan.TokenId);
           const date = getTimeFromSeconds(loan.Time);
@@ -134,7 +135,7 @@ const Portfolio = ({setConnected}) => {
               ? `https${NFTData.rawMetadata.image.replace('ipfs', '')}.ipfs.dweb.link/`
               : NFTData.rawMetadata.image;
             // console.log(image);
-  
+
             loans.push({
               Id: i,
               Borrower: loan.Borrower,
@@ -158,7 +159,7 @@ const Portfolio = ({setConnected}) => {
     };
     setAccounts();
   }, [Provider, Contract, account]);
-  
+
   /********************************************************** [Portfolio Data] **********************************************************/
   return (
     <div className='portfolio_main'>
@@ -181,39 +182,54 @@ const Portfolio = ({setConnected}) => {
           </div>
         </div>
       </div>
-  
+
       <br /> <br />
-  
+
       <div className="lend_history">
         <div className="lend_history_head">Lend Transactions History</div>
         <div className="lend_history_card_holder">
-          {deposits.map((deposit, key) => {
-            return (
-              deposit.Amount === 0 ? <></> :
-                <PortfolioLend Contract={Contract} deposit={deposit} key={key} />
-            );
-          })}
+          {deposits[0] ? 
+          <>
+            {deposits.map((deposit, key) => {
+              return (
+                deposit.Amount === 0 ? <></> :
+                  <PortfolioLend Contract={Contract} deposit={deposit} key={key} />
+              );
+            })}
+          </>
+            : <div className='no_history_div'>
+              <img src={no_history} alt="" />
+              <div>No Lend <br /> Transactions to show</div>
+            </div>}
         </div>
       </div>
-  
-      <br />
-  
+
+      <br /> <br /> <br />
+
       <div className="borrow_history">
         <div className="borrow_history_head">Borrow Transactions History</div>
         <div className="borrow_history_card_holder">
-          {loans.map((loan, key) => {
-            return (
-              loan.Active !== true && loan.CollateralValue !== 0 ?
-                <div style={{ 'color': 'white', "fontSize": '35px' }}>No loans</div> :
-                (loan.CollateralValue === 0 ? <div> </div> :
-                  <PortfolioBorrow Contract={Contract} loan={loan} key={key} />)
-            );
-          })}
+          {loans[0] ? <>
+            {loans.map((loan, key) => {
+              return (
+                loan.Active !== true && loan.CollateralValue !== 0 ?
+                  <div style={{ 'color': 'white', "fontSize": '35px' }}></div> :
+                  (loan.CollateralValue === 0 ? <div> </div> :
+                    <PortfolioBorrow Contract={Contract} loan={loan} key={key} />)
+              );
+            })}
+          </>
+            : <>
+              <br />
+            <div className='no_history_div'>
+              <img src={no_history} alt="" />
+              <div>No Borrow <br /> Transactions to show</div>
+            </div>
+            </>}
         </div>
       </div>
     </div>
   );
-  }
-  
-  export { Portfolio };
-  
+}
+
+export { Portfolio };

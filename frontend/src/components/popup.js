@@ -243,9 +243,9 @@ const Popup = ({
             <div className="fetch_info">
               <div className="left_info_popup">
                 <span>Total Supply</span>
-                <sub></sub>
+                {/* <sub></sub> */}
                 <span>Total Borrow</span>
-                <sub></sub>
+                {/* <sub></sub> */}
                 <span>Lending Interest Rate</span>
               </div>
               <div className="right_info_popup">
@@ -263,6 +263,7 @@ const Popup = ({
         </div>
         <i className='bi bi-x' onClick={() => hidelendPopup()}></i>
       </div>
+      <div className="hide_div"></div>
     </>
   );
 };

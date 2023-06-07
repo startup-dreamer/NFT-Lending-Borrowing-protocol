@@ -32,7 +32,8 @@
 }
 
 .left_content img {
-    width: 120%;
+    width: 150%;
+    margin-right: 6px;
 }
 
 .right_content {
@@ -238,4 +239,26 @@
     color: white;
     width: 150px;
     cursor: pointer;
+}
+
+/* NO history div */
+.no_history_div{
+    margin-top: 35px;
+    width: 94%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(15, 24, 58);
+    padding: 45px 0px;
+}
+.no_history_div div{
+    color: rgb(152, 144, 183);
+    text-align: left;
+    font-family: cursive;
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+}
+.no_history_div img{
+    width: 170px;
+    height:120px;
 }

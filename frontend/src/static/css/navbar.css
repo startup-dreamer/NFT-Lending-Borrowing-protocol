@@ -41,7 +41,6 @@
 
 .right_nav button {
     border: 0;
-    border-radius: 15px;
     padding: 0px 25px;
     font-style: normal;
     font-weight: 400;
@@ -53,6 +52,9 @@
 .right_nav button a {
     text-decoration: none;
     color: white;
+}
+.right_nav button a:hover{
+    color: aqua;
 }
 
 .right_nav input {
@@ -69,5 +71,5 @@
 
 .right_nav button:hover {
     cursor: pointer;
-    border: 1px solid white;
+    color: aqua;
 }

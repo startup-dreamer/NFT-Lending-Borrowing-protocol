@@ -77,7 +77,7 @@
     flex-direction: column;
     color: #C06BC2;
     font-size: 18px;
-    row-gap: 10px;
+    row-gap: 15px;
     width: 50%;
 }
 
@@ -86,7 +86,7 @@
     flex-direction: column;
     color: white;
     font-size: 18px;
-    row-gap: 10px;
+    row-gap: 15px;
 }
 
 .input_borrow {
