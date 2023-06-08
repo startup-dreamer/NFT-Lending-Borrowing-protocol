@@ -47,9 +47,7 @@ For lending Chainlink NFT and Eth to USD Price Feed oracles to get the Colletral
 
 ### Contract [AurumV1core](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/tree/master/Hardhat/contracts)
 
-<p align = "center"> 
-  <img src="./Hardhat/graph.svg" height="650" width="600" style="background-color: black; display: inline-block;">
-</p align = "center">
+![Alt text](./Hardhat/graph.svg)
 
 
   #### Main Functions:
