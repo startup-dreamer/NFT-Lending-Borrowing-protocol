@@ -37,7 +37,7 @@ Driven by the desire to address this gap, we set out to create a **decentralized
 
   * **Reduced Risk of Default and Fraud:** Aurum employs algorithms and incentives to value and verify NFTs, mitigating the risk of default and fraud. The protocol ensures that NFTs used as collateral are accurately valued and authentic, providing a secure borrowing environment.
   
-
+---
 ## How we built it
 
 we built the protocol using React for frontend 
@@ -64,22 +64,24 @@ For lending Chainlink NFT and Eth to USD Price Feed oracles to get the Colletral
   [`setLoanToColletral:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L252) This function is used to establish the loan-to-collateral ratio, which helps mitigate the risks associated with fraud.
 
 
-## Frontent:
+### Frontent:
   Built with with React used **Alchemy SDK** to retrieve NFT metadata and display NFT details in to frontend integrated **The Graph Protocol**, which facilitated efficient indexing and display of liquidated NFTs.
 
+---
 ## Challenges we ran into
 
 The Complexity to lend the NFTs for certain time in Smart contract.
 
-
+---
 ## Accomplishments that we're proud of
 
 to succefsfully complete the project despite lot of brain storming and small obstacles
 
-
+---
 ## What we learned
 learned to design whole protocol and use multiple APIs in coharance.
 
+---
 ## What's next for Aurum Protocol
 Incorporate the support of ERC 20 tokens and stable 
 coins DAI USDC etc...
@@ -87,5 +89,6 @@ coins DAI USDC etc...
 Making Protocol more robust and secure
 <br/><br/>
 
+---
 
 Check out contract on Etherscan: [0xff0AF63633f2FEeB37a9E6bD46013A6333B20460](https://sepolia.etherscan.io/address/0xff0af63633f2feeb37a9e6bd46013a6333b20460)
