@@ -15,7 +15,7 @@ Driven by the desire to address this gap, we set out to create a **decentralized
 ***
 ## How it Works  
  <p align = "center">
-  <img src="./schema.png" alt="Schema of the project" title="Schema" />
+  <img src="./Flow%20Chart2.png" alt="Schema of the project" title="Schema" />
 </p align = "center">
 
 
