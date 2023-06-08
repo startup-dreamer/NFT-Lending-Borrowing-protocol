@@ -17,7 +17,7 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
         alert('Accounts error: No account found. Please connect.');
       }
       const contract = new ethers.Contract(
-        '0x3a9CD02dcf474d0151a94c74690091844e99B04F',
+        '0xff0AF63633f2FEeB37a9E6bD46013A6333B20460',
         AurumV1core,
         signer
       );
