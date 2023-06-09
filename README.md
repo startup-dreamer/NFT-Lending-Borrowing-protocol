@@ -15,12 +15,12 @@ Driven by the desire to address this gap, we set out to create a **decentralized
 ***
 ## How it Works  
  <p align = "center">
-  <img src="./Flow%20Chart2.png" alt="Schema of the project" title="Schema" />
+  <img src="https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/raw/master/Flow%20Chart2.png" alt="Schema of the project" title="Schema" />
 </p align = "center">
 
 
 ### Collateralization and Borrowing:
-  Users can securely borrow ETH by using their NFTs as collateral. The collateral value of the NFT is determined by the **Chainlink NFT Price Feed oracles**, which provide real-time valuations of NFTs. Additionally, the user's borrowing power is calculated based on the NFT's value fetched by the oracles multiplied by the loan-to-value ratio defined by the protocol's governance.
+  Users can securely borrow ETH by using their NFTs as collateral. The collateral value of the NFT is determined by the **Chainlink NFT Price Feed oracles** and it uses **Chainlink ETH to USD Price Feed oracle** to get the ETH to USD price for the protocol, which provide real-time valuations of NFTs. Additionally, the user's borrowing power is calculated based on the NFT's value fetched by the oracles multiplied by the loan-to-value ratio defined by the protocol's governance.
 
 ### Loan Terms and Repayment:
   Once the price of NFTs and the borrowing power are determined, users can obtain a loan for a specific interest rate, determined by the Annual Percentage Rate (APR) set by the protocol. Borrowers must repay the loan before the debt maturity time to avoid liquidation of their collateral. If a borrower fails to repay the loan in time, the debt position is liquidated, and the NFT is auctioned in the protocol's "NFT Auction" section, with the value determined by the Chainlink Price Feed oracle.
@@ -40,42 +40,36 @@ Driven by the desire to address this gap, we set out to create a **decentralized
 ---
 ## How we built it
 
-we built the protocol using React for frontend 
-Hardhat for development and deloyment of Smart contract  
-Alchemy SDK to fetch NFT data
-For lending Chainlink NFT and Eth to USD Price Feed oracles to get the Colletral value and ensure the Borrowing power of the borrower.
-
 ### Contract [AurumV1core](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/tree/master/Hardhat/contracts)
 
-![Alt text](./Hardhat/graph.svg)
+![Alt text](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/raw/master/Hardhat/graph.svg)
+
+#### Main Functions:
+
+##### External
+
+*[depositToPool:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L104)* Enables lenders to lend ETH to the pool and earn interest. <br/>
+*[withdrawFromPool:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L130)* Enables lenders to withdraw their liquidity from the pool.<br/>
+*[getNFTPrice:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/NFTPrice.sol#L24C12-L24C23)* Retrieves the price of NFTs from the Chainlink NFT Price Feed Oracle.<br/>
+*[borrow:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L155)* Deposits an NFT as collateral in the protocol and receives a corresponding debt.<br/>
+*[repay:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L206)* Enables the borrower to repay the loan with interest and retrieve their NFT.<br/>
 
 
-  #### Main Functions:
-  ##### External
-  [`depositToPool:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L107) Enables lenders to lend ETH to the pool and earn interest. <br/>
-  [`withdrawFromPool:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L133) Enables lenders to withdraw their liquidity from the pool.<br/>
-  [`getNFTPrice:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/NFTPrice.sol#LL24C12-L24C23) Retrieves the price of NFTs from the Chainlink NFT Price Feed Oracle.<br/>
-  [`borrow:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#LL159C6-L159C6) Deposits an NFT as collateral in the protocol and receives a corresponding debt.<br/>
-  [`repay:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L210) Enables the borrower to repay the loan with interest and retrieve their NFT.<br/>
-  [`withdrawLiquidatedNFT:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L278) Facilitates the sale of liquidated NFTs.
+##### Governance
 
-  ##### Governance 
-  [`setBorrowInterestRate:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L252) This function is used to set the borrow interest rate based on the current pool conditions.
-  [`setLoanToColletral:`](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/dcd5b8f60aa3eb8c096a00eb0dfbf2ee7c993e08/Hardhat/contracts/AurumV1core.sol#L252) This function is used to establish the loan-to-collateral ratio, which helps mitigate the risks associated with fraud.
-
+*[setBorrowInterestRate:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L248)* This function is used to set the borrow interest rate based on the current pool conditions.<br/>
+*[setLoanToCollateral:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L261)* This function is used to establish the loan-to-collateral ratio, which helps mitigate the risks associated with fraud.
 
 ### Frontent:
-  Built with with React used **Alchemy SDK** to retrieve NFT metadata and display NFT details in to frontend integrated **The Graph Protocol**, which facilitated efficient indexing and display of liquidated NFTs.
+  Built with with React used **[Alchemy SDK](https://www.alchemy.com/sdk)** to retrieve NFT metadata and display NFT details in to frontend integrated **[The Graph Protocol](https://thegraph.com/)**, which facilitated efficient indexing and display of liquidated NFTs.
 
 ---
 ## Challenges we ran into
-
-The Complexity to lend the NFTs for certain time in Smart contract.
+Apart from the complexity of the smart contract, the creation of the subgraph posed a significant challenge. Initially, we encountered difficulty as the subgraph was unable to index the emitted events. However, after multiple iterations of deployment and persistent effort, we successfully resolved the issue and made it work effectively.
 
 ---
 ## Accomplishments that we're proud of
 
-to succefsfully complete the project despite lot of brain storming and small obstacles
 
 ---
 ## What we learned
