@@ -5,12 +5,10 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "./contracts/NFTPrice.sol";
 
 
 contract AurumV1core is NFTPrice {
-    using SafeMath for uint256;
     // maximum amount user can deposit
     uint256 constant MAX_AMOUNT_LIMIT = 1e16;
     // borrowing interest rate
@@ -27,8 +25,6 @@ contract AurumV1core is NFTPrice {
     uint256 public totalBorrowed;
     // Total deposited NFTs
     uint256 public totalDepositedNFTs;
-    // Total liquidated NFTs
-    uint256 public totalLiquidatedNFTs;
 
 /*************************************** [Data Structures] ***************************************/
 
@@ -54,7 +50,7 @@ contract AurumV1core is NFTPrice {
     }
     mapping(address => Loan[]) public loans;
     mapping(address => mapping(address => uint256)) public tokenColletralNum;
-    mapping(address => uint256) public individualCOlletralNum;
+    mapping(address => uint256) public individualColletralNum;
 
 /*************************************** [Events] ***************************************/
 
@@ -78,9 +74,10 @@ contract AurumV1core is NFTPrice {
         uint256 amount
     );
     event Withdrawal(
-        uint256 indexed, 
-        address indexed , 
-        uint256 indexed);
+        uint256 indexed depoId, 
+        address indexed lender, 
+        uint256 indexed amount
+        );
 
 /*************************************** [Constructor] ***************************************/
 
@@ -116,17 +113,17 @@ contract AurumV1core is NFTPrice {
             "Can't deposit more than 0.01 ETH"
             );
 
-        uint256 interest = msg.value.mul(Lending_interestRate).div(10000);
+        uint256 interest = (msg.value * Lending_interestRate) / 10000;
         deposit memory dep = deposit({
             amount: msg.value,
             time: _time,
             interest: interest
         });
         deposits[msg.sender].push(dep);
-        individualDepositNum[msg.sender] = individualDepositNum[msg.sender].add(1);
+        individualDepositNum[msg.sender] += 1;
         (bool success, ) = address(this).call{value: msg.value}("");
         require(success, "Reverted finds not transfered");
-        emit Deposition(individualDepositNum[msg.sender].sub(1), msg.sender, _time, msg.value);
+        emit Deposition(individualDepositNum[msg.sender] - 1, msg.sender, _time, msg.value);
     }
 
 
@@ -145,7 +142,6 @@ contract AurumV1core is NFTPrice {
         }
         dep.amount = 0;
         totalSupply -= amountToReturn;
-        individualDepositNum[msg.sender] = individualDepositNum[msg.sender].sub(1);
         (bool success, ) = (msg.sender).call{value : amountToReturn}("");
         if (success) {
             emit Withdrawal(_depId, msg.sender, amountToReturn);
@@ -168,7 +164,7 @@ contract AurumV1core is NFTPrice {
             );
 
         uint256 collateralValue = getNftCollateralValue(_tokenContract, _tokenId);
-        uint256 borrowingPower = collateralValue.mul(maxLtv).div(10000);
+        uint256 borrowingPower = (collateralValue * maxLtv) / 10000;
 
         require(
             _amount <= borrowingPower, 
@@ -183,7 +179,7 @@ contract AurumV1core is NFTPrice {
                 "Unsupported token type"
                 );
         }
-        uint256 interest = _amount.mul(Borrow_interestRate).div(10000);
+        uint256 interest = (_amount * Borrow_interestRate) / 10000;
         Loan memory loan = Loan({
             borrower: msg.sender,
             tokenContract: _tokenContract,
@@ -278,14 +274,17 @@ contract AurumV1core is NFTPrice {
     function withdraw_liquidateNFT(address borrowerAddress, uint256 _loanId) external payable {
         Loan storage loan = loans[borrowerAddress][_loanId];
         require(loan.time < block.timestamp, "not liquidated");
-        require(loan.active == false, "Debt payed");
-        uint256 amount = loan.collateralValue;
-        (bool success, ) = (address(this)).call{value : amount}("");
+        require(loan.active == true, "Debt payed");
+        require(loan.collateralValue == msg.value, "Error payment not done");
+        loan.active = false;
+
+        (bool success, ) = (payable(msg.sender)).call{value : msg.value}("");
         require(
             success, 
             "Internal error funds not transferred"
             );
-
+        IERC721Enumerable token = IERC721Enumerable(loan.tokenContract);
+        token.transferFrom(address(this), msg.sender, loan.tokenId);
     }
 
 /*************************************** [Public Functions] ***************************************/
@@ -322,13 +321,13 @@ contract AurumV1core is NFTPrice {
             "Borrower is not the owner of the token"
             );
         require(
-            tokenColletralNum[borrower][_tokenContract].add(1) <= token.balanceOf(borrower), 
+            tokenColletralNum[borrower][_tokenContract] <= token.balanceOf(borrower), 
             "Borrower has no remaining collateral slots"
             );
 
         token.transferFrom(borrower, address(this), tokenId);
-        tokenColletralNum[borrower][_tokenContract] = tokenColletralNum[borrower][_tokenContract].add(1);
-        individualCOlletralNum[borrower] = individualCOlletralNum[borrower].add(1);
+        tokenColletralNum[borrower][_tokenContract] += 1;
+        individualColletralNum[borrower] += 1;
     }
 
     function withdrawERC721Collateral(
@@ -351,11 +350,7 @@ contract AurumV1core is NFTPrice {
             );
 
         token.transferFrom(address(this), borrower, tokenId);
-        tokenColletralNum[borrower][_tokenContract] = tokenColletralNum[borrower][_tokenContract].sub(1);
-        individualCOlletralNum[borrower] = individualCOlletralNum[borrower].sub(1);
+        tokenColletralNum[borrower][_tokenContract] -= 1;
     }
     
 }
-
-// sepolia address 0x2c184D8aB9f4E9665612AFE5FB57B319dfa757F6
-
