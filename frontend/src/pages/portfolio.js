@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-import { getDepositId, getLoanId, getDeposits, getLoans, getmetadata, get_ETHtoUSD_Price } from '../backend';
 import AurumV1core from '../backend/AurumV1core.json';
 import PortfolioBorrow from './portfolio_borrow';
 import PortfolioLend from './portfolio_lend';
 import user_img from '../static/img/user.png';
 import demo_img from '../static/img/galaxy.png';
 import no_history from '../static/img/blank_history.jpg'
+import {
+  getDepositId, 
+  getLoanId, 
+  getDeposits, 
+  getLoans, 
+  getmetadata, 
+  get_ETHtoUSD_Price
+} from '../backend';
 import '../App.css';
 import '../static/css/portfolio.css';
 
@@ -14,7 +21,6 @@ const Portfolio = ({ setConnected }) => {
   const [Contract, setContract] = useState(null);
   const [Provider, setProvider] = useState(null);
   const [account, setAccount] = useState('0x');
-  const [loading, setLoading] = useState(false);
   const [deposits, setDeposits] = useState([
     {
       Id: "-",
@@ -107,7 +113,6 @@ const Portfolio = ({ setConnected }) => {
   useEffect(() => {
     const setAccounts = async () => {
       if (Provider !== null && account !== "0x") {
-        setLoading(true);
         const depositId = await getDepositId(Contract, account);
         const deposits = [];
         const ethTousd = await get_ETHtoUSD_Price(Contract);
@@ -134,8 +139,6 @@ const Portfolio = ({ setConnected }) => {
             const image = NFTData.rawMetadata.image.includes('ipfs://')
               ? `https${NFTData.rawMetadata.image.replace('ipfs', '')}.ipfs.dweb.link/`
               : NFTData.rawMetadata.image;
-            // console.log(image);
-
             loans.push({
               Id: i,
               Borrower: loan.Borrower,
@@ -154,7 +157,6 @@ const Portfolio = ({ setConnected }) => {
           }
         }
         setLoans(loans);
-        setLoading(false);
       }
     };
     setAccounts();

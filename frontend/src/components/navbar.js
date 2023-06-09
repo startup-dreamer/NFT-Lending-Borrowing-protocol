@@ -56,18 +56,6 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
     checkMetaMask();
   }, []);
 
-  // coloreffect
-  // useEffect(()=>{
-  //   let k = document.getElementsByClassName('portfolio_nav')[0];
-  //   if(window.location.pathname.includes('portfolio')){
-  //     k.style.color = 'aqua';
-  //     k.style.textDecoration = 'underline';
-  //   }
-  //   else{
-  //     k.style.textDecoration = 'none';
-  //   }
-  // },[window.location.pathname]);
-
   return (
     <div className='navbar'>
       <div className='left_nav'>

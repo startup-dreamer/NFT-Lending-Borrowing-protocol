@@ -47,7 +47,7 @@ const PortfolioBorrow = ({ Contract, loan }) => {
         {loading ? (
           <button className='portfolio_borrow_bttn'>Loading...</button>
         ) : (
-          <button className='portfolio_borrow_bttn' onClick={() => { Repay() }}>Withdraw</button>
+          <button className='portfolio_borrow_bttn' onClick={() => { Repay() }}>Repay</button>
         )}
       </div>
     </div>

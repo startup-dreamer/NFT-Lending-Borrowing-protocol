@@ -1,12 +1,19 @@
 import { React, useState, useEffect, useRef } from 'react';
-import "../static/css/content.css";
-import "../static/css/content_card.css";
+import {motion} from "framer-motion";
 import Card from './card';
-import ether_big from '../static/img/ether_big.png';
-
-import { getLiquidatedNFTs, getBorrow_interestRate, getTotalBorrow, getTotalSupply, getLending_interestRate, getTotalDepositedNFTs, get_ETHtoUSD_Price, getmaxLtv } from '../backend'
 import Popup from './popup';
-import { motion } from "framer-motion";
+import ether_big from '../static/img/ether_big.png';
+import {
+    getLiquidatedNFTs, 
+    getBorrow_interestRate, 
+    getTotalBorrow, getTotalSupply, 
+    getLending_interestRate, 
+    getTotalDepositedNFTs, 
+    get_ETHtoUSD_Price, 
+    getmaxLtv 
+} from '../backend'
+import "../static/css/content_card.css";
+import "../static/css/content.css";
 
 const Content = ({ Contract, Provider }) => {
     const nftStatsRef = useRef(null);

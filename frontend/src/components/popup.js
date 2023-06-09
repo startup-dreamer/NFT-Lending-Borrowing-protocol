@@ -83,7 +83,6 @@ const Popup = ({
   const [NFTValue, setNFTValue] = useState(undefined);
   const [BorrowingPower, setBorrwingPower] = useState(undefined);
   const [borrowAmount, setBorrowAmount] = useState(0);
-  const [maxLtV, setMaxLtV] = useState(0);
   const [borrowTime, setBorrowTime] = useState(0);
   const [fetching, setFetching] = useState(false);
   const [approving, setApproving] = useState(false);
@@ -116,7 +115,6 @@ const Popup = ({
         setNFTValue(nftvalue / 1e18);
         setBorrwingPower(borrowingpower);
         setFetching(false);
-        setMaxLtV(maxltv / 100);
       } else {
         setFetching(false);
         alert('Enter NFT contract Address and Id');

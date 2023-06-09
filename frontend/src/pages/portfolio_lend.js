@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../static/css/portfolio.css';
 import { withdraw_to_pool } from '../backend';
 
