@@ -47,7 +47,10 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
         const Provider = new ethers.providers.Web3Provider(window.ethereum);
         await window.ethereum.send('eth_requestAccounts');
         const signer = Provider.getSigner();
-
+      const { chainId } = await Provider.getNetwork();
+      if (chainId !== 11155111) {
+        alert("Please switch to Sepoli Testnet");
+      }
         const contractInstance = new ethers.Contract("0xff0AF63633f2FEeB37a9E6bD46013A6333B20460", AurumV1core, signer);
         setProvider(Provider);
         setContract(contractInstance);
