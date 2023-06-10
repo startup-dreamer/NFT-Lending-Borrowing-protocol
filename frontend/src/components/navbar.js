@@ -23,7 +23,8 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
       );
       if (chainId !== 11155111) {
         alert("Please switch to Sepoli Testnet");
-        setConnected(flase);
+        setConnected(false);
+        return
       }
       setContract(contract);
       setProvider(provider);
@@ -51,7 +52,8 @@ const Navbar = ({ setContract, setProvider, setConnected, Connected }) => {
       const { chainId } = await Provider.getNetwork();
       if (chainId !== 11155111) {
         alert("Please switch to Sepoli Testnet");
-        setConnected(flase);
+        setConnected(false);
+        return
       }
         const contractInstance = new ethers.Contract("0xff0AF63633f2FEeB37a9E6bD46013A6333B20460", AurumV1core, signer);
         setProvider(Provider);

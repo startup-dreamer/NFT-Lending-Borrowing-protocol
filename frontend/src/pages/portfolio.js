@@ -96,6 +96,11 @@ const Portfolio = ({ setConnected }) => {
         const balance = await signer.getBalance();
         const Balance = (parseInt(balance._hex) / 1e18).toFixed(3);
         const contractInstance = new ethers.Contract("0xff0AF63633f2FEeB37a9E6bD46013A6333B20460", AurumV1core, signer);
+        if (chainId !== 11155111) {
+          alert("Please switch to Sepoli Testnet");
+          setConnected(false);
+          return
+        }
         setProvider(Provider);
         setContract(contractInstance);
         setConnected(true);
