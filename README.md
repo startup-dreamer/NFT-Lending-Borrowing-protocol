@@ -3,7 +3,7 @@
 </p align = "center">
 
 # Aurum Protocol
-✨ Aurum is an over-collateralized NFT Custodial Lending and Borrowing Protocol that allows users to borrow ETH by using their NFTs as collateral, while also enabling lenders to earn interest on their ETH by participating in the protocol's lending pool. <br />
+✨ Aurum is an over-collateralized NFT Custodial Lending and Borrowing Protocol that allows users to borrow ETH using their NFT as collateral while enabling lenders to earn interest on their deposited ETH by participating in the protocol's lending pool. <br />
 ✨It offers easier access to liquidity, lower interest rates, and enhanced security compared to peer-to-peer lending platforms.
 
 ---
@@ -11,7 +11,7 @@
 The inspiration behind our NFT lending and borrowing platform emerged from the growing popularity and potential of non-fungible tokens (NFTs) in the digital asset space. <br /> <br />
 As a team of passionate developers and financial enthusiasts, we recognized the immense value locked within NFTs and sought to harness their potential in the world of decentralized finance (DeFi).
 The concept of collateralizing digital assets is not new, but the emergence of NFTs presented a unique opportunity to extend this practice to a previously untapped market. NFTs possess inherent value due to their uniqueness, scarcity, and the underlying digital art, collectibles, or virtual assets they represent. However, owners often faced challenges in unlocking liquidity from these illiquid assets. <br />
-Driven by the desire to address this gap, we set out to create a **decentralized platform** that would empower NFT owners to leverage their assets to access the liquidity they need in a secure and trust less manner. 
+Driven by the desire to address this gap, we set out to create a **decentralized platform** that would empower NFT owners to leverage their assets to access the liquidity they need in a secure and trustless manner. 
 ***
 ## How it Works  
  <p align = "center">
@@ -20,13 +20,13 @@ Driven by the desire to address this gap, we set out to create a **decentralized
 
 
 ### Collateralization and Borrowing:
-  Users can securely borrow ETH by using their NFTs as collateral. The collateral value of the NFT is determined by the **Chainlink NFT Price Feed oracles** and it uses **Chainlink ETH to USD Price Feed oracle** to get the ETH to USD price for the protocol, which provide real-time valuations of NFTs. Additionally, the user's borrowing power is calculated based on the NFT's value fetched by the oracles multiplied by the loan-to-value ratio defined by the protocol's governance.
+  Users can securely borrow ETH by using their NFT as collateral. The collateral value of the NFT is determined by the **Chainlink NFT Price Feed oracles**, and it uses **Chainlink ETH to USD Price Feed oracle** to get the ETH to USD price for the protocol, which provides real-time price valuation of NFTs. Additionally, the user's borrowing power is calculated based on the NFT value fetched by the oracles multiplied by the loan-to-value ratio of the asset.
 
 ### Loan Terms and Repayment:
-  Once the price of NFTs and the borrowing power are determined, users can obtain a loan for a specific interest rate, determined by the Annual Percentage Rate (APR) set by the protocol. Borrowers must repay the loan before the debt maturity time to avoid liquidation of their collateral. If a borrower fails to repay the loan in time, the debt position is liquidated, and the NFT is auctioned in the protocol's "NFT Auction" section, with the value determined by the Chainlink Price Feed oracle.
+After determining the price of NFT and their borrowing power, users can secure a loan at an interest rate specified by the protocol. Borrowers must repay the loan before the debt maturity date to avoid liquidation of their collateral. If a borrower fails to repay the loan in time, the debt position is liquidated, and the NFT is auctioned in the protocol's "NFTs Auction" section, with the value determined by the Chainlink Price Feed oracle.
 
 ### Lenders and Yield Generation:
-  Aurum allows lenders to participate in the protocol by lending ETH to the pool. Lenders earn interest on their participation through an Annual Percentage Yield (APY) initially set by the protocol's governance. The APY may vary based on the utilization of the pool, which refers to the `(total borrowe / total supply)` in the pool. Lenders can have passive income while contributing to the liquidity of the protocol.
+  Aurum allows lenders to participate in the protocol by lending ETH to the pool. Lenders earn interest on their participation initially set by the protocol's governance. The APY may vary based on the utilization of the pool, which refers to the `(total borrow / total supply)` in the pool. Lenders can have passive income while contributing to the liquidity of the protocol.
 
 ### Advantages over Peer-to-Peer Lending:
   Aurum offers several advantages compared to traditional peer-to-peer lending and borrowing protocols:
@@ -39,6 +39,9 @@ Driven by the desire to address this gap, we set out to create a **decentralized
   
 ---
 ## How we built it
+  For implementing EVM code, we utilize Solidity, and for development and deployment purposes, we employ Hardhat. 
+The frontend is built with Reactjs, a node.js framework used in building interactive user interfaces and web applications quickly and efficiently with vanilla javascript. We used **[Alchemy SDK] (https://www.alchemy.com/sdk)** to retrieve NFT metadata and display NFT details into frontend integrated **[The Graph Protocol](https://thegraph.com/)**, which facilitated efficient indexing and display of liquidated NFTs, To integrate the blockchain with our frontend, we utilized the Ethers.js JavaScript library.
+
 
 ### Contract [AurumV1core](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/tree/master/Hardhat/contracts)
 
@@ -58,31 +61,41 @@ Driven by the desire to address this gap, we set out to create a **decentralized
 ##### Governance
 
 *[setBorrowInterestRate:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L248)* This function is used to set the borrow interest rate based on the current pool conditions.<br/>
-*[setLoanToCollateral:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L261)* This function is used to establish the loan-to-collateral ratio, which helps mitigate the risks associated with fraud.
-
-### Frontent:
-  Built with with React used **[Alchemy SDK](https://www.alchemy.com/sdk)** to retrieve NFT metadata and display NFT details in to frontend integrated **[The Graph Protocol](https://thegraph.com/)**, which facilitated efficient indexing and display of liquidated NFTs.
+*[setLoanToCollateral:](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/blob/c9d297c09ba9a5eb2edb9394a5def8506c13b5d4/Hardhat/contracts/AurumV1core.sol#L261)* This function is used to establish the loan-to-collateral ratio, which helps mitigate the risks in case of default.
 
 ---
+
 ## Challenges we ran into
-Apart from the complexity of the smart contract, the creation of the subgraph posed a significant challenge. Initially, we encountered difficulty as the subgraph was unable to index the emitted events. However, after multiple iterations of deployment and persistent effort, we successfully resolved the issue and made it work effectively.
+  Apart from the smart contract's complexity, the subgraph's creation posed a significant challenge. 
+  Initially, we encountered difficulty as the subgraph could not index the emitted events. However, after 
+  multiple iterations of deployment and persistent effort, we successfully resolved the issue and made it 
+  work effectively.
 
 ---
+
 ## Accomplishments that we're proud of
 
+We are proud to have developed a complete end-to-end solution for the lending and borrowing needs of NFT holders. Our dedicated efforts during the Chainlink Hackathon allowed us to achieve our goals successfully.
+
+Additionally, we take pride in our successful implementation of the subgraph of the AurumV1core and integration of the [Chainlink NFT ](https://docs.chain.link/data-feeds/nft-floor-price) and [Chainlink ETH to USD](https://docs.chain.link/data-feeds/price-feeds/addresses) Price Feed Oracles; despite the challenges, we were able to implement all the things before the deadline.
 
 ---
+
 ## What we learned
-learned to design whole protocol and use multiple APIs in coharance.
+
+This project was a valuable learning experience, allowing us to explore and work with various advanced technologies, such as utilizing Alchemy-SDK and the Graph Protocol and extensive integration of frontend (Reactjs) and blockchain using the ethers.js library.
+
 
 ---
-## What's next for Aurum Protocol
-Incorporate the support of ERC 20 tokens and stable 
-coins DAI USDC etc...
 
-Making Protocol more robust and secure
+## What's next for Aurum Protocol
+- Incorporate the support of ERC 20 tokens, stable 
+coins DAI USDC etc...
+- Enhance the staking and reward in the contract to align with contemporary DeFi standards.
+- Making Protocol more robust and secure.
+
 <br/><br/>
 
 ---
 
-Check out contract on Etherscan: [0xff0AF63633f2FEeB37a9E6bD46013A6333B20460](https://sepolia.etherscan.io/address/0xff0af63633f2feeb37a9e6bd46013a6333b20460)
+Check out the contract on Etherscan: [0xff0AF63633f2FEeB37a9E6bD46013A6333B20460](https://sepolia.etherscan.io/address/0xff0af63633f2feeb37a9e6bd46013a6333b20460)
