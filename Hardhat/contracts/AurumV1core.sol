@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
-import "./contracts/NFTPrice.sol";
+import "./NFTPrice.sol";
 
 
 contract AurumV1core is NFTPrice {
@@ -101,6 +101,10 @@ contract AurumV1core is NFTPrice {
     }
 
 /*************************************** [External Functions] ***************************************/
+    /*
+    * @dev Deposit ETH to Pool
+    * @param _time The time duration of the deposit.
+    */
     function depositToPool(
         uint256 _time
         ) external payable {
@@ -126,7 +130,11 @@ contract AurumV1core is NFTPrice {
         emit Deposition(individualDepositNum[msg.sender] - 1, msg.sender, _time, msg.value);
     }
 
-
+    /*
+    * @dev Withdraw ETH from the pool
+    * @notice Allows the user to withdraw their deposited ETH from the pool
+    * @param _depId The ID of the deposit to be withdrawn
+    */
     function withdrawFromPool(
         uint256 _depId
         ) external {
@@ -151,7 +159,14 @@ contract AurumV1core is NFTPrice {
             revert("Internal error: funds not transferred");
         }
     }
-
+    
+    /*
+    * @dev Borrow funds against deposited NFT collateral
+    * @param _amount The amount to borrow
+    * @param _tokenContract The address of the token contract for the collateral
+    * @param _tokenId The ID of the token used as collateral
+    * @param _time The timestamp of the borrowing
+    */
     function borrow(
         uint256 _amount, 
         address _tokenContract, 
@@ -203,6 +218,11 @@ contract AurumV1core is NFTPrice {
         emit Borrow(msg.sender, loans[msg.sender].length - 1, _amount, interest, _time);
     }
 
+    /*
+    * @dev Repay the loan
+    * @notice Repays the specified loan by the borrower
+    * @param _loanId The ID of the loan to be repaid
+    */
     function repay(
         uint256 _loanId
         ) external payable {
@@ -245,112 +265,106 @@ contract AurumV1core is NFTPrice {
         emit Repay(msg.sender, _loanId, loan.amount, loan.interest);
     }
 
-    function set_Borrow_InterestRate(
-        uint256 _Borrow_interestRate
-        ) external {
-        require(
-            msg.sender == owner
-            );
+    /*
+    * @notice Sets the borrowing interest rate for the pool
+    * @param _Borrow_interestRate The new borrowing interest rate
+    */
+    function set_Borrow_InterestRate(uint256 _Borrow_interestRate) external {
+        require(msg.sender == owner, "Only the owner can call this function");
         Borrow_interestRate = _Borrow_interestRate;
-        // Utilization of pool
+        // Update the lending interest rate based on the pool's utilization
         Lending_interestRate = _Borrow_interestRate * (totalBorrowed / totalSupply);
     }
 
-    
-
-    function setLoanToCollateral(
-        uint256 _maxLtv
-        ) external {
-        require(
-            msg.sender == owner
-            );
+    /*
+    * @notice Sets the maximum loan-to-value ratio for the pool
+    * @param _maxLtv The new maximum loan-to-value ratio
+    */
+    function setLoanToCollateral(uint256 _maxLtv) external {
+        require(msg.sender == owner, "Only the owner can call this function");
         maxLtv = _maxLtv;
     }
 
-    function getUtilization() external view returns(uint256) {
+    /*
+    * @notice Returns the utilization of the pool as a percentage
+    * @return The utilization of the pool
+    */
+    function getUtilization() external view returns (uint256) {
         return (totalBorrowed == 0 || totalSupply == 0) ? 0 : (totalBorrowed / totalSupply) * 100;
     }
 
+    /*
+    * @dev Withdraw liquidated NFT
+    * @notice Allows the borrower or lender to withdraw or liquidate an NFT used as collateral for a loan
+    * @param borrowerAddress The address of the borrower
+    * @param _loanId The ID of the loan
+    */
     function withdraw_liquidateNFT(address borrowerAddress, uint256 _loanId) external payable {
         Loan storage loan = loans[borrowerAddress][_loanId];
-        require(loan.time < block.timestamp, "not liquidated");
-        require(loan.active == true, "Debt payed");
-        require(loan.collateralValue == msg.value, "Error payment not done");
+        require(loan.time < block.timestamp, "Loan not liquidated yet");
+        require(loan.active == true, "Debt has been repaid");
+        require(loan.collateralValue == msg.value, "Incorrect payment amount");
         loan.active = false;
 
-        (bool success, ) = (payable(msg.sender)).call{value : msg.value}("");
-        require(
-            success, 
-            "Internal error funds not transferred"
-            );
+        (bool success, ) = (payable(msg.sender)).call{value: msg.value}("");
+        require(success, "Error transferring funds");
+
         IERC721Enumerable token = IERC721Enumerable(loan.tokenContract);
         token.transferFrom(address(this), msg.sender, loan.tokenId);
     }
 
+
 /*************************************** [Public Functions] ***************************************/
-    function getNftCollateralValue(
-        address _tokenContract, 
-        uint256 tokenId
-        ) public view returns (uint256) {
+    /*
+    * @notice Calculates the collateral value of a specified ERC721 token based on its price
+    * @param _tokenContract The address of the ERC721 token contract
+    * @param tokenId The ID of the ERC721 token
+    * @return The collateral value of the token
+    */
+    function getNftCollateralValue(address _tokenContract, uint256 tokenId) public view returns (uint256) {
         uint256 price = getNFTPrice(_tokenContract, tokenId);
         if (IERC165(_tokenContract).supportsInterface(type(IERC721Metadata).interfaceId)) {
             return price;
-        }
-        else {
+        } else {
             revert("Unsupported token type");
         }
     }
 
 /*************************************** [Internal Functions] ***************************************/
-        function depositERC721Collateral(
-        address borrower, 
-        address _tokenContract, 
-        uint256 tokenId
-        ) internal {
+
+    /*
+    * @dev Deposit an ERC721 token as collateral
+    * @param borrower The address of the borrower
+    * @param _tokenContract The address of the ERC721 token contract
+    * @param tokenId The ID of the ERC721 token
+    */
+    function depositERC721Collateral(address borrower, address _tokenContract, uint256 tokenId) internal {
         IERC721Enumerable token = IERC721Enumerable(_tokenContract);
-        require(
-            msg.sender == borrower, 
-            "Only borrower can deposit collateral"
-            );
-        require(
-            token.balanceOf(borrower) > 0, 
-            "Borrower has no tokens"
-            );
-        require(
-            token.ownerOf(tokenId) == borrower, 
-            "Borrower is not the owner of the token"
-            );
-        require(
-            tokenColletralNum[borrower][_tokenContract] <= token.balanceOf(borrower), 
-            "Borrower has no remaining collateral slots"
-            );
+        require(msg.sender == borrower, "Only borrower can deposit collateral");
+        require(token.balanceOf(borrower) > 0, "Borrower has no tokens");
+        require(token.ownerOf(tokenId) == borrower, "Borrower is not the owner of the token");
+        require(tokenColletralNum[borrower][_tokenContract] <= token.balanceOf(borrower), "Borrower has no remaining collateral slots");
 
         token.transferFrom(borrower, address(this), tokenId);
         tokenColletralNum[borrower][_tokenContract] += 1;
         individualColletralNum[borrower] += 1;
     }
 
-    function withdrawERC721Collateral(
-        address borrower, 
-        address _tokenContract, 
-        uint256 tokenId
-        ) internal {
+    /*
+    * @dev Withdraw an ERC721 token used as collateral
+    * @param borrower The address of the borrower
+    * @param _tokenContract The address of the ERC721 token contract
+    * @param tokenId The ID of the ERC721 token
+    */
+    function withdrawERC721Collateral(address borrower, address _tokenContract, uint256 tokenId) internal {
         IERC721Enumerable token = IERC721Enumerable(_tokenContract);
-        require(
-            msg.sender == borrower, 
-            "Only borrower can withdraw collateral"
-            );
-        require(
-            tokenColletralNum[borrower][_tokenContract] > 0, 
-            "Borrower has no collateral to withdraw"
-            );
-        require(
-            token.ownerOf(tokenId) == address(this), 
-            "Token is not being used as collateral"
-            );
+        require(msg.sender == borrower, "Only borrower can withdraw collateral");
+        require(tokenColletralNum[borrower][_tokenContract] > 0, "Borrower has no collateral to withdraw");
+        require(token.ownerOf(tokenId) == address(this), "Token is not being used as collateral");
 
         token.transferFrom(address(this), borrower, tokenId);
         tokenColletralNum[borrower][_tokenContract] -= 1;
     }
+
     
 }
