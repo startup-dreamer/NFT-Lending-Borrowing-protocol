@@ -3,6 +3,15 @@
 </p align = "center">
 
 # Aurum Protocol
+## Message: This is a Development branch (Subject to continuous development)
+### Hardhat and Contract Testing
+- To run tests, point the terminal to the backend directory.
+- After installing all the required dependencies, use `npx hardhat test` to run the tests.
+### Frontend
+- To run the frontend locally, point the terminal to the frontend directory.
+- Install dependencies by running `npm install`.
+- Run locally using `npm start`.
+
 ✨ Aurum is an over-collateralized NFT Custodial Lending and Borrowing Protocol that allows users to borrow ETH using their NFT as collateral while enabling lenders to earn interest on their deposited ETH by participating in the protocol's lending pool. <br />
 ✨It offers easier access to liquidity, lower interest rates, and enhanced security compared to peer-to-peer lending platforms.
 
