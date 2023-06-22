@@ -40,7 +40,7 @@ contract AurumAdmin is Ownable {
     }
 
     /**
-     * @dev set's loan to value ratio for over colletralization
+     * @dev set's loan to value ratio for over collateralization
      */
     function setLoanToValue(uint256 maxLoanToValue_) public onlyOwner {
         maxLoanToValue = maxLoanToValue_;
@@ -49,24 +49,9 @@ contract AurumAdmin is Ownable {
 /*************************************** [Internal Functions] ***************************************/
 
     /**
-     * Calculate the Annual Percentage Yield (APY) based on the interest rate, compounding frequency,
-     * and number of years.
-     *
-     * @param rate The interest rate as a decimal value (e.g., 0.05 for 5%)
-     * @param compoundingFrequency The number of times the interest is compounded per year
-     * @param timePeriod The number of years the investment is held for
-     * @return The Annual Percentage Yield (APY) as a decimal value
+     * @dev 
      */
-    function calculateAPY(uint256 rate, uint256 compoundingFrequency, uint256 timePeriod) pure external returns (uint256) {
-        uint256 compoundedRate = (1 + rate / compoundingFrequency) ** (compoundingFrequency * timePeriod);
-        uint256 apy = (compoundedRate - 1) * 100;
-        return apy;
-    }
-
-    /**
-     *
-     */
-    function calculateAPR() internal returns(uint256) {
-        
+    function calculateInterest(uint256 amount_, uint256 interestRate_) pure internal returns(uint256) {
+        return amount_ * interestRate_ / 10000;
     }
 }

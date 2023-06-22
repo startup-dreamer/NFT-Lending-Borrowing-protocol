@@ -14,8 +14,8 @@ contract NFTEscrow is ERC721Holder {
 /*************************************** [Internal Functions] ***************************************/
 
     /**
-     * @dev Deposits ERC721 colletral to escrow (this contract)
-     * @notice Borrower deposits NFT colletral to this contract
+     * @dev Deposits ERC721 collateral to escrow (this contract)
+     * @notice Borrower deposits NFT collateral to this contract
      * @param borrower_ The address of the borrower
      * @param tokenContract_ The address of the ERC721 token contract
      * @param tokenId_ The ID of the ERC721 token
@@ -36,10 +36,10 @@ contract NFTEscrow is ERC721Holder {
             );
         require(
             userTokenNum[borrower_][tokenContract_] <= token.balanceOf(borrower_), 
-            "BORROWER_HAS_NO_MORE_COLLETRAL_SLOTS"
+            "BORROWER_HAS_NO_MORE_collateral_SLOTS"
             );
 
-        (bool isApproved, ) = address(token).call(
+        (bool isApproved, ) = tokenContract_.call(
             abi.encodeWithSelector(
                 token.approve.selector,
                 address(this),
@@ -47,7 +47,7 @@ contract NFTEscrow is ERC721Holder {
             )
         );
         if (isApproved) {
-            (bool isTransferred, ) = address(token).call(
+            (bool isTransferred, ) = tokenContract_.call(
                 abi.encodeWithSelector(
                     token.transferFrom.selector,
                     borrower_,
@@ -68,17 +68,18 @@ contract NFTEscrow is ERC721Holder {
     }
 
     /**
-     * @dev Withdraws ERC721 colletral to escrow (this contract)
-     * @notice Borrower withdraws NFT colletral to this contract
+     * @dev Withdraws ERC721 collateral to escrow (this contract)
+     * @notice Borrower withdraws NFT collateral to this contract
      * @param borrower_ The address of the borrower
      * @param tokenContract_ The address of the ERC721 token contract
      * @param tokenId_ The ID of the ERC721 token
+     * @return true is collateral is transferred
      */
     function withdrawERC721Collateral(
         address borrower_, 
         address tokenContract_, 
         uint256 tokenId_
-        ) internal {
+        ) internal returns(bool) {
             IERC721 token = IERC721(tokenContract_);
             require(
                 msg.sender == borrower_,
@@ -86,14 +87,14 @@ contract NFTEscrow is ERC721Holder {
             );
             require(
                 token.ownerOf(tokenId_) == address(this),
-                "NFT_NOT_USED_AS_COLLETRAL"
+                "NFT_NOT_USED_AS_collateral"
             );
             require(
                 userTokenNum[borrower_][tokenContract_] > 0,
-                "BORROWER_HAS_NO_COLLETRAL_FOR_THIS_TOKENCONTRACT"
+                "BORROWER_HAS_NO_collateral_FOR_THIS_TOKENCONTRACT"
             );
 
-            (bool isTransferred, ) = address(token).call(
+            (bool isTransferred, ) = tokenContract_.call(
                 abi.encodeWithSelector(
                     token.transferFrom.selector,
                     borrower_,
@@ -103,6 +104,7 @@ contract NFTEscrow is ERC721Holder {
             );
             if (isTransferred) {
                 userTokenNum[borrower_][tokenContract_] -= 1;
+                return true;
             }
             else {
                 revert TransferFailed("TRANSFER_FAILED");
