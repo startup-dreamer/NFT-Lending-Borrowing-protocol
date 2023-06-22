@@ -13,13 +13,13 @@ contract NFTEscrow is ERC721Holder {
 
 /*************************************** [Internal Functions] ***************************************/
 
-    /*
-    * @dev Deposits ERC721 colletral to escrow (this contract)
-    * @notice Borrower deposits NFT colletral to this contract
-    * @param borrower_ The address of the borrower
-    * @param tokenContract_ The address of the ERC721 token contract
-    * @param tokenId_ The ID of the ERC721 token
-    */
+    /**
+     * @dev Deposits ERC721 colletral to escrow (this contract)
+     * @notice Borrower deposits NFT colletral to this contract
+     * @param borrower_ The address of the borrower
+     * @param tokenContract_ The address of the ERC721 token contract
+     * @param tokenId_ The ID of the ERC721 token
+     */
     function depositERC721Collateral(
         address borrower_, 
         address tokenContract_, 
@@ -67,13 +67,13 @@ contract NFTEscrow is ERC721Holder {
         }
     }
 
-    /*
-    * @dev Withdraws ERC721 colletral to escrow (this contract)
-    * @notice Borrower withdraws NFT colletral to this contract
-    * @param borrower_ The address of the borrower
-    * @param tokenContract_ The address of the ERC721 token contract
-    * @param tokenId_ The ID of the ERC721 token
-    */
+    /**
+     * @dev Withdraws ERC721 colletral to escrow (this contract)
+     * @notice Borrower withdraws NFT colletral to this contract
+     * @param borrower_ The address of the borrower
+     * @param tokenContract_ The address of the ERC721 token contract
+     * @param tokenId_ The ID of the ERC721 token
+     */
     function withdrawERC721Collateral(
         address borrower_, 
         address tokenContract_, 

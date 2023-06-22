@@ -12,4 +12,32 @@ error ValueTransferFailed(string message);
 
 contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
 
+/*************************************** [Events] ***************************************/
+
+    event Borrow(
+        address indexed borrower, 
+        uint256 indexed loanId, 
+        uint256 indexed amount, 
+        uint256 interest, 
+        uint256 time
+        );
+    event Repay(
+        address indexed borrower, 
+        uint256 indexed loanId, 
+        uint256 indexed amount, 
+        uint256 interest
+        );
+    event Deposition(
+        uint256 indexed depoId,
+        address indexed sender,
+        uint256 indexed time,
+        uint256 amount
+    );
+    event Withdrawal(
+        uint256 indexed depoId, 
+        address indexed lender, 
+        uint256 indexed amount
+        );
+
+    function depositToPool() public {}
 }
