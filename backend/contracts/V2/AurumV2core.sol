@@ -15,10 +15,10 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
     struct Deposit {
             uint256 amount;
             uint256 interest;
-            uint256 depositionTime;
             uint256 duration;
     }
     mapping(address => Deposit[]) public deposits;
+    mapping(address => uint256) public userDepositNum;
 
     struct Loan {
         address borrower;
@@ -31,7 +31,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         bool isActive;
     }
     mapping(address => Loan[]) public loans;
-
+    mapping(address => uint256) public userColleteralNum;
 
 /*************************************** [Events] ***************************************/
 
@@ -80,30 +80,35 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         totalSupply += msg.value;
     }
 
+    /**
+     * @dev Deposit ETH into the pool.
+     * @param duration_ Duration of the deposit in seconds.
+     */
     function depositToPool(uint256 duration_) external payable {
         require(
             msg.value <= MAX_DEPOSIT_AMOUNT_LIMIT, 
             "DEPOSITION_LIMIT_REACHED"
-            );
+        );
         require(
             msg.value > 0,
             "AMOUNT_SHOULD_BE_GREATER_THAN_ZERO"
         );
         uint256 interest = calculateInterest(msg.value, lendingInterestRate);
-
+    
         Deposit memory deposit = Deposit({
             amount: msg.value,
             interest: interest,
-            depositionTime: block.timestamp,
             duration: duration_
         });
-
+    
         deposits[msg.sender].push(deposit);
+        userDepositNum[msg.sender] += 1;
         emit Deposition(deposits[msg.sender].length - 1, msg.sender, duration_, msg.value);
     }
-
+    
     /**
-     * 
+     * @dev Withdraw deposit from pool.
+     * @param depositId_ Id of the deposit to be withdrawn.
      */
     function withdrawFromPool(uint256 depositId_) external {
         Deposit storage deposit = deposits[msg.sender][depositId_];
@@ -113,67 +118,72 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         );
         uint256 interest = calculateInterest(deposit.amount, lendingInterestRate);
         uint256 withdrawAmount = deposit.amount + interest;
-
+    
         (bool success, ) = payable(msg.sender).call{value: withdrawAmount}("");
         if (!success) {
             deposit.amount = withdrawAmount;
             revert ValueTransferFailed("FUNDS_NOT_TRANSFERED");
         }
 
-        delete deposits[msg.sender][depositId_];
+        totalSupply -= withdrawAmount;
         emit Withdrawal(depositId_, msg.sender, withdrawAmount);
-
+        delete deposits[msg.sender][depositId_];
+    }
+    
     /**
-     * 
+     * @dev Borrow funds by providing ERC721 colletral.
+     * @param amount_ Amount of funds to borrow.
+     * @param tokenContract_ Address of the token contract used as collateral.
+     * @param tokenId_ Id of the token used as collateral.
+     * @param duration_ Duration of the loan in seconds.
      */
     function borrow(
-        uint256 _amount, 
-        address _tokenContract, 
-        uint256 _tokenId, 
-        uint256 _time
-        ) external {
+        uint256 amount_, 
+        address tokenContract_, 
+        uint256 tokenId_, 
+        uint256 duration_
+    ) external payable {
         require(
             amount_ > 0,
             "AMOUNT_SHOULD_BE_GREATER_THAN_ZERO"
         );
         uint256 collateralValue = getNftCollateralValue(tokenContract_, tokenId_);
         uint256 borrowingPower = (collateralValue * maxLoanToValue) / 10000;
-
+    
         if (amount_ > borrowingPower) {
             revert("AMOUNT_EXCEEDS_BORROWING_POWER");
         }
-        uint256 interest_ = calculateInterest();
-
+        uint256 interest_ = calculateInterest(amount_, borrowInterestRate);
+    
         Loan memory loan = Loan({
             borrower: msg.sender,
             tokenContract: tokenContract_,
             tokenId: tokenId_,
             amount: amount_,
             collateralValue: collateralValue,
-            interest: interest,
+            interest: interest_,
             duration: duration_,
-            value: true
-        })
+            isActive: true
+        });
         depositERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
         loans[msg.sender].push(loan);
-        totalBorrowed += _amount;
+        totalBorrowed += amount_;
         totalDepositedNFTs += 1;
-
+        userColleteralNum[msg.sender] += 1;
+    
         (bool success, ) = (payable(msg.sender)).call{value: loan.amount}("");
         if (!success) {
             revert ValueTransferFailed("FUNDS_NOT_TRANSFERRED");
         }
-
+    
         emit Borrow(msg.sender, loans[msg.sender].length - 1, loan.amount, loan.interest, loan.duration);
-
     }
-
+    
     /**
-     * 
+     * @dev Repay the loan.
+     * @param loanId_ Id of the loan to be repaid.
      */
-    function repay(
-        uint256 loanId_
-    ) external payable {
+    function repay(uint256 loanId_) external payable {
         Loan storage loan = loans[msg.sender][loanId_];
         require(
             loan.duration > block.timestamp,
@@ -187,24 +197,25 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             loan.isActive,
             "LOAN_IS_ALREADY_PAID"
         );
-
+    
         uint256 amountToRepay = loan.amount + loan.interest;
         require(amountToRepay == msg.value, "INCORRECT_VALUE_TRANSFERRED");
-
+    
         withdrawERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
         totalBorrowed -= loan.amount;
         totalDepositedNFTs -= 1;
-        delete loans[msg.sender][_loanId];
+        delete loans[msg.sender][loanId_];
         
         emit Repay(msg.sender, loanId_, loan.amount, loan.interest);
     }
 
 /*************************************** [Public Functions] ***************************************/
+
     /**
-     * @notice Calculates the collateral value of a specified ERC721 token based on its price
-     * @param _tokenContract The address of the ERC721 token contract
-     * @param tokenId The ID of the ERC721 token
-     * @return The collateral value of the token
+     * @notice Calculates collateral value of a ERC721 token based on its price
+     * @param tokenContract_ Address of the ERC721 token contract
+     * @param tokenId_ Id of the ERC721 token
+     * @return Collateral value of the token
      */
     function getNftCollateralValue(address tokenContract_, uint256 tokenId_) public view returns (uint256) {
         uint256 price = getNFTPrice(tokenContract_, tokenId_);
@@ -215,5 +226,4 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         }
     }
 
-    }
 }

@@ -8,8 +8,8 @@ error ApprovalFailed(string message);
 error TransferFailed(string message);
 
 contract NFTEscrow is ERC721Holder {
-    // borrower to token address to tokenId 
-    mapping(address => mapping(address => uint256)) public userTokenNum;
+    // borrower to token address to token balance in pool  
+    mapping(address => mapping(address => uint256)) public userColletralBalance;
 
 /*************************************** [Internal Functions] ***************************************/
 
@@ -35,7 +35,7 @@ contract NFTEscrow is ERC721Holder {
             "BORROWER_DO_NOT_HAVE_ANY_NFT"
             );
         require(
-            userTokenNum[borrower_][tokenContract_] <= token.balanceOf(borrower_), 
+            userColletralBalance[borrower_][tokenContract_] <= token.balanceOf(borrower_), 
             "BORROWER_HAS_NO_MORE_collateral_SLOTS"
             );
 
@@ -56,7 +56,7 @@ contract NFTEscrow is ERC721Holder {
                 )
             );
             if (isTransferred) {
-                userTokenNum[borrower_][tokenContract_] += 1;
+                userColletralBalance[borrower_][tokenContract_] += 1;
             }
             else {
                 revert TransferFailed("TRANSFER_FAILED");
@@ -73,13 +73,12 @@ contract NFTEscrow is ERC721Holder {
      * @param borrower_ The address of the borrower
      * @param tokenContract_ The address of the ERC721 token contract
      * @param tokenId_ The ID of the ERC721 token
-     * @return true is collateral is transferred
      */
     function withdrawERC721Collateral(
         address borrower_, 
         address tokenContract_, 
         uint256 tokenId_
-        ) internal returns(bool) {
+        ) internal {
             IERC721 token = IERC721(tokenContract_);
             require(
                 msg.sender == borrower_,
@@ -90,7 +89,7 @@ contract NFTEscrow is ERC721Holder {
                 "NFT_NOT_USED_AS_collateral"
             );
             require(
-                userTokenNum[borrower_][tokenContract_] > 0,
+                userColletralBalance[borrower_][tokenContract_] > 0,
                 "BORROWER_HAS_NO_collateral_FOR_THIS_TOKENCONTRACT"
             );
 
@@ -103,8 +102,7 @@ contract NFTEscrow is ERC721Holder {
                 )
             );
             if (isTransferred) {
-                userTokenNum[borrower_][tokenContract_] -= 1;
-                return true;
+                userColletralBalance[borrower_][tokenContract_] -= 1;
             }
             else {
                 revert TransferFailed("TRANSFER_FAILED");
