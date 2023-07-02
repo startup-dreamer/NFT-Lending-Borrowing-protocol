@@ -212,10 +212,10 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
 /*************************************** [Public Functions] ***************************************/
 
     /**
-     * @notice Calculates collateral value of a ERC721 token based on its price
-     * @param tokenContract_ Address of the ERC721 token contract
-     * @param tokenId_ Id of the ERC721 token
-     * @return Collateral value of the token
+     * @notice Calculates collateral value of a ERC721 token based on its price.
+     * @param tokenContract_ Address of the ERC721 token contract.
+     * @param tokenId_ Id of the ERC721 token.
+     * @return Collateral value of the token.
      */
     function getNftCollateralValue(address tokenContract_, uint256 tokenId_) public view returns (uint256) {
         uint256 price = getNFTPrice(tokenContract_, tokenId_);

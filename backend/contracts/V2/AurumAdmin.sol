@@ -22,16 +22,18 @@ contract AurumAdmin is Ownable {
 /*************************************** [External Functions] ***************************************/
 
     /**
-     * @return Utilization of pool
+     * @dev calculates the pool utilization of the pool.
+     * @return Utilization of pool.
      */
     function getUtillization() external view returns(uint256) {
-        return (totalSupply == 0 || totalBorrowed == 0) ? 0 : (totalBorrowed / totalSupply) * 100;
+        return (totalSupply == 0 && totalBorrowed == 0) ? 0 : (totalBorrowed / totalSupply) * 100;
     }
 
 /*************************************** [Public Functions] ***************************************/
 
     /**
-     * @dev Set's borrow interest rate
+     * @dev Set's borrow and lending interest rate based on utilization.
+     * @param borrowInterestRate_ The borrow interest rate set by protocols governace.
      */
     function setBorrowInterestRate(uint256 borrowInterestRate_) public onlyOwner {
         borrowInterestRate = borrowInterestRate_;
@@ -40,7 +42,8 @@ contract AurumAdmin is Ownable {
     }
 
     /**
-     * @dev Set's loan to value ratio for over collateralization
+     * @dev Set's loan to value ratio for over collateralization.
+     * @param maxLoanToValue_ maximum loan to value of NFTs set by protocols governace.
      */
     function setLoanToValue(uint256 maxLoanToValue_) public onlyOwner {
         maxLoanToValue = maxLoanToValue_;
@@ -49,7 +52,9 @@ contract AurumAdmin is Ownable {
 /*************************************** [Internal Functions] ***************************************/
 
     /**
-     * @dev Calculates interest amount
+     * @dev Calculates interest amount.
+     * @param amount_ Amount of funds to calculate interest. 
+     * @param interestRate_ Rate for calculation of interest.
      */
     function calculateInterest(uint256 amount_, uint256 interestRate_) pure internal returns(uint256) {
         return amount_ * interestRate_ / 10000;
