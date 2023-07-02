@@ -12,7 +12,7 @@
 - Install dependencies by running `npm install`.
 - Run locally using `npm start`.
 
-## V2
+## V2 (In development)
 ![](./backend/contracts/V2/schema.svg)
 
 ## V1
