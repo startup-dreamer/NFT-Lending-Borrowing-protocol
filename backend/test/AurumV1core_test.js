@@ -12,7 +12,7 @@ describe("AurumV1core", function() {
   const borrowAmount = ethers.utils.parseEther("0.0001");
   const time = 86400; // 1 day
 
-  beforeEach(async function() {
+  before(async function() {
     // Deploy the aurumV1core and get the deployed instance
     const AurumV1core = await ethers.getContractFactory("AurumV1core");
     [owner, depositor, borrower] = await ethers.getSigners();
