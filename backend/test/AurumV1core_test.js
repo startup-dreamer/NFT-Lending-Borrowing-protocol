@@ -107,6 +107,8 @@ describe("AurumV1core", function() {
     // Check the updated total borrowed amount and deposited NFTs count
     const finalBorrowed = await aurumV1core.totalBorrowed();
     const finalDepositedNFTs = await aurumV1core.totalDepositedNFTs();
+    // Calculate the collateral value for liquidation
+    const collateralValue = await aurumV1core.getNftCollateralValue(testNFT.address, tokenId);
 
     expect(finalBorrowed.sub(initialBorrowed)).to.equal(borrowAmount);
     expect(finalDepositedNFTs.sub(initialDepositedNFTs)).to.equal(1);
@@ -117,8 +119,7 @@ describe("AurumV1core", function() {
     expect(borrowerLoan.tokenContract).to.equal(testNFT.address);
     expect(borrowerLoan.tokenId).to.equal(tokenId);
     expect(borrowerLoan.amount).to.equal(borrowAmount);
-    // Adjust the collateralValue calculation according to your aurumV1core's implementation
-    expect(borrowerLoan.collateralValue).to.equal(1000);
+    expect(borrowerLoan.collateralValue).to.equal(collateralValue);
     expect(borrowerLoan.interest).to.equal(borrowAmount.mul(await aurumV1core.Borrow_interestRate()).div(10000));
     expect(borrowerLoan.time).to.equal(time);
     expect(borrowerLoan.active).to.equal(true);
@@ -203,5 +204,32 @@ describe("AurumV1core", function() {
     const utillization = await aurumV1core.getUtilization();
     
     expect(parseInt(utillization)).to.equal(parseInt((0.0001 / 0.9999) * 100));
+  });
+
+  it("should allow liquidation of a loan and transfer of NFT", async function() {
+    // Create a loan with a borrower
+    await testNFT.connect(borrower).mint(tokenId);
+    await testNFT.connect(borrower).approve(aurumV1core.address, tokenId);
+    await aurumV1core
+      .connect(borrower)
+      .borrow(borrowAmount, testNFT.address, tokenId, time, { value: borrowAmount });
+
+    // Wait for the loan to become liquidatable
+    await ethers.provider.send("evm_increaseTime", [time + 1]);
+
+    // Calculate the collateral value for liquidation
+    const collateralValue = await aurumV1core.getNftCollateralValue(testNFT.address, tokenId);
+
+    // Liquidate the loan and transfer the NFT
+    const liquidateTx = await aurumV1core.connect(owner).withdraw_liquidateNFT(borrower.address, 0, { value: collateralValue });
+    await liquidateTx.wait();
+
+    // Check that the loan is no longer active
+    const loan = await aurumV1core.loans(borrower.address, 0);
+    expect(loan.active).to.equal(false);
+
+    // Check that the NFT has been transferred to the liquidator
+    const liquidatorBalance = await testNFT.balanceOf(owner.address);
+    expect(liquidatorBalance).to.equal(1);
   });
 });

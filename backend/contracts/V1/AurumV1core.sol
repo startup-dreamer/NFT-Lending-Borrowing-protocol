@@ -200,7 +200,7 @@ contract AurumV1core is NFTPrice {
             tokenContract: _tokenContract,
             tokenId: _tokenId,
             amount: _amount,
-            collateralValue: 1000,
+            collateralValue: collateralValue,
             interest: interest,
             time: _time,
             active: true
