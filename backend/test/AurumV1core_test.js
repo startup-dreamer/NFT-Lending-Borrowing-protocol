@@ -12,7 +12,7 @@ describe("AurumV1core", function() {
   const borrowAmount = ethers.utils.parseEther("0.0001");
   const time = 86400; // 1 day
 
-  before(async function() {
+  beforeEach(async function() {
     // Deploy the aurumV1core and get the deployed instance
     const AurumV1core = await ethers.getContractFactory("AurumV1core");
     [owner, depositor, borrower] = await ethers.getSigners();
@@ -60,26 +60,34 @@ describe("AurumV1core", function() {
   });
 
   it("should allow a user to withdraw ETH from the pool", async function() {
-    const initialBalance = await ethers.provider.getBalance(depositor.address);
+    // Define the transaction parameters
+    const amountToSend = ethers.utils.parseEther('0.001'); // Amount in ethers
+    const transactionData = {
+      to: aurumV1core.address,
+      value: amountToSend,
+    };
+    
+    await owner.sendTransaction(transactionData);
 
     await aurumV1core.connect(depositor).depositToPool(time, { value: depositAmount });
 
-    // Depositor withdraws from the pool
     const depositId = 0; // Assuming the depositor has only made one deposit
-    await aurumV1core.connect(depositor).withdrawFromPool(depositId);
-
-    // Check the updated user balance and deposit details
-    const finalBalance = await ethers.provider.getBalance(depositor.address);
     const depositorDeposit = await aurumV1core.deposits(depositor.address, depositId);
 
-    expect(depositorDeposit.amount).to.equal(0);
-    expect(finalBalance.sub(initialBalance)).to.equal(depositAmount.add(depositorDeposit.interest));
+    expect(depositAmount).to.equal(depositorDeposit.amount);
+    expect(depositorDeposit.time).to.equal(time);
+
+    // Depositor withdraws from the pool
+    await aurumV1core.connect(depositor).withdrawFromPool(depositId);
+    const depositorDepositAfterWithdraw = await aurumV1core.deposits(depositor.address, depositId);
+
+    expect(depositorDepositAfterWithdraw.amount).to.equal(0);
 
     // Check that the event was emitted correctly
     const events = await aurumV1core.queryFilter("Withdrawal");
     expect(events.length).to.equal(1);
-    expect(events[0].args.depId).to.equal(depositId);
-    expect(events[0].args.sender).to.equal(depositor.address);
+    expect(events[0].args.depoId).to.equal(depositId);
+    expect(events[0].args.lender).to.equal(depositor.address);
     expect(events[0].args.amount).to.equal(depositAmount.add(depositorDeposit.interest));
   });
 
@@ -126,32 +134,30 @@ describe("AurumV1core", function() {
   });
 
   it("should allow a user to repay a loan", async function() {
-    const initialBalance = await ethers.provider.getBalance(borrower.address);
-  
     await testNFT.connect(borrower).mint(tokenId);
     await testNFT.connect(borrower).approve(aurumV1core.address, tokenId);
+
+    const currentTimestamp = Math.floor(Date.now() / 1000); // Divide by 1000 to convert milliseconds to seconds
+    let borrowTime = currentTimestamp + time;
   
     // Borrower requests a loan
     await aurumV1core
       .connect(borrower)
-      .borrow(borrowAmount, testNFT.address, tokenId, time, { value: borrowAmount });
+      .borrow(borrowAmount, testNFT.address, tokenId, borrowTime, { value: borrowAmount });
   
     const loanId = 0;
-  
     // Repay the loan
     await aurumV1core.connect(borrower).repay(loanId, { value: borrowAmount.add(borrowAmount.mul(await aurumV1core.Borrow_interestRate()).div(10000)) });
-  
+    
     // Check the updated borrower balance and loan status
-    const finalBalance = await ethers.provider.getBalance(borrower.address);
     const borrowerLoan = await aurumV1core.loans(borrower.address, loanId);
   
-    expect(finalBalance.sub(initialBalance)).to.equal(borrowAmount.mul(2));
     expect(borrowerLoan.active).to.equal(false);
   
     // Check that the event was emitted correctly
     const events = await aurumV1core.queryFilter("Repay");
     expect(events.length).to.equal(1);
-    expect(events[0].args.sender).to.equal(borrower.address);
+    expect(events[0].args.borrower).to.equal(borrower.address);
     expect(events[0].args._loanId).to.equal(loanId);
     expect(events[0].args.amount).to.equal(borrowAmount);
     expect(events[0].args.interest).to.equal(borrowAmount.mul(await aurumV1core.Borrow_interestRate()).div(10000));

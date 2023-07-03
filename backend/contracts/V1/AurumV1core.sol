@@ -262,7 +262,7 @@ contract AurumV1core is NFTPrice {
             "Internal error funds not transferred"
         );
         delete loans[msg.sender][_loanId];
-        emit Repay(msg.sender, _loanId, loan.amount, loan.interest);
+        emit Repay(msg.sender, _loanId, amount, interest);
     }
 
     /**
