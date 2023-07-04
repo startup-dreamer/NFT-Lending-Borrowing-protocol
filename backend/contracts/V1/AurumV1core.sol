@@ -93,10 +93,14 @@ contract AurumV1core is NFTPrice {
     }
 
     fallback() external payable {
-        totalSupply += msg.value;
+        revert("ERR_FUNCTION_SIGNATURE_NOT_FOUND");
     }
     
     receive() external payable {
+            require(
+            msg.value <= MAX_AMOUNT_LIMIT, 
+            "Can't deposit more than 0.01 ETH"
+            );
         totalSupply += msg.value;
     }
 
@@ -208,7 +212,6 @@ contract AurumV1core is NFTPrice {
         loans[msg.sender].push(loan);
         totalBorrowed += _amount;
         totalDepositedNFTs += 1;
-
         (bool success, ) = (payable(msg.sender)).call{value : _amount}("");
         require(
             success, 
@@ -283,14 +286,6 @@ contract AurumV1core is NFTPrice {
     function setLoanToCollateral(uint256 _maxLtv) external {
         require(msg.sender == owner, "Only the owner can call this function");
         maxLtv = _maxLtv;
-    }
-
-    /**
-     * @notice Returns the utilization of the pool as a percentage
-     * @return The utilization of the pool
-     */
-    function getUtilization() external view returns (uint256) {
-        return (totalBorrowed == 0 || totalSupply == 0) ? 0 : (totalBorrowed / totalSupply) * 100;
     }
 
     /**
