@@ -6,20 +6,29 @@ import "../openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "./NFTPrice.sol";
 import "./AurumAdmin.sol";
 import "./NFTEscrow.sol";
+import "hardhat/console.sol";
 
+// Custom error for failed value transfer
 error ValueTransferFailed(string message);
+
+// Custom error for unsupported token type
 error UnsupportedTokenType();
 
 contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
-
+    // Struct to store deposit details
     struct Deposit {
-            uint256 amount;
-            uint256 interest;
-            uint256 duration;
+        uint256 amount;
+        uint256 interest;
+        uint256 duration;
     }
+
+    // Mapping to store deposits by user address
     mapping(address => Deposit[]) public deposits;
+
+    // Mapping to store the number of deposits per user
     mapping(address => uint256) public userDepositNum;
 
+    // Struct to store loan details
     struct Loan {
         address borrower;
         address tokenContract;
@@ -30,11 +39,14 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         uint256 duration;
         bool isActive;
     }
+
+    // Mapping to store loans by user address
     mapping(address => Loan[]) public loans;
+
+    // Mapping to store the number of collaterals per user
     mapping(address => uint256) public userColleteralNum;
 
-/*************************************** [Events] ***************************************/
-
+    // Events
     event Deposition(
         uint256 indexed depoId,
         address indexed sender,
@@ -42,43 +54,46 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         uint256 amount
     );
     event Withdrawal(
-        uint256 indexed depoId, 
-        address indexed lender, 
+        uint256 indexed depoId,
+        address indexed lender,
         uint256 indexed amount
-        );
+    );
     event Borrow(
-        address indexed borrower, 
-        uint256 indexed loanId, 
-        uint256 indexed amount, 
-        uint256 interest, 
+        address indexed borrower,
+        uint256 indexed loanId,
+        uint256 indexed amount,
+        uint256 interest,
         uint256 duration
-        );
+    );
     event Repay(
-        address indexed borrower, 
-        uint256 indexed loanId, 
-        uint256 indexed amount, 
+        address indexed borrower,
+        uint256 indexed loanId,
+        uint256 indexed amount,
         uint256 interest
-        );
+    );
 
-/*************************************** [Constructor] ***************************************/
-
+    // Constructor
     constructor(
-        uint256 borrowInterestRate_, 
-        uint256 lendingInterestRate_, 
+        uint256 borrowInterestRate_,
+        uint256 lendingInterestRate_,
         uint256 maxLoanToValue_
-        ) payable  {
+    ) payable {
         borrowInterestRate = borrowInterestRate_;
         lendingInterestRate = lendingInterestRate_;
         maxLoanToValue = maxLoanToValue_;
     }
-        
+
+    // Fallback function to receive ETH
     fallback() external payable {
         totalSupply += msg.value;
     }
-    
+
+    // Receive function to receive ETH
     receive() external payable {
         totalSupply += msg.value;
     }
+
+/*************************************** [Public Functions] ***************************************/
 
     /**
      * @dev Deposit ETH into the pool.
@@ -86,7 +101,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
      */
     function depositToPool(uint256 duration_) external payable {
         require(
-            msg.value <= MAX_DEPOSIT_AMOUNT_LIMIT, 
+            msg.value <= MAX_DEPOSIT_AMOUNT_LIMIT,
             "DEPOSITION_LIMIT_REACHED"
         );
         require(
@@ -94,44 +109,56 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             "AMOUNT_SHOULD_BE_GREATER_THAN_ZERO"
         );
         uint256 interest = calculateInterest(msg.value, lendingInterestRate);
-    
+
+        // Create a new deposit with the given details
         Deposit memory deposit = Deposit({
             amount: msg.value,
             interest: interest,
             duration: duration_
         });
-    
+
+        // Add the deposit to the deposits mapping for the user
         deposits[msg.sender].push(deposit);
         userDepositNum[msg.sender] += 1;
+
+        // Emit the Deposition event
         emit Deposition(deposits[msg.sender].length - 1, msg.sender, duration_, msg.value);
     }
-    
+
     /**
      * @dev Withdraw deposit from pool.
      * @param depositId_ Id of the deposit to be withdrawn.
      */
     function withdrawFromPool(uint256 depositId_) external {
+        // Get the deposit object from the deposits mapping for the user
         Deposit storage deposit = deposits[msg.sender][depositId_];
+
         require(
             deposit.amount > 0,
             "AMOUNT_IS_ALREADY_PAID"
         );
+
         uint256 interest = calculateInterest(deposit.amount, lendingInterestRate);
         uint256 withdrawAmount = deposit.amount + interest;
-    
+
+        // Attempt to transfer the funds to the user
         (bool success, ) = payable(msg.sender).call{value: withdrawAmount}("");
         if (!success) {
+            // If the transfer fails, update the deposit amount and revert
             deposit.amount = withdrawAmount;
             revert ValueTransferFailed("FUNDS_NOT_TRANSFERED");
         }
 
+        // Update the total supply and emit the Withdrawal event
         totalSupply -= withdrawAmount;
         emit Withdrawal(depositId_, msg.sender, withdrawAmount);
+
+        // Remove the deposit from the deposits mapping for the user
         delete deposits[msg.sender][depositId_];
     }
-    
+
     /**
-     * @dev Borrow funds by providing ERC721 colletral.
+     * @dev Borrow funds by providing ERC721 collateral.
      * @param amount_ Amount of funds to borrow.
      * @param tokenContract_ Address of the token contract used as collateral.
      * @param tokenId_ Id of the token used as collateral.
@@ -143,18 +170,27 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         uint256 tokenId_, 
         uint256 duration_
     ) external payable {
+        // Check if the amount is greater than zero
         require(
             amount_ > 0,
             "AMOUNT_SHOULD_BE_GREATER_THAN_ZERO"
         );
+        
+        // Get the collateral value of the ERC721 token
         uint256 collateralValue = getNftCollateralValue(tokenContract_, tokenId_);
+        
+        // Calculate the borrowing power based on the collateral value and maxLoanToValue ratio
         uint256 borrowingPower = (collateralValue * maxLoanToValue) / 10000;
     
+        // Check if the requested amount exceeds the borrowing power
         if (amount_ > borrowingPower) {
             revert("AMOUNT_EXCEEDS_BORROWING_POWER");
         }
+        
+        // Calculate the interest for the loan amount
         uint256 interest_ = calculateInterest(amount_, borrowInterestRate);
     
+        // Create a new Loan struct with the borrower, collateral details, loan amount, interest, duration, and isActive flag
         Loan memory loan = Loan({
             borrower: msg.sender,
             tokenContract: tokenContract_,
@@ -165,17 +201,27 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             duration: duration_,
             isActive: true
         });
+        
+        // Deposit the ERC721 collateral into the contract
         depositERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
+        
+        // Add the loan to the loans mapping for the borrower
         loans[msg.sender].push(loan);
+        
+        // Update the totalBorrowed and totalDepositedNFTs variables
         totalBorrowed += amount_;
         totalDepositedNFTs += 1;
+        
+        // Increment the user's collateral count
         userColleteralNum[msg.sender] += 1;
     
+        // Transfer the borrowed amount to the borrower
         (bool success, ) = (payable(msg.sender)).call{value: loan.amount}("");
         if (!success) {
             revert ValueTransferFailed("FUNDS_NOT_TRANSFERRED");
         }
     
+        // Emit the Borrow event
         emit Borrow(msg.sender, loans[msg.sender].length - 1, loan.amount, loan.interest, loan.duration);
     }
     
@@ -184,28 +230,44 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
      * @param loanId_ Id of the loan to be repaid.
      */
     function repay(uint256 loanId_) external payable {
+        // Retrieve the loan details from the loans mapping
         Loan storage loan = loans[msg.sender][loanId_];
+        
+        // Check if the loan duration has not expired
         require(
             loan.duration > block.timestamp,
             "NFT_LIQUIDATED_DEBT_NOT_PAID_IN_TIME"
         );
+        
+        // Check if the caller is the borrower
         require(
             msg.sender == loan.borrower,
             "ONLY_OWNER_CAN_REPAY_THE_LOAN"
         );
+        
+        // Check if the loan is still active
         require(
             loan.isActive,
             "LOAN_IS_ALREADY_PAID"
         );
     
+        // Calculate the total amount to repay (loan amount + interest)
         uint256 amountToRepay = loan.amount + loan.interest;
+        
+        // Check if the correct amount has been transferred
         require(amountToRepay == msg.value, "INCORRECT_VALUE_TRANSFERRED");
     
+        // Withdraw the ERC721 collateral from the contract
         withdrawERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
+        
+        // Update the totalBorrowed and totalDepositedNFTs variables
         totalBorrowed -= loan.amount;
         totalDepositedNFTs -= 1;
+        
+        // Delete the loan from the loans mapping
         delete loans[msg.sender][loanId_];
         
+        // Emit the Repay event
         emit Repay(msg.sender, loanId_, loan.amount, loan.interest);
     }
 
@@ -218,12 +280,14 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
      * @return Collateral value of the token.
      */
     function getNftCollateralValue(address tokenContract_, uint256 tokenId_) public view returns (uint256) {
+        // Get the price of the ERC721 token
         uint256 price = getNFTPrice(tokenContract_, tokenId_);
+        
+        // Check if the token contract supports the ERC721Metadata interface
         if (IERC165(tokenContract_).supportsInterface(type(IERC721Metadata).interfaceId)) {
             return price;
         } else {
             revert UnsupportedTokenType();
         }
     }
-
 }

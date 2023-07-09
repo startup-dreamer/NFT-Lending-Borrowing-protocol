@@ -5,8 +5,7 @@ import "../chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "../openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract NFTPrice {
-
-/*************************************** [Chainlinks PriceFeed TokenContracts] ***************************************/
+    // Chainlink price feed contract addresses for different NFTs
     address constant AZUKI_PRICEFEED_CONTRACT_ADDRESS = 0x9F6d70CDf08d893f0063742b51d3E9D1e18b7f74;
     address constant BAYC_PRICEFEED_CONTRACT_ADDRESS = 0xB677bfBc9B09a3469695f40477d05bc9BcB15F50;
     address constant CLONEX_PRICEFEED_CONTRACT_ADDRESS = 0xE42f272EdF974e9c70a6d38dCb47CAB2A28CED3F;
@@ -19,109 +18,73 @@ contract NFTPrice {
     address constant WORLD_OF_WOMAN_PRICEFEED_CONTRACT_ADDRESS = 0x2748A42aBd328835DFDA748bdD1D77Ce3c3312EE;
     address constant ETH_TO_USD_PRICEFEED = 0x694AA1769357215DE4FAC081bf1f309aDC325306;
 
-/*************************************** [Public Function] ***************************************/
+    // Function to get the price of an NFT
+    function getNFTPrice(address _tokenContract, uint256 tokenId) public view returns (uint256) {
+        ERC721 nftContract = ERC721(_tokenContract);
+        string memory _symbol = nftContract.symbol();
+        address owner = nftContract.ownerOf(tokenId);
 
-  function getNFTPrice(
-    address _tokenContract, 
-    uint256 tokenId
-    ) public view returns (uint256) {
-        
-    ERC721 nftContract = ERC721(_tokenContract);
-    string memory _symbol = nftContract.symbol();
-    address owner = nftContract.ownerOf(tokenId);
+        // Azuki
+        if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("AZUKI"))) {
+            require(owner != address(0), "Azuki NFT doesn't exist");
+            return _getNFTPrice(AZUKI_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // BAYC
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("BAYC"))) {
+            require(owner != address(0), "BAYC NFT doesn't exist");
+            return _getNFTPrice(BAYC_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // CloneX
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("CloneX"))) {
+            require(owner != address(0), "CloneX NFT doesn't exist");
+            return _getNFTPrice(CLONEX_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // CoolCats
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("COOL"))) {
+            require(owner != address(0), "CoolCats NFT doesn't exist");
+            return _getNFTPrice(COOLSCATS_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // CryptoPunks
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode(unicode"Ͼ"))) {
+            require(owner != address(0), "CryptoPunks NFT doesn't exist");
+            return _getNFTPrice(CRYPTOADZ_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // Cryptoadz
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("TOADZ"))) {
+            require(owner != address(0), "Cryptoadz NFT doesn't exist");
+            return _getNFTPrice(CRYPTOADZ_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // Doodles
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("DOODLE"))) {
+            require(owner != address(0), "Doodles NFT doesn't exist");
+            return _getNFTPrice(DOODLES_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // MAYC
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("MAYC"))) {
+            require(owner != address(0), "MAYC NFT doesn't exist");
+            return _getNFTPrice(MAYC_PRICEFEED_CONTRACT_ADDRESS);
+        }
+        // World of Women
+        else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("WOW"))) {
+            require(owner != address(0), "World of Women NFT doesn't exist");
+            return _getNFTPrice(WORLD_OF_WOMAN_PRICEFEED_CONTRACT_ADDRESS);
+        } else {
+            // Revert or return a dummy value (for testing purposes)
+            // revert("Unsupported token contract");
+            return 1e15;
+        }
+    }
 
-    // Azuki
-    if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("AZUKI"))) {
-      require(
-        owner != address(0),
-        "Azuki NFT doesn't exists"
-      );
-      return _getNFTPrice(AZUKI_PRICEFEED_CONTRACT_ADDRESS);
-    } 
-    // BAYC
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("BAYC"))) {
-      require(
-        owner != address(0), 
-        "BAYC NFT doesn't exists"
-        );
-      return _getNFTPrice(BAYC_PRICEFEED_CONTRACT_ADDRESS);
-    } 
-    // CloneX    
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("CloneX"))) {
-      require(
-        owner != address(0), 
-        "CloneX NFT doesn't exists"
-        );
-      return _getNFTPrice(CLONEX_PRICEFEED_CONTRACT_ADDRESS);
-    } 
-    // CoolCats    
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("COOL"))) {
-      require(
-        owner != address(0), 
-        "CoolCats NFT doesn't exists"
-        );
-      return _getNFTPrice(COOLSCATS_PRICEFEED_CONTRACT_ADDRESS);
-    } 
-    // CryptoPunks    
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode(unicode"Ͼ"))) {
-      require(
-        owner != address(0), 
-        "CryptoPunks NFT doesn't exists"
-        );
-      return _getNFTPrice(CRYPTOADZ_PRICEFEED_CONTRACT_ADDRESS);
+    // Function to get the ETH to USD price
+    function get_ETHtoUSD_Price() public view returns (uint256) {
+        uint256 ETH_USD_Price = _getNFTPrice(ETH_TO_USD_PRICEFEED);
+        return ETH_USD_Price;
     }
-    // Cryptoadz 
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("TOADZ"))) {
-      require(
-        owner != address(0), 
-        "Cryptoadz NFT doesn't exists"
-        );
-      return _getNFTPrice(CRYPTOADZ_PRICEFEED_CONTRACT_ADDRESS);
-    }
-    // Doodles
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("DOODLE"))) {
-      require(
-        owner != address(0), 
-        "Doodles NFT doesn't exists"
-        );
-      return _getNFTPrice(DOODLES_PRICEFEED_CONTRACT_ADDRESS);
-    }
-    // MAYC 
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("MAYC"))) {
-      require(
-        owner != address(0), 
-        "MAYC NFT doesn't exists"
-        );
-      return _getNFTPrice(MAYC_PRICEFEED_CONTRACT_ADDRESS);
-    }
-    // World of Women 
-    else if (keccak256(abi.encode(_symbol)) == keccak256(abi.encode("WOW"))) {
-      require(
-        owner != address(0), 
-        "World of Women NFT doesn't exists"
-        );
-      return _getNFTPrice(WORLD_OF_WOMAN_PRICEFEED_CONTRACT_ADDRESS);
-    } else {
-      // revert(
-      //   "Unsupported token contract"
-      //   );
-      // returning dummy values for testing purpose
-      return 1e15;
-    }
-  }
 
-  function get_ETHtoUSD_Price() public view returns (uint256) {
-    uint256 ETH_USD_Price = _getNFTPrice(ETH_TO_USD_PRICEFEED);
-    return ETH_USD_Price;
-  }
-
-/*************************************** [Internal Function] ***************************************/
-
-  function _getNFTPrice(
-    address _priceFeed
-    ) internal view returns (uint256) {
-    AggregatorV3Interface priceFeed = AggregatorV3Interface(_priceFeed);
-    (,int256 price,,,) = priceFeed.latestRoundData();
-    return uint256(price);
-  }
+    // Internal function to get the price from the price feed contract
+    function _getNFTPrice(address _priceFeed) internal view returns (uint256) {
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(_priceFeed);
+        (, int256 price, , , ) = priceFeed.latestRoundData();
+        return uint256(price);
+    }
 }
