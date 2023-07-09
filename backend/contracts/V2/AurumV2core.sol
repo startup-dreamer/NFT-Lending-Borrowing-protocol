@@ -83,9 +83,9 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         maxLoanToValue = maxLoanToValue_;
     }
 
-    // Fallback function to receive ETH
+    // Fallback function to reject any incoming calls with invalid function signatures
     fallback() external payable {
-        totalSupply += msg.value;
+        revert("ERR_FUNCTION_SIGNATURE_NOT_FOUND");
     }
 
     // Receive function to receive ETH
@@ -110,14 +110,13 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         );
         uint256 interest = calculateInterest(msg.value, lendingInterestRate);
 
-        // Create a new deposit with the given details
+        // Create a new deposit with the given deposition details
         Deposit memory deposit = Deposit({
             amount: msg.value,
             interest: interest,
             duration: duration_
         });
 
-        // Add the deposit to the deposits mapping for the user
         deposits[msg.sender].push(deposit);
         userDepositNum[msg.sender] += 1;
 
@@ -153,7 +152,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         totalSupply -= withdrawAmount;
         emit Withdrawal(depositId_, msg.sender, withdrawAmount);
 
-        // Remove the deposit from the deposits mapping for the user
+        // Remove the deposit from the deposits after the withdrawal
         delete deposits[msg.sender][depositId_];
     }
 
@@ -190,7 +189,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         // Calculate the interest for the loan amount
         uint256 interest_ = calculateInterest(amount_, borrowInterestRate);
     
-        // Create a new Loan struct with the borrower, collateral details, loan amount, interest, duration, and isActive flag
+        // Create a new Loan struct with the loan details
         Loan memory loan = Loan({
             borrower: msg.sender,
             tokenContract: tokenContract_,
@@ -202,10 +201,9 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             isActive: true
         });
         
-        // Deposit the ERC721 collateral into the contract
+        // Deposit the ERC721 collateral into this contract
         depositERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
         
-        // Add the loan to the loans mapping for the borrower
         loans[msg.sender].push(loan);
         
         // Update the totalBorrowed and totalDepositedNFTs variables
@@ -264,7 +262,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         totalBorrowed -= loan.amount;
         totalDepositedNFTs -= 1;
         
-        // Delete the loan from the loans mapping
+        // Delete the loan after the payment of debt
         delete loans[msg.sender][loanId_];
         
         // Emit the Repay event

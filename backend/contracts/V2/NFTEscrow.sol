@@ -11,7 +11,7 @@ error ApprovalFailed(string message);
 error TransferFailed(string message);
 
 contract NFTEscrow is ERC721Holder {
-    // Mapping to store borrower's token balance in the pool
+    // Mapping to store borrower's tokencontract NFTs no in the pool
     mapping(address => mapping(address => uint256)) public userColletralBalance;
 
     /**
