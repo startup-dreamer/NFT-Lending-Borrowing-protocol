@@ -3,7 +3,7 @@
 </p align = "center">
 
 # Aurum Protocol
-## Message: This is a Development branch (Subject to continuous development)
+## Message: Version 2 is currently under construction and undergoing continuous changes. Version 1, is stable and has already been deployed. You can check and test Version 1. I will make Version 2 deployable as soon as possible.
 ### Hardhat and Contract Testing
 - To run tests, point the terminal to the backend directory.
 - After installing all the required dependencies, use `npx hardhat test` to run the tests.
