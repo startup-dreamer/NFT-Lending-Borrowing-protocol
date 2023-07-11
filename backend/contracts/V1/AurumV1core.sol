@@ -136,14 +136,12 @@ contract AurumV1core is NFTPrice {
         // Calculate the interest based on the Lending_interestRate
         uint256 interest = (msg.value * Lending_interestRate) / 10000;
     
-        // Create a new deposit object
+        // Create a new deposit
         deposit memory dep = deposit({
             amount: msg.value,
             time: _time,
             interest: interest
         });
-    
-        // Add the deposit to the deposits mapping for the sender's address
         deposits[msg.sender].push(dep);
     
         // Increment the number of individual deposits for the sender's address
@@ -175,9 +173,7 @@ contract AurumV1core is NFTPrice {
             amountToReturn = dep.amount;
         }
     
-        // Set the deposit amount to 0 to mark it as withdrawn
         dep.amount = 0;
-        // Update the total supply of deposited ETH
         totalSupply -= amountToReturn;
     
         // Transfer the amount to return to the sender
@@ -186,7 +182,7 @@ contract AurumV1core is NFTPrice {
         // Check if the transfer was successful
         if (success) {
             emit Withdrawal(_depId, msg.sender, amountToReturn);
-            // Delete the deposit from the deposits mapping
+            // Delete the deposit from users deposit history
             delete deposits[msg.sender][_depId];
         } else {
             // If the transfer fails, restore the deposit amount and
@@ -212,9 +208,8 @@ contract AurumV1core is NFTPrice {
     ) external payable {
         require(_amount > 0, "Amount must be greater than 0");
     
-        // Get the value of the NFT collateral
         uint256 collateralValue = getNftCollateralValue(_tokenContract, _tokenId);
-        // Calculate the borrowing power based on the collateral value and maximum loan-to-value ratio
+        // Calculate the borrowing power
         uint256 borrowingPower = (collateralValue * maxLtoV) / 10000;
     
         require(_amount <= borrowingPower, "Amount exceeds borrowing power");
@@ -229,7 +224,7 @@ contract AurumV1core is NFTPrice {
         // Calculate the interest based on the borrowed amount and interest rate
         uint256 interest = (_amount * Borrow_interestRate) / 10000;
     
-        // Create a new loan object
+        // Create a new loan
         Loan memory loan = Loan({
             borrower: msg.sender,
             tokenContract: _tokenContract,
@@ -240,8 +235,6 @@ contract AurumV1core is NFTPrice {
             time: _time,
             active: true
         });
-    
-        // Add the loan to the loans mapping for the borrower's address
         loans[msg.sender].push(loan);
     
         // Update the total borrowed and total deposited NFTs
@@ -260,7 +253,6 @@ contract AurumV1core is NFTPrice {
      * @param _loanId The ID of the loan to be repaid
      */
     function repay(uint256 _loanId) external payable {
-        // Get the loan to be repaid from the loans mapping
         Loan storage loan = loans[msg.sender][_loanId];
     
         // Check if the loan is still active and the repayment is made before the loan's maturity time
@@ -290,7 +282,7 @@ contract AurumV1core is NFTPrice {
         (bool success, ) = (address(this)).call{ value: msg.value }("");
         require(success, "Internal error funds not transferred");
     
-        // Remove the loan from the loans mapping
+        // Remove the loan from users loan history
         delete loans[msg.sender][_loanId];
         emit Repay(msg.sender, _loanId, amount, interest);
     }
