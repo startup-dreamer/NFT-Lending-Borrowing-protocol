@@ -99,15 +99,6 @@ Additionally, we take pride in our successful implementation of the subgraph of 
 
 This project was a valuable learning experience, allowing us to explore and work with various advanced technologies, such as utilizing Alchemy-SDK and the Graph Protocol and extensive integration of frontend (Reactjs) and blockchain using the ethers.js library.
 
-
----
-
-## What's next for Aurum Protocol
-- Incorporate the support of ERC 20 tokens, stable 
-coins DAI USDC etc...
-- Enhance the staking and reward in the contract to align with contemporary DeFi standards.
-- Making Protocol more robust and secure.
-
 <br/><br/>
 
 ---
