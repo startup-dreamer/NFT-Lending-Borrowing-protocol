@@ -37,3 +37,6 @@
 |:--------:|-----------|
 |    🛑    | Function can modify state |
 |    💵    | Function is payable |
+
+
+![](./schema.svg)
