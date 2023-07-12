@@ -1,22 +1,59 @@
 <p align = "center"> 
   <img src="./svg.svg" height="70" width="80" style="background-color: black; display: inline-block;">
+  <h2 align="center">Aurum-Protocol</h2>
 </p align = "center">
+  <p align="center">
+   NFT Lending Borrowing Solution 
+    <br />
+    <a href="https://nft-lending-borrowing-protocol.vercel.app/"><strong>Try it out (on sepoli) »</strong></a>
+    <br />
+    <br />
+    
+    
+- [About The Project][About]
+- [Inspiration][Inspiration]
+- [How it Works][How]
+  - [Collateralization and Borrowing][Collateralization]
+  - [Loan Terms and Repayment][Loan]
+  - [Lenders and Yield Generation][Lenders]
+  - [Advantages][Advantages]
+- [How we built it][How]
+  - [AurumV2Core][AurumV2Core]
+  - [AurumV1Core][AurumV1Core]
+- [Challenges][Challenges]
+- [Accomplishments][Accomplishments]
+- [learnings][learnings]
+- [Components][Links]
+
+
+[About]: (#aurum-protocol)
+[Inspiration]: (#inspiration_)
+[How]: (#how-it-works)
+[Collateralization]: (#collateralization-and-borrowing)
+[Loan]: (#loan-terms-and-repayment)
+[Lenders]: (#lenders-and-yield-generation)
+[Advantages]: (#advantages-over-peer-to-peer-lending)
+[How]: (#how-we-built-it)
+[AurumV2Core]: ()
+[AurumV1Core]: (#contract-aurumv1core)
+[Challenges]: (#challenges-we-ran-into)
+[Accomplishments]: (#accomplishments-that-were-proud-of)
+[learnings]: (#what-we-learned)
+[Links]: (#Links)
 
 # Aurum Protocol
-## Message: Version 2 is currently under construction and undergoing continuous changes. Version 1, is stable and has already been deployed. You can check and test Version 1. I will make Version 2 deployable as soon as possible.
-### Hardhat and Contract Testing
+### Message: Version 2 is currently under construction and undergoing continuous changes. Version 1, is stable and has already been deployed. You can check and test Version 1. I will make Version 2 deployable as soon as possible.
+#### Hardhat and Contract Testing
 - To run tests, point the terminal to the backend directory.
 - After installing all the required dependencies, use `npx hardhat test` to run the tests.
-### Frontend
+#### Frontend
 - To run the frontend locally, point the terminal to the frontend directory.
 - Install dependencies by running `npm install`.
 - Run locally using `npm start`.
 
-## V2 (In development)
-![](./backend/contracts/V2/schema.svg)
+---
 
-## V1
-![](./backend/contracts/V1/schema.svg)
+## About The Project
 ✨ Aurum is an over-collateralized NFT Custodial Lending and Borrowing Protocol that allows users to borrow ETH using their NFT as collateral while enabling lenders to earn interest on their deposited ETH by participating in the protocol's lending pool. <br />
 ✨It offers easier access to liquidity, lower interest rates, and enhanced security compared to peer-to-peer lending platforms.
 
@@ -54,12 +91,19 @@ After determining the price of NFT and their borrowing power, users can secure a
 ---
 ## How we built it
   For implementing EVM code, we utilize Solidity, and for development and deployment purposes, we employ Hardhat. 
-The frontend is built with Reactjs, a node.js framework used in building interactive user interfaces and web applications quickly and efficiently with vanilla javascript. We used **[Alchemy SDK] (https://www.alchemy.com/sdk)** to retrieve NFT metadata and display NFT details into frontend integrated **[The Graph Protocol](https://thegraph.com/)**, which facilitated efficient indexing and display of liquidated NFTs, To integrate the blockchain with our frontend, we utilized the Ethers.js JavaScript library.
+The frontend is built with Reactjs, a node.js framework used in building interactive user interfaces and web applications quickly and efficiently with vanilla javascript. We used **[Alchemy SDK](https://www.alchemy.com/sdk)** to retrieve NFT metadata and display NFT details into frontend integrated **[The Graph Protocol](https://thegraph.com/)**, which facilitated efficient indexing and display of liquidated NFTs, To integrate the blockchain with our frontend, we utilized the Ethers.js JavaScript library.
 
+### Contract [AurumV2core](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/tree/dev/backend/contracts/V2) (In development)
 
-### Contract [AurumV1core](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/tree/master/Hardhat/contracts)
+![](./backend/contracts/V2/schema.svg)
 
-![Alt text](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/raw/master/Hardhat/graph.svg)
+#### Main Functions:
+
+---
+
+### Contract [AurumV1core](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/tree/dev/backend/contracts/V1) (Deployed)
+
+![](./backend/contracts/V1/schema.svg)
 
 #### Main Functions:
 
@@ -99,8 +143,14 @@ Additionally, we take pride in our successful implementation of the subgraph of 
 
 This project was a valuable learning experience, allowing us to explore and work with various advanced technologies, such as utilizing Alchemy-SDK and the Graph Protocol and extensive integration of frontend (Reactjs) and blockchain using the ethers.js library.
 
-<br/><br/>
+<br/>
 
 ---
 
-Check out the contract on Etherscan: [0xff0AF63633f2FEeB37a9E6bD46013A6333B20460](https://sepolia.etherscan.io/address/0xff0af63633f2feeb37a9e6bd46013a6333b20460)
+## Links
+- Check out the V1 contract on Etherscan: [Etherscan](https://sepolia.etherscan.io/address/0xff0af63633f2feeb37a9e6bd46013a6333b20460)
+- Devpost link for Chainlink Hackathon: [Devpost](https://devpost.com/software/aurum-protocol)
+- Figma File's: [Figma](https://www.figma.com/file/glPqL1ZHLqNwPauBKnm7Kw/Untitled?type=design&node-id=0-1&t=VFufaBNNwZgKHQ5y-0)
+- Subgraphs' Link: [Subgraph](https://thegraph.com/studio/subgraph/aurumv1core_/)
+- Video demo: [Youtube](https://www.youtube.com/watch?v=WdUak_VzrJw)
+
