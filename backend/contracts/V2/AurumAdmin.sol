@@ -1,11 +1,18 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.12;
+    /**
+     * @notice The interest calculation is based on Aave V2 and for WadRayMath library also all credits to aave contract team :)
+     */
 
 import "../openzeppelin/contracts/access/Ownable.sol";
+import "./WadRayMath.sol";
 
 contract AurumAdmin is Ownable {
+    using WadRayMath for uint256;
+
+    uint256 internal constant SECONDS_PER_YEAR = 356 days;
     // maximum amount user can deposit
-    uint256 constant MAX_DEPOSIT_AMOUNT_LIMIT = 1e16;
+    uint256 internal constant MAX_DEPOSIT_AMOUNT_LIMIT = 1e16;
     // borrowing interest rate in basis points
     uint256 public borrowInterestRate;
     // lending interest rate based on utilization
@@ -51,12 +58,30 @@ contract AurumAdmin is Ownable {
 
 /*************************************** [Internal Functions] ***************************************/
 
-    /**
-     * @dev Calculates interest amount.
-     * @param amount_ Amount of funds to calculate interest. 
-     * @param interestRate_ Rate for calculation of interest.
-     */
-    function calculateInterest(uint256 amount_, uint256 interestRate_) pure internal returns(uint256) {
-        return amount_ * interestRate_ / 10000;
+    // /**
+    //  * @dev Calculates interest amount.
+    //  * @param interestRate_ Amount of funds to calculate interest. 
+    //  * @param   for calculation of interest.
+    //  */
+    function calculateInterest(uint256 interestRate_, uint256 lastUpdateTimestamp, uint256 currentTimestamp) internal pure returns(uint256) {
+    uint256 exp = currentTimestamp - lastUpdateTimestamp;
+
+    if (exp == 0) {
+      return WadRayMath.ray();
     }
+
+    uint256 expMinusOne = exp - 1;
+
+    uint256 expMinusTwo = exp > 2 ? exp - 2 : 0;
+
+    uint256 ratePerSecond = interestRate_ / SECONDS_PER_YEAR;
+
+    uint256 basePowerTwo = ratePerSecond.rayMul(ratePerSecond);
+    uint256 basePowerThree = basePowerTwo.rayMul(ratePerSecond);
+
+    uint256 secondTerm = (exp * expMinusOne * basePowerTwo) / 2;
+    uint256 thirdTerm = (exp * expMinusOne * expMinusTwo * basePowerThree) / 6;
+
+    return WadRayMath.ray() + (ratePerSecond * exp) + secondTerm + thirdTerm;
+  }
 }

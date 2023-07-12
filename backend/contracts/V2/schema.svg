@@ -1,623 +1,758 @@
 <?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1162pt" height="1473pt" viewBox="0.00 0.00 1162.15 1473.00">
-<g id="graph0" class="graph" transform="translate(22.73339600168015,1402.9496901089128) scale(0.9743418912017087)" data-name="G">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1139pt" height="1830pt" viewBox="0.00 0.00 1138.60 1830.00">
+<g id="graph0" class="graph" transform="translate(19.457414678168448,1754.1554373455942) scale(0.967219503673827)" data-name="G">
 
-<polygon fill="#2e3e56" stroke="none" points="-4,4 -4,-1469 1158.15,-1469 1158.15,4 -4,4" style=""/>
-<g id="clust1" class="cluster" data-name="clusterNFTEscrow">
+<polygon fill="#2e3e56" stroke="none" points="-4,4 -4,-1826 1134.6,-1826 1134.6,4 -4,4" style=""/>
+<g id="clust1" class="cluster" data-name="clusterWadRayMath">
 
-<path fill="#445773" stroke="#445773" d="M251.84,-232C251.84,-232 694.63,-232 694.63,-232 700.63,-232 706.63,-238 706.63,-244 706.63,-244 706.63,-459 706.63,-459 706.63,-465 700.63,-471 694.63,-471 694.63,-471 251.84,-471 251.84,-471 245.84,-471 239.84,-465 239.84,-459 239.84,-459 239.84,-244 239.84,-244 239.84,-238 245.84,-232 251.84,-232" style=""/>
-<text text-anchor="middle" x="473.24" y="-454.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">NFTEscrow</text>
+<path fill="#445773" stroke="#445773" d="M554.03,-1251C554.03,-1251 834.28,-1251 834.28,-1251 840.28,-1251 846.28,-1257 846.28,-1263 846.28,-1263 846.28,-1802 846.28,-1802 846.28,-1808 840.28,-1814 834.28,-1814 834.28,-1814 554.03,-1814 554.03,-1814 548.03,-1814 542.03,-1808 542.03,-1802 542.03,-1802 542.03,-1263 542.03,-1263 542.03,-1257 548.03,-1251 554.03,-1251" style=""/>
+<text text-anchor="middle" x="694.15" y="-1797.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">WadRayMath  (lib)</text>
 </g>
-<g id="clust2" class="cluster" data-name="clusterAurumAdmin">
+<g id="clust2" class="cluster" data-name="clusterNFTEscrow">
 
-<path fill="#445773" stroke="#445773" d="M20,-1081C20,-1081 207.84,-1081 207.84,-1081 213.84,-1081 219.84,-1087 219.84,-1093 219.84,-1093 219.84,-1308 219.84,-1308 219.84,-1314 213.84,-1320 207.84,-1320 207.84,-1320 20,-1320 20,-1320 14,-1320 8,-1314 8,-1308 8,-1308 8,-1093 8,-1093 8,-1087 14,-1081 20,-1081" style=""/>
-<text text-anchor="middle" x="113.92" y="-1303.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">AurumAdmin</text>
+<path fill="#445773" stroke="#445773" d="M228.29,-232C228.29,-232 671.08,-232 671.08,-232 677.08,-232 683.08,-238 683.08,-244 683.08,-244 683.08,-459 683.08,-459 683.08,-465 677.08,-471 671.08,-471 671.08,-471 228.29,-471 228.29,-471 222.29,-471 216.29,-465 216.29,-459 216.29,-459 216.29,-244 216.29,-244 216.29,-238 222.29,-232 228.29,-232" style=""/>
+<text text-anchor="middle" x="449.69" y="-454.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">NFTEscrow</text>
 </g>
-<g id="clust3" class="cluster" data-name="clusterNFTPrice">
+<g id="clust3" class="cluster" data-name="clusterAurumAdmin">
 
-<path fill="#445773" stroke="#445773" d="M533.05,-479C533.05,-479 1134.15,-479 1134.15,-479 1140.15,-479 1146.15,-485 1146.15,-491 1146.15,-491 1146.15,-652 1146.15,-652 1146.15,-658 1140.15,-664 1134.15,-664 1134.15,-664 533.05,-664 533.05,-664 527.05,-664 521.05,-658 521.05,-652 521.05,-652 521.05,-491 521.05,-491 521.05,-485 527.05,-479 533.05,-479" style=""/>
-<text text-anchor="middle" x="833.6" y="-647.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">NFTPrice</text>
+<path fill="#445773" stroke="#445773" d="M249.22,-1123C249.22,-1123 437.07,-1123 437.07,-1123 443.07,-1123 449.07,-1129 449.07,-1135 449.07,-1135 449.07,-1350 449.07,-1350 449.07,-1356 443.07,-1362 437.07,-1362 437.07,-1362 249.22,-1362 249.22,-1362 243.22,-1362 237.22,-1356 237.22,-1350 237.22,-1350 237.22,-1135 237.22,-1135 237.22,-1129 243.22,-1123 249.22,-1123" style=""/>
+<text text-anchor="middle" x="343.15" y="-1345.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">AurumAdmin</text>
 </g>
-<g id="clust4" class="cluster" data-name="clusterAurumV2core">
+<g id="clust4" class="cluster" data-name="clusterNFTPrice">
 
-<path fill="#445773" stroke="#445773" d="M31.77,-672C31.77,-672 728.42,-672 728.42,-672 734.42,-672 740.42,-678 740.42,-684 740.42,-684 740.42,-1061 740.42,-1061 740.42,-1067 734.42,-1073 728.42,-1073 728.42,-1073 31.77,-1073 31.77,-1073 25.77,-1073 19.77,-1067 19.77,-1061 19.77,-1061 19.77,-684 19.77,-684 19.77,-678 25.77,-672 31.77,-672" style=""/>
-<text text-anchor="middle" x="380.1" y="-1056.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">AurumV2core</text>
+<path fill="#445773" stroke="#445773" d="M509.5,-888C509.5,-888 1110.6,-888 1110.6,-888 1116.6,-888 1122.6,-894 1122.6,-900 1122.6,-900 1122.6,-1061 1122.6,-1061 1122.6,-1067 1116.6,-1073 1110.6,-1073 1110.6,-1073 509.5,-1073 509.5,-1073 503.5,-1073 497.5,-1067 497.5,-1061 497.5,-1061 497.5,-900 497.5,-900 497.5,-894 503.5,-888 509.5,-888" style=""/>
+<text text-anchor="middle" x="810.05" y="-1056.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">NFTPrice</text>
 </g>
-<g id="clust5" class="cluster" data-name="clusterIERC721">
+<g id="clust5" class="cluster" data-name="clusterAurumV2core">
 
-<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M580.27,-93C580.27,-93 673.69,-93 673.69,-93 679.69,-93 685.69,-99 685.69,-105 685.69,-105 685.69,-212 685.69,-212 685.69,-218 679.69,-224 673.69,-224 673.69,-224 580.27,-224 580.27,-224 574.27,-224 568.27,-218 568.27,-212 568.27,-212 568.27,-105 568.27,-105 568.27,-99 574.27,-93 580.27,-93" style=""/>
-<text text-anchor="middle" x="626.98" y="-207.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">IERC721</text>
+<path fill="#445773" stroke="#445773" d="M20,-479C20,-479 704.87,-479 704.87,-479 710.87,-479 716.87,-485 716.87,-491 716.87,-491 716.87,-868 716.87,-868 716.87,-874 710.87,-880 704.87,-880 704.87,-880 20,-880 20,-880 14,-880 8,-874 8,-868 8,-868 8,-491 8,-491 8,-485 14,-479 20,-479" style=""/>
+<text text-anchor="middle" x="362.44" y="-863.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">AurumV2core</text>
 </g>
-<g id="clust6" class="cluster" data-name="clustertokenContract_">
+<g id="clust6" class="cluster" data-name="clusterIERC721">
 
-<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M587.98,-8C587.98,-8 665.98,-8 665.98,-8 671.98,-8 677.98,-14 677.98,-20 677.98,-20 677.98,-73 677.98,-73 677.98,-79 671.98,-85 665.98,-85 665.98,-85 587.98,-85 587.98,-85 581.98,-85 575.98,-79 575.98,-73 575.98,-73 575.98,-20 575.98,-20 575.98,-14 581.98,-8 587.98,-8" style=""/>
-<text text-anchor="middle" x="626.98" y="-68.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">tokenContract_</text>
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M556.72,-93C556.72,-93 650.15,-93 650.15,-93 656.15,-93 662.15,-99 662.15,-105 662.15,-105 662.15,-212 662.15,-212 662.15,-218 656.15,-224 650.15,-224 650.15,-224 556.72,-224 556.72,-224 550.72,-224 544.72,-218 544.72,-212 544.72,-212 544.72,-105 544.72,-105 544.72,-99 550.72,-93 556.72,-93" style=""/>
+<text text-anchor="middle" x="603.43" y="-207.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">IERC721</text>
 </g>
-<g id="clust7" class="cluster" data-name="clusterERC721">
+<g id="clust7" class="cluster" data-name="clustertokenContract_">
 
-<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M792.81,-340C792.81,-340 875.53,-340 875.53,-340 881.53,-340 887.53,-346 887.53,-352 887.53,-352 887.53,-459 887.53,-459 887.53,-465 881.53,-471 875.53,-471 875.53,-471 792.81,-471 792.81,-471 786.81,-471 780.81,-465 780.81,-459 780.81,-459 780.81,-352 780.81,-352 780.81,-346 786.81,-340 792.81,-340" style=""/>
-<text text-anchor="middle" x="834.17" y="-454.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">ERC721</text>
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M564.43,-8C564.43,-8 642.43,-8 642.43,-8 648.43,-8 654.43,-14 654.43,-20 654.43,-20 654.43,-73 654.43,-73 654.43,-79 648.43,-85 642.43,-85 642.43,-85 564.43,-85 564.43,-85 558.43,-85 552.43,-79 552.43,-73 552.43,-73 552.43,-20 552.43,-20 552.43,-14 558.43,-8 564.43,-8" style=""/>
+<text text-anchor="middle" x="603.43" y="-68.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">tokenContract_</text>
 </g>
-<g id="clust8" class="cluster" data-name="clusterAggregatorV3Interface">
+<g id="clust8" class="cluster" data-name="clusterratePerSecond">
 
-<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M965.63,-394C965.63,-394 1108.43,-394 1108.43,-394 1114.43,-394 1120.43,-400 1120.43,-406 1120.43,-406 1120.43,-459 1120.43,-459 1120.43,-465 1114.43,-471 1108.43,-471 1108.43,-471 965.63,-471 965.63,-471 959.63,-471 953.63,-465 953.63,-459 953.63,-459 953.63,-406 953.63,-406 953.63,-400 959.63,-394 965.63,-394" style=""/>
-<text text-anchor="middle" x="1037.03" y="-454.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0">AggregatorV3Interface</text>
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M567.97,-1166C567.97,-1166 639.9,-1166 639.9,-1166 645.9,-1166 651.9,-1172 651.9,-1178 651.9,-1178 651.9,-1231 651.9,-1231 651.9,-1237 645.9,-1243 639.9,-1243 639.9,-1243 567.97,-1243 567.97,-1243 561.97,-1243 555.97,-1237 555.97,-1231 555.97,-1231 555.97,-1178 555.97,-1178 555.97,-1172 561.97,-1166 567.97,-1166" style=""/>
+<text text-anchor="middle" x="603.93" y="-1226.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">ratePerSecond</text>
 </g>
-<g id="clust9" class="cluster" data-name="cluster_01">
+<g id="clust9" class="cluster" data-name="clusterbasePowerTwo">
 
-<polygon fill="#2e3e56" stroke="black" points="40.92,-1328 40.92,-1457 401.69,-1457 401.69,-1328 40.92,-1328" style=""/>
-<text text-anchor="middle" x="221.31" y="-1440.4" font-family="Times,serif" font-size="14.00">Legend</text>
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M564.97,-1081C564.97,-1081 642.9,-1081 642.9,-1081 648.9,-1081 654.9,-1087 654.9,-1093 654.9,-1093 654.9,-1146 654.9,-1146 654.9,-1152 648.9,-1158 642.9,-1158 642.9,-1158 564.97,-1158 564.97,-1158 558.97,-1158 552.97,-1152 552.97,-1146 552.97,-1146 552.97,-1093 552.97,-1093 552.97,-1087 558.97,-1081 564.97,-1081" style=""/>
+<text text-anchor="middle" x="603.93" y="-1141.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">basePowerTwo</text>
+</g>
+<g id="clust10" class="cluster" data-name="clusterERC721">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M769.26,-1081C769.26,-1081 851.98,-1081 851.98,-1081 857.98,-1081 863.98,-1087 863.98,-1093 863.98,-1093 863.98,-1200 863.98,-1200 863.98,-1206 857.98,-1212 851.98,-1212 851.98,-1212 769.26,-1212 769.26,-1212 763.26,-1212 757.26,-1206 757.26,-1200 757.26,-1200 757.26,-1093 757.26,-1093 757.26,-1087 763.26,-1081 769.26,-1081" style=""/>
+<text text-anchor="middle" x="810.62" y="-1195.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">ERC721</text>
+</g>
+<g id="clust11" class="cluster" data-name="clusterAggregatorV3Interface">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M942.08,-803C942.08,-803 1084.89,-803 1084.89,-803 1090.89,-803 1096.89,-809 1096.89,-815 1096.89,-815 1096.89,-868 1096.89,-868 1096.89,-874 1090.89,-880 1084.89,-880 1084.89,-880 942.08,-880 942.08,-880 936.08,-880 930.08,-874 930.08,-868 930.08,-868 930.08,-815 930.08,-815 930.08,-809 936.08,-803 942.08,-803" style=""/>
+<text text-anchor="middle" x="1013.49" y="-863.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">AggregatorV3Interface</text>
+</g>
+<g id="clust12" class="cluster" data-name="cluster_01">
+
+<polygon fill="#2e3e56" stroke="black" points="29.15,-1548 29.15,-1677 378.15,-1677 378.15,-1548 29.15,-1548" style=""/>
+<text text-anchor="middle" x="203.65" y="-1660.4" font-family="Times,serif" font-size="14.00" style="">Legend</text>
+</g>
+<!-- WadRayMath.ray -->
+<g id="node1" class="node" pointer-events="visible" data-name="WadRayMath.ray">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-1763" rx="27" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1758.8" font-family="Times,serif" font-size="14.00" style="">ray</text>
+</g>
+<!-- WadRayMath.wad -->
+<g id="node2" class="node" pointer-events="visible" data-name="WadRayMath.wad">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1709" rx="27.25" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1704.8" font-family="Times,serif" font-size="14.00" style="">wad</text>
+</g>
+<!-- WadRayMath.halfRay -->
+<g id="node3" class="node" pointer-events="visible" data-name="WadRayMath.halfRay">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1655" rx="41.71" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1650.8" font-family="Times,serif" font-size="14.00" style="">halfRay</text>
+</g>
+<!-- WadRayMath.halfWad -->
+<g id="node4" class="node" pointer-events="visible" data-name="WadRayMath.halfWad">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1601" rx="44.06" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1596.8" font-family="Times,serif" font-size="14.00" style="">halfWad</text>
+</g>
+<!-- WadRayMath.wadMul -->
+<g id="node5" class="node" pointer-events="visible" data-name="WadRayMath.wadMul">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1439" rx="43.45" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1434.8" font-family="Times,serif" font-size="14.00" style="">wadMul</text>
+</g>
+<!-- WadRayMath.type -->
+<g id="node11" class="node" pointer-events="visible" data-name="WadRayMath.type">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="810.62" cy="-1466" rx="27.83" ry="18" style=""/>
+<text text-anchor="middle" x="810.62" y="-1461.8" font-family="Times,serif" font-size="14.00" style="">type</text>
+</g>
+<!-- WadRayMath.wadMul&#45;&gt;WadRayMath.type -->
+<g id="edge1" class="edge" data-name="WadRayMath.wadMul-&gt;WadRayMath.type">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M646.45,-1444.53C682.42,-1449.26 733.87,-1456.03 769.34,-1460.7" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="768.71,-1464.15 779.08,-1461.98 769.62,-1457.21 768.71,-1464.15" style=""/>
+</g>
+<!-- WadRayMath.wadDiv -->
+<g id="node6" class="node" pointer-events="visible" data-name="WadRayMath.wadDiv">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1385" rx="41.72" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1380.8" font-family="Times,serif" font-size="14.00" style="">wadDiv</text>
+</g>
+<!-- WadRayMath.wadDiv&#45;&gt;WadRayMath.type -->
+<g id="edge2" class="edge" data-name="WadRayMath.wadDiv-&gt;WadRayMath.type">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M644.07,-1391.58C666.01,-1395.95 693.49,-1402.62 716.87,-1412 738.86,-1420.82 761.88,-1434.2 779.49,-1445.43" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="777.4,-1448.24 787.68,-1450.78 781.22,-1442.38 777.4,-1448.24" style=""/>
+</g>
+<!-- WadRayMath.rayMul -->
+<g id="node7" class="node" pointer-events="visible" data-name="WadRayMath.rayMul">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1547" rx="39.43" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1542.8" font-family="Times,serif" font-size="14.00" style="">rayMul</text>
+</g>
+<!-- WadRayMath.rayMul&#45;&gt;WadRayMath.type -->
+<g id="edge3" class="edge" data-name="WadRayMath.rayMul-&gt;WadRayMath.type">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M641.99,-1540.83C664.25,-1536.47 692.74,-1529.68 716.87,-1520 738.86,-1511.18 761.88,-1497.8 779.49,-1486.57" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="781.22,-1489.62 787.68,-1481.22 777.4,-1483.76 781.22,-1489.62" style=""/>
+</g>
+<!-- WadRayMath.rayDiv -->
+<g id="node8" class="node" pointer-events="visible" data-name="WadRayMath.rayDiv">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1493" rx="37.71" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1488.8" font-family="Times,serif" font-size="14.00" style="">rayDiv</text>
+</g>
+<!-- WadRayMath.rayDiv&#45;&gt;WadRayMath.type -->
+<g id="edge4" class="edge" data-name="WadRayMath.rayDiv-&gt;WadRayMath.type">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M641.12,-1488.17C677.15,-1483.43 732,-1476.21 769.25,-1471.31" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="769.66,-1474.79 779.11,-1470.01 768.74,-1467.85 769.66,-1474.79" style=""/>
+</g>
+<!-- WadRayMath.rayToWad -->
+<g id="node9" class="node" pointer-events="visible" data-name="WadRayMath.rayToWad">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1331" rx="52.15" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1326.8" font-family="Times,serif" font-size="14.00" style="">rayToWad</text>
+</g>
+<!-- WadRayMath.wadToRay -->
+<g id="node10" class="node" pointer-events="visible" data-name="WadRayMath.wadToRay">
+
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="603.43" cy="-1277" rx="53.32" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1272.8" font-family="Times,serif" font-size="14.00" style="">wadToRay</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral -->
-<g id="node1" class="node" pointer-events="visible" data-name="NFTEscrow.depositERC721Collateral">
+<g id="node12" class="node" pointer-events="visible" data-name="NFTEscrow.depositERC721Collateral">
 
-<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="366.69" cy="-258" rx="110.05" ry="18" style=""/>
-<text text-anchor="middle" x="366.69" y="-253.8" font-family="Times,serif" font-size="14.00">depositERC721Collateral</text>
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="343.15" cy="-258" rx="110.05" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-253.8" font-family="Times,serif" font-size="14.00" style="">depositERC721Collateral</text>
 </g>
 <!-- NFTEscrow.IERC721 -->
-<g id="node3" class="node" pointer-events="visible" data-name="NFTEscrow.IERC721">
+<g id="node14" class="node" pointer-events="visible" data-name="NFTEscrow.IERC721">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-312" rx="47.54" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-307.8" font-family="Times,serif" font-size="14.00">IERC721</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-420" rx="47.54" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-415.8" font-family="Times,serif" font-size="14.00" style="">IERC721</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;NFTEscrow.IERC721 -->
-<g id="edge1" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.IERC721">
+<g id="edge5" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.IERC721">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M438.61,-272.83C480.34,-281.55 532.33,-292.42 570.95,-300.49" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="570.03,-303.88 580.54,-302.5 571.46,-297.03 570.03,-303.88" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M435.79,-268.82C445.39,-272.8 454.4,-278.07 462,-285 499.34,-319.04 460.62,-358.47 497.5,-393 509.75,-404.47 526.22,-411.23 542.47,-415.16" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="541.32,-418.5 551.81,-417.05 542.7,-411.64 541.32,-418.5" style=""/>
 </g>
 <!-- NFTEscrow.address -->
-<g id="node4" class="node" pointer-events="visible" data-name="NFTEscrow.address">
+<g id="node15" class="node" pointer-events="visible" data-name="NFTEscrow.address">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-366" rx="40" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-361.8" font-family="Times,serif" font-size="14.00">address</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-312" rx="40" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-307.8" font-family="Times,serif" font-size="14.00" style="">address</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;NFTEscrow.address -->
-<g id="edge6" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.address">
+<g id="edge10" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M409.4,-275.93C439.55,-292 481.73,-314.8 521.05,-330 541.24,-337.81 564.5,-344.05 583.97,-349.38" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="582.97,-352.74 593.54,-352.03 584.84,-345.99 582.97,-352.74" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M431.59,-269.85C473.9,-278.02 522.89,-288.65 557.53,-297.35" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="556.58,-300.72 567.13,-299.82 558.32,-293.94 556.58,-300.72" style=""/>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;NFTEscrow.address -->
-<g id="edge8" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.address">
+<g id="edge12" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M388.29,-276.92C417.06,-297.42 471.34,-328.78 521.05,-348 537.62,-354.41 556.24,-359.76 573.15,-363.51" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="572.22,-366.9 582.71,-365.46 573.61,-360.04 572.22,-366.9" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M398.29,-274.93C442.89,-285.79 505.76,-298.92 549.91,-306.58" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="549.26,-310.02 559.71,-308.22 550.42,-303.11 549.26,-310.02" style=""/>
 </g>
 <!-- NFTEscrow.TransferFailed -->
-<g id="node5" class="node" pointer-events="visible" data-name="NFTEscrow.TransferFailed">
+<g id="node16" class="node" pointer-events="visible" data-name="NFTEscrow.TransferFailed">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-420" rx="67.76" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-415.8" font-family="Times,serif" font-size="14.00">TransferFailed</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-366" rx="67.76" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-361.8" font-family="Times,serif" font-size="14.00" style="">TransferFailed</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;NFTEscrow.TransferFailed -->
-<g id="edge9" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.TransferFailed">
+<g id="edge13" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.TransferFailed">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M401.52,-276.44C426.6,-291.18 460.61,-313.55 485.55,-339 505.65,-359.52 497.68,-376.3 521.05,-393 530.22,-399.56 540.85,-404.52 551.75,-408.28" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="550.63,-411.6 561.22,-411.16 552.67,-404.9 550.63,-411.6" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M431.09,-269.82C442.06,-273.59 452.69,-278.53 462,-285 485.59,-301.39 474.13,-322.3 497.5,-339 506.67,-345.56 517.3,-350.52 528.21,-354.28" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="527.09,-357.6 537.67,-357.16 529.12,-350.9 527.09,-357.6" style=""/>
 </g>
 <!-- NFTEscrow.ApprovalFailed -->
-<g id="node6" class="node" pointer-events="visible" data-name="NFTEscrow.ApprovalFailed">
+<g id="node17" class="node" pointer-events="visible" data-name="NFTEscrow.ApprovalFailed">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-258" rx="71.79" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-253.8" font-family="Times,serif" font-size="14.00">ApprovalFailed</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-258" rx="71.79" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-253.8" font-family="Times,serif" font-size="14.00" style="">ApprovalFailed</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;NFTEscrow.ApprovalFailed -->
-<g id="edge10" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.ApprovalFailed">
+<g id="edge14" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;NFTEscrow.ApprovalFailed">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M477.98,-258C499.01,-258 520.73,-258 540.83,-258" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="540.75,-261.5 550.75,-258 540.75,-254.5 540.75,-261.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M454.43,-258C475.47,-258 497.18,-258 517.28,-258" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="517.21,-261.5 527.21,-258 517.21,-254.5 517.21,-261.5" style=""/>
 </g>
 <!-- IERC721.ownerOf -->
-<g id="node31" class="node" pointer-events="visible" data-name="IERC721.ownerOf">
+<g id="node41" class="node" pointer-events="visible" data-name="IERC721.ownerOf">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-173" rx="45.22" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-168.8" font-family="Times,serif" font-size="14.00">ownerOf</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-173" rx="45.22" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-168.8" font-family="Times,serif" font-size="14.00" style="">ownerOf</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;IERC721.ownerOf -->
-<g id="edge2" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;IERC721.ownerOf">
+<g id="edge6" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;IERC721.ownerOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M419.65,-240.9C465.87,-225.69 532.93,-203.62 577.93,-188.81" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="579,-192.14 587.41,-185.69 576.82,-185.5 579,-192.14" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M396.1,-240.9C442.33,-225.69 509.38,-203.62 554.38,-188.81" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="555.46,-192.14 563.86,-185.69 553.27,-185.5 555.46,-192.14" style=""/>
 </g>
 <!-- IERC721.balanceOf -->
-<g id="node32" class="node" pointer-events="visible" data-name="IERC721.balanceOf">
+<g id="node42" class="node" pointer-events="visible" data-name="IERC721.balanceOf">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-119" rx="50.92" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-114.8" font-family="Times,serif" font-size="14.00">balanceOf</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-119" rx="50.92" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-114.8" font-family="Times,serif" font-size="14.00" style="">balanceOf</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;IERC721.balanceOf -->
-<g id="edge3" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;IERC721.balanceOf">
+<g id="edge7" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;IERC721.balanceOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M382.13,-239.09C407.97,-211.98 464.71,-163.61 521.05,-137 533.87,-130.94 548.25,-126.11 562.15,-122.54" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="562.83,-125.97 571.77,-120.3 561.24,-119.15 562.83,-125.97" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M358.58,-239.09C384.42,-211.98 441.16,-163.61 497.5,-137 510.33,-130.94 524.7,-126.11 538.6,-122.54" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="539.28,-125.97 548.23,-120.3 537.69,-119.15 539.28,-125.97" style=""/>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;IERC721.balanceOf -->
-<g id="edge4" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;IERC721.balanceOf">
+<g id="edge8" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;IERC721.balanceOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M395.55,-239.3C424.77,-216.13 473.05,-177.67 521.05,-155 538.65,-146.68 559.17,-140.68 577.38,-135.88" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="578.11,-139.31 586.91,-133.42 576.35,-132.53 578.11,-139.31" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M372,-239.3C401.22,-216.13 449.51,-177.67 497.5,-155 515.1,-146.68 535.63,-140.68 553.83,-135.88" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="554.56,-139.31 563.36,-133.42 552.81,-132.53 554.56,-139.31" style=""/>
 </g>
 <!-- tokenContract_.call -->
-<g id="node33" class="node" pointer-events="visible" data-name="tokenContract_.call">
+<g id="node43" class="node" pointer-events="visible" data-name="tokenContract_.call">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-34" rx="27" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-29.8" font-family="Times,serif" font-size="14.00">call</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-34" rx="27" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-29.8" font-family="Times,serif" font-size="14.00" style="">call</text>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;tokenContract_.call -->
-<g id="edge5" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;tokenContract_.call">
+<g id="edge9" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;tokenContract_.call">
 
-<path fill="none" stroke="white" stroke-width="2" d="M378.01,-238.73C400.9,-203.22 458.84,-128.11 521.05,-80 541.22,-64.4 566.46,-51.01 587.13,-42.37" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="588.15,-45.73 596.2,-38.84 585.61,-39.21 588.15,-45.73" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M354.46,-238.73C377.35,-203.22 435.29,-128.11 497.5,-80 517.67,-64.4 542.91,-51.01 563.59,-42.37" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="564.6,-45.73 572.65,-38.84 562.06,-39.21 564.6,-45.73" style=""/>
 </g>
 <!-- NFTEscrow.depositERC721Collateral&#45;&gt;tokenContract_.call -->
-<g id="edge7" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;tokenContract_.call">
+<g id="edge11" class="edge" data-name="NFTEscrow.depositERC721Collateral-&gt;tokenContract_.call">
 
-<path fill="none" stroke="white" stroke-width="2" d="M385.74,-239.03C412.33,-206.73 464.95,-141.39 521.05,-98 544.25,-80.06 574.16,-65.04 596.11,-53.7" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="597.48,-56.93 604.71,-49.19 594.23,-50.73 597.48,-56.93" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M362.2,-239.03C388.78,-206.73 441.4,-141.39 497.5,-98 520.7,-80.06 550.61,-65.04 572.56,-53.7" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="573.93,-56.93 581.16,-49.19 570.68,-50.73 573.93,-56.93" style=""/>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral -->
-<g id="node2" class="node" pointer-events="visible" data-name="NFTEscrow.withdrawERC721Collateral">
+<g id="node13" class="node" pointer-events="visible" data-name="NFTEscrow.withdrawERC721Collateral">
 
-<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="366.69" cy="-366" rx="118.7" ry="18" style=""/>
-<text text-anchor="middle" x="366.69" y="-361.8" font-family="Times,serif" font-size="14.00">withdrawERC721Collateral</text>
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="343.15" cy="-312" rx="118.7" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-307.8" font-family="Times,serif" font-size="14.00" style="">withdrawERC721Collateral</text>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral&#45;&gt;NFTEscrow.IERC721 -->
-<g id="edge11" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.IERC721">
+<g id="edge15" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.IERC721">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M440.67,-350.74C482.09,-342.08 533.07,-331.42 571.07,-323.48" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="571.39,-326.99 580.47,-321.52 569.96,-320.14 571.39,-326.99" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M374.56,-330.81C404.81,-348.84 452.99,-375.79 497.5,-393 513.21,-399.07 530.77,-404.2 546.97,-408.3" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="546.12,-411.7 556.66,-410.66 547.77,-404.9 546.12,-411.7" style=""/>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral&#45;&gt;NFTEscrow.address -->
-<g id="edge13" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.address">
+<g id="edge17" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M479.48,-359.3C512.52,-359.1 547.11,-359.49 574.37,-360.48" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="573.97,-363.96 584.1,-360.88 574.26,-356.97 573.97,-363.96" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M455.93,-305.3C488.97,-305.1 523.56,-305.49 550.82,-306.48" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="550.42,-309.96 560.56,-306.88 550.71,-302.97 550.42,-309.96" style=""/>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral&#45;&gt;NFTEscrow.address -->
-<g id="edge15" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.address">
+<g id="edge19" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M479.48,-372.7C512.52,-372.9 547.11,-372.51 574.37,-371.52" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="574.26,-375.03 584.1,-371.12 573.97,-368.04 574.26,-375.03" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M455.93,-318.7C488.97,-318.9 523.56,-318.51 550.82,-317.52" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="550.71,-321.03 560.56,-317.12 550.42,-314.04 550.71,-321.03" style=""/>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral&#45;&gt;NFTEscrow.TransferFailed -->
-<g id="edge16" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.TransferFailed">
+<g id="edge20" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;NFTEscrow.TransferFailed">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M440.67,-381.26C477.77,-389.01 522.55,-398.37 558.79,-405.95" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="557.76,-409.31 568.27,-407.93 559.19,-402.46 557.76,-409.31" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M417.12,-327.26C454.22,-335.01 499,-344.37 535.24,-351.95" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="534.21,-355.31 544.72,-353.93 535.65,-348.46 534.21,-355.31" style=""/>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral&#45;&gt;IERC721.ownerOf -->
-<g id="edge12" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;IERC721.ownerOf">
+<g id="edge16" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;IERC721.ownerOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M402.23,-347.43C427.35,-332.77 461.1,-310.57 485.55,-285 506.17,-263.43 499.17,-248.31 521.05,-228 537.9,-212.36 560.05,-199.89 579.65,-190.8" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="580.95,-194.05 588.68,-186.81 578.12,-187.65 580.95,-194.05" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M434.27,-299.3C444.14,-295.65 453.62,-290.97 462,-285 486.3,-267.67 475.63,-248.31 497.5,-228 514.35,-212.36 536.5,-199.89 556.1,-190.8" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="557.4,-194.05 565.14,-186.81 554.57,-187.65 557.4,-194.05" style=""/>
 </g>
 <!-- NFTEscrow.withdrawERC721Collateral&#45;&gt;tokenContract_.call -->
-<g id="edge14" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;tokenContract_.call">
+<g id="edge18" class="edge" data-name="NFTEscrow.withdrawERC721Collateral-&gt;tokenContract_.call">
 
-<path fill="none" stroke="white" stroke-width="2" d="M409.31,-347.83C435.33,-334.29 467.28,-313.25 485.55,-285 533.61,-210.66 468.63,-160.34 521.05,-89 537.38,-66.76 565.42,-52.73 588.4,-44.4" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="589.29,-47.8 597.67,-41.31 587.08,-41.16 589.29,-47.8" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M440.19,-300.59C448.3,-296.62 455.76,-291.53 462,-285 523.14,-220.98 445.09,-160.34 497.5,-89 513.84,-66.76 541.87,-52.73 564.85,-44.4" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="565.74,-47.8 574.12,-41.31 563.53,-41.16 565.74,-47.8" style=""/>
 </g>
 <!-- AurumAdmin.getUtillization -->
-<g id="node7" class="node" pointer-events="visible" data-name="AurumAdmin.getUtillization">
+<g id="node18" class="node" pointer-events="visible" data-name="AurumAdmin.getUtillization">
 
-<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="113.92" cy="-1269" rx="66.64" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-1264.8" font-family="Times,serif" font-size="14.00">getUtillization</text>
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="343.15" cy="-1311" rx="66.64" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-1306.8" font-family="Times,serif" font-size="14.00" style="">getUtillization</text>
 </g>
 <!-- AurumAdmin.setBorrowInterestRate -->
-<g id="node8" class="node" pointer-events="visible" data-name="AurumAdmin.setBorrowInterestRate">
+<g id="node19" class="node" pointer-events="visible" data-name="AurumAdmin.setBorrowInterestRate">
 
-<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="113.92" cy="-1215" rx="97.84" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-1210.8" font-family="Times,serif" font-size="14.00">setBorrowInterestRate</text>
+<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="343.15" cy="-1257" rx="97.84" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-1252.8" font-family="Times,serif" font-size="14.00" style="">setBorrowInterestRate</text>
 </g>
 <!-- AurumAdmin.setLoanToValue -->
-<g id="node9" class="node" pointer-events="visible" data-name="AurumAdmin.setLoanToValue">
+<g id="node20" class="node" pointer-events="visible" data-name="AurumAdmin.setLoanToValue">
 
-<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="113.92" cy="-1161" rx="75.28" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-1156.8" font-family="Times,serif" font-size="14.00">setLoanToValue</text>
+<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="343.15" cy="-1203" rx="75.28" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-1198.8" font-family="Times,serif" font-size="14.00" style="">setLoanToValue</text>
 </g>
 <!-- AurumAdmin.calculateInterest -->
-<g id="node10" class="node" pointer-events="visible" data-name="AurumAdmin.calculateInterest">
+<g id="node21" class="node" pointer-events="visible" data-name="AurumAdmin.calculateInterest">
 
-<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="113.92" cy="-1107" rx="74.1" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-1102.8" font-family="Times,serif" font-size="14.00">calculateInterest</text>
+<ellipse fill="#f2c383" stroke="#f2c383" stroke-width="3" cx="343.15" cy="-1149" rx="74.1" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-1144.8" font-family="Times,serif" font-size="14.00" style="">calculateInterest</text>
+</g>
+<!-- AurumAdmin.calculateInterest&#45;&gt;WadRayMath.ray -->
+<g id="edge21" class="edge" data-name="AurumAdmin.calculateInterest-&gt;WadRayMath.ray">
+
+<path fill="none" stroke="white" stroke-width="2" d="M412.8,-1141.51C431.36,-1144.91 449.69,-1152.53 462,-1167 542.75,-1262.01 418.02,-1630.92 497.5,-1727 513.34,-1746.14 540.76,-1752.72 563.61,-1755.84" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="563.06,-1759.3 573.4,-1756.99 563.87,-1752.35 563.06,-1759.3" style=""/>
+</g>
+<!-- AurumAdmin.calculateInterest&#45;&gt;WadRayMath.ray -->
+<g id="edge24" class="edge" data-name="AurumAdmin.calculateInterest-&gt;WadRayMath.ray">
+
+<path fill="none" stroke="white" stroke-width="2" d="M409.72,-1158.05C429.32,-1162.09 449.02,-1169.73 462,-1185 542.75,-1280.01 418.02,-1648.92 497.5,-1745 513.64,-1764.51 541.81,-1770.97 564.9,-1771.4" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="564.87,-1774.9 574.76,-1771.1 564.66,-1767.9 564.87,-1774.9" style=""/>
+</g>
+<!-- ratePerSecond.rayMul -->
+<g id="node44" class="node" pointer-events="visible" data-name="ratePerSecond.rayMul">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-1192" rx="39.43" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1187.8" font-family="Times,serif" font-size="14.00" style="">rayMul</text>
+</g>
+<!-- AurumAdmin.calculateInterest&#45;&gt;ratePerSecond.rayMul -->
+<g id="edge22" class="edge" data-name="AurumAdmin.calculateInterest-&gt;ratePerSecond.rayMul">
+
+<path fill="none" stroke="white" stroke-width="2" d="M406.67,-1159.41C451.26,-1166.83 510.45,-1176.69 552.02,-1183.61" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="551.44,-1187.06 561.88,-1185.25 552.59,-1180.15 551.44,-1187.06" style=""/>
+</g>
+<!-- basePowerTwo.rayMul -->
+<g id="node45" class="node" pointer-events="visible" data-name="basePowerTwo.rayMul">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-1107" rx="39.43" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1102.8" font-family="Times,serif" font-size="14.00" style="">rayMul</text>
+</g>
+<!-- AurumAdmin.calculateInterest&#45;&gt;basePowerTwo.rayMul -->
+<g id="edge23" class="edge" data-name="AurumAdmin.calculateInterest-&gt;basePowerTwo.rayMul">
+
+<path fill="none" stroke="white" stroke-width="2" d="M407.33,-1138.73C451.8,-1131.49 510.54,-1121.94 551.9,-1115.22" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="552.39,-1118.68 561.7,-1113.62 551.26,-1111.77 552.39,-1118.68" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice -->
-<g id="node11" class="node" pointer-events="visible" data-name="NFTPrice.getNFTPrice">
+<g id="node22" class="node" pointer-events="visible" data-name="NFTPrice.getNFTPrice">
 
-<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="626.98" cy="-559" rx="60.84" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-554.8" font-family="Times,serif" font-size="14.00">getNFTPrice</text>
+<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="603.43" cy="-968" rx="60.84" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-963.8" font-family="Times,serif" font-size="14.00" style="">getNFTPrice</text>
 </g>
 <!-- NFTPrice._getNFTPrice -->
-<g id="node13" class="node" pointer-events="visible" data-name="NFTPrice._getNFTPrice">
+<g id="node24" class="node" pointer-events="visible" data-name="NFTPrice._getNFTPrice">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="834.17" cy="-505" rx="66" ry="18" style=""/>
-<text text-anchor="middle" x="834.17" y="-500.8" font-family="Times,serif" font-size="14.00">_getNFTPrice</text>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
-<g id="edge21" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M629.64,-539.88C639.88,-484.36 695.5,-471.92 740.42,-460 774.21,-451.03 814.46,-438.77 828.25,-473.38" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="824.81,-474.06 830.84,-482.77 831.55,-472.2 824.81,-474.06" style=""/>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
-<g id="edge23" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M631.04,-539.78C644.18,-501.4 697.25,-489.46 740.42,-478 770.65,-469.98 806.05,-459.31 823.05,-474.99" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="820.05,-476.79 828.47,-483.22 825.89,-472.94 820.05,-476.79" style=""/>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
-<g id="edge25" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M634.86,-539.96C652.47,-517.52 700.64,-506.56 740.42,-496 764.31,-489.66 791.45,-481.67 810.16,-482.9" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="809.16,-486.26 819.69,-485.14 810.76,-479.45 809.16,-486.26" style=""/>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
-<g id="edge27" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M649.2,-540.87C671.86,-531.05 708.79,-522.4 740.42,-514 745.16,-512.74 750.03,-511.42 754.94,-510.09" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="755.49,-513.56 764.23,-507.58 753.67,-506.8 755.49,-513.56" style=""/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="810.62" cy="-1022" rx="66" ry="18" style=""/>
+<text text-anchor="middle" x="810.62" y="-1017.8" font-family="Times,serif" font-size="14.00" style="">_getNFTPrice</text>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
 <g id="edge29" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M677.37,-547.68C697.04,-543.03 719.85,-537.46 740.42,-532 751.49,-529.06 763.25,-525.77 774.56,-522.52" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="775.52,-525.89 784.15,-519.74 773.57,-519.16 775.52,-525.89" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M606.3,-948.63C617.05,-898.8 672.24,-911.15 716.87,-923 751.39,-932.16 792.66,-944.77 805.56,-990.19" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="802.12,-990.82 807.63,-999.86 808.96,-989.35 802.12,-990.82" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
 <g id="edge31" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M688.22,-562.39C705.15,-559.03 723.54,-554.48 740.42,-550 761.89,-544.3 785.96,-537.27 804.21,-529.32" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="805.62,-532.53 813.08,-525 802.56,-526.23 805.62,-532.53" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M608.14,-948.63C622.3,-917.98 674.38,-929.72 716.87,-941 748.99,-949.53 786.96,-961.03 802.47,-990.84" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="799.1,-991.83 806.02,-999.86 805.62,-989.27 799.1,-991.83" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
 <g id="edge33" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M639.52,-577.93C659.94,-587.81 703.75,-577.74 740.42,-568 768.72,-560.49 801.55,-550.67 819.57,-533.76" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="821.86,-536.48 825.6,-526.57 816.5,-531.99 821.86,-536.48" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M615.97,-949.07C636.39,-939.19 680.2,-949.26 716.87,-959 745.17,-966.51 778,-976.33 796.03,-993.24" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="792.95,-995.01 802.05,-1000.43 798.31,-990.52 792.95,-995.01" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
 <g id="edge35" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M631.69,-578.37C645.85,-609.02 697.93,-597.28 740.42,-586 772.54,-577.47 810.51,-565.97 826.02,-536.16" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="829.17,-537.73 829.56,-527.14 822.65,-535.17 829.17,-537.73" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M664.67,-964.61C681.6,-967.97 699.99,-972.52 716.87,-977 738.34,-982.7 762.42,-989.73 780.66,-997.68" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="779.01,-1000.77 789.53,-1002 782.07,-994.47 779.01,-1000.77" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
 <g id="edge37" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M629.85,-578.37C640.6,-628.2 695.79,-615.85 740.42,-604 774.94,-594.84 816.21,-582.23 829.11,-536.81" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="832.51,-537.65 831.18,-527.14 825.67,-536.18 832.51,-537.65" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M653.82,-979.32C673.49,-983.97 696.3,-989.54 716.87,-995 727.94,-997.94 739.71,-1001.23 751.01,-1004.48" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="750.02,-1007.84 760.6,-1007.26 751.97,-1001.11 750.02,-1007.84" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
+<g id="edge39" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M625.65,-986.13C648.31,-995.95 685.24,-1004.6 716.87,-1013 721.61,-1014.26 726.48,-1015.58 731.39,-1016.91" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="730.12,-1020.2 740.69,-1019.42 731.94,-1013.44 730.12,-1020.2" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
+<g id="edge41" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M611.31,-987.04C628.92,-1009.48 677.09,-1020.44 716.87,-1031 740.77,-1037.34 767.9,-1045.33 786.61,-1044.1" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="787.21,-1047.55 796.15,-1041.86 785.61,-1040.74 787.21,-1047.55" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
+<g id="edge43" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M607.49,-987.22C620.64,-1025.6 673.7,-1037.54 716.87,-1049 747.1,-1057.02 782.51,-1067.69 799.51,-1052.01" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="802.35,-1054.06 804.93,-1043.78 796.5,-1050.21 802.35,-1054.06" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice._getNFTPrice -->
+<g id="edge45" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice._getNFTPrice">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M606.09,-987.12C616.33,-1042.64 671.95,-1055.08 716.87,-1067 750.66,-1075.97 790.91,-1088.23 804.7,-1053.62" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="808.01,-1054.8 807.29,-1044.23 801.26,-1052.94 808.01,-1054.8" style=""/>
 </g>
 <!-- NFTPrice.ERC721 -->
-<g id="node14" class="node" pointer-events="visible" data-name="NFTPrice.ERC721">
+<g id="node25" class="node" pointer-events="visible" data-name="NFTPrice.ERC721">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="834.17" cy="-559" rx="44.11" ry="18" style=""/>
-<text text-anchor="middle" x="834.17" y="-554.8" font-family="Times,serif" font-size="14.00">ERC721</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="810.62" cy="-968" rx="44.11" ry="18" style=""/>
+<text text-anchor="middle" x="810.62" y="-963.8" font-family="Times,serif" font-size="14.00" style="">ERC721</text>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.ERC721 -->
-<g id="edge17" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.ERC721">
+<g id="edge25" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.ERC721">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M689.27,-559C716.77,-559 749.02,-559 776.02,-559" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="775.78,-562.5 785.78,-559 775.78,-555.5 775.78,-562.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M665.72,-968C693.22,-968 725.48,-968 752.47,-968" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="752.23,-971.5 762.23,-968 752.23,-964.5 752.23,-971.5" style=""/>
 </g>
 <!-- NFTPrice.address -->
-<g id="node15" class="node" pointer-events="visible" data-name="NFTPrice.address">
+<g id="node26" class="node" pointer-events="visible" data-name="NFTPrice.address">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="834.17" cy="-613" rx="40" ry="18" style=""/>
-<text text-anchor="middle" x="834.17" y="-608.8" font-family="Times,serif" font-size="14.00">address</text>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
-<g id="edge20" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M634.81,-539.76C664.61,-505.67 783.49,-535.03 821.45,-583.11" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="818.45,-584.91 826.8,-591.44 824.34,-581.13 818.45,-584.91" style=""/>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
-<g id="edge22" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M643.74,-540.3C681.56,-526.96 777.2,-551.89 816.21,-584.97" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="813.55,-587.26 823.09,-591.86 818.5,-582.31 813.55,-587.26" style=""/>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
-<g id="edge24" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M680.02,-548.85C721.29,-554.11 777.11,-570.66 808.7,-588.31" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="806.65,-591.15 816.98,-593.49 810.36,-585.22 806.65,-591.15" style=""/>
-</g>
-<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
-<g id="edge26" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M688.16,-562.42C723.44,-569.8 766.85,-581.83 796.93,-592.88" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="795.53,-596.09 806.12,-596.44 798.06,-589.56 795.53,-596.09" style=""/>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="810.62" cy="-914" rx="40" ry="18" style=""/>
+<text text-anchor="middle" x="810.62" y="-909.8" font-family="Times,serif" font-size="14.00" style="">address</text>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
 <g id="edge28" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M675.06,-571.39C708.21,-580.11 752.43,-591.75 785.67,-600.5" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="784.34,-603.77 794.91,-602.93 786.13,-597 784.34,-603.77" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M609.3,-948.71C634.38,-899.03 749.42,-864.35 792.91,-887.17" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="790.72,-889.9 800.76,-893.3 795.03,-884.38 790.72,-889.9" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
 <g id="edge30" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M656.08,-576.03C687.9,-588.59 740.47,-603.21 780.08,-611.02" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="779.26,-614.43 789.73,-612.8 780.53,-607.55 779.26,-614.43" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M612.48,-948.88C640.73,-914.46 736.27,-885.57 783.18,-892.73" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="782.05,-896.05 792.61,-895.17 783.81,-889.28 782.05,-896.05" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
 <g id="edge32" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M642.74,-577.7C672.85,-598.56 742.41,-619.5 788.59,-623.99" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="788.3,-627.48 798.51,-624.63 788.75,-620.49 788.3,-627.48" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M619.19,-949.3C649.3,-928.44 718.86,-907.5 765.05,-903.01" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="765.21,-906.51 774.96,-902.37 764.76,-899.52 765.21,-906.51" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
 <g id="edge34" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M636.03,-578.12C664.28,-612.54 759.82,-641.43 806.73,-634.27" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="807.36,-637.72 816.16,-631.83 805.6,-630.95 807.36,-637.72" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M632.53,-950.97C664.35,-938.41 716.92,-923.79 756.53,-915.98" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="756.98,-919.45 766.18,-914.2 755.71,-912.57 756.98,-919.45" style=""/>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
 <g id="edge36" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M632.85,-578.29C657.93,-627.97 772.97,-662.65 816.46,-639.83" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="818.58,-642.62 824.3,-633.7 814.27,-637.1 818.58,-642.62" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M651.51,-955.61C684.66,-946.89 728.88,-935.25 762.13,-926.5" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="762.58,-930 771.36,-924.07 760.8,-923.23 762.58,-930" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
+<g id="edge38" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M664.61,-964.58C699.89,-957.2 743.3,-945.17 773.38,-934.12" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="774.51,-937.44 782.57,-930.56 771.98,-930.91 774.51,-937.44" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
+<g id="edge40" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M656.48,-978.15C697.74,-972.89 753.56,-956.34 785.15,-938.69" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="786.82,-941.78 793.43,-933.51 783.1,-935.85 786.82,-941.78" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
+<g id="edge42" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M620.19,-986.7C658.01,-1000.04 753.65,-975.11 792.66,-942.03" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="794.95,-944.69 799.54,-935.14 790,-939.74 794.95,-944.69" style=""/>
+</g>
+<!-- NFTPrice.getNFTPrice&#45;&gt;NFTPrice.address -->
+<g id="edge44" class="edge" data-name="NFTPrice.getNFTPrice-&gt;NFTPrice.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M611.26,-987.24C641.06,-1021.33 759.95,-991.97 797.9,-943.89" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="800.79,-945.87 803.25,-935.56 794.9,-942.09 800.79,-945.87" style=""/>
 </g>
 <!-- ERC721.symbol -->
-<g id="node34" class="node" pointer-events="visible" data-name="ERC721.symbol">
+<g id="node46" class="node" pointer-events="visible" data-name="ERC721.symbol">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="834.17" cy="-420" rx="39.45" ry="18" style=""/>
-<text text-anchor="middle" x="834.17" y="-415.8" font-family="Times,serif" font-size="14.00">symbol</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="810.62" cy="-1161" rx="39.45" ry="18" style=""/>
+<text text-anchor="middle" x="810.62" y="-1156.8" font-family="Times,serif" font-size="14.00" style="">symbol</text>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;ERC721.symbol -->
-<g id="edge18" class="edge" data-name="NFTPrice.getNFTPrice-&gt;ERC721.symbol">
+<g id="edge26" class="edge" data-name="NFTPrice.getNFTPrice-&gt;ERC721.symbol">
 
-<path fill="none" stroke="white" stroke-width="2" d="M687.5,-554.6C706,-550.78 725.45,-543.98 740.42,-532 762.46,-514.36 751.08,-497.27 768.42,-475 777.42,-463.45 789.17,-452.58 800.19,-443.61" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="802.31,-446.4 808.04,-437.49 798,-440.89 802.31,-446.4" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M665.33,-970.14C684.14,-973.78 703.43,-981.05 716.87,-995 760.6,-1040.38 704.89,-1085.29 744.87,-1134 749.57,-1139.73 755.7,-1144.26 762.31,-1147.84" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="760.4,-1150.82 770.96,-1151.76 763.29,-1144.44 760.4,-1150.82" style=""/>
 </g>
 <!-- ERC721.ownerOf -->
-<g id="node35" class="node" pointer-events="visible" data-name="ERC721.ownerOf">
+<g id="node47" class="node" pointer-events="visible" data-name="ERC721.ownerOf">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="834.17" cy="-366" rx="45.22" ry="18" style=""/>
-<text text-anchor="middle" x="834.17" y="-361.8" font-family="Times,serif" font-size="14.00">ownerOf</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="810.62" cy="-1107" rx="45.22" ry="18" style=""/>
+<text text-anchor="middle" x="810.62" y="-1102.8" font-family="Times,serif" font-size="14.00" style="">ownerOf</text>
 </g>
 <!-- NFTPrice.getNFTPrice&#45;&gt;ERC721.ownerOf -->
-<g id="edge19" class="edge" data-name="NFTPrice.getNFTPrice-&gt;ERC721.ownerOf">
+<g id="edge27" class="edge" data-name="NFTPrice.getNFTPrice-&gt;ERC721.ownerOf">
 
-<path fill="none" stroke="white" stroke-width="2" d="M688.88,-556.86C707.69,-553.22 726.98,-545.95 740.42,-532 784.15,-486.62 728.44,-441.71 768.42,-393 772.27,-388.3 777.08,-384.41 782.33,-381.19" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="783.53,-384.51 790.85,-376.85 780.35,-378.27 783.53,-384.51" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M664.6,-971.25C683.25,-974.98 702.62,-982.02 716.87,-995 745.34,-1020.93 719.1,-1048.38 744.87,-1077 749.53,-1082.18 755.27,-1086.53 761.39,-1090.17" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="759.48,-1093.12 769.97,-1094.58 762.68,-1086.9 759.48,-1093.12" style=""/>
 </g>
 <!-- NFTPrice.get_ETHtoUSD_Price -->
-<g id="node12" class="node" pointer-events="visible" data-name="NFTPrice.get_ETHtoUSD_Price">
+<g id="node23" class="node" pointer-events="visible" data-name="NFTPrice.get_ETHtoUSD_Price">
 
-<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="626.98" cy="-505" rx="97.87" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-500.8" font-family="Times,serif" font-size="14.00">get_ETHtoUSD_Price</text>
+<ellipse fill="#ff9797" stroke="#ff9797" stroke-width="3" cx="603.43" cy="-1022" rx="97.87" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-1017.8" font-family="Times,serif" font-size="14.00" style="">get_ETHtoUSD_Price</text>
 </g>
 <!-- NFTPrice.get_ETHtoUSD_Price&#45;&gt;NFTPrice._getNFTPrice -->
-<g id="edge38" class="edge" data-name="NFTPrice.get_ETHtoUSD_Price-&gt;NFTPrice._getNFTPrice">
+<g id="edge46" class="edge" data-name="NFTPrice.get_ETHtoUSD_Price-&gt;NFTPrice._getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M726.07,-505C735.45,-505 744.89,-505 754.06,-505" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="753.78,-508.5 763.78,-505 753.78,-501.5 753.78,-508.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M702.52,-1022C711.9,-1022 721.34,-1022 730.51,-1022" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="730.24,-1025.5 740.24,-1022 730.24,-1018.5 730.24,-1025.5" style=""/>
 </g>
 <!-- NFTPrice.AggregatorV3Interface -->
-<g id="node16" class="node" pointer-events="visible" data-name="NFTPrice.AggregatorV3Interface">
+<g id="node27" class="node" pointer-events="visible" data-name="NFTPrice.AggregatorV3Interface">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="1037.03" cy="-505" rx="101.24" ry="18" style=""/>
-<text text-anchor="middle" x="1037.03" y="-500.8" font-family="Times,serif" font-size="14.00">AggregatorV3Interface</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="1013.49" cy="-1022" rx="101.24" ry="18" style=""/>
+<text text-anchor="middle" x="1013.49" y="-1017.8" font-family="Times,serif" font-size="14.00" style="">AggregatorV3Interface</text>
 </g>
 <!-- NFTPrice._getNFTPrice&#45;&gt;NFTPrice.AggregatorV3Interface -->
-<g id="edge39" class="edge" data-name="NFTPrice._getNFTPrice-&gt;NFTPrice.AggregatorV3Interface">
+<g id="edge47" class="edge" data-name="NFTPrice._getNFTPrice-&gt;NFTPrice.AggregatorV3Interface">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M901.5,-505C908.05,-505 914.83,-505 921.7,-505" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="921.52,-508.5 931.52,-505 921.52,-501.5 921.52,-508.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M877.95,-1022C884.51,-1022 891.29,-1022 898.15,-1022" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="897.98,-1025.5 907.98,-1022 897.98,-1018.5 897.98,-1025.5" style=""/>
 </g>
 <!-- AggregatorV3Interface.latestRoundData -->
-<g id="node36" class="node" pointer-events="visible" data-name="AggregatorV3Interface.latestRoundData">
+<g id="node48" class="node" pointer-events="visible" data-name="AggregatorV3Interface.latestRoundData">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="1037.03" cy="-420" rx="75.3" ry="18" style=""/>
-<text text-anchor="middle" x="1037.03" y="-415.8" font-family="Times,serif" font-size="14.00">latestRoundData</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="1013.49" cy="-829" rx="75.3" ry="18" style=""/>
+<text text-anchor="middle" x="1013.49" y="-824.8" font-family="Times,serif" font-size="14.00" style="">latestRoundData</text>
 </g>
 <!-- NFTPrice._getNFTPrice&#45;&gt;AggregatorV3Interface.latestRoundData -->
-<g id="edge40" class="edge" data-name="NFTPrice._getNFTPrice-&gt;AggregatorV3Interface.latestRoundData">
+<g id="edge48" class="edge" data-name="NFTPrice._getNFTPrice-&gt;AggregatorV3Interface.latestRoundData">
 
-<path fill="none" stroke="white" stroke-width="2" d="M872.48,-489.21C904.14,-475.81 949.88,-456.46 984.95,-441.62" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="986.23,-444.87 994.08,-437.75 983.5,-438.43 986.23,-444.87" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M858.33,-1008.38C865.02,-1004.86 871.33,-1000.46 876.37,-995 911.52,-956.86 879.31,-923.96 912.37,-884 924.06,-869.86 940.39,-858.75 956.46,-850.34" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="957.88,-853.54 965.33,-846.01 954.81,-847.25 957.88,-853.54" style=""/>
 </g>
 <!-- AurumV2core.&lt;Constructor&gt; -->
-<g id="node17" class="node" pointer-events="visible" data-name="AurumV2core.&lt;Constructor&gt;">
+<g id="node28" class="node" pointer-events="visible" data-name="AurumV2core.&lt;Constructor&gt;">
 
-<ellipse fill="#ff9797" stroke="brown" stroke-width="3" cx="113.92" cy="-1022" rx="67.55" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-1017.8" font-family="Times,serif" font-size="14.00">&lt;Constructor&gt;</text>
+<ellipse fill="#ff9797" stroke="brown" stroke-width="3" cx="102.15" cy="-829" rx="67.55" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-824.8" font-family="Times,serif" font-size="14.00" style="">&lt;Constructor&gt;</text>
 </g>
 <!-- AurumV2core.&lt;Fallback&gt; -->
-<g id="node18" class="node" pointer-events="visible" data-name="AurumV2core.&lt;Fallback&gt;">
+<g id="node29" class="node" pointer-events="visible" data-name="AurumV2core.&lt;Fallback&gt;">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="113.92" cy="-968" rx="55.36" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-963.8" font-family="Times,serif" font-size="14.00">&lt;Fallback&gt;</text>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="102.15" cy="-775" rx="55.36" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-770.8" font-family="Times,serif" font-size="14.00" style="">&lt;Fallback&gt;</text>
 </g>
 <!-- AurumV2core.&lt;Receive Ether&gt; -->
-<g id="node19" class="node" pointer-events="visible" data-name="AurumV2core.&lt;Receive Ether&gt;">
+<g id="node30" class="node" pointer-events="visible" data-name="AurumV2core.&lt;Receive Ether&gt;">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="113.92" cy="-914" rx="76.21" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-909.8" font-family="Times,serif" font-size="14.00">&lt;Receive Ether&gt;</text>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="102.15" cy="-721" rx="76.21" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-716.8" font-family="Times,serif" font-size="14.00" style="">&lt;Receive Ether&gt;</text>
 </g>
 <!-- AurumV2core.depositToPool -->
-<g id="node20" class="node" pointer-events="visible" data-name="AurumV2core.depositToPool">
+<g id="node31" class="node" pointer-events="visible" data-name="AurumV2core.depositToPool">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="113.92" cy="-860" rx="67.24" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-855.8" font-family="Times,serif" font-size="14.00">depositToPool</text>
-</g>
-<!-- AurumV2core.calculateInterest -->
-<g id="node25" class="node" pointer-events="visible" data-name="AurumV2core.calculateInterest">
-
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="366.69" cy="-860" rx="74.1" ry="18" style=""/>
-<text text-anchor="middle" x="366.69" y="-855.8" font-family="Times,serif" font-size="14.00">calculateInterest</text>
-</g>
-<!-- AurumV2core.depositToPool&#45;&gt;AurumV2core.calculateInterest -->
-<g id="edge41" class="edge" data-name="AurumV2core.depositToPool-&gt;AurumV2core.calculateInterest">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M182.45,-860C212.03,-860 247.12,-860 278.63,-860" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="278.4,-863.5 288.4,-860 278.4,-856.5 278.4,-863.5" style=""/>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="102.15" cy="-667" rx="67.24" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-662.8" font-family="Times,serif" font-size="14.00" style="">depositToPool</text>
 </g>
 <!-- AurumV2core.withdrawFromPool -->
-<g id="node21" class="node" pointer-events="visible" data-name="AurumV2core.withdrawFromPool">
+<g id="node32" class="node" pointer-events="visible" data-name="AurumV2core.withdrawFromPool">
 
-<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="113.92" cy="-806" rx="86.29" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-801.8" font-family="Times,serif" font-size="14.00">withdrawFromPool</text>
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="102.15" cy="-613" rx="86.29" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-608.8" font-family="Times,serif" font-size="14.00" style="">withdrawFromPool</text>
 </g>
-<!-- AurumV2core.withdrawFromPool&#45;&gt;AurumV2core.calculateInterest -->
-<g id="edge42" class="edge" data-name="AurumV2core.withdrawFromPool-&gt;AurumV2core.calculateInterest">
+<!-- AurumV2core.withdrawFromPool&#45;&gt;AurumAdmin.calculateInterest -->
+<g id="edge49" class="edge" data-name="AurumV2core.withdrawFromPool-&gt;AurumAdmin.calculateInterest">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M177.19,-819.48C197.19,-823.8 219.45,-828.61 239.84,-833 257.95,-836.9 277.52,-841.1 295.71,-845.01" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="294.89,-848.41 305.4,-847.09 296.36,-841.57 294.89,-848.41" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M169.41,-625.25C176.61,-628.97 183.17,-633.78 188.29,-640 222.99,-682.13 201.27,-831.53 216.29,-884 242.01,-973.83 295.5,-1071 323.75,-1118.86" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="320.67,-1120.54 328.8,-1127.33 326.68,-1116.95 320.67,-1120.54" style=""/>
 </g>
 <!-- AurumV2core.payable -->
-<g id="node26" class="node" pointer-events="visible" data-name="AurumV2core.payable">
+<g id="node36" class="node" pointer-events="visible" data-name="AurumV2core.payable">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="366.69" cy="-806" rx="41.13" ry="18" style=""/>
-<text text-anchor="middle" x="366.69" y="-801.8" font-family="Times,serif" font-size="14.00">payable</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="343.15" cy="-601" rx="41.13" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-596.8" font-family="Times,serif" font-size="14.00" style="">payable</text>
 </g>
 <!-- AurumV2core.withdrawFromPool&#45;&gt;AurumV2core.payable -->
-<g id="edge43" class="edge" data-name="AurumV2core.withdrawFromPool-&gt;AurumV2core.payable">
+<g id="edge50" class="edge" data-name="AurumV2core.withdrawFromPool-&gt;AurumV2core.payable">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M201.57,-806C238.03,-806 279.33,-806 311.38,-806" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="311.04,-809.5 321.04,-806 311.04,-802.5 311.04,-809.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M187.74,-608.75C221.05,-607.08 258.32,-605.21 287.89,-603.72" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="288.07,-607.22 297.88,-603.22 287.72,-600.23 288.07,-607.22" style=""/>
 </g>
 <!-- AurumV2core.ValueTransferFailed -->
-<g id="node27" class="node" pointer-events="visible" data-name="AurumV2core.ValueTransferFailed">
+<g id="node37" class="node" pointer-events="visible" data-name="AurumV2core.ValueTransferFailed">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="366.69" cy="-752" rx="90.87" ry="18" style=""/>
-<text text-anchor="middle" x="366.69" y="-747.8" font-family="Times,serif" font-size="14.00">ValueTransferFailed</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="343.15" cy="-655" rx="90.87" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-650.8" font-family="Times,serif" font-size="14.00" style="">ValueTransferFailed</text>
 </g>
 <!-- AurumV2core.withdrawFromPool&#45;&gt;AurumV2core.ValueTransferFailed -->
-<g id="edge44" class="edge" data-name="AurumV2core.withdrawFromPool-&gt;AurumV2core.ValueTransferFailed">
+<g id="edge51" class="edge" data-name="AurumV2core.withdrawFromPool-&gt;AurumV2core.ValueTransferFailed">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M177.19,-792.52C197.19,-788.2 219.45,-783.39 239.84,-779 255.86,-775.55 273.02,-771.86 289.36,-768.36" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="289.66,-771.87 298.71,-766.35 288.19,-765.03 289.66,-771.87" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M171.31,-624.98C198.72,-629.79 230.57,-635.39 259.29,-640.44" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="258.37,-643.83 268.83,-642.12 259.58,-636.94 258.37,-643.83" style=""/>
 </g>
 <!-- AurumV2core.borrow -->
-<g id="node22" class="node" pointer-events="visible" data-name="AurumV2core.borrow">
+<g id="node33" class="node" pointer-events="visible" data-name="AurumV2core.borrow">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="113.92" cy="-752" rx="38.86" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-747.8" font-family="Times,serif" font-size="14.00">borrow</text>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="102.15" cy="-505" rx="38.86" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-500.8" font-family="Times,serif" font-size="14.00" style="">borrow</text>
 </g>
 <!-- AurumV2core.borrow&#45;&gt;NFTEscrow.depositERC721Collateral -->
-<g id="edge47" class="edge" data-name="AurumV2core.borrow-&gt;NFTEscrow.depositERC721Collateral">
+<g id="edge53" class="edge" data-name="AurumV2core.borrow-&gt;NFTEscrow.depositERC721Collateral">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M154.12,-752.64C176.93,-750.75 204.19,-744.15 219.84,-725 247.02,-691.75 218.3,-376.16 239.84,-339 254.87,-313.07 281.9,-294.07 307.07,-281.01" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="308.3,-284.3 315.74,-276.76 305.22,-278.02 308.3,-284.3" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M107.15,-485.85C117.24,-442.65 147.92,-337.36 216.29,-285 222.51,-280.24 229.37,-276.28 236.6,-272.99" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="237.82,-276.27 245.81,-269.32 235.23,-269.77 237.82,-276.27" style=""/>
 </g>
 <!-- AurumV2core.getNftCollateralValue -->
-<g id="node24" class="node" pointer-events="visible" data-name="AurumV2core.getNftCollateralValue">
+<g id="node35" class="node" pointer-events="visible" data-name="AurumV2core.getNftCollateralValue">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="366.69" cy="-698" rx="96.68" ry="18" style=""/>
-<text text-anchor="middle" x="366.69" y="-693.8" font-family="Times,serif" font-size="14.00">getNftCollateralValue</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="343.15" cy="-547" rx="96.68" ry="18" style=""/>
+<text text-anchor="middle" x="343.15" y="-542.8" font-family="Times,serif" font-size="14.00" style="">getNftCollateralValue</text>
 </g>
 <!-- AurumV2core.borrow&#45;&gt;AurumV2core.getNftCollateralValue -->
-<g id="edge45" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.getNftCollateralValue">
+<g id="edge52" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.getNftCollateralValue">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M150.73,-744.25C175.7,-738.84 209.8,-731.47 239.84,-725 255.18,-721.7 271.58,-718.17 287.29,-714.8" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="287.72,-718.29 296.76,-712.77 286.25,-711.45 287.72,-718.29" style=""/>
-</g>
-<!-- AurumV2core.borrow&#45;&gt;AurumV2core.calculateInterest -->
-<g id="edge46" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.calculateInterest">
-
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M153.97,-753.41C175.73,-756.12 201.97,-762.87 219.84,-779 238.84,-796.14 220.49,-816.25 239.84,-833 251.26,-842.89 265.42,-849.43 280.07,-853.72" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="278.97,-857.05 289.52,-856.07 280.66,-850.26 278.97,-857.05" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M139.97,-511.47C171.04,-516.93 216.74,-524.96 256.84,-532.01" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="256.2,-535.45 266.65,-533.73 257.41,-528.56 256.2,-535.45" style=""/>
 </g>
 <!-- AurumV2core.borrow&#45;&gt;AurumV2core.payable -->
-<g id="edge48" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.payable">
+<g id="edge54" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.payable">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M150.73,-759.75C175.7,-765.16 209.8,-772.53 239.84,-779 264.7,-784.35 292.33,-790.28 315.35,-795.22" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="314.5,-798.61 325.01,-797.29 315.96,-791.77 314.5,-798.61" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M140.06,-511C156.06,-514.97 174.29,-521.47 188.29,-532 206.22,-545.49 197.74,-561.39 216.29,-574 237.27,-588.26 264.38,-595.18 288.06,-598.47" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="287.46,-601.92 297.8,-599.6 288.27,-594.97 287.46,-601.92" style=""/>
 </g>
 <!-- AurumV2core.borrow&#45;&gt;AurumV2core.ValueTransferFailed -->
-<g id="edge49" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.ValueTransferFailed">
+<g id="edge55" class="edge" data-name="AurumV2core.borrow-&gt;AurumV2core.ValueTransferFailed">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M154.1,-752C183,-752 223.74,-752 261.77,-752" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="261.51,-755.5 271.51,-752 261.51,-748.5 261.51,-755.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M141.27,-509.03C157.7,-512.62 175.94,-519.35 188.29,-532 219.35,-563.79 183.75,-597.73 216.29,-628 224.03,-635.19 233.2,-640.65 243.01,-644.77" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="241.8,-648.05 252.4,-648.13 244.16,-641.47 241.8,-648.05" style=""/>
 </g>
 <!-- AurumV2core.repay -->
-<g id="node23" class="node" pointer-events="visible" data-name="AurumV2core.repay">
+<g id="node34" class="node" pointer-events="visible" data-name="AurumV2core.repay">
 
-<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="113.92" cy="-698" rx="32.46" ry="18" style=""/>
-<text text-anchor="middle" x="113.92" y="-693.8" font-family="Times,serif" font-size="14.00">repay</text>
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="102.15" cy="-559" rx="32.46" ry="18" style=""/>
+<text text-anchor="middle" x="102.15" y="-554.8" font-family="Times,serif" font-size="14.00" style="">repay</text>
 </g>
 <!-- AurumV2core.repay&#45;&gt;NFTEscrow.withdrawERC721Collateral -->
-<g id="edge50" class="edge" data-name="AurumV2core.repay-&gt;NFTEscrow.withdrawERC721Collateral">
+<g id="edge58" class="edge" data-name="AurumV2core.repay-&gt;NFTEscrow.withdrawERC721Collateral">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M128.05,-680.62C168.62,-626.9 292.32,-463.14 343.33,-395.6" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="346.09,-397.76 349.33,-387.67 340.51,-393.54 346.09,-397.76" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M135.26,-555.04C152.62,-551.49 173.48,-544.75 188.29,-532 209.69,-513.59 201.37,-498.96 216.29,-475 247.2,-425.38 289.97,-372.65 316.84,-341.02" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="319.48,-343.31 323.33,-333.44 314.17,-338.76 319.48,-343.31" style=""/>
+</g>
+<!-- AurumV2core.repay&#45;&gt;AurumAdmin.calculateInterest -->
+<g id="edge56" class="edge" data-name="AurumV2core.repay-&gt;AurumAdmin.calculateInterest">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M135.95,-560.84C154.21,-563.69 175.73,-570.43 188.29,-586 230.05,-637.77 198.65,-819.87 216.29,-884 241.08,-974.09 294.97,-1071.15 323.53,-1118.92" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="320.47,-1120.63 328.64,-1127.38 326.46,-1117.01 320.47,-1120.63" style=""/>
+</g>
+<!-- AurumV2core.repay&#45;&gt;NFTPrice.address -->
+<g id="edge57" class="edge" data-name="AurumV2core.repay-&gt;NFTPrice.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M132.55,-550.45C149.07,-545.46 169.98,-538.81 188.29,-532 200.98,-527.28 203.03,-522.72 216.29,-520 325.26,-497.63 629.67,-450.94 716.87,-520 774.01,-565.25 799.45,-795.89 807.04,-881.75" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="803.55,-882 807.89,-891.67 810.53,-881.4 803.55,-882" style=""/>
 </g>
 <!-- AurumV2core.getNftCollateralValue&#45;&gt;NFTPrice.getNFTPrice -->
-<g id="edge51" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;NFTPrice.getNFTPrice">
+<g id="edge59" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;NFTPrice.getNFTPrice">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M401.46,-679.83C448.27,-654.64 532.86,-609.12 583.78,-581.71" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="585.22,-584.91 592.37,-577.09 581.9,-578.75 585.22,-584.91" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M433.2,-554.65C444.11,-559.02 454.16,-565.24 462,-574 508.23,-625.68 463.96,-823.31 497.5,-884 511.69,-909.68 537.26,-930.4 559.61,-944.84" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="557.66,-947.75 568.01,-950.02 561.34,-941.79 557.66,-947.75" style=""/>
 </g>
 <!-- AurumV2core.IERC165 -->
-<g id="node28" class="node" pointer-events="visible" data-name="AurumV2core.IERC165">
+<g id="node38" class="node" pointer-events="visible" data-name="AurumV2core.IERC165">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-698" rx="47.54" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-693.8" font-family="Times,serif" font-size="14.00">IERC165</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-601" rx="47.54" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-596.8" font-family="Times,serif" font-size="14.00" style="">IERC165</text>
 </g>
 <!-- AurumV2core.getNftCollateralValue&#45;&gt;AurumV2core.IERC165 -->
-<g id="edge52" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;AurumV2core.IERC165">
+<g id="edge60" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;AurumV2core.IERC165">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M464.61,-698C498.4,-698 535.33,-698 565.33,-698" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="565.14,-701.5 575.14,-698 565.14,-694.5 565.14,-701.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M411,-560.98C453.39,-569.84 507.56,-581.17 547.45,-589.5" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="546.66,-592.92 557.17,-591.54 548.1,-586.06 546.66,-592.92" style=""/>
 </g>
 <!-- AurumV2core.type -->
-<g id="node29" class="node" pointer-events="visible" data-name="AurumV2core.type">
+<g id="node39" class="node" pointer-events="visible" data-name="AurumV2core.type">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-752" rx="27.83" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-747.8" font-family="Times,serif" font-size="14.00">type</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-655" rx="27.83" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-650.8" font-family="Times,serif" font-size="14.00" style="">type</text>
 </g>
 <!-- AurumV2core.getNftCollateralValue&#45;&gt;AurumV2core.type -->
-<g id="edge53" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;AurumV2core.type">
+<g id="edge61" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;AurumV2core.type">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M434.55,-711.98C482.73,-722.05 546.12,-735.3 586.47,-743.74" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="585.5,-747.11 596,-745.73 586.93,-740.26 585.5,-747.11" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M426.19,-557.22C438.89,-561.16 451.31,-566.57 462,-574 485.59,-590.39 474.13,-611.3 497.5,-628 516.17,-641.34 540.87,-648.1 561.62,-651.52" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="560.87,-654.95 571.26,-652.86 561.84,-648.02 560.87,-654.95" style=""/>
 </g>
 <!-- AurumV2core.UnsupportedTokenType -->
-<g id="node30" class="node" pointer-events="visible" data-name="AurumV2core.UnsupportedTokenType">
+<g id="node40" class="node" pointer-events="visible" data-name="AurumV2core.UnsupportedTokenType">
 
-<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="626.98" cy="-806" rx="105.37" ry="18" style=""/>
-<text text-anchor="middle" x="626.98" y="-801.8" font-family="Times,serif" font-size="14.00">UnsupportedTokenType</text>
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="603.43" cy="-547" rx="105.37" ry="18" style=""/>
+<text text-anchor="middle" x="603.43" y="-542.8" font-family="Times,serif" font-size="14.00" style="">UnsupportedTokenType</text>
 </g>
 <!-- AurumV2core.getNftCollateralValue&#45;&gt;AurumV2core.UnsupportedTokenType -->
-<g id="edge54" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;AurumV2core.UnsupportedTokenType">
+<g id="edge62" class="edge" data-name="AurumV2core.getNftCollateralValue-&gt;AurumV2core.UnsupportedTokenType">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M449.74,-708.22C462.43,-712.16 474.86,-717.57 485.55,-725 509.13,-741.39 497.68,-762.3 521.05,-779 525.74,-782.35 530.81,-785.29 536.1,-787.86" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="534.62,-791.04 545.2,-791.74 537.37,-784.6 534.62,-791.04" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M441.06,-547C455.12,-547 469.72,-547 484.15,-547" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="483.73,-550.5 493.73,-547 483.73,-543.5 483.73,-550.5" style=""/>
 </g>
 <!-- key -->
-<g id="node37" class="node" pointer-events="visible" data-name="key">
+<g id="node49" class="node" pointer-events="visible" data-name="key">
 
-<polygon fill="#edad56" stroke="none" stroke-width="3" points="178.92,-1424 48.92,-1424 48.92,-1336 178.92,-1336 178.92,-1424" style=""/>
-<text text-anchor="start" x="98.56" y="-1405.4" font-family="Times,serif" font-size="14.00">Internal Call</text>
-<text text-anchor="start" x="94.67" y="-1385.4" font-family="Times,serif" font-size="14.00">External Call</text>
-<text text-anchor="start" x="72.12" y="-1365.4" font-family="Times,serif" font-size="14.00">Defined Contract</text>
-<text text-anchor="start" x="58.52" y="-1345.4" font-family="Times,serif" font-size="14.00">Undefined Contract</text>
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="167.15,-1644 37.15,-1644 37.15,-1556 167.15,-1556 167.15,-1644" style=""/>
+<text text-anchor="start" x="86.78" y="-1625.4" font-family="Times,serif" font-size="14.00" style="">Internal Call</text>
+<text text-anchor="start" x="82.89" y="-1605.4" font-family="Times,serif" font-size="14.00" style="">External Call</text>
+<text text-anchor="start" x="60.35" y="-1585.4" font-family="Times,serif" font-size="14.00" style="">Defined Contract</text>
+<text text-anchor="start" x="46.75" y="-1565.4" font-family="Times,serif" font-size="14.00" style="">Undefined Contract</text>
 </g>
 <!-- key2 -->
-<g id="node38" class="node" pointer-events="visible" data-name="key2">
+<g id="node50" class="node" pointer-events="visible" data-name="key2">
 
-<polygon fill="#edad56" stroke="none" stroke-width="3" points="393.69,-1424 339.69,-1424 339.69,-1336 393.69,-1336 393.69,-1424" style=""/>
-<text text-anchor="start" x="356.69" y="-1405.4" font-family="Times,serif" font-size="14.00">   </text>
-<text text-anchor="start" x="356.69" y="-1385.4" font-family="Times,serif" font-size="14.00">   </text>
-<polygon fill="#445773" stroke="none" points="354.69,-1360 354.69,-1380 379.69,-1380 379.69,-1360 354.69,-1360" style=""/>
-<text text-anchor="start" x="356.69" y="-1365.4" font-family="Times,serif" font-size="14.00">   </text>
-<polygon fill="none" stroke="#e8726d" points="356.69,-1342 356.69,-1358 377.69,-1358 377.69,-1342 356.69,-1342" style=""/>
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="370.15,-1644 316.15,-1644 316.15,-1556 370.15,-1556 370.15,-1644" style=""/>
+<text text-anchor="start" x="333.15" y="-1625.4" font-family="Times,serif" font-size="14.00" style="">   </text>
+<text text-anchor="start" x="333.15" y="-1605.4" font-family="Times,serif" font-size="14.00" style="">   </text>
+<polygon fill="#445773" stroke="none" points="331.15,-1580 331.15,-1600 356.15,-1600 356.15,-1580 331.15,-1580" style=""/>
+<text text-anchor="start" x="333.15" y="-1585.4" font-family="Times,serif" font-size="14.00" style="">   </text>
+<polygon fill="none" stroke="#e8726d" points="333.15,-1562 333.15,-1578 354.15,-1578 354.15,-1562 333.15,-1562" style=""/>
 </g>
 <!-- key&#45;&gt;key2 -->
-<g id="edge55" class="edge" data-name="key-&gt;key2">
+<g id="edge63" class="edge" data-name="key-&gt;key2">
 
-<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M171.92,-1410C248.29,-1410 270.52,-1410 340.96,-1410" style=""/>
-<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="340.67,-1413.5 350.67,-1410 340.67,-1406.5 340.67,-1413.5" style=""/>
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M160.15,-1630C231.27,-1630 252.18,-1630 317.42,-1630" style=""/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="317.12,-1633.5 327.12,-1630 317.12,-1626.5 317.12,-1633.5" style=""/>
 </g>
 <!-- key&#45;&gt;key2 -->
-<g id="edge56" class="edge" data-name="key-&gt;key2">
+<g id="edge64" class="edge" data-name="key-&gt;key2">
 
-<path fill="none" stroke="white" stroke-width="2" d="M171.92,-1390C248.29,-1390 270.52,-1390 340.96,-1390" style=""/>
-<polygon fill="white" stroke="white" stroke-width="2" points="340.67,-1393.5 350.67,-1390 340.67,-1386.5 340.67,-1393.5" style=""/>
+<path fill="none" stroke="white" stroke-width="2" d="M160.15,-1610C231.27,-1610 252.18,-1610 317.42,-1610" style=""/>
+<polygon fill="white" stroke="white" stroke-width="2" points="317.12,-1613.5 327.12,-1610 317.12,-1606.5 317.12,-1613.5" style=""/>
 </g>
 </g>
 </svg>

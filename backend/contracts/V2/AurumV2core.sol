@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.12;
 
 import "../openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "../openzeppelin/contracts/utils/introspection/IERC165.sol";
@@ -17,9 +17,9 @@ error UnsupportedTokenType();
 contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
     // Struct to store deposit details
     struct Deposit {
-        uint256 amount;
-        uint256 interest;
-        uint256 duration;
+            uint256 amount;
+            uint256 duration;
+            uint256 lastUpdateTimestamp;
     }
 
     // Mapping to store deposits by user address
@@ -35,7 +35,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         uint256 tokenId;
         uint256 amount;
         uint256 collateralValue;
-        uint256 interest;
+        uint256 lastUpdateTimestamp;
         uint256 duration;
         bool isActive;
     }
@@ -62,7 +62,6 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         address indexed borrower,
         uint256 indexed loanId,
         uint256 indexed amount,
-        uint256 interest,
         uint256 duration
     );
     event Repay(
@@ -108,13 +107,12 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             msg.value > 0,
             "AMOUNT_SHOULD_BE_GREATER_THAN_ZERO"
         );
-        uint256 interest = calculateInterest(msg.value, lendingInterestRate);
 
         // Create a new deposit with the given deposition details
         Deposit memory deposit = Deposit({
             amount: msg.value,
-            interest: interest,
-            duration: duration_
+            duration: duration_,
+            lastUpdateTimestamp: block.timestamp
         });
 
         deposits[msg.sender].push(deposit);
@@ -137,7 +135,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             "AMOUNT_IS_ALREADY_PAID"
         );
 
-        uint256 interest = calculateInterest(deposit.amount, lendingInterestRate);
+        uint256 interest = calculateInterest(lendingInterestRate, deposit.lastUpdateTimestamp, block.timestamp);
         uint256 withdrawAmount = deposit.amount + interest;
 
         // Attempt to transfer the funds to the user
@@ -186,9 +184,6 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             revert("AMOUNT_EXCEEDS_BORROWING_POWER");
         }
         
-        // Calculate the interest for the loan amount
-        uint256 interest_ = calculateInterest(amount_, borrowInterestRate);
-    
         // Create a new Loan struct with the loan details
         Loan memory loan = Loan({
             borrower: msg.sender,
@@ -196,7 +191,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             tokenId: tokenId_,
             amount: amount_,
             collateralValue: collateralValue,
-            interest: interest_,
+            lastUpdateTimestamp: block.timestamp,
             duration: duration_,
             isActive: true
         });
@@ -220,7 +215,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         }
     
         // Emit the Borrow event
-        emit Borrow(msg.sender, loans[msg.sender].length - 1, loan.amount, loan.interest, loan.duration);
+        emit Borrow(msg.sender, loans[msg.sender].length - 1, loan.amount, loan.duration);
     }
     
     /**
@@ -249,11 +244,16 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
             "LOAN_IS_ALREADY_PAID"
         );
     
+        uint256 interest = calculateInterest(borrowInterestRate, loan.lastUpdateTimestamp, block.timestamp);
         // Calculate the total amount to repay (loan amount + interest)
-        uint256 amountToRepay = loan.amount + loan.interest;
+        uint256 amountToRepay = loan.amount + interest;
         
         // Check if the correct amount has been transferred
         require(amountToRepay == msg.value, "INCORRECT_VALUE_TRANSFERRED");
+
+        // Transfer the repayment amount to the contract
+        (bool success, ) = (address(this)).call{ value: msg.value }("");
+        require(success, "FUNDS_NOT_TRANSFERED");
     
         // Withdraw the ERC721 collateral from the contract
         withdrawERC721Collateral(msg.sender, loan.tokenContract, loan.tokenId);
@@ -266,7 +266,7 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         delete loans[msg.sender][loanId_];
         
         // Emit the Repay event
-        emit Repay(msg.sender, loanId_, loan.amount, loan.interest);
+        emit Repay(msg.sender, loanId_, loan.amount, interest);
     }
 
 /*************************************** [Public Functions] ***************************************/
