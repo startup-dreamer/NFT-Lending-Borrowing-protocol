@@ -58,22 +58,21 @@ contract AurumAdmin is Ownable {
 
 /*************************************** [Internal Functions] ***************************************/
 
-    // /**
-    //  * @dev Calculates interest amount.
-    //  * @param interestRate_ Amount of funds to calculate interest. 
-    //  * @param   for calculation of interest.
-    //  */
-    function calculateInterest(uint256 interestRate_, uint256 lastUpdateTimestamp, uint256 currentTimestamp) internal pure returns(uint256) {
-    uint256 exp = currentTimestamp - lastUpdateTimestamp;
+    /**
+     * @dev Calculates interest amount.
+     * @param interestRate_ Amount of funds to calculate interest.
+     * @param lastUpdateTimestamp_ last update timestamp for interest calculation.
+     * @param currentTimestamp_ current time stamp at the time of calculation.
+     */
+    function calculateInterest(uint256 interestRate_, uint256 lastUpdateTimestamp_, uint256 currentTimestamp_) internal pure returns(uint256) {
+    uint256 exp = currentTimestamp_ - lastUpdateTimestamp_;
 
     if (exp == 0) {
       return WadRayMath.ray();
     }
 
     uint256 expMinusOne = exp - 1;
-
     uint256 expMinusTwo = exp > 2 ? exp - 2 : 0;
-
     uint256 ratePerSecond = interestRate_ / SECONDS_PER_YEAR;
 
     uint256 basePowerTwo = ratePerSecond.rayMul(ratePerSecond);

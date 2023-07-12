@@ -137,6 +137,8 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
 
         uint256 interest = calculateInterest(lendingInterestRate, deposit.lastUpdateTimestamp, block.timestamp);
         uint256 withdrawAmount = deposit.amount + interest;
+        // Updating the time stanp as the variable name suggests
+        deposit.lastUpdateTimestamp = block.timestamp;
 
         // Attempt to transfer the funds to the user
         (bool success, ) = payable(msg.sender).call{value: withdrawAmount}("");
@@ -247,6 +249,8 @@ contract AurumV2core is AurumAdmin, NFTEscrow, NFTPrice {
         uint256 interest = calculateInterest(borrowInterestRate, loan.lastUpdateTimestamp, block.timestamp);
         // Calculate the total amount to repay (loan amount + interest)
         uint256 amountToRepay = loan.amount + interest;
+        // Updating the time stanp as the variable name suggests
+        loan.lastUpdateTimestamp = block.timestamp;
         
         // Check if the correct amount has been transferred
         require(amountToRepay == msg.value, "INCORRECT_VALUE_TRANSFERRED");
