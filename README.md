@@ -10,63 +10,20 @@
     <br />
     
     
-- [About The Project](https://github.com/startup-dreamer/NFT-Lending-Borrowing-protocol/edit/dev/README.md#about-the-project)
+- [About The Project](#about-the-project)
 - [Inspiration](#inspiration)
-- [How it Works](#how)
-  - [Collateralization and Borrowing](#collateralization)
-  - [Loan Terms and Repayment](#loan)
-  - [Lenders and Yield Generation](#lenders)
-  - [Advantages](#advantages)
+- [How it Works](#how-it-works)
+  - [Collateralization and Borrowing](#collateralization-and-borrowing)
+  - [Loan Terms and Repayment](#loan-terms-and-repayment)
+  - [Lenders and Yield Generation](#lenders-and-yield-generation)
+  - [Advantages](#advantages-over-peer-to-peer-lending)
 - [How we built it](#how-we-built-it)
-  - [AurumV2Core](#aurumv2core)
-  - [AurumV1Core](#aurumv1core)
-- [Challenges](#challenges)
-- [Accomplishments](#accomplishments)
-- [Learnings](#learnings)
+  - [AurumV2Core](#contract-aurumv2core-in-development)
+  - [AurumV1Core](#contract-aurumv1core-deployed)
+- [Challenges](#challenges-we-ran-into)
+- [Accomplishments](#accomplishments-that-were-proud-of)
+- [Learnings](#what-we-learned)
 - [Components](#links)
-
-## About
-[Aurum Protocol](#aurum-protocol)
-
-## Inspiration
-[Inspiration](#inspiration_)
-
-## How it Works
-[How it Works](#how-it-works)
-
-### Collateralization and Borrowing
-[Collateralization and Borrowing](#collateralization-and-borrowing)
-
-### Loan Terms and Repayment
-[Loan Terms and Repayment](#loan-terms-and-repayment)
-
-### Lenders and Yield Generation
-[Lenders and Yield Generation](#lenders-and-yield-generation)
-
-### Advantages
-[Advantages over Peer-to-Peer Lending](#advantages-over-peer-to-peer-lending)
-
-## How we built it
-[How we built it](#how-we-built-it)
-
-### AurumV2Core
-[AurumV2Core](#aurumv2core)
-
-### AurumV1Core
-[AurumV1Core](#contract-aurumv1core)
-
-## Challenges
-[Challenges we ran into](#challenges-we-ran-into)
-
-## Accomplishments
-[Accomplishments that we're proud of](#accomplishments-that-were-proud-of)
-
-## Learnings
-[What we learned](#what-we-learned)
-
-## Components
-[Links](#links)
-
 
 # Aurum Protocol
 ### Message: Version 2 is currently under construction and undergoing continuous changes. Version 1, is stable and has already been deployed. You can check and test Version 1. I will make Version 2 deployable as soon as possible.
