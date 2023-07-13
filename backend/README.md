@@ -30,6 +30,8 @@
 | └                  |                 |                     | borrow           | External     | ❗️          | 💵          |NO❗️  |
 | └                  |                 |                     | repay            | External     | ❗️          | 💵          |NO❗️  |
 | └                  |                 |                     | getNftCollateralValue | Public  | ❗️          |             |NO❗️  |
+
+![](./contracts/V2/schema.svg)
 <br><br>
 
 //-------------------------------------------------- **AurumV1 Description Report** --------------------------------------------------//
@@ -74,3 +76,5 @@
 |:--------:|-----------|
 |    🛑    | Function can modify state |
 |    💵    | Function is payable |
+
+![](./contracts/V1/schema.svg)
